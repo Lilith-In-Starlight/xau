@@ -1,0 +1,163 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sprites/areas/house/house.png" type="Texture" id=1]
+[ext_resource path="res://puzzle_elements/puzzle_grid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://puzzle_elements/puzzle_node.tscn" type="PackedScene" id=3]
+[ext_resource path="res://puzzle_elements/puzzle_sequence.gd" type="Script" id=4]
+[ext_resource path="res://puzzle_elements/blockade.tscn" type="PackedScene" id=5]
+[ext_resource path="res://misc/jail.tscn" type="PackedScene" id=6]
+[ext_resource path="res://misc/door.tscn" type="PackedScene" id=7]
+
+[node name="House" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="House" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Tutorial" parent="." instance=ExtResource( 2 )]
+position = Vector2( 113, 195 )
+puzzle_id = "tutorial_puzzle"
+
+[node name="PuzzleNode" parent="Tutorial" instance=ExtResource( 3 )]
+path = true
+
+[node name="PuzzleNode2" parent="Tutorial" instance=ExtResource( 3 )]
+position = Vector2( 16, 0 )
+path = true
+
+[node name="PuzzleSequence" type="Node2D" parent="."]
+position = Vector2( 249, 91 )
+script = ExtResource( 4 )
+
+[node name="PuzzleGrid" parent="PuzzleSequence" instance=ExtResource( 2 )]
+required_puzzle = NodePath("../../Tutorial")
+holes = PoolVector2Array( 0, 0 )
+
+[node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 3 )]
+position = Vector2( 16, 0 )
+path = true
+
+[node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 3 )]
+position = Vector2( 0, 16 )
+path = true
+
+[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 3 )]
+position = Vector2( 16, 16 )
+
+[node name="PuzzleGrid2" parent="PuzzleSequence" instance=ExtResource( 2 )]
+position = Vector2( 40, 0 )
+required_puzzle = NodePath("/root/EditorNode/@@596/@@597/@@605/@@607/@@611/@@615/@@616/@@617/@@633/@@634/@@643/@@644/@@6617/@@6449/@@6450/@@6451/@@6452/@@6453/@@6454/House/PuzzleSequence/PuzzleGrid")
+
+[node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 3 )]
+
+[node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 3 )]
+position = Vector2( 16, 0 )
+path = true
+
+[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 3 )]
+position = Vector2( 0, 16 )
+path = true
+
+[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 3 )]
+position = Vector2( 16, 16 )
+
+[node name="Blockade" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 5 )]
+position = Vector2( 8, 8 )
+
+[node name="PuzzleGrid3" parent="PuzzleSequence" instance=ExtResource( 2 )]
+position = Vector2( 80, 0 )
+required_puzzle = NodePath("/root/EditorNode/@@596/@@597/@@605/@@607/@@611/@@615/@@616/@@617/@@633/@@634/@@643/@@644/@@6617/@@6449/@@6450/@@6451/@@6452/@@6453/@@6454/House/PuzzleSequence/PuzzleGrid2")
+
+[node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 3 )]
+
+[node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 3 )]
+position = Vector2( 16, 0 )
+
+[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 3 )]
+position = Vector2( 0, 16 )
+path = true
+
+[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 3 )]
+position = Vector2( 16, 16 )
+path = true
+
+[node name="Blockade" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 8, 8 )
+
+[node name="Blockade2" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 8, 16 )
+
+[node name="PuzzleGrid4" parent="PuzzleSequence" instance=ExtResource( 2 )]
+position = Vector2( 120, 0 )
+required_puzzle = NodePath("/root/EditorNode/@@596/@@597/@@605/@@607/@@611/@@615/@@616/@@617/@@633/@@634/@@643/@@644/@@6617/@@6449/@@6450/@@6451/@@6452/@@6453/@@6454/House/PuzzleSequence/PuzzleGrid3")
+
+[node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 3 )]
+
+[node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 3 )]
+position = Vector2( 16, 0 )
+path = true
+
+[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 3 )]
+position = Vector2( 0, 16 )
+path = true
+
+[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 3 )]
+position = Vector2( 16, 16 )
+
+[node name="Blockade" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
+position = Vector2( 8, 0 )
+
+[node name="Blockade3" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
+position = Vector2( 0, 8 )
+
+[node name="Blockade4" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
+position = Vector2( 16, 8 )
+
+[node name="Blockade2" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
+position = Vector2( 8, 16 )
+
+[node name="PuzzleGrid5" parent="PuzzleSequence" instance=ExtResource( 2 )]
+position = Vector2( 160, 0 )
+required_puzzle = NodePath("/root/EditorNode/@@596/@@597/@@605/@@607/@@611/@@615/@@616/@@617/@@633/@@634/@@643/@@644/@@6617/@@6449/@@6450/@@6451/@@6452/@@6453/@@6454/House/PuzzleSequence/PuzzleGrid4")
+
+[node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 3 )]
+
+[node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 3 )]
+position = Vector2( 16, 0 )
+
+[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 3 )]
+position = Vector2( 0, 16 )
+path = true
+
+[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 3 )]
+position = Vector2( 16, 16 )
+path = true
+
+[node name="Blockade" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 5 )]
+position = Vector2( 0, 8 )
+
+[node name="Blockade2" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 5 )]
+position = Vector2( 8, 16 )
+
+[node name="Blockade3" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 5 )]
+position = Vector2( 16, 8 )
+
+[node name="Jail" parent="." instance=ExtResource( 6 )]
+position = Vector2( 123, 123 )
+
+[node name="Door" parent="." instance=ExtResource( 7 )]
+position = Vector2( 448, 191 )
+scale = Vector2( 0.8, 1 )
+
+[node name="WorldCollision" type="StaticBody2D" parent="."]
+z_index = 99
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldCollision"]
+polygon = PoolVector2Array( 225, 123, 8, 123, 8, 211, 225, 211, 225, 168, 430, 168, 430, 219, 424, 219, 424, 175, 232, 175, 232, 218, 0, 218, 0, 116, 232, 116, 232, 135, 474, 135, 474, 219, 465, 219, 465, 142, 225, 142 )
+
+[connection signal="was_solved" from="Tutorial" to="Jail" method="_on_Tutorial_was_solved"]
+[connection signal="was_solved" from="PuzzleSequence/PuzzleGrid5" to="Door" method="_on_required_was_solved"]

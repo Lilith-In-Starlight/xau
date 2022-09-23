@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://puzzle_elements/puzzle_grid.gd" type="Script" id=1]
+[ext_resource path="res://sprites/puzzles/screen_frame/bottom_left.png" type="Texture" id=2]
+[ext_resource path="res://sprites/puzzles/screen_frame/edge.png" type="Texture" id=3]
+[ext_resource path="res://sprites/puzzles/screen_frame/top_left.png" type="Texture" id=4]
+[ext_resource path="res://sprites/puzzles/screen_frame/top_right.png" type="Texture" id=5]
+[ext_resource path="res://sprites/puzzles/screen_frame/bottom_right.png" type="Texture" id=6]
+
+[node name="PuzzleGrid" type="Node2D" groups=["Puzzle", "PuzzleGrid"]]
+script = ExtResource( 1 )
+row_size = 2
+
+[node name="NoNode" type="Node2D" parent="."]
+
+[node name="Frame" type="Node2D" parent="NoNode"]
+
+[node name="BottomLeft" type="Sprite" parent="NoNode/Frame"]
+position = Vector2( -10, -4 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="BottomRight" type="Sprite" parent="NoNode/Frame"]
+position = Vector2( -5, -4 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Top" type="Sprite" parent="NoNode/Frame"]
+position = Vector2( -6, -10 )
+rotation = 1.5708
+scale = Vector2( 1, 15 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -1 )
+
+[node name="Bottom" type="Sprite" parent="NoNode/Frame"]
+position = Vector2( -6, 9 )
+rotation = -1.5708
+scale = Vector2( 1, 15 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -3, 0 )
+
+[node name="Left" type="Sprite" parent="NoNode/Frame"]
+position = Vector2( -10, -7 )
+scale = Vector2( 1, 15 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Right" type="Sprite" parent="NoNode/Frame"]
+position = Vector2( 8, -7 )
+rotation = 3.14159
+scale = Vector2( 1, 15 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -3, -1 )
+
+[node name="TopLeft" type="Sprite" parent="NoNode/Frame"]
+position = Vector2( -10, -10 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="TopRight" type="Sprite" parent="NoNode/Frame"]
+position = Vector2( -5, -10 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Lines" type="Node2D" parent="NoNode"]
