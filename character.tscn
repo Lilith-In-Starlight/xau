@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://character.gd" type="Script" id=1]
 [ext_resource path="res://sprites/player/walking_up_right.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sprites/player/walking_down_right.png" type="Texture" id=8]
 [ext_resource path="res://sprites/player/walking_up_left.png" type="Texture" id=9]
 [ext_resource path="res://sprites/player/walking_down_left.png" type="Texture" id=10]
+[ext_resource path="res://gui/tutorial.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 2.5
@@ -274,3 +275,6 @@ animation = "walking_down_left"
 position = Vector2( 0.5, -9 )
 current = true
 smoothing_enabled = true
+
+[node name="Tutorial" parent="Camera2D" instance=ExtResource( 11 )]
+position = Vector2( -0.5, 9 )

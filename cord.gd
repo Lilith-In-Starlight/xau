@@ -1,5 +1,7 @@
 extends Line2D
 
+class_name Cable
+
 ## Node used to display connections between puzzles
 
 ## The color for when the puzzle this cable comes from is solved
@@ -12,6 +14,8 @@ export var required_puzzle: NodePath
 
 func _ready():
 	var required_node := get_node_or_null(required_puzzle)
+	if get_parent().get_class() == get_class():
+		required_node = get_parent().get_node_or_null(get_parent().required_puzzle)
 	default_color = off_color
 	if required_node != null:
 		required_node.connect("was_solved", self, "_on_required_was_solved")

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Line2D",
+"class": "Cable",
+"language": "GDScript",
+"path": "res://cord.gd"
+}, {
 "base": "Node2D",
 "class": "Puzzle",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://puzzle_elements/puzzle_sequence.gd"
 } ]
 _global_script_class_icons={
+"Cable": "",
 "Puzzle": "",
 "PuzzleNode": "",
 "PuzzleSequence": ""
@@ -166,10 +172,22 @@ confirm={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="North"
+2d_physics/layer_3="Bottom"
+2d_physics/layer_4="West"
+2d_physics/layer_5="East"
+2d_physics/layer_6="South"
+2d_physics/layer_7="PuzzleNode"
+2d_physics/layer_8="PuzzleBarrier"
+
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

@@ -73,14 +73,14 @@ func _ready():
 						child.connections.append(get_child(j))
 	if not required_node == null:
 		required_node.connect("was_solved", self, "_on_required_was_solved")
-	update_enabled_visuals()
-	update_correctness_visuals()
 	if Engine.editor_hint:
 		connect("child_entered_tree", self, "_on_child_entered_tree")
 		connect("child_exiting_tree", self, "_on_child_exiting_tree")
 	display_connections()
 	if puzzle_id != "default":
 		SaveData.upid[puzzle_id] = self
+	update_enabled_visuals()
+	update_correctness_visuals()
 
 
 func _input(delta):
@@ -106,6 +106,7 @@ func set_correct(value):
 
 func set_required_puzzle(value):
 	required_puzzle = value
+	required_node = get_node_or_null(value)
 	update_enabled_visuals()
 
 func check_correct():

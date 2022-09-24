@@ -1,0 +1,111 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://gui/tutorial.gd" type="Script" id=1]
+[ext_resource path="res://sprites/gui/wasd_keys.png" type="Texture" id=2]
+[ext_resource path="res://sprites/gui/click_hold.png" type="Texture" id=3]
+[ext_resource path="res://sprites/gui/space_key.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 105, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 105, 0, 105, 24 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 45, 55 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 45, 0, 45, 55 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 90, 0, 45, 55 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 135, 0, 45, 55 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 180, 0, 45, 55 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 225, 0, 45, 55 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 270, 0, 45, 55 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Space" type="AnimatedSprite" parent="."]
+position = Vector2( -196, 98 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="Label" type="Label" parent="Space"]
+margin_left = -21.0
+margin_top = 16.0
+margin_right = 19.0
+margin_bottom = 30.0
+text = "SPACE"
+align = 1
+
+[node name="Wasd" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -197, 87 )
+frames = SubResource( 4 )
+
+[node name="Label2" type="Label" parent="Wasd"]
+margin_left = -20.0
+margin_top = 27.0
+margin_right = 20.0
+margin_bottom = 41.0
+text = "WASD"
+align = 1
+
+[node name="ClickHold" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -197, 80 )
+frames = SubResource( 12 )
+frame = 5
+playing = true
+
+[node name="Label3" type="Label" parent="ClickHold"]
+margin_left = -20.0
+margin_top = 34.0
+margin_right = 20.0
+margin_bottom = 48.0
+text = "HOLD"
+align = 1

@@ -15,7 +15,7 @@ func _ready():
 	var n :Node2D = null
 	for i in get_children():
 		if n != null:
-			i.required_puzzle = n.get_path()
+			i.required_puzzle = i.get_path_to(n)
 			n.connect("was_solved", i, "_on_required_was_solved")
 		n = i
 
