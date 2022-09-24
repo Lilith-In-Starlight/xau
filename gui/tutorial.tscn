@@ -99,7 +99,7 @@ align = 1
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -197, 80 )
 frames = SubResource( 12 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="Label3" type="Label" parent="ClickHold"]

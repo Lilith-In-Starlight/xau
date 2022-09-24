@@ -16,7 +16,8 @@ func _ready():
 	for i in get_children():
 		if n != null:
 			i.required_puzzle = i.get_path_to(n)
-			n.connect("was_solved", i, "_on_required_was_solved")
+			if not n.is_connected("was_solved", i, "_on_required_was_solved"):
+				n.connect("was_solved", i, "_on_required_was_solved")
 		n = i
 
 

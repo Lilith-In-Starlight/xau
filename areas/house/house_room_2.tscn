@@ -65,10 +65,18 @@ required_puzzle = NodePath("../PuzzleSequence/PuzzleGrid4")
 
 [node name="PuzzleAndGate" parent="." instance=ExtResource( 11 )]
 position = Vector2( 196, 319 )
+inputs = [ NodePath("../PuzzleSequence/PuzzleGrid4"), NodePath("../PuzzleGrid3") ]
 
 [node name="Cable4" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
-points = PoolVector2Array( 196, 322, 196, 330, 164, 330 )
+points = PoolVector2Array( 196, 322, 196, 334, 163, 334, 163, 335 )
+width = 2.0
+default_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+required_puzzle = NodePath("../PuzzleAndGate")
+
+[node name="Cable5" type="Line2D" parent="."]
+points = PoolVector2Array( 163, 320, 163, 334 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -292,6 +300,9 @@ z_index = 2
 texture = ExtResource( 8 )
 centered = false
 
+[node name="Door2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 139, 335 )
+
 [node name="WorldCollision" type="StaticBody2D" parent="."]
 visible = false
 z_index = 99
@@ -304,4 +315,5 @@ polygon = PoolVector2Array( 535, 335, 535, 153, 544, 153, 544, 345, 70, 345, 70,
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="WorldCollision"]
 polygon = PoolVector2Array( 56, 253, 70, 253, 70, 210, 304, 210, 304, 171, 500, 171, 500, 299, 491, 299, 491, 176, 435, 176, 435, 214, 304, 214, 304, 218, 79, 218, 79, 261, 56, 261 )
 
+[connection signal="was_solved" from="PuzzleAndGate" to="Door2" method="_on_required_was_solved"]
 [connection signal="was_solved" from="PuzzleGrid3" to="Door" method="_on_required_was_solved"]
