@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/areas/house/house_livingroom.png" type="Texture" id=1]
+
+[node name="HouseRoom4" type="Node2D"]
+
+[node name="HouseLivingroom" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false

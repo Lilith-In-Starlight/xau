@@ -11,14 +11,19 @@ export var off_color := Color("#588b86")
 ## The puzzle this cable comes from
 export var required_puzzle: NodePath
 
+onready var required_node := get_node_or_null(required_puzzle)
+
 
 func _ready():
-	var required_node := get_node_or_null(required_puzzle)
-	if get_parent().get_class() == get_class():
-		required_node = get_parent().get_node_or_null(get_parent().required_puzzle)
-	default_color = off_color
 	if required_node != null:
 		required_node.connect("was_solved", self, "_on_required_was_solved")
+		for i in get_children():
+			if i is Line2D:
+				if i.required_node != null:
+					i.required_node.disconnect("was_solved", i, "_on_required_was_solved")
+				i.required_node = required_node
+				required_node.connect("was_solved", i, "_on_required_was_solved")
+	default_color = off_color
 
 ## Called when the puzzle this cable comes from is solved
 func _on_required_was_solved():

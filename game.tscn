@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://areas/house/house_room_1.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://areas/house/house_room_2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://areas/house/house_room_3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://areas/area_transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://areas/house/house_room_4.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node2D" groups=["GameNode"]]
 script = ExtResource( 1 )
@@ -19,27 +20,43 @@ script = ExtResource( 1 )
 position = Vector2( 448, 157 )
 BlockingLayer = NodePath("../../HouseRoom2")
 
-[node name="AreaTransition2" parent="World/House" instance=ExtResource( 7 )]
-position = Vector2( 448, 222 )
-BlockingLayer = NodePath("../../HouseRoom2")
-goal = 1.0
-
-[node name="house_room_3" parent="World" instance=ExtResource( 6 )]
+[node name="HouseRoom3" parent="World" instance=ExtResource( 6 )]
 visible = false
 position = Vector2( -292, -43 )
 
-[node name="AreaTransition" parent="World/house_room_3" instance=ExtResource( 7 )]
+[node name="AreaTransition" parent="World/HouseRoom3" instance=ExtResource( 7 )]
 position = Vector2( 256, 283 )
 BlockingLayer = NodePath("..")
 goal = 1.0
 
-[node name="AreaTransition2" parent="World/house_room_3" instance=ExtResource( 7 )]
-position = Vector2( 256, 315 )
-BlockingLayer = NodePath("..")
-
 [node name="HouseRoom2" parent="World" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( -70, -1 )
+
+[node name="AreaTransition" parent="World/HouseRoom2" instance=ExtResource( 7 )]
+position = Vector2( 128, 322 )
+BlockingLayer = NodePath("../../HouseRoom4")
+new_z_index = 2
+
+[node name="AreaTransition2" parent="World/HouseRoom2" instance=ExtResource( 7 )]
+position = Vector2( 34, 273 )
+BlockingLayer = NodePath("../../HouseRoom3")
+
+[node name="AreaTransition3" parent="World/HouseRoom2" instance=ExtResource( 7 )]
+position = Vector2( 518, 223 )
+BlockingLayer = NodePath("..")
+goal = 1.0
+
+[node name="HouseRoom4" parent="World" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 0, 247 )
+z_index = 2
+
+[node name="AreaTransition2" parent="World/HouseRoom4" instance=ExtResource( 7 )]
+position = Vector2( 58, 106 )
+BlockingLayer = NodePath("..")
+goal = 1.0
+new_z_index = 2
 
 [node name="Character" parent="." instance=ExtResource( 3 )]
 position = Vector2( 122, 127 )

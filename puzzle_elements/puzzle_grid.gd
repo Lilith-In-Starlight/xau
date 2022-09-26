@@ -16,9 +16,12 @@ export var spacing :int = 16 setget set_spacing
 ## Positions of the puzzle where there should not be a node
 export var holes: PoolVector2Array = []
 
+func _init():
+	base_display_connections = false
 
 func _ready():
 	update_children_positions()
+	display_connections()
 
 func set_row_size(value):
 	row_size = value

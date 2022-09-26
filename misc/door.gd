@@ -14,10 +14,10 @@ var met_requirements := 0
 
 func _process(delta):
 	if player_node.global_position.distance_to(global_position) < 60:
-		if player_node.global_position.y < global_position.y and z_index != 2:
-			z_index = 2
-		elif player_node.global_position.y > global_position.y and z_index != 1:
+		if player_node.global_position.y < global_position.y and z_index != 1:
 			z_index = 1
+		elif player_node.global_position.y > global_position.y and z_index != 0:
+			z_index = 0
 
 
 ## Must be called by [member Puzzle.was_solved]. Increases met_requirements by 1.

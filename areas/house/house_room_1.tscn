@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/areas/house/house.png" type="Texture" id=1]
 [ext_resource path="res://puzzle_elements/puzzle_grid.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://misc/jail.tscn" type="PackedScene" id=6]
 [ext_resource path="res://misc/door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://cord.gd" type="Script" id=8]
-[ext_resource path="res://areas/area_transition.tscn" type="PackedScene" id=9]
 
 [node name="House" type="Node2D"]
 
@@ -80,15 +79,14 @@ required_puzzle = NodePath("../../Tutorial")
 holes = PoolVector2Array( 0, 0 )
 
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 3 )]
-position = Vector2( 16, 0 )
 path = true
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 3 )]
-position = Vector2( 0, 16 )
+position = Vector2( 16, 0 )
 path = true
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 3 )]
-position = Vector2( 16, 16 )
+position = Vector2( 0, 16 )
 
 [node name="PuzzleGrid2" parent="PuzzleSequence" instance=ExtResource( 2 )]
 position = Vector2( 40, 0 )
@@ -203,17 +201,6 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldCollision"]
 polygon = PoolVector2Array( 225, 123, 8, 123, 8, 211, 225, 211, 225, 168, 430, 168, 430, 219, 424, 219, 424, 175, 232, 175, 232, 218, 0, 218, 0, 116, 232, 116, 232, 135, 474, 135, 474, 219, 465, 219, 465, 142, 225, 142 )
-
-[node name="AreaTransition" parent="." instance=ExtResource( 9 )]
-position = Vector2( 448, 157 )
-collision_layer = 1
-BlockingLayer = NodePath("../../HouseRoom2")
-
-[node name="AreaTransition2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 448, 222 )
-collision_layer = 1
-BlockingLayer = NodePath("../../HouseRoom2")
-goal = 1.0
 
 [connection signal="was_solved" from="Tutorial" to="Jail" method="_on_Tutorial_was_solved"]
 [connection signal="was_solved" from="PuzzleSequence/PuzzleGrid5" to="Door" method="_on_required_was_solved"]

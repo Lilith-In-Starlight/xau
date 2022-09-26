@@ -45,6 +45,7 @@ var rect := Rect2()
 ## Whether the puzzle is currently verified as correct
 var correct := false setget set_correct
 
+var base_display_connections := true
 
 func _draw():
 	get_rect()
@@ -58,6 +59,11 @@ func _draw():
 
 func _ready():
 	required_node = get_node_or_null(required_puzzle)
+	if not Engine.is_editor_hint():
+		for i in get_children():
+			if i.is_in_group("PuzzleNode"):
+				i.connect("connection_changed", self, "display_connections")
+				i.connect("correctness_unverified", self, "_on_correctness_unverified")
 	if SaveData.data.has(str(get_path())):
 		var id = str(get_path())
 		solved = SaveData.data[id]["solved"]
@@ -76,11 +82,12 @@ func _ready():
 	if Engine.editor_hint:
 		connect("child_entered_tree", self, "_on_child_entered_tree")
 		connect("child_exiting_tree", self, "_on_child_exiting_tree")
-	display_connections()
 	if puzzle_id != "default":
 		SaveData.upid[puzzle_id] = self
 	update_enabled_visuals()
 	update_correctness_visuals()
+	if base_display_connections:
+		display_connections()
 
 
 func _input(delta):
@@ -198,7 +205,7 @@ func save() -> Dictionary:
 		var c_con = []
 		if i.is_in_group("PuzzleNode"):
 			for j in i.connections:
-				if j.get_parent() == self:
+				if j.parent == self:
 					c_con.append(j.get_index())
 				else:
 					c_con.append(str(j.get_path()))
@@ -236,3 +243,7 @@ func display_connections():
 			var connection: Array = known_connections[i]
 			var line: Line2D = connection_display.get_child(i)
 			line.points = [connection[0].position, connection[1].global_position - global_position]
+
+
+func _on_correctness_unverified():
+	self.correct = false

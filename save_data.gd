@@ -37,6 +37,7 @@ func save():
 	var file := File.new()
 	data["player_pos_x"] = get_tree().get_nodes_in_group("Player")[0].position.x
 	data["player_pos_y"] = get_tree().get_nodes_in_group("Player")[0].position.y
+	data["player_z_index"] = get_tree().get_nodes_in_group("Player")[0].z_index
 	file.open(SAVE_PATH, File.WRITE)
 	file.store_string(JSON.print(data))
 	file.close()
