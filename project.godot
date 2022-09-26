@@ -40,6 +40,8 @@ _global_script_class_icons={
 
 config/name="Xau"
 run/main_scene="res://game.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Xau"
 config/icon="res://icon.png"
 config/windows_native_icon="res://sprites/icon.ico"
 
