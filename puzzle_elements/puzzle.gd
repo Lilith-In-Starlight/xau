@@ -84,8 +84,6 @@ func _ready():
 		connect("child_exiting_tree", self, "_on_child_exiting_tree")
 	if puzzle_id != "default":
 		SaveData.upid[puzzle_id] = self
-	update_enabled_visuals()
-	update_correctness_visuals()
 	if base_display_connections:
 		display_connections()
 
@@ -102,10 +100,11 @@ func _input(delta):
 						unhappy_nodes.append(i)
 						i.show_failure()
 			if unhappy_nodes.empty():
-				show_correct()
-				solved = true
 				correct = true
-				emit_signal("was_solved")
+				if not solved:
+					solved = true
+					emit_signal("was_solved")
+				show_correct()
 
 func set_correct(value):
 	correct = value

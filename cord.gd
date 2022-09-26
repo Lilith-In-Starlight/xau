@@ -18,7 +18,7 @@ func _ready():
 	if required_node != null:
 		required_node.connect("was_solved", self, "_on_required_was_solved")
 		for i in get_children():
-			if i is Line2D:
+			if i.is_class("Cable"):
 				if i.required_node != null:
 					i.required_node.disconnect("was_solved", i, "_on_required_was_solved")
 				i.required_node = required_node
@@ -30,3 +30,11 @@ func _on_required_was_solved():
 	var tween = create_tween()
 	tween.tween_property(self, "default_color", on_color, 0.3)
 	tween.play()
+
+
+func get_class():
+	return "Cable"
+
+
+func is_class(string: String) -> bool:
+	return get_class() == string

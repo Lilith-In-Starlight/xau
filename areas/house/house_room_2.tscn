@@ -73,14 +73,14 @@ inputs = [ NodePath("../PuzzleSequence/PuzzleGrid4"), NodePath("../PuzzleGrid3")
 
 [node name="Cable4" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
-points = PoolVector2Array( 196, 322, 196, 334, 163, 334, 163, 335 )
+points = PoolVector2Array( 196, 322, 196, 334, 153, 334 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
 required_puzzle = NodePath("../PuzzleAndGate")
 
 [node name="Cable5" type="Line2D" parent="."]
-points = PoolVector2Array( 163, 320, 163, 334 )
+points = PoolVector2Array( 154, 320, 154, 334 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -219,19 +219,19 @@ position = Vector2( 16, 0 )
 path = true
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 32, 0 )
-path = true
-
-[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 0, 16 )
 path = true
 
+[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 32, 16 )
+path = true
+
 [node name="PuzzleNode5" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
+position = Vector2( 16, 32 )
 path = true
 
 [node name="PuzzleNode6" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 32, 16 )
+position = Vector2( 32, 32 )
 
 [node name="PuzzleGrid4" parent="PuzzleSequence" instance=ExtResource( 6 )]
 position = Vector2( 152, 0 )
@@ -285,18 +285,18 @@ position = Vector2( 32, 0 )
 position = Vector2( 0, 16 )
 
 [node name="PuzzleNode5" parent="PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
-path = true
-
-[node name="PuzzleNode6" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 32, 16 )
 path = true
 
-[node name="PuzzleNode7" parent="PuzzleGrid3" instance=ExtResource( 5 )]
+[node name="PuzzleNode6" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 0, 32 )
+path = true
+
+[node name="PuzzleNode7" parent="PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 16, 32 )
 
 [node name="PuzzleNode8" parent="PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 32 )
+position = Vector2( 32, 32 )
 
 [node name="WallTop" type="Sprite" parent="."]
 position = Vector2( 70, 163 )

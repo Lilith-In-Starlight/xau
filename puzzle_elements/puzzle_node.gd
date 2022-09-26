@@ -3,16 +3,24 @@ extends StaticBody2D
 
 class_name PuzzleNode
 
+## A node in a [Puzzle].
+
 signal connection_changed
 signal correctness_unverified
 
-## A node in a [Puzzle].
+enum COLORS {
+	black,
+	blue,
+	yellow,
+}
 
 ## A path node must have only one conneciton and must connect to at least
 ## another path node
 export var path := false
 ## Deprecated
 export var allow_branch := false
+
+export(COLORS) var color := COLORS.black
 
 ## The node that represents the cursor
 onready var cursor_node: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
@@ -26,6 +34,7 @@ onready var parent :Puzzle = get_parent()
 
 func _ready():
 	$PathMark.visible = path
+	$PathMark.modulate = get_color()
 
 
 func _process(delta):
@@ -37,6 +46,7 @@ func _process(delta):
 			$Sprite2d.scale.x = 1.0
 			$Sprite2d.scale.y = 1.0
 	else:
+		$PathMark.modulate = get_color()
 		$PathMark.visible = path
 
 
@@ -50,17 +60,22 @@ func check() -> bool:
 				return false
 			var next_checks: Array = [connections[0]]
 			var already_checked: Array = [self]
+			var connection_color :int = color
+			var will_return := false
 			while next_checks.size() > 0:
 				var current_check = next_checks[0]
+				already_checked.append(current_check)
+				next_checks.remove(0)
 				if !current_check.path:
-					already_checked.append(current_check)
-					next_checks.remove(0)
 					for i in current_check.connections:
 						if not i in already_checked:
 							next_checks.append(i)
 				else:
-					return true
-			return false # if it gets here it's cuz it never found a goal
+					if current_check.color == connection_color or connection_color == COLORS.black or current_check.color == COLORS.black:
+						will_return = true
+					else:
+						will_return = false
+			return will_return # if it gets here it's cuz it never found a goal
 	return true
 
 ## Makes the node flash red
@@ -119,3 +134,12 @@ func connect_puzzle(target, disconnect := false):
 						emit_signal("connection_changed")
 	raycast.cast_to = Vector2.ZERO
 
+
+func get_color():
+	match color:
+		COLORS.black:
+			return Color(0, 0, 0)
+		COLORS.blue:
+			return Color(0.2, 0.2, 0.9)
+		COLORS.yellow:
+			return Color(0.9, 0.6, 0.3)
