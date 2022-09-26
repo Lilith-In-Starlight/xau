@@ -39,12 +39,7 @@ func _ready():
 
 func _process(delta):
 	if not Engine.is_editor_hint():
-		if cursor_node.position.distance_to(global_position) < 6:
-			$Sprite2d.scale.x = 1.2
-			$Sprite2d.scale.y = 1.2
-		else:
-			$Sprite2d.scale.x = 1.0
-			$Sprite2d.scale.y = 1.0
+		set_process(false)
 	else:
 		$PathMark.modulate = get_color()
 		$PathMark.visible = path

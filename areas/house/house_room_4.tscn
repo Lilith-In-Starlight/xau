@@ -219,9 +219,6 @@ position = Vector2( 24, 16 )
 [node name="Blockade10" parent="PuzzleGrid5" instance=ExtResource( 6 )]
 position = Vector2( 48, 24 )
 
-[node name="Blockade15" parent="PuzzleGrid5" instance=ExtResource( 6 )]
-position = Vector2( 48, 40 )
-
 [node name="Blockade8" parent="PuzzleGrid5" instance=ExtResource( 6 )]
 position = Vector2( 32, 24 )
 
@@ -230,6 +227,22 @@ position = Vector2( 16, 24 )
 
 [node name="Blockade12" parent="PuzzleGrid5" instance=ExtResource( 6 )]
 position = Vector2( 8, 16 )
+
+[node name="Blockade14" parent="PuzzleGrid5" instance=ExtResource( 6 )]
+position = Vector2( 8, 16 )
+
+[node name="Blockade16" parent="PuzzleGrid5" instance=ExtResource( 6 )]
+position = Vector2( 40, 16 )
+
+[node name="Blockade18" parent="PuzzleGrid5" instance=ExtResource( 6 )]
+position = Vector2( 40, 24 )
+
+[node name="Blockade17" parent="PuzzleGrid5" instance=ExtResource( 6 )]
+position = Vector2( 40, 40 )
+scale = Vector2( 3, 1 )
+
+[node name="Blockade13" parent="PuzzleGrid5" instance=ExtResource( 6 )]
+position = Vector2( 16, 8 )
 
 [node name="PuzzleGrid6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 328, 116 )
@@ -303,7 +316,7 @@ position = Vector2( 24, 16 )
 position = Vector2( 24, 8 )
 
 [node name="Blockade5" parent="PuzzleGrid7" instance=ExtResource( 6 )]
-position = Vector2( 17, 8 )
+position = Vector2( 16, 8 )
 
 [node name="TallWall" type="Sprite" parent="."]
 position = Vector2( 296, 10 )
