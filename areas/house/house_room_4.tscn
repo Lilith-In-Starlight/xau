@@ -71,11 +71,13 @@ row_size = 1
 
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 2 )]
 path = true
+Color = null
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleGrid2" parent="PuzzleSequence" instance=ExtResource( 3 )]
 position = Vector2( 24, 0 )
@@ -85,11 +87,13 @@ row_size = 1
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 2 )]
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleGrid3" parent="PuzzleSequence" instance=ExtResource( 3 )]
 position = Vector2( 48, 0 )
@@ -98,21 +102,25 @@ required_puzzle = NodePath("../PuzzleGrid2")
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 2 )]
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 2 )]
 position = Vector2( 16, 0 )
 path = true
 color = 2
+Color = null
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
 path = true
 color = 2
+Color = null
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 2 )]
 position = Vector2( 16, 16 )
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleGrid4" parent="PuzzleSequence" instance=ExtResource( 3 )]
 position = Vector2( 88, 0 )
@@ -121,20 +129,24 @@ required_puzzle = NodePath("../PuzzleGrid3")
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 2 )]
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 2 )]
 position = Vector2( 16, 0 )
 path = true
 color = 2
+Color = null
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
 path = true
+Color = null
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 2 )]
 position = Vector2( 16, 16 )
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleGrid5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 130, 173 )
@@ -153,11 +165,13 @@ position = Vector2( 32, 0 )
 position = Vector2( 48, 0 )
 path = true
 color = 2
+Color = null
 
 [node name="PuzzleNode5" parent="PuzzleGrid5" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleNode6" parent="PuzzleGrid5" instance=ExtResource( 2 )]
 position = Vector2( 16, 16 )
@@ -183,6 +197,7 @@ position = Vector2( 48, 32 )
 [node name="PuzzleNode13" parent="PuzzleGrid5" instance=ExtResource( 2 )]
 position = Vector2( 0, 48 )
 path = true
+Color = null
 
 [node name="PuzzleNode14" parent="PuzzleGrid5" instance=ExtResource( 2 )]
 position = Vector2( 16, 48 )
@@ -194,6 +209,7 @@ position = Vector2( 32, 48 )
 position = Vector2( 48, 48 )
 path = true
 color = 2
+Color = null
 
 [node name="Blockade" parent="PuzzleGrid5" instance=ExtResource( 6 )]
 position = Vector2( 8, 48 )
@@ -251,19 +267,23 @@ required_puzzle = NodePath("../PuzzleSequence/PuzzleGrid4")
 [node name="PuzzleNode" parent="PuzzleGrid6" instance=ExtResource( 2 )]
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleNode2" parent="PuzzleGrid6" instance=ExtResource( 2 )]
 position = Vector2( 16, 0 )
 path = true
+Color = null
 
 [node name="PuzzleNode3" parent="PuzzleGrid6" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
 path = true
+Color = null
 
 [node name="PuzzleNode4" parent="PuzzleGrid6" instance=ExtResource( 2 )]
 position = Vector2( 16, 16 )
 path = true
 color = 2
+Color = null
 
 [node name="PuzzleGrid7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 240 )
@@ -273,6 +293,7 @@ row_size = 3
 [node name="PuzzleNode" parent="PuzzleGrid7" instance=ExtResource( 2 )]
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleNode2" parent="PuzzleGrid7" instance=ExtResource( 2 )]
 position = Vector2( 16, 0 )
@@ -280,6 +301,7 @@ position = Vector2( 16, 0 )
 [node name="PuzzleNode3" parent="PuzzleGrid7" instance=ExtResource( 2 )]
 position = Vector2( 32, 0 )
 path = true
+Color = null
 
 [node name="PuzzleNode4" parent="PuzzleGrid7" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
@@ -294,6 +316,7 @@ position = Vector2( 32, 16 )
 position = Vector2( 0, 32 )
 path = true
 color = 1
+Color = null
 
 [node name="PuzzleNode8" parent="PuzzleGrid7" instance=ExtResource( 2 )]
 position = Vector2( 16, 32 )
@@ -302,6 +325,7 @@ position = Vector2( 16, 32 )
 position = Vector2( 32, 32 )
 path = true
 color = 2
+Color = null
 
 [node name="Blockade" parent="PuzzleGrid7" instance=ExtResource( 6 )]
 position = Vector2( 24, 32 )

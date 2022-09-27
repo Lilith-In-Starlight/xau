@@ -138,3 +138,17 @@ func get_color():
 			return Color(0.2, 0.2, 0.9)
 		COLORS.yellow:
 			return Color(0.9, 0.6, 0.3)
+
+
+func _get_property_list() -> Array:
+	var properties = []
+	properties.append({
+			name = "Path",
+			type = TYPE_INT,
+	})
+	if path:
+		properties.append({
+				name = "Color",
+				type = TYPE_COLOR,
+		})
+	return properties

@@ -29,6 +29,7 @@ offset = Vector2( 0, -45 )
 script = ExtResource( 2 )
 
 [node name="Cable" type="Line2D" parent="."]
+position = Vector2( 56, 0 )
 points = PoolVector2Array( 143, 196, 143, 219 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
@@ -45,7 +46,7 @@ required_puzzle = NodePath("../Tutorial")
 
 [node name="Cable2" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
-points = PoolVector2Array( 59, 261, 59, 263, 115, 263, 115, 243, 121, 237, 141, 237, 142, 236, 144, 236, 145, 237, 448, 237, 448, 230 )
+points = PoolVector2Array( 59, 261, 59, 263, 115, 263, 115, 243, 121, 237, 197, 237, 198, 236, 200, 236, 201, 237, 448, 237, 448, 230 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -65,11 +66,10 @@ points = PoolVector2Array( 200, 315, 200, 308, 452, 308, 452, 295 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
-required_puzzle = NodePath("../PuzzleSequence/PuzzleGrid4")
 
 [node name="PuzzleAndGate" parent="." instance=ExtResource( 11 )]
 position = Vector2( 196, 319 )
-inputs = [ NodePath("../PuzzleSequence/PuzzleGrid4"), NodePath("../PuzzleGrid3") ]
+inputs = [ NodePath("../PuzzleGrid3"), NodePath("../PuzzleSequence/PuzzleGrid2") ]
 
 [node name="Cable4" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
@@ -84,7 +84,6 @@ points = PoolVector2Array( 154, 320, 154, 334 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
-required_puzzle = NodePath("../PuzzleSequence/PuzzleGrid4")
 
 [node name="Door" parent="." instance=ExtResource( 10 )]
 position = Vector2( 34, 262 )
@@ -98,10 +97,11 @@ script = ExtResource( 9 )
 required_puzzle = NodePath("../../PuzzleGrid3")
 
 [node name="PuzzleGrid" parent="." instance=ExtResource( 6 )]
-position = Vector2( 143, 169 )
+position = Vector2( 199, 169 )
 
 [node name="PuzzleNode" parent="PuzzleGrid" instance=ExtResource( 5 )]
 path = true
+Color = null
 
 [node name="PuzzleNode2" parent="PuzzleGrid" instance=ExtResource( 5 )]
 position = Vector2( 16, 0 )
@@ -109,10 +109,12 @@ position = Vector2( 16, 0 )
 [node name="PuzzleNode3" parent="PuzzleGrid" instance=ExtResource( 5 )]
 position = Vector2( 0, 16 )
 path = true
+Color = null
 
 [node name="PuzzleNode4" parent="PuzzleGrid" instance=ExtResource( 5 )]
 position = Vector2( 16, 16 )
 path = true
+Color = null
 
 [node name="Blockade" parent="PuzzleGrid" instance=ExtResource( 4 )]
 position = Vector2( 0, 8 )
@@ -121,12 +123,13 @@ position = Vector2( 0, 8 )
 position = Vector2( 8, 16 )
 
 [node name="PuzzleGrid2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 239, 252 )
+position = Vector2( 295, 252 )
 required_puzzle = NodePath("../PuzzleGrid")
 spacing = 32
 
 [node name="PuzzleNode" parent="PuzzleGrid2" instance=ExtResource( 5 )]
 path = true
+Color = null
 
 [node name="PuzzleNode2" parent="PuzzleGrid2" instance=ExtResource( 5 )]
 position = Vector2( 32, 0 )
@@ -134,40 +137,86 @@ position = Vector2( 32, 0 )
 [node name="PuzzleNode3" parent="PuzzleGrid2" instance=ExtResource( 5 )]
 position = Vector2( 0, 32 )
 path = true
+Color = null
 
 [node name="PuzzleNode4" parent="PuzzleGrid2" instance=ExtResource( 5 )]
 position = Vector2( 32, 32 )
 path = true
+Color = null
 
 [node name="PuzzleSequence" type="Node2D" parent="."]
-position = Vector2( 295, 252 )
+position = Vector2( 351, 252 )
 script = ExtResource( 7 )
 
 [node name="PuzzleGrid" parent="PuzzleSequence" instance=ExtResource( 6 )]
 required_puzzle = NodePath("../../PuzzleGrid2")
+holes = PoolVector2Array( 1, 0, 1, 2 )
 
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
+path = true
+Color = null
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
-position = Vector2( 16, 0 )
-path = true
-
-[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
 position = Vector2( 0, 16 )
 
-[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
+[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
 position = Vector2( 16, 16 )
 path = true
+Color = null
 
-[node name="PuzzleNode5" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
+[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
 position = Vector2( 0, 32 )
 path = true
+Color = null
 
-[node name="PuzzleNode6" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
+[node name="PuzzleGrid3" parent="PuzzleSequence" instance=ExtResource( 6 )]
+position = Vector2( 40, 0 )
+required_puzzle = NodePath("../PuzzleGrid2")
+row_size = 3
+holes = PoolVector2Array( 2, 0, 1, 1, 0, 2 )
+
+[node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+
+[node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 16, 0 )
+path = true
+Color = null
+
+[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 0, 16 )
+path = true
+Color = null
+
+[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 32, 16 )
+path = true
+Color = null
+
+[node name="PuzzleNode5" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 16, 32 )
+path = true
+Color = null
+
+[node name="PuzzleNode6" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 32, 32 )
+
+[node name="Blockade" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 4 )]
+position = Vector2( 16, 8 )
+
+[node name="Blockade2" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 4 )]
+position = Vector2( 8, 16 )
+
+[node name="Blockade4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 4 )]
+position = Vector2( 24, 16 )
+
+[node name="Blockade5" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 4 )]
+position = Vector2( 16, 16 )
+
+[node name="Blockade3" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 4 )]
+position = Vector2( 16, 24 )
 
 [node name="PuzzleGrid2" parent="PuzzleSequence" instance=ExtResource( 6 )]
-position = Vector2( 40, 0 )
+position = Vector2( 96, 0 )
 required_puzzle = NodePath("../PuzzleGrid")
 row_size = 3
 
@@ -179,6 +228,7 @@ position = Vector2( 16, 0 )
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 5 )]
 position = Vector2( 32, 0 )
 path = true
+Color = null
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 5 )]
 position = Vector2( 0, 16 )
@@ -189,10 +239,12 @@ position = Vector2( 16, 16 )
 [node name="PuzzleNode6" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 5 )]
 position = Vector2( 32, 16 )
 path = true
+Color = null
 
 [node name="PuzzleNode7" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 5 )]
 position = Vector2( 0, 32 )
 path = true
+Color = null
 
 [node name="PuzzleNode8" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 5 )]
 position = Vector2( 16, 32 )
@@ -206,67 +258,6 @@ position = Vector2( 8, 32 )
 [node name="Blockade2" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 4 )]
 position = Vector2( 24, 16 )
 
-[node name="PuzzleGrid3" parent="PuzzleSequence" instance=ExtResource( 6 )]
-position = Vector2( 96, 0 )
-required_puzzle = NodePath("../PuzzleGrid2")
-row_size = 3
-holes = PoolVector2Array( 2, 0, 1, 1, 0, 2 )
-
-[node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-
-[node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 0 )
-path = true
-
-[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 0, 16 )
-path = true
-
-[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 32, 16 )
-path = true
-
-[node name="PuzzleNode5" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 32 )
-path = true
-
-[node name="PuzzleNode6" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 32, 32 )
-
-[node name="PuzzleGrid4" parent="PuzzleSequence" instance=ExtResource( 6 )]
-position = Vector2( 152, 0 )
-required_puzzle = NodePath("../PuzzleGrid3")
-row_size = 3
-
-[node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
-
-[node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
-position = Vector2( 16, 0 )
-path = true
-
-[node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
-position = Vector2( 32, 0 )
-
-[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
-position = Vector2( 0, 16 )
-
-[node name="PuzzleNode5" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
-
-[node name="PuzzleNode6" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
-position = Vector2( 32, 16 )
-
-[node name="PuzzleNode7" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
-position = Vector2( 0, 32 )
-path = true
-
-[node name="PuzzleNode8" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
-position = Vector2( 16, 32 )
-path = true
-
-[node name="PuzzleNode9" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 5 )]
-position = Vector2( 32, 32 )
-
 [node name="PuzzleGrid3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 447, 188 )
 row_size = 3
@@ -277,6 +268,7 @@ holes = PoolVector2Array( 1, 1 )
 [node name="PuzzleNode2" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 16, 0 )
 path = true
+Color = null
 
 [node name="PuzzleNode3" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 32, 0 )
@@ -287,10 +279,12 @@ position = Vector2( 0, 16 )
 [node name="PuzzleNode5" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 32, 16 )
 path = true
+Color = null
 
 [node name="PuzzleNode6" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 0, 32 )
 path = true
+Color = null
 
 [node name="PuzzleNode7" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 16, 32 )
