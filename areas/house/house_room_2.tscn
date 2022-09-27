@@ -117,10 +117,10 @@ path = true
 Color = null
 
 [node name="Blockade" parent="PuzzleGrid" instance=ExtResource( 4 )]
-position = Vector2( 0, 8 )
+position = Vector2( 0, 7 )
 
 [node name="Blockade2" parent="PuzzleGrid" instance=ExtResource( 4 )]
-position = Vector2( 8, 16 )
+position = Vector2( 9, 16 )
 
 [node name="PuzzleGrid2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 295, 252 )
@@ -150,7 +150,7 @@ script = ExtResource( 7 )
 
 [node name="PuzzleGrid" parent="PuzzleSequence" instance=ExtResource( 6 )]
 required_puzzle = NodePath("../../PuzzleGrid2")
-holes = PoolVector2Array( 1, 0, 1, 2 )
+holes = PoolVector2Array( 1, 0, 1, 1 )
 
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
 path = true
@@ -160,12 +160,12 @@ Color = null
 position = Vector2( 0, 16 )
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
+position = Vector2( 0, 32 )
 path = true
 Color = null
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
-position = Vector2( 0, 32 )
+position = Vector2( 16, 32 )
 path = true
 Color = null
 
