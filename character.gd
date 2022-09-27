@@ -13,6 +13,8 @@ var last_direction = "down"
 
 var velocity := Vector2()
 
+var undo_history := []
+
 func _ready():
 	if SaveData.data.has("player_pos_x"):
 		position.x = SaveData.data["player_pos_x"]
@@ -39,6 +41,19 @@ func _process(delta):
 		$Animations.play("standing_%s" % direction_from_velocity())
 	else:
 		$Animations.play("walking_%s" % direction_from_velocity())
+	
+	if Input.is_action_just_pressed("undo"):
+		if !undo_history.empty():
+			var last: Array = undo_history.pop_back()
+			for i in last:
+				if i[0] == "disconnect":
+					i[1].connections.append(i[2])
+					i[2].connections.append(i[1])
+				elif i[0] == "connect":
+					i[1].connections.erase(i[2])
+					i[2].connections.erase(i[1])
+				i[3].display_connections()
+				i[3]._on_correctness_unverified()
 	
 func _physics_process(delta) -> void:
 	move_and_slide(velocity, Vector2.ZERO)

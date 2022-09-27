@@ -5,8 +5,9 @@ class_name PuzzleNode
 
 ## A node in a [Puzzle].
 
-signal connection_changed
+signal connection_changed(from, to, type)
 signal correctness_unverified
+signal delete_node_connections_request(node)
 
 enum COLORS {
 	black,
@@ -22,8 +23,11 @@ enum TYPES {
 	## A Section node must be in a section whose edges amount to the sum
 	## of all the Section nodes in it
 	SECTION,
+	## Two Isomorph nodes of the same color must be in isomorphic sections
 	ISOMORPH,
+	## A Loop node must be in a section that loops into itself
 	LOOP,
+	## A hardcoded node must be connected to the specified nodes
 	HARDCODE,
 }
 
@@ -52,7 +56,12 @@ func _ready():
 
 func _process(delta):
 	if not Engine.is_editor_hint():
-		set_process(false)
+		if cursor_node.global_position.distance_to(global_position) < 6:
+			scale.x = 1.2
+			scale.y = 1.2
+		else:
+			scale.x = 1
+			scale.y = 1
 	else:
 		$PathMark.modulate = get_color()
 		$PathMark.visible = node_rule == TYPES.PATH
@@ -113,13 +122,10 @@ func _input(delta):
 				cursor_node.connecting_from = self
 		elif cursor_node.connecting_from == self:
 			connect_puzzle(cursor_node.position)
-	elif Input.is_action_pressed("noconnect"):
+	elif Input.is_action_just_pressed("noconnect"):
 		if cursor_node.position.distance_to(global_position) < 6:
 			emit_signal("correctness_unverified")
-			if cursor_node.connecting_from == null:
-				cursor_node.connecting_from = self
-		elif cursor_node.connecting_from == self:
-			connect_puzzle(cursor_node.position, true)
+			emit_signal("delete_node_connections_request", self)
 
 
 ## Try to connect to a node towards a particular direction, usually directed
@@ -137,13 +143,13 @@ func connect_puzzle(target, disconnect := false):
 						raycast_collider.connections.append(self)
 						cursor_node.connecting_from = raycast_collider
 						raycast_collider.connect_puzzle(target)
-						emit_signal("connection_changed")
+						emit_signal("connection_changed", self, raycast_collider, "connect")
 					else:
 						connections.erase(raycast_collider)
 						raycast_collider.connections.erase(self)
 						cursor_node.connecting_from = raycast_collider
 						raycast_collider.connect_puzzle(target)
-						emit_signal("connection_changed")
+						emit_signal("connection_changed", self, raycast_collider, "disconnect")
 	raycast.cast_to = Vector2.ZERO
 
 

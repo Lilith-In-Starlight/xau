@@ -48,6 +48,8 @@ var correct := false setget set_correct
 
 var base_display_connections := true
 
+onready var player :KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
+
 func _draw():
 	get_rect()
 	var new_rect = rect.grow(8)
@@ -63,8 +65,9 @@ func _ready():
 	if not Engine.is_editor_hint():
 		for i in get_children():
 			if i.is_in_group("PuzzleNode"):
-				i.connect("connection_changed", self, "display_connections")
+				i.connect("connection_changed", self, "_on_connection_changed")
 				i.connect("correctness_unverified", self, "_on_correctness_unverified")
+				i.connect("delete_node_connections_request", self, "_on_delete_node_connections_requested")
 	if SaveData.data.has(str(get_path())):
 		var id = str(get_path())
 		solved = SaveData.data[id]["solved"]
@@ -253,3 +256,27 @@ func display_connections():
 
 func _on_correctness_unverified():
 	self.correct = false
+
+
+func _on_delete_node_connections_requested(requester):
+	var group_undoes := []
+	if not Input.is_key_pressed(KEY_SHIFT):
+		for i in requester.connections:
+			i.connections.erase(requester)
+			group_undoes.append(["disconnect", requester, i, self])
+		requester.connections = []
+	else:
+		for i in get_children():
+			if i.is_in_group("PuzzleNode"):
+				for j in i.connections:
+					var connection := ["disconnect", i, j, self]
+					var invert_connection := ["disconnect", j, i, self]
+					if !group_undoes.has(invert_connection):
+						group_undoes.append(connection)
+				i.connections = []
+	player.undo_history.append(group_undoes)
+	display_connections()
+
+func _on_connection_changed(from, to, type):
+	player.undo_history.append([[type, from, to, self]])
+	display_connections()

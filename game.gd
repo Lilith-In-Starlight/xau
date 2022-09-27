@@ -8,7 +8,7 @@ onready var CursorNode: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	for i in $World.get_children():
+	for i in $FirstArea.get_children():
 		if SaveData.data.has(str(i.get_path())):
 			i.modulate.a = SaveData.data[str(i.get_path())]
 			i.visible = true
