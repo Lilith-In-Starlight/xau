@@ -346,3 +346,5 @@ polygon = PoolVector2Array( 78, 87, 78, 92, 213, 92, 213, 114, 292, 114, 292, 92
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="WorldCollision"]
 polygon = PoolVector2Array( 305, 145, 305, 248, 296, 248, 296, 145 )
+
+[connection signal="was_solved" from="PuzzleGrid5" to="Door" method="_on_required_was_solved"]

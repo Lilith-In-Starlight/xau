@@ -95,7 +95,7 @@ func _ready():
 func _input(delta):
 	if Input.is_action_just_pressed("connect") and is_enabled():
 		display_connections()
-	if Input.is_action_just_pressed("confirm"):
+	if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
 		if is_enabled():
 			var unhappy_nodes := []
 			for i in get_children():
@@ -156,7 +156,7 @@ func _on_required_was_solved():
 
 ## Whether the puzzle is enabled
 func is_enabled() -> bool:
-	if required_node == null:
+	if required_node == null or Engine.is_editor_hint():
 		return true
 	return required_node.solved
 
