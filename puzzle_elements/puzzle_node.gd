@@ -14,13 +14,22 @@ enum COLORS {
 	yellow,
 }
 
+enum TYPES {
+	NONE,
+	PATH,
+	BRANCHES,
+	ISOMORPH,
+	LOOP,
+	HARDCODE,
+}
+
+export(TYPES) var node_rule := TYPES.NONE setget set_node_rule
 ## A path node must have only one conneciton and must connect to at least
 ## another path node
-export var path := false
 ## Deprecated
-export var allow_branch := false
+var forced_branches := 0
 
-export(COLORS) var color := COLORS.black
+var color :int = COLORS.black
 
 ## The node that represents the cursor
 onready var cursor_node: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
@@ -33,7 +42,7 @@ var connections: Array = []
 onready var parent :Puzzle = get_parent()
 
 func _ready():
-	$PathMark.visible = path
+	$PathMark.visible = node_rule == TYPES.PATH
 	$PathMark.modulate = get_color()
 
 
@@ -42,12 +51,16 @@ func _process(delta):
 		set_process(false)
 	else:
 		$PathMark.modulate = get_color()
-		$PathMark.visible = path
+		$PathMark.visible = node_rule == TYPES.PATH
 
+
+func set_node_rule(value):
+	node_rule = value
+	property_list_changed_notify()
 
 ## Returns whether this node's requirements are satisfied
 func check() -> bool:
-	if path:
+	if node_rule == TYPES.PATH:
 		if connections.size() > 1:
 			return false
 		else:
@@ -61,7 +74,7 @@ func check() -> bool:
 				var current_check = next_checks[0]
 				already_checked.append(current_check)
 				next_checks.remove(0)
-				if !current_check.path:
+				if !current_check.node_rule == TYPES.PATH:
 					for i in current_check.connections:
 						if not i in already_checked:
 							next_checks.append(i)
@@ -141,14 +154,19 @@ func get_color():
 
 
 func _get_property_list() -> Array:
-	var properties = []
-	properties.append({
-			name = "Path",
-			type = TYPE_INT,
-	})
-	if path:
-		properties.append({
-				name = "Color",
-				type = TYPE_COLOR,
-		})
+	var properties := []
+	match node_rule:
+		TYPES.PATH:
+			properties.append({
+				name = "color",
+				type = TYPE_INT,
+				hint = PROPERTY_HINT_ENUM,
+				hint_string = "Black,Blue,Yellow"
+			})
+		TYPES.BRANCHES:
+			properties.append({
+				name = "forced_branches",
+				type = TYPE_INT,
+				
+			})
 	return properties

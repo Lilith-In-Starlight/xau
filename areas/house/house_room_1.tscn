@@ -64,11 +64,13 @@ position = Vector2( 113, 195 )
 puzzle_id = "tutorial_puzzle"
 
 [node name="PuzzleNode" parent="Tutorial" instance=ExtResource( 3 )]
-path = true
+node_rule = 1
+color = 0
 
 [node name="PuzzleNode2" parent="Tutorial" instance=ExtResource( 3 )]
 position = Vector2( 16, 0 )
-path = true
+node_rule = 1
+color = 0
 
 [node name="PuzzleSequence" type="Node2D" parent="."]
 position = Vector2( 249, 91 )
@@ -79,14 +81,17 @@ required_puzzle = NodePath("../../Tutorial")
 holes = PoolVector2Array( 0, 0 )
 
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 3 )]
-path = true
+position = Vector2( 16, 0 )
+node_rule = 1
+color = 0
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 3 )]
-position = Vector2( 16, 0 )
-path = true
+position = Vector2( 0, 16 )
+node_rule = 1
+color = 0
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 3 )]
-position = Vector2( 0, 16 )
+position = Vector2( 16, 16 )
 
 [node name="PuzzleGrid2" parent="PuzzleSequence" instance=ExtResource( 2 )]
 position = Vector2( 40, 0 )
@@ -96,11 +101,13 @@ required_puzzle = NodePath("../PuzzleGrid")
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 3 )]
 position = Vector2( 16, 0 )
-path = true
+node_rule = 1
+color = 0
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 3 )]
 position = Vector2( 0, 16 )
-path = true
+node_rule = 1
+color = 0
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid2" instance=ExtResource( 3 )]
 position = Vector2( 16, 16 )
@@ -119,11 +126,13 @@ position = Vector2( 16, 0 )
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 3 )]
 position = Vector2( 0, 16 )
-path = true
+node_rule = 1
+color = 0
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 3 )]
 position = Vector2( 16, 16 )
-path = true
+node_rule = 1
+color = 0
 
 [node name="Blockade" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 8, 8 )
@@ -139,11 +148,13 @@ required_puzzle = NodePath("../PuzzleGrid3")
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 3 )]
 position = Vector2( 16, 0 )
-path = true
+node_rule = 1
+color = 0
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 3 )]
 position = Vector2( 0, 16 )
-path = true
+node_rule = 1
+color = 0
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid4" instance=ExtResource( 3 )]
 position = Vector2( 16, 16 )
@@ -171,11 +182,13 @@ position = Vector2( 16, 0 )
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 3 )]
 position = Vector2( 0, 16 )
-path = true
+node_rule = 1
+color = 0
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 3 )]
 position = Vector2( 16, 16 )
-path = true
+node_rule = 1
+color = 0
 
 [node name="Blockade" parent="PuzzleSequence/PuzzleGrid5" instance=ExtResource( 5 )]
 position = Vector2( 0, 8 )

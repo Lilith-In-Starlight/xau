@@ -35,6 +35,7 @@ export var framed := true
 ## Unique identifier used to connect puzzles across scenes
 export var puzzle_id := "default"
 
+onready var cursor_node :Cursor = get_tree().get_nodes_in_group("Cursor")[0]
 
 ## Whether the puzzle was solved or not
 var solved := false

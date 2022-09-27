@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://cord.gd"
 }, {
 "base": "Node2D",
+"class": "Cursor",
+"language": "GDScript",
+"path": "res://gui/cursor.gd"
+}, {
+"base": "Node2D",
 "class": "Puzzle",
 "language": "GDScript",
 "path": "res://puzzle_elements/puzzle.gd"
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Cable": "",
+"Cursor": "",
 "Puzzle": "",
 "PuzzleNode": "",
 "PuzzleSequence": ""

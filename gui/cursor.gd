@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Cursor
+
 ## The cursor used in the game. 
 ##
 ## It is supposed to be a physical entity in the game
