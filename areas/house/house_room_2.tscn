@@ -310,6 +310,9 @@ position = Vector2( 16, 16 )
 [node name="Blockade4" parent="PuzzleGrid3" instance=ExtResource( 4 )]
 position = Vector2( 24, 24 )
 
+[node name="Blockade5" parent="PuzzleGrid3" instance=ExtResource( 4 )]
+position = Vector2( 24, 32 )
+
 [node name="WallTop" type="Sprite" parent="."]
 position = Vector2( 70, 163 )
 z_index = 2
