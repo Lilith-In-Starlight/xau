@@ -129,7 +129,10 @@ func show_correct():
 	for i in get_children():
 		if not i.name == "NoNode":
 			var tween = i.create_tween()
-			tween.tween_property(i, "modulate", ColorN("plum"), 0.2)
+			if i.is_in_group("PuzzleNode"):
+				tween.tween_property(i.circle, "modulate", ColorN("plum"), 0.2)
+			else:
+				tween.tween_property(i, "modulate", ColorN("plum"), 0.2)
 			tween.play()
 
 ## Makes the puzzle look white to show that it is not correct
@@ -137,7 +140,10 @@ func unshow_correct():
 	for i in get_children():
 		if not i.name == "NoNode":
 			var tween = i.create_tween()
-			tween.tween_property(i, "modulate", ColorN("white"), 0.2)
+			if i.is_in_group("PuzzleNode"):
+				tween.tween_property(i.circle, "modulate", ColorN("white"), 0.2)
+			else:
+				tween.tween_property(i, "modulate", ColorN("white"), 0.2)
 			tween.play()
 
 ## Called when the puzzle required to interact with this one is solved

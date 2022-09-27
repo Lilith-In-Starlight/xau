@@ -80,7 +80,7 @@ default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
 required_puzzle = NodePath("../PuzzleAndGate")
 
-[node name="Cable5" type="Line2D" parent="."]
+[node name="Cable5" type="Line2D" parent="Cable4"]
 points = PoolVector2Array( 154, 320, 154, 334 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
@@ -159,6 +159,9 @@ color = 0
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
 position = Vector2( 0, 16 )
+node_rule = 2
+forced_edges = 0
+color = 0
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
 position = Vector2( 0, 32 )

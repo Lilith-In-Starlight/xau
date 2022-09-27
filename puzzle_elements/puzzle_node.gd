@@ -16,25 +16,29 @@ enum COLORS {
 
 enum TYPES {
 	NONE,
+	## A path node must have only one conneciton and must connect to at least
+	## another path node of the same color. Black doesn't care about color.
 	PATH,
-	BRANCHES,
+	## A Section node must be in a section whose edges amount to the sum
+	## of all the Section nodes in it
+	SECTION,
 	ISOMORPH,
 	LOOP,
 	HARDCODE,
 }
 
 export(TYPES) var node_rule := TYPES.NONE setget set_node_rule
-## A path node must have only one conneciton and must connect to at least
-## another path node
-## Deprecated
-var forced_branches := 0
 
-var color :int = COLORS.black
+var forced_edges: int
+
+var color :int
 
 ## The node that represents the cursor
 onready var cursor_node: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
 ## A [RayCast2D] that checks if the mouse will connect a node or not
 onready var raycast: RayCast2D = $RayCast
+
+onready var circle: Sprite = $Sprite2d
 
 ## The [PuzzleNode]s that this node is connected
 var connections: Array = []
@@ -89,14 +93,14 @@ func check() -> bool:
 ## Makes the node flash red
 func show_failure():
 	var tween = create_tween()
-	tween.tween_property(self, "modulate:g", 0.0, 0.3)
-	tween.parallel().tween_property(self, "modulate:b", 0.0, 0.3)
-	tween.tween_property(self, "modulate:g", 1.0, 0.3)
-	tween.parallel().tween_property(self, "modulate:b", 1.0, 0.3)
-	tween.tween_property(self, "modulate:g", 0.0, 0.3)
-	tween.parallel().tween_property(self, "modulate:b", 0.0, 0.3)
-	tween.tween_property(self, "modulate:g", 1.0, 0.3)
-	tween.parallel().tween_property(self, "modulate:b", 1.0, 0.3)
+	tween.tween_property(circle, "modulate:g", 0.0, 0.3)
+	tween.parallel().tween_property(circle, "modulate:b", 0.0, 0.3)
+	tween.tween_property(circle, "modulate:g", 1.0, 0.3)
+	tween.parallel().tween_property(circle, "modulate:b", 1.0, 0.3)
+	tween.tween_property(circle, "modulate:g", 0.0, 0.3)
+	tween.parallel().tween_property(circle, "modulate:b", 0.0, 0.3)
+	tween.tween_property(circle, "modulate:g", 1.0, 0.3)
+	tween.parallel().tween_property(circle, "modulate:b", 1.0, 0.3)
 	tween.play()
 
 
@@ -163,10 +167,27 @@ func _get_property_list() -> Array:
 				hint = PROPERTY_HINT_ENUM,
 				hint_string = "Black,Blue,Yellow"
 			})
-		TYPES.BRANCHES:
+		TYPES.SECTION:
 			properties.append({
-				name = "forced_branches",
+				name = "forced_edges",
 				type = TYPE_INT,
 				
 			})
+			properties.append({
+				name = "color",
+				type = TYPE_INT,
+				hint = PROPERTY_HINT_ENUM,
+				hint_string = "Black,Blue,Yellow"
+			})
 	return properties
+
+func property_can_revert(property: String) -> bool:
+	match property:
+		"color", "forced_edges": return true
+		_: return false
+
+
+func property_get_revert(property: String):
+	match property:
+		"color": return 0
+		"forced_edges": return 0
