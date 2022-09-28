@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://areas/house/house_room_1.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://areas/house/house_room_4.tscn" type="PackedScene" id=8]
 [ext_resource path="res://areas/house/house_exit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://areas/area.gd" type="Script" id=10]
+[ext_resource path="res://areas/house/house_outside.tscn" type="PackedScene" id=11]
 
 [node name="Game" type="Node2D" groups=["GameNode"]]
 script = ExtResource( 1 )
@@ -72,13 +73,29 @@ new_z_index = 2
 [node name="HouseExit" parent="FirstArea" instance=ExtResource( 9 )]
 visible = false
 position = Vector2( 126, 539 )
-z_index = 2
+z_index = 3
 
 [node name="AreaTransition" parent="FirstArea/HouseExit" instance=ExtResource( 7 )]
 position = Vector2( 28, 14 )
 BlockingLayer = NodePath("..")
 goal = 1.0
 UnblockingLayer = NodePath("../../HouseRoom4")
+
+[node name="AreaTransition2" parent="FirstArea/HouseExit" instance=ExtResource( 7 )]
+position = Vector2( 29, 704 )
+BlockingLayer = NodePath("../../HouseOutside")
+UnblockingLayer = NodePath("..")
+anti_goal = 1.0
+
+[node name="HouseOutside" parent="FirstArea" instance=ExtResource( 11 )]
+visible = false
+position = Vector2( -93, 1227 )
+
+[node name="AreaTransition" parent="FirstArea/HouseOutside" instance=ExtResource( 7 )]
+position = Vector2( 248, 57 )
+BlockingLayer = NodePath("..")
+goal = 1.0
+UnblockingLayer = NodePath("../../HouseExit")
 
 [node name="Character" parent="." instance=ExtResource( 3 )]
 position = Vector2( 122, 127 )
