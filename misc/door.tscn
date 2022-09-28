@@ -50,7 +50,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[node name="Door" type="StaticBody2D"]
+[node name="Door" type="StaticBody2D" groups=["Door"]]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

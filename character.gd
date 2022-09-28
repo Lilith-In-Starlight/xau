@@ -15,11 +15,14 @@ var velocity := Vector2()
 
 var undo_history := []
 
+var current_section :Node2D
+
 func _ready():
 	if SaveData.data.has("player_pos_x"):
 		position.x = SaveData.data["player_pos_x"]
 		position.y = SaveData.data["player_pos_y"]
 		z_index = SaveData.data["player_z_index"]
+		current_section = get_node(SaveData.data["player_current_section"])
 
 
 func _process(delta):

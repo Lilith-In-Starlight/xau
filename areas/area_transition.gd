@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name AreaTransition
+
 ## Node used to hide and show parts of the world
 ##
 ## To make the illusion of looking down on a 3D world, it's necessary to hide
@@ -32,6 +34,7 @@ func _ready():
 func _on_body_entered(body):
 	if body == PlayerNode:
 		PlayerNode.z_index = parent.z_index
+		PlayerNode.current_section = parent
 		if BlockingNode.modulate.a != goal:
 			var tween = create_tween()
 			tween.tween_property(BlockingNode, "modulate:a", goal, 0.5)

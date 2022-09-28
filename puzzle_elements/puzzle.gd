@@ -68,19 +68,22 @@ func _ready():
 				i.connect("connection_changed", self, "_on_connection_changed")
 				i.connect("correctness_unverified", self, "_on_correctness_unverified")
 				i.connect("delete_node_connections_request", self, "_on_delete_node_connections_requested")
-	if SaveData.data.has(str(get_path())):
-		var id = str(get_path())
-		solved = SaveData.data[id]["solved"]
-		correct = SaveData.data[id]["correct"]
+	
+	var id = str(get_path())
+	if SaveData.has_data("puzzles|%s" % id):
+		var puzzle_data = SaveData.get_data("puzzles|%s" % id)
+		solved = puzzle_data["solved"]
+		correct = puzzle_data["correct"]
 		if solved or correct: emit_signal("was_solved")
 		for i in get_child_count():
 			var child = get_child(i)
-			if SaveData.data[id]["connections"].has(str(i)):
-				for j in SaveData.data[id]["connections"][str(i)]:
+			if puzzle_data["connections"].has(str(i)):
+				for j in puzzle_data["connections"][str(i)]:
 					if j is String:
 						child.connections.append(get_node(j))
 					else:
 						child.connections.append(get_child(j))
+	
 	if not required_node == null:
 		required_node.connect("was_solved", self, "_on_required_was_solved")
 	if Engine.editor_hint:
@@ -258,9 +261,9 @@ func _on_correctness_unverified():
 	self.correct = false
 
 
-func _on_delete_node_connections_requested(requester):
+func _on_delete_node_connections_requested(requester, full_reset):
 	var group_undoes := []
-	if not Input.is_key_pressed(KEY_SHIFT):
+	if not full_reset:
 		for i in requester.connections:
 			i.connections.erase(requester)
 			group_undoes.append(["disconnect", requester, i, self])

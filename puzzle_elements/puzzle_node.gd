@@ -7,7 +7,7 @@ class_name PuzzleNode
 
 signal connection_changed(from, to, type)
 signal correctness_unverified
-signal delete_node_connections_request(node)
+signal delete_node_connections_request(node, full)
 
 enum COLORS {
 	black,
@@ -48,6 +48,8 @@ onready var circle: Sprite = $Sprite2d
 var connections: Array = []
 
 onready var parent :Puzzle = get_parent()
+
+onready var player :KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
 	$PathMark.visible = node_rule == TYPES.PATH
@@ -115,17 +117,22 @@ func show_failure():
 
 
 func _input(delta):
-	if Input.is_action_pressed("connect"):
-		if cursor_node.position.distance_to(global_position) < 6:
-			emit_signal("correctness_unverified")
-			if cursor_node.connecting_from == null:
-				cursor_node.connecting_from = self
-		elif cursor_node.connecting_from == self:
-			connect_puzzle(cursor_node.position)
-	elif Input.is_action_just_pressed("noconnect"):
-		if cursor_node.position.distance_to(global_position) < 6:
-			emit_signal("correctness_unverified")
-			emit_signal("delete_node_connections_request", self)
+	if player.current_section == owner and get_parent().modulate.a > 0.2:
+		if Input.is_action_pressed("connect"):
+			if cursor_node.position.distance_to(global_position) < 6:
+				emit_signal("correctness_unverified")
+				if cursor_node.connecting_from == null:
+					cursor_node.connecting_from = self
+			elif cursor_node.connecting_from == self:
+				connect_puzzle(cursor_node.position)
+		elif Input.is_action_just_pressed("noconnect"):
+			if cursor_node.position.distance_to(global_position) < 6:
+				emit_signal("correctness_unverified")
+				emit_signal("delete_node_connections_request", self, false)
+		elif Input.is_action_just_pressed("puzzle_reset"):
+			if cursor_node.position.distance_to(global_position) < 6:
+				emit_signal("correctness_unverified")
+				emit_signal("delete_node_connections_request", self, true)
 
 
 ## Try to connect to a node towards a particular direction, usually directed

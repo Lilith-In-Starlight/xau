@@ -17,32 +17,30 @@ var open := false
 
 func _ready():
 	if SaveData.has_data("doors|%s"%str(get_path())):
-		$Sprite.frame = 8
+		$Sprite.position.y = -108.0
 		$CollisionShape2D.disabled = true
 		open = true
 
 
 func _process(delta):
-	if player_node.global_position.distance_to(global_position) < 60:
+	if player_node.global_position.distance_to(global_position) < 100:
 		if player_node.global_position.y < global_position.y and z_index != 1:
 			z_index = 1
 		elif player_node.global_position.y > global_position.y and z_index != 0:
 			z_index = 0
 
-
 ## Must be called by [member Puzzle.was_solved]. Increases met_requirements by 1.
 func _on_required_was_solved():
-	met_requirements += 1
-	if met_requirements == requirements:
-		if !open: 
-			$Sprite.play("default")
-			open = true
+	var tween := create_tween()
+	tween.tween_property($Sprite, "position:y", -108.0, 3.0)
+	tween.play()
+	tween.connect("finished", self, "_on_animation_finished")
 
 
 ## Disables the door's collisions when the animation of the door finishes
-func _on_sprite_animation_finished() -> void:
+func _on_animation_finished() -> void:
 	$CollisionShape2D.disabled = true
-
+	open = true
 
 func save():
 	return open

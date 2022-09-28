@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/areas/house/house_exit.png" type="Texture" id=1]
+[ext_resource path="res://misc/slide_door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://puzzle_elements/puzzle_grid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://puzzle_elements/puzzle_node.tscn" type="PackedScene" id=4]
+[ext_resource path="res://puzzle_elements/interface_puzzle.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.5, 366.5 )
+
+[node name="HouseExit" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -80 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="WorldCollision" type="StaticBody2D" parent="."]
+z_index = 99
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldCollision"]
+position = Vector2( 4.5, 366.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldCollision"]
+position = Vector2( 52.5, 366.5 )
+shape = SubResource( 1 )
+
+[node name="SlideDoor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 29, 740 )
+
+[node name="InterfacePuzzle" parent="." instance=ExtResource( 5 )]
+position = Vector2( 29, 675 )
+
+[node name="PuzzleGrid" parent="InterfacePuzzle" instance=ExtResource( 3 )]
+position = Vector2( 0, -44 )
+row_size = 1
+
+[node name="PuzzleNode" parent="InterfacePuzzle/PuzzleGrid" instance=ExtResource( 4 )]
+node_rule = 1
+color = 2
+
+[node name="PuzzleNode2" parent="InterfacePuzzle/PuzzleGrid" instance=ExtResource( 4 )]
+position = Vector2( 0, 16 )
+node_rule = 1
+color = 2
+
+[connection signal="was_solved" from="InterfacePuzzle/PuzzleGrid" to="SlideDoor" method="_on_required_was_solved"]
