@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://misc/y_sort_object.gd" type="Script" id=1]
 [ext_resource path="res://sprites/misc/trees/orange/puzzle_1.png" type="Texture" id=2]
 [ext_resource path="res://sprites/areas/house/house_from_the_outside.png" type="Texture" id=3]
+[ext_resource path="res://puzzle_elements/puzzle_grid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://puzzle_elements/puzzle_node.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/misc/trees/orange/puzzle_2.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.07107
 
 [node name="HouseOutside" type="Node2D"]
 
@@ -14,6 +20,93 @@ offset = Vector2( 0, -300 )
 script = ExtResource( 1 )
 
 [node name="Puzzle1" type="Sprite" parent="."]
-position = Vector2( -38, 351 )
+position = Vector2( -178, 449 )
 texture = ExtResource( 2 )
 centered = false
+offset = Vector2( 0, -90 )
+script = ExtResource( 1 )
+
+[node name="Puzzle2" type="Sprite" parent="."]
+position = Vector2( -328, 174 )
+texture = ExtResource( 6 )
+centered = false
+offset = Vector2( 0, -100 )
+script = ExtResource( 1 )
+
+[node name="PuzzleGrid" parent="." instance=ExtResource( 4 )]
+position = Vector2( -118, 499 )
+background_color = Color( 1, 0.603922, 0.145098, 1 )
+off_background_color = Color( 0.741176, 0.396078, 0.164706, 1 )
+correct_node_color = Color( 1, 0.380392, 0.137255, 1 )
+node_color = Color( 1, 0.827451, 0.498039, 1 )
+mode = 1
+
+[node name="PuzzleNode" parent="PuzzleGrid" instance=ExtResource( 5 )]
+position = Vector2( 8, 0 )
+node_rule = 5
+hardcoded_connections = [ NodePath("../PuzzleNode3") ]
+
+[node name="PuzzleNode2" parent="PuzzleGrid" instance=ExtResource( 5 )]
+position = Vector2( 0, -16 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode3" parent="PuzzleGrid" instance=ExtResource( 5 )]
+position = Vector2( 16, -16 )
+node_rule = 5
+hardcoded_connections = [ NodePath("../PuzzleNode") ]
+
+[node name="PuzzleGrid2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -364, 257 )
+background_color = Color( 1, 0.603922, 0.145098, 1 )
+off_background_color = Color( 0.741176, 0.396078, 0.164706, 1 )
+correct_node_color = Color( 1, 0.380392, 0.137255, 1 )
+node_color = Color( 1, 0.827451, 0.498039, 1 )
+mode = 1
+
+[node name="PuzzleNode" parent="PuzzleGrid2" instance=ExtResource( 5 )]
+position = Vector2( 16, 0 )
+node_rule = 5
+hardcoded_connections = [ NodePath("../PuzzleNode2") ]
+
+[node name="PuzzleNode2" parent="PuzzleGrid2" instance=ExtResource( 5 )]
+position = Vector2( 8, -16 )
+node_rule = 5
+hardcoded_connections = [ NodePath("../PuzzleNode"), NodePath("../PuzzleNode5") ]
+
+[node name="PuzzleNode3" parent="PuzzleGrid2" instance=ExtResource( 5 )]
+position = Vector2( 24, -16 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode4" parent="PuzzleGrid2" instance=ExtResource( 5 )]
+position = Vector2( -8, -32 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode5" parent="PuzzleGrid2" instance=ExtResource( 5 )]
+position = Vector2( 8, -32 )
+node_rule = 5
+hardcoded_connections = [ NodePath("../PuzzleNode2") ]
+
+[node name="PuzzleNode6" parent="PuzzleGrid2" instance=ExtResource( 5 )]
+position = Vector2( 24, -32 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode7" parent="PuzzleGrid2" instance=ExtResource( 5 )]
+position = Vector2( 40, -32 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -155, 442 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -308, 171 )
+shape = SubResource( 1 )

@@ -1,10 +1,18 @@
 tool
 extends Puzzle
 
+class_name PuzzleGrid
 ## A [Puzzle] where the nodes are set in a grid
 ##
 ## A PuzzleGrid automatically sets all its nodes to be in a grid-like
 ## configuration, allowing for spaces with holes
+
+enum MODES {
+	GRID,
+	BINTREE,
+}
+
+export(MODES) var mode :int
 
 ## The size of a row. If there are more than [member row_size] [PuzzleNode]s,
 ## there will be more than one row.
@@ -15,6 +23,7 @@ export var spacing :int = 16 setget set_spacing
 		
 ## Positions of the puzzle where there should not be a node
 export var holes: PoolVector2Array = []
+
 
 func _init():
 	base_display_connections = false
@@ -63,18 +72,37 @@ func update_children_positions(exclusions: Array = []):
 	var y := 0
 	if Engine.editor_hint:
 		update()
-	for i in get_children():
-		if i.is_in_group("PuzzleNode") and not i in exclusions:
-			while Vector2(x, y) in holes:
-				x += 1
-				if x >= row_size:
-					x = 0
-					y += 1
-			i.position = Vector2(x, y) * spacing
-			x += 1
-			if x >= row_size:
-				x = 0
-				y += 1
+	match mode:
+		MODES.GRID:
+			for i in get_children():
+				if i.is_in_group("PuzzleNode") and not i in exclusions:
+					while Vector2(x, y) in holes:
+						x += 1
+						if x >= row_size:
+							x = 0
+							y += 1
+					i.position = Vector2(x, y) * spacing
+					x += 1
+					if x >= row_size:
+						x = 0
+						y += 1
+		MODES.BINTREE:
+			var current_depth_max_x = 1
+			var expected_max_x = 0
+			var c = get_child_count()
+			while c > 1:
+				expected_max_x += 1
+				c /= 2.0
+			for i in get_children():
+				if i.is_in_group("PuzzleNode") and not i in exclusions:
+					i.position = Vector2(expected_max_x / 2.0 - current_depth_max_x / 2.0 + x, y) * spacing
+					x += 1
+					if x >= current_depth_max_x:
+							x = 0
+							y -= 1
+							current_depth_max_x *= 2
+							
+			
 
 
 func _on_child_entered_tree(new_child: Node) -> void:

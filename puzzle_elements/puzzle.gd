@@ -28,6 +28,10 @@ var required_node: Node2D
 export var background_color: Color = Color("#131313")
 ## The color of this puzzle's screen while the puzzle is disabled
 export var off_background_color: Color = Color("#0c0c0c")
+## The color of this puzzle's correct nodes
+export var correct_node_color: Color = Color( 0.866667, 0.627451, 0.866667)
+## The color of this puzzle's regular nodes
+export var node_color: Color = Color("#000000")
 
 ## Whether the puzzle can connect to other puzzles
 export var framed := true
@@ -101,11 +105,21 @@ func _input(delta):
 	if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
 		if is_enabled():
 			var unhappy_nodes := []
+			var hardcoded := []
+			var hardcode_fail := false
 			for i in get_children():
 				if i.is_in_group("PuzzleNode"):
+					if i.node_rule == i.TYPES.HARDCODE:
+						hardcoded.append(i)
 					if !i.check():
+						if i.node_rule == i.TYPES.HARDCODE:
+							hardcode_fail = true
+						else:
+							i.show_failure()
 						unhappy_nodes.append(i)
-						i.show_failure()
+			if hardcode_fail:
+				for i in hardcoded:
+					i.show_failure()
 			if unhappy_nodes.empty():
 				correct = true
 				if not solved:
@@ -136,9 +150,9 @@ func show_correct():
 		if not i.name == "NoNode":
 			var tween = i.create_tween()
 			if i.is_in_group("PuzzleNode"):
-				tween.tween_property(i.circle, "modulate", ColorN("plum"), 0.2)
+				tween.tween_property(i.circle, "modulate", correct_node_color, 0.2)
 			else:
-				tween.tween_property(i, "modulate", ColorN("plum"), 0.2)
+				tween.tween_property(i, "modulate", correct_node_color, 0.2)
 			tween.play()
 
 ## Makes the puzzle look white to show that it is not correct
@@ -147,9 +161,9 @@ func unshow_correct():
 		if not i.name == "NoNode":
 			var tween = i.create_tween()
 			if i.is_in_group("PuzzleNode"):
-				tween.tween_property(i.circle, "modulate", ColorN("white"), 0.2)
+				tween.tween_property(i.circle, "modulate", node_color, 0.2)
 			else:
-				tween.tween_property(i, "modulate", ColorN("white"), 0.2)
+				tween.tween_property(i, "modulate", node_color, 0.2)
 			tween.play()
 
 ## Called when the puzzle required to interact with this one is solved
@@ -194,7 +208,7 @@ func _on_child_exiting_tree(gone_node: Node):
 ## in this puzzle
 func get_rect() -> Rect2:
 	var lesser :Vector2 = Vector2(0, 0)
-	var greater := Vector2(1, 1)
+	var greater := Vector2(0, 0)
 	for i in get_children():
 		if not i.name == "NoNode":
 			if i.position.x < lesser.x:
@@ -205,8 +219,8 @@ func get_rect() -> Rect2:
 				lesser.y = i.position.y
 			elif i.position.y > greater.y:
 				greater.y = i.position.y
-	rect = Rect2(lesser, greater)
-	return Rect2(lesser, greater)
+	rect = Rect2(lesser, greater - lesser)
+	return Rect2(lesser, greater - lesser)
 
 ## Returns a dictionary containting all the information needed to recreate the
 ## state of this puzzle when the game is opened after being closed

@@ -71,7 +71,6 @@ UnblockingLayer = NodePath("../../HouseExit")
 new_z_index = 2
 
 [node name="HouseExit" parent="FirstArea" instance=ExtResource( 9 )]
-visible = false
 position = Vector2( 126, 539 )
 z_index = 3
 
@@ -88,11 +87,11 @@ UnblockingLayer = NodePath("..")
 anti_goal = 1.0
 
 [node name="HouseOutside" parent="FirstArea" instance=ExtResource( 11 )]
-visible = false
-position = Vector2( -93, 1227 )
+position = Vector2( -18, 504 )
+z_index = 3
 
 [node name="AreaTransition" parent="FirstArea/HouseOutside" instance=ExtResource( 7 )]
-position = Vector2( 248, 57 )
+position = Vector2( 171, 772 )
 BlockingLayer = NodePath("..")
 goal = 1.0
 UnblockingLayer = NodePath("../../HouseExit")

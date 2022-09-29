@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
-"class": "AreaTransition",
-"language": "GDScript",
-"path": "res://areas/area_transition.gd"
-}, {
 "base": "Line2D",
 "class": "Cable",
 "language": "GDScript",
@@ -29,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://puzzle_elements/puzzle.gd"
 }, {
+"base": "Puzzle",
+"class": "PuzzleGrid",
+"language": "GDScript",
+"path": "res://puzzle_elements/puzzle_grid.gd"
+}, {
 "base": "StaticBody2D",
 "class": "PuzzleNode",
 "language": "GDScript",
@@ -38,14 +38,20 @@ _global_script_classes=[ {
 "class": "PuzzleSequence",
 "language": "GDScript",
 "path": "res://puzzle_elements/puzzle_sequence.gd"
+}, {
+"base": "Area2D",
+"class": "SectionTransition",
+"language": "GDScript",
+"path": "res://areas/area_transition.gd"
 } ]
 _global_script_class_icons={
-"AreaTransition": "",
 "Cable": "",
 "Cursor": "",
 "Puzzle": "",
+"PuzzleGrid": "",
 "PuzzleNode": "",
-"PuzzleSequence": ""
+"PuzzleSequence": "",
+"SectionTransition": ""
 }
 
 [application]
@@ -60,6 +66,7 @@ config/windows_native_icon="res://sprites/icon.ico"
 [autoload]
 
 SaveData="*res://save_data.gd"
+SectionLoading="*res://SectionLoading.gd"
 
 [display]
 

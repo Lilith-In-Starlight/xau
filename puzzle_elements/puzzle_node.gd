@@ -37,6 +37,8 @@ var forced_edges: int
 
 var color :int
 
+var hardcoded_connections :Array
+
 ## The node that represents the cursor
 onready var cursor_node: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
 ## A [RayCast2D] that checks if the mouse will connect a node or not
@@ -75,30 +77,38 @@ func set_node_rule(value):
 
 ## Returns whether this node's requirements are satisfied
 func check() -> bool:
-	if node_rule == TYPES.PATH:
-		if connections.size() > 1:
-			return false
-		else:
-			if connections.empty():
+	match node_rule:
+		TYPES.PATH:
+			if connections.size() > 1:
 				return false
-			var next_checks: Array = [connections[0]]
-			var already_checked: Array = [self]
-			var connection_color :int = color
-			var will_return := false
-			while next_checks.size() > 0:
-				var current_check = next_checks[0]
-				already_checked.append(current_check)
-				next_checks.remove(0)
-				if !current_check.node_rule == TYPES.PATH:
-					for i in current_check.connections:
-						if not i in already_checked:
-							next_checks.append(i)
-				else:
-					if current_check.color == connection_color or connection_color == COLORS.black or current_check.color == COLORS.black:
-						will_return = true
+			else:
+				if connections.empty():
+					return false
+				var next_checks: Array = [connections[0]]
+				var already_checked: Array = [self]
+				var connection_color :int = color
+				var will_return := false
+				while next_checks.size() > 0:
+					var current_check = next_checks[0]
+					already_checked.append(current_check)
+					next_checks.remove(0)
+					if !current_check.node_rule == TYPES.PATH:
+						for i in current_check.connections:
+							if not i in already_checked:
+								next_checks.append(i)
 					else:
-						will_return = false
-			return will_return # if it gets here it's cuz it never found a goal
+						if current_check.color == connection_color or connection_color == COLORS.black or current_check.color == COLORS.black:
+							will_return = true
+						else:
+							will_return = false
+				return will_return # if it gets here it's cuz it never found a goal
+		TYPES.HARDCODE:
+			if connections.size() != hardcoded_connections.size():
+				return false
+			else:
+				for i in hardcoded_connections:
+					if not get_node(i) in connections:
+						return false
 	return true
 
 ## Makes the node flash red
@@ -192,11 +202,18 @@ func _get_property_list() -> Array:
 				hint = PROPERTY_HINT_ENUM,
 				hint_string = "Black,Blue,Yellow"
 			})
+		TYPES.HARDCODE:
+			properties.append({
+				name = "hardcoded_connections",
+				type = TYPE_ARRAY,
+				hint = 26,
+				hint_string = "15:",
+			})
 	return properties
 
 func property_can_revert(property: String) -> bool:
 	match property:
-		"color", "forced_edges": return true
+		"color", "forced_edges", "hardcoded_connections": return true
 		_: return false
 
 
@@ -204,3 +221,4 @@ func property_get_revert(property: String):
 	match property:
 		"color": return 0
 		"forced_edges": return 0
+		"hardcoded_connections": return []
