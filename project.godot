@@ -57,6 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Xau"
+config/description="A game inspired by Yume Nikki and The Witness."
 run/main_scene="res://game.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Xau"
