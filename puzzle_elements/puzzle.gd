@@ -31,7 +31,7 @@ export var off_background_color: Color = Color("#0c0c0c")
 ## The color of this puzzle's correct nodes
 export var correct_node_color: Color = Color( 0.866667, 0.627451, 0.866667)
 ## The color of this puzzle's regular nodes
-export var node_color: Color = Color("#000000")
+export var node_color: Color = Color("#ffffff")
 
 ## Whether the puzzle can connect to other puzzles
 export var framed := true
