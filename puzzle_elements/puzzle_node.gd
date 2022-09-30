@@ -112,16 +112,14 @@ func check() -> bool:
 	return true
 
 ## Makes the node flash red
-func show_failure():
+func show_failure(default_color: Color):
 	var tween = create_tween()
 	tween.tween_property(circle, "modulate:g", 0.0, 0.3)
 	tween.parallel().tween_property(circle, "modulate:b", 0.0, 0.3)
-	tween.tween_property(circle, "modulate:g", 1.0, 0.3)
-	tween.parallel().tween_property(circle, "modulate:b", 1.0, 0.3)
+	tween.tween_property(circle, "modulate", default_color, 0.3)
 	tween.tween_property(circle, "modulate:g", 0.0, 0.3)
 	tween.parallel().tween_property(circle, "modulate:b", 0.0, 0.3)
-	tween.tween_property(circle, "modulate:g", 1.0, 0.3)
-	tween.parallel().tween_property(circle, "modulate:b", 1.0, 0.3)
+	tween.tween_property(circle, "modulate", default_color, 0.3)
 	tween.play()
 
 

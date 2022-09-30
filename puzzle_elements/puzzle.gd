@@ -115,11 +115,11 @@ func _input(delta):
 						if i.node_rule == i.TYPES.HARDCODE:
 							hardcode_fail = true
 						else:
-							i.show_failure()
+							i.show_failure(node_color)
 						unhappy_nodes.append(i)
 			if hardcode_fail:
 				for i in hardcoded:
-					i.show_failure()
+					i.show_failure(node_color)
 			if unhappy_nodes.empty():
 				correct = true
 				if not solved:
