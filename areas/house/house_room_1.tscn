@@ -207,7 +207,6 @@ position = Vector2( 448, 191 )
 scale = Vector2( 0.8, 1 )
 
 [node name="WorldCollision" type="StaticBody2D" parent="."]
-visible = false
 z_index = 99
 collision_layer = 4
 collision_mask = 0
