@@ -1,14 +1,107 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
-[ext_resource path="res://areas/house/house_area.tscn" type="PackedScene" id=2]
+[ext_resource path="res://areas/house/house_room_2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/Cursor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://areas/house/house_outside.tscn" type="PackedScene" id=5]
+[ext_resource path="res://areas/house/house_room_4.tscn" type="PackedScene" id=6]
+[ext_resource path="res://areas/house/house_room_3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://areas/house/house_room_1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://areas/area_transition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://areas/house/house_exit.tscn" type="PackedScene" id=10]
+[ext_resource path="res://areas/area.gd" type="Script" id=11]
 
 [node name="Game" type="Node2D" groups=["GameNode"]]
 script = ExtResource( 1 )
 
-[node name="FirstArea" parent="." instance=ExtResource( 2 )]
+[node name="FirstArea" type="Node2D" parent="." groups=["World"]]
+script = ExtResource( 11 )
+first_section = NodePath("House")
+
+[node name="House" parent="FirstArea" instance=ExtResource( 8 )]
+
+[node name="AreaTransition" parent="FirstArea/House" instance=ExtResource( 9 )]
+position = Vector2( 448, 157 )
+BlockingLayer = NodePath("../../HouseRoom2")
+
+[node name="HouseRoom3" parent="FirstArea" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( -292, -43 )
+
+[node name="AreaTransition" parent="FirstArea/HouseRoom3" instance=ExtResource( 9 )]
+position = Vector2( 256, 283 )
+BlockingLayer = NodePath("..")
+goal = 1.0
+
+[node name="HouseRoom2" parent="FirstArea" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( -70, -1 )
+
+[node name="AreaTransition" parent="FirstArea/HouseRoom2" instance=ExtResource( 9 )]
+position = Vector2( 128, 322 )
+BlockingLayer = NodePath("../../HouseRoom4")
+new_z_index = 2
+
+[node name="AreaTransition2" parent="FirstArea/HouseRoom2" instance=ExtResource( 9 )]
+position = Vector2( 34, 273 )
+BlockingLayer = NodePath("../../HouseRoom3")
+
+[node name="AreaTransition3" parent="FirstArea/HouseRoom2" instance=ExtResource( 9 )]
+position = Vector2( 518, 223 )
+BlockingLayer = NodePath("..")
+goal = 1.0
+
+[node name="HouseRoom4" parent="FirstArea" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 0, 247 )
+z_index = 2
+
+[node name="AreaTransition2" parent="FirstArea/HouseRoom4" instance=ExtResource( 9 )]
+position = Vector2( 58, 106 )
+BlockingLayer = NodePath("..")
+goal = 1.0
+new_z_index = 2
+
+[node name="AreaTransition3" parent="FirstArea/HouseRoom4" instance=ExtResource( 9 )]
+position = Vector2( 154, 278 )
+BlockingLayer = NodePath("..")
+goal = 1.0
+UnblockingLayer = NodePath("../../HouseExit")
+new_z_index = 2
+
+[node name="HouseExit" parent="FirstArea" instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 126, 539 )
+z_index = 3
+
+[node name="AreaTransition" parent="FirstArea/HouseExit" instance=ExtResource( 9 )]
+position = Vector2( 28, 14 )
+BlockingLayer = NodePath("..")
+goal = 1.0
+UnblockingLayer = NodePath("../../HouseRoom4")
+
+[node name="AreaTransition2" parent="FirstArea/HouseExit" instance=ExtResource( 9 )]
+position = Vector2( 29, 704 )
+BlockingLayer = NodePath("../../HouseOutside")
+UnblockingLayer = NodePath("..")
+anti_goal = 1.0
+
+[node name="HouseOutside" parent="FirstArea" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( -18, 504 )
+z_index = 3
+
+[node name="AreaTransition" parent="FirstArea/HouseOutside" instance=ExtResource( 9 )]
+position = Vector2( 171, 772 )
+BlockingLayer = NodePath("..")
+goal = 1.0
+UnblockingLayer = NodePath("../../HouseExit")
+
+[node name="AreaTransition2" parent="FirstArea/HouseOutside" instance=ExtResource( 9 )]
+position = Vector2( -1261, 607 )
+BlockingLayer = NodePath("..")
+goal = 1.0
 
 [node name="Character" parent="." instance=ExtResource( 3 )]
 position = Vector2( 122, 127 )

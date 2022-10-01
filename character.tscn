@@ -274,6 +274,8 @@ animation = "walking_down_left"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0.5, -9 )
 current = true
+smoothing_enabled = true
+smoothing_speed = 8.0
 
 [node name="Tutorial" parent="Camera2D" instance=ExtResource( 11 )]
 position = Vector2( -0.5, 9 )

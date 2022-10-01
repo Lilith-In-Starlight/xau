@@ -54,6 +54,8 @@ var base_display_connections := true
 
 onready var player :KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 
+var is_visible := false
+
 func _draw():
 	get_rect()
 	var new_rect = rect.grow(8)
@@ -100,32 +102,33 @@ func _ready():
 
 
 func _input(delta):
-	if Input.is_action_just_pressed("connect") and is_enabled():
-		display_connections()
-	if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
-		if is_enabled():
-			var unhappy_nodes := []
-			var hardcoded := []
-			var hardcode_fail := false
-			for i in get_children():
-				if i.is_in_group("PuzzleNode"):
-					if i.node_rule == i.TYPES.HARDCODE:
-						hardcoded.append(i)
-					if !i.check():
+	if is_visible:
+		if Input.is_action_just_pressed("connect") and is_enabled():
+			display_connections()
+		if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
+			if is_enabled():
+				var unhappy_nodes := []
+				var hardcoded := []
+				var hardcode_fail := false
+				for i in get_children():
+					if i.is_in_group("PuzzleNode"):
 						if i.node_rule == i.TYPES.HARDCODE:
-							hardcode_fail = true
-						else:
-							i.show_failure(node_color)
-						unhappy_nodes.append(i)
-			if hardcode_fail:
-				for i in hardcoded:
-					i.show_failure(node_color)
-			if unhappy_nodes.empty():
-				correct = true
-				if not solved:
-					solved = true
-					emit_signal("was_solved")
-				show_correct()
+							hardcoded.append(i)
+						if !i.check():
+							if i.node_rule == i.TYPES.HARDCODE:
+								hardcode_fail = true
+							else:
+								i.show_failure(node_color)
+							unhappy_nodes.append(i)
+				if hardcode_fail:
+					for i in hardcoded:
+						i.show_failure(node_color)
+				if unhappy_nodes.empty():
+					correct = true
+					if not solved:
+						solved = true
+						emit_signal("was_solved")
+					show_correct()
 
 func set_correct(value):
 	correct = value

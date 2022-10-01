@@ -43,6 +43,8 @@ func set_spacing(value):
 func _process(delta):
 	if Engine.is_editor_hint():
 		update_children_positions()
+	else:
+		set_process(false)
 
 
 func _draw():
@@ -113,3 +115,11 @@ func _on_child_entered_tree(new_child: Node) -> void:
 func _on_child_exiting_tree(new_child: Node) -> void:
 	update_children_positions([new_child])
 	._on_child_exiting_tree(new_child)
+
+
+func _on_screen_entered() -> void:
+	is_visible = true
+
+
+func _on_screen_exited() -> void:
+	is_visible = false

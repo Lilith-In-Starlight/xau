@@ -66,3 +66,8 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="Lines" type="Node2D" parent="NoNode"]
+
+[node name="VisibilityCheck" type="VisibilityNotifier2D" parent="NoNode"]
+
+[connection signal="screen_entered" from="NoNode/VisibilityCheck" to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="NoNode/VisibilityCheck" to="." method="_on_screen_exited"]
