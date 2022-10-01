@@ -74,3 +74,7 @@ func direction_from_velocity() -> String:
 		[-1, -1]: ret = "up_left"
 	last_direction = ret
 	return ret
+
+
+func align_camera():
+	$Camera2D.reset_smoothing()

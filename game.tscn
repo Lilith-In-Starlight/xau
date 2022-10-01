@@ -1,18 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://areas/house/house_area.tscn" type="PackedScene" id=2]
 [ext_resource path="res://character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/Cursor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://world.gd" type="Script" id=5]
 
 [node name="Game" type="Node2D" groups=["GameNode"]]
 script = ExtResource( 1 )
 
-[node name="World" type="Node2D" parent="."]
-script = ExtResource( 5 )
-
-[node name="FirstArea" parent="World" instance=ExtResource( 2 )]
+[node name="FirstArea" parent="." instance=ExtResource( 2 )]
 
 [node name="Character" parent="." instance=ExtResource( 3 )]
 position = Vector2( 122, 127 )

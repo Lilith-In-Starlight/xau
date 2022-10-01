@@ -7,4 +7,3 @@
 script = ExtResource( 2 )
 
 [node name="ForestHouseTransition" parent="." instance=ExtResource( 1 )]
-position = Vector2( 593, -61 )

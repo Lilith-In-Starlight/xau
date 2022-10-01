@@ -47,7 +47,6 @@ func save():
 	data["player_pos_x"] = player.position.x
 	data["player_pos_y"] = player.position.y
 	data["player_z_index"] = player.z_index
-	data["player_current_section"] = player.get_path_to(player.current_section)
 	file.open(SAVE_PATH, File.WRITE)
 	file.store_string(JSON.print(data))
 	file.close()

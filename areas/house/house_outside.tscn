@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://misc/y_sort_object.gd" type="Script" id=1]
 [ext_resource path="res://sprites/misc/trees/orange/puzzle_1.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://sprites/misc/trees/orange/puzzle_4.png" type="Texture" id=9]
 [ext_resource path="res://sprites/misc/trees/orange/puzzle_5.png" type="Texture" id=10]
 [ext_resource path="res://sprites/misc/area1_path.png" type="Texture" id=11]
-[ext_resource path="res://sprites/areas/house/house_forest_transition_outside.png" type="Texture" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.07107
@@ -389,9 +388,3 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -377, 815 )
 shape = SubResource( 1 )
-
-[node name="HouseForestTransitionOutside" type="Sprite" parent="."]
-position = Vector2( -1525, 586 )
-texture = ExtResource( 12 )
-centered = false
-offset = Vector2( 0, -160 )

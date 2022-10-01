@@ -2,7 +2,7 @@ extends Area2D
 
 class_name FullAreaTransition
 
-signal area_switched(destination)
+signal area_switched(destination, parent_position)
 
 ## Node used to unload and load areas
 
@@ -16,4 +16,4 @@ onready var parent :Node2D = get_parent()
 
 
 func _on_body_entered(body: Node) -> void:
-	emit_signal("area_switched", destination_name)
+	emit_signal("area_switched", destination_name, get_parent().global_position)

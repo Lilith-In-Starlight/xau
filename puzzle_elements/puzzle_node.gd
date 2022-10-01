@@ -125,22 +125,21 @@ func show_failure(default_color: Color):
 
 
 func _input(delta):
-	if player.current_section == owner and get_parent().modulate.a > 0.2:
-		if Input.is_action_pressed("connect"):
-			if cursor_node.position.distance_to(global_position) < 6:
-				emit_signal("correctness_unverified")
-				if cursor_node.connecting_from == null:
-					cursor_node.connecting_from = self
-			elif cursor_node.connecting_from == self:
-				connect_puzzle(cursor_node.position)
-		elif Input.is_action_just_pressed("noconnect"):
-			if cursor_node.position.distance_to(global_position) < 6:
-				emit_signal("correctness_unverified")
-				emit_signal("delete_node_connections_request", self, false)
-		elif Input.is_action_just_pressed("puzzle_reset"):
-			if cursor_node.position.distance_to(global_position) < 6:
-				emit_signal("correctness_unverified")
-				emit_signal("delete_node_connections_request", self, true)
+	if Input.is_action_pressed("connect"):
+		if cursor_node.position.distance_to(global_position) < 6:
+			emit_signal("correctness_unverified")
+			if cursor_node.connecting_from == null:
+				cursor_node.connecting_from = self
+		elif cursor_node.connecting_from == self:
+			connect_puzzle(cursor_node.position)
+	elif Input.is_action_just_pressed("noconnect"):
+		if cursor_node.position.distance_to(global_position) < 6:
+			emit_signal("correctness_unverified")
+			emit_signal("delete_node_connections_request", self, false)
+	elif Input.is_action_just_pressed("puzzle_reset"):
+		if cursor_node.position.distance_to(global_position) < 6:
+			emit_signal("correctness_unverified")
+			emit_signal("delete_node_connections_request", self, true)
 
 
 ## Try to connect to a node towards a particular direction, usually directed

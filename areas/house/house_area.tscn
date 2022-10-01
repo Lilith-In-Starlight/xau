@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://areas/house/house_room_2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://areas/house/house_room_1.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://areas/area_transition.tscn" type="PackedScene" id=6]
 [ext_resource path="res://areas/house/house_exit.tscn" type="PackedScene" id=7]
 [ext_resource path="res://areas/area.gd" type="Script" id=8]
-[ext_resource path="res://areas/house/house_forest_transition.tscn" type="PackedScene" id=9]
 
 [node name="FirstArea" type="Node2D" groups=["World"]]
 script = ExtResource( 8 )
@@ -97,13 +96,3 @@ UnblockingLayer = NodePath("../../HouseExit")
 position = Vector2( -1261, 607 )
 BlockingLayer = NodePath("..")
 goal = 1.0
-UnblockingLayer = NodePath("../../HouseForestTransition")
-
-[node name="HouseForestTransition" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1543, 930 )
-
-[node name="AreaTransition2" parent="HouseForestTransition" instance=ExtResource( 6 )]
-position = Vector2( 223, 181 )
-BlockingLayer = NodePath("..")
-goal = 1.0
-UnblockingLayer = NodePath("../../HouseOutside")
