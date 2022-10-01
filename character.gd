@@ -22,7 +22,6 @@ func _ready():
 		position.x = SaveData.data["player_pos_x"]
 		position.y = SaveData.data["player_pos_y"]
 		z_index = SaveData.data["player_z_index"]
-		current_section = get_node(SaveData.data["player_current_section"])
 
 
 func _process(delta):

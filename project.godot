@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://gui/cursor.gd"
 }, {
+"base": "Area2D",
+"class": "FullAreaTransition",
+"language": "GDScript",
+"path": "res://areas/full_area_transition.gd"
+}, {
 "base": "Node2D",
 "class": "Puzzle",
 "language": "GDScript",
@@ -47,6 +52,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Cable": "",
 "Cursor": "",
+"FullAreaTransition": "",
 "Puzzle": "",
 "PuzzleGrid": "",
 "PuzzleNode": "",

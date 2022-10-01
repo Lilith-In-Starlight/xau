@@ -11,3 +11,16 @@ func _ready() -> void:
 			i.visible = true
 	get_tree().call_group("Puzzle", "update_correctness_visuals")
 	get_tree().call_group("Puzzle", "update_enabled_visuals")
+	get_tree().call_group("AreaLoaders", "connect", "area_switched", self, "_on_area_switched")
+
+
+func _on_area_switched(next_area):
+	match next_area:
+		"forest":
+			var new_area = load("res://areas/forest/forest_area.tscn").instance()
+			get_parent().call_deferred("add_child", new_area)
+			queue_free()
+		"house":
+			var new_area = load("res://areas/house/house_area.tscn").instance()
+			get_parent().call_deferred("add_child", new_area)
+			queue_free()
