@@ -58,3 +58,9 @@ func _input(event):
 				tween.tween_property($Wasd, "modulate:a", 0.0, 0.2)
 				tween.play()
 				stage = 4
+		4:
+			var tween := create_tween()
+			tween.tween_property(self, "modulate:a", 0.0, 0.2)
+			tween.play()
+			stage = 5
+
