@@ -30,7 +30,7 @@ func _process(delta):
 	past_pos = position
 	
 	var abs_delta_x = abs(pos_delta.x * pos_delta.x)
-	var angle_mult = min(abs_delta_x / 400.0, 1.0)
+	var angle_mult = min(abs_delta_x / 20.0, 0.8)
 
 	if pos_delta.x < -1:
 		sprite.rotation = lerp_angle(sprite.rotation, deg2rad(-45 * angle_mult), 0.2)
