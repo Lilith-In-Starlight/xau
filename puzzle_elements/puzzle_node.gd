@@ -125,6 +125,12 @@ func show_failure(default_color: Color):
 
 
 func _input(delta):
+	if Input.is_action_just_pressed("connect"):
+		if cursor_node.position.distance_to(global_position) < 6:
+			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+			solved_sound.stream = preload("res://sfx/node_connect.wav")
+			solved_sound.pitch_scale = 0.5 + randf() * 1.5
+			add_child(solved_sound)
 	if Input.is_action_pressed("connect"):
 		if cursor_node.position.distance_to(global_position) < 6:
 			emit_signal("correctness_unverified")
@@ -140,6 +146,10 @@ func _input(delta):
 		if cursor_node.position.distance_to(global_position) < 6:
 			emit_signal("correctness_unverified")
 			emit_signal("delete_node_connections_request", self, true)
+			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+			solved_sound.stream = preload("res://sfx/xau_reset.wav")
+			solved_sound.pitch_scale = 0.8 + randf()*0.2
+			add_child(solved_sound)
 
 
 ## Try to connect to a node towards a particular direction, usually directed
@@ -152,6 +162,10 @@ func connect_puzzle(target, disconnect := false):
 		if raycast_collider.is_in_group("PuzzleNode"):
 			if raycast_collider.parent == parent or (!parent.framed and !raycast_collider.parent.framed):
 				if raycast_collider.parent.is_enabled():
+					var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+					solved_sound.stream = preload("res://sfx/node_connect.wav")
+					solved_sound.pitch_scale = 0.5 + randf() * 1.5
+					add_child(solved_sound)
 					if not raycast_collider in connections and not disconnect:
 						connections.append(raycast_collider)
 						raycast_collider.connections.append(self)

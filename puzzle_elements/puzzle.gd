@@ -110,11 +110,13 @@ func _input(delta):
 				var unhappy_nodes := []
 				var hardcoded := []
 				var hardcode_fail := false
+				var failed := false
 				for i in get_children():
 					if i.is_in_group("PuzzleNode"):
 						if i.node_rule == i.TYPES.HARDCODE:
 							hardcoded.append(i)
 						if !i.check():
+							failed = true
 							if i.node_rule == i.TYPES.HARDCODE:
 								hardcode_fail = true
 							else:
@@ -123,8 +125,18 @@ func _input(delta):
 				if hardcode_fail:
 					for i in hardcoded:
 						i.show_failure(node_color)
+				if failed:
+					var failed_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+					failed_sound.stream = preload("res://sfx/xau_puzzle_fail.wav")
+					failed_sound.attenuation = 40
+					add_child(failed_sound)
 				if unhappy_nodes.empty():
-					correct = true
+					if not correct:
+						correct = true
+						var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+						solved_sound.stream = preload("res://sfx/xau_puzzle_solve.wav")
+						solved_sound.pitch_scale = 0.8 + randf()*0.2
+						add_child(solved_sound)
 					if not solved:
 						solved = true
 						emit_signal("was_solved")

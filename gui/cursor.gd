@@ -64,3 +64,8 @@ func _input(delta):
 			
 	if Input.is_action_just_pressed("confirm"):
 		connecting_from = null
+
+
+func change_blink(to: bool):
+	if to:
+		$Blinker.play("Blink")

@@ -26,6 +26,9 @@ func _ready():
 
 
 func _process(delta):
+	if velocity.length() < 0.1:
+		var int_position = global_position.snapped(Vector2(1.0, 1.0))
+		$Animations.position = int_position - global_position
 	if Input.is_action_pressed("up") and not Input.is_action_pressed("down"):
 		velocity.y = lerp(velocity.y, -MAX_VEL * delta*60.0, GO_MULT)
 	elif Input.is_action_pressed("down") and not Input.is_action_pressed("up"):
@@ -47,6 +50,10 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("undo"):
 		if !undo_history.empty():
+			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+			solved_sound.stream = preload("res://sfx/puzzle_undo.wav")
+			solved_sound.pitch_scale = 0.8 + randf()*0.2
+			add_child(solved_sound)
 			var last: Array = undo_history.pop_back()
 			for i in last:
 				if i[0] == "disconnect":
