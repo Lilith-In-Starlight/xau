@@ -69,3 +69,5 @@ func _input(delta):
 func change_blink(to: bool):
 	if to:
 		$Blinker.play("Blink")
+		if not $Alarm.playing:
+			$Alarm.play()

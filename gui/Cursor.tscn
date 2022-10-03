@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://gui/cursor.gd" type="Script" id=1]
 [ext_resource path="res://sprites/gui/cursor_sprite.png" type="Texture" id=2]
+[ext_resource path="res://sfx/warning.wav" type="AudioStream" id=3]
+[ext_resource path="res://sfx/fly.wav" type="AudioStream" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -41,7 +43,6 @@ script = ExtResource( 1 )
 
 [node name="Cursor" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="Connection" type="Line2D" parent="."]
@@ -57,3 +58,11 @@ collision_mask = 197
 
 [node name="Blinker" type="AnimationPlayer" parent="."]
 anims/Blink = SubResource( 4 )
+
+[node name="Alarm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Fly" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+max_distance = 100.0

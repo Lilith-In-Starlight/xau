@@ -158,18 +158,18 @@ node_rule = 1
 color = 0
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
-position = Vector2( 16, 0 )
+position = Vector2( 0, 16 )
 node_rule = 2
 forced_edges = 0
 color = 0
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 32 )
 node_rule = 1
 color = 0
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
+position = Vector2( 16, 32 )
 node_rule = 1
 color = 0
 
@@ -187,22 +187,22 @@ node_rule = 1
 color = 0
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 32, 0 )
-node_rule = 1
-color = 0
-
-[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 0, 16 )
 node_rule = 1
 color = 0
 
+[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 32, 16 )
+node_rule = 1
+color = 0
+
 [node name="PuzzleNode5" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
+position = Vector2( 16, 32 )
 node_rule = 1
 color = 0
 
 [node name="PuzzleNode6" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 32, 16 )
+position = Vector2( 32, 32 )
 
 [node name="Blockade" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 4 )]
 position = Vector2( 16, 8 )
@@ -281,20 +281,20 @@ position = Vector2( 32, 0 )
 position = Vector2( 0, 16 )
 
 [node name="PuzzleNode5" parent="PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
-node_rule = 1
-color = 0
-
-[node name="PuzzleNode6" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 32, 16 )
 node_rule = 1
 color = 0
 
-[node name="PuzzleNode7" parent="PuzzleGrid3" instance=ExtResource( 5 )]
+[node name="PuzzleNode6" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 0, 32 )
+node_rule = 1
+color = 0
+
+[node name="PuzzleNode7" parent="PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 16, 32 )
 
 [node name="PuzzleNode8" parent="PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 32 )
+position = Vector2( 32, 32 )
 
 [node name="Blockade" parent="PuzzleGrid3" instance=ExtResource( 4 )]
 position = Vector2( 0, 24 )
