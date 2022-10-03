@@ -92,7 +92,7 @@ required_puzzle = NodePath("../PuzzleGrid")
 [node name="Cable2" type="Line2D" parent="."]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( -235, 356 )
-points = PoolVector2Array( -538, 264, -538, 274, -535, 277, -471.032, 277, -468, 274, -468, 248, -460, 240, -366, 240 )
+points = PoolVector2Array( -538, 264, -538, 274, -535, 277, -471.032, 277, -448, 260, -366, 260 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -103,7 +103,7 @@ required_puzzle = NodePath("../PuzzleGrid")
 [node name="Cable3" type="Line2D" parent="."]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( -542, 334 )
-points = PoolVector2Array( -558, 248, -558, 263, -550, 271, -473, 271, -464, 262, -464, 116, -454, 106, -382, 106 )
+points = PoolVector2Array( -558, 248, -558, 263, -550, 271, -473, 271, -464, 262, -464, 135, -453, 124, -383, 124 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -114,7 +114,7 @@ required_puzzle = NodePath("../PuzzleGrid")
 [node name="Cable5" type="Line2D" parent="."]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( -752, 411 )
-points = PoolVector2Array( -560, 153, -560, 167, -551, 176, -423, 176, -410, 163, -410, 139, -399, 128, -382, 128 )
+points = PoolVector2Array( -560, 153, -560, 167, -551, 176, -423, 176, -410, 163, -410, 144, -405, 139, -382, 139 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -125,7 +125,7 @@ required_puzzle = NodePath("../PuzzleGrid")
 [node name="Cable4" type="Line2D" parent="."]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( -431, 412 )
-points = PoolVector2Array( -459, 72, -459, 74, -450, 83, -342, 83, -333, 92, -333, 171 )
+points = PoolVector2Array( -459, 72, -459, 74, -450, 83, -353, 83, -342, 94, -342, 171 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -136,7 +136,7 @@ required_puzzle = NodePath("../PuzzleGrid")
 [node name="Cable6" type="Line2D" parent="."]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( -971, 376 )
-points = PoolVector2Array( -340, 16, -340, 36.1256, -340, 91, -333, 98, -333, 171 )
+points = PoolVector2Array( -340, 16, -340, 89, -342, 91, -342, 153 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -147,7 +147,7 @@ required_puzzle = NodePath("../PuzzleGrid6")
 [node name="Cable7" type="Line2D" parent="."]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( -796, 240 )
-points = PoolVector2Array( -340, 16, -340, 97, -352, 109, -481, 109 )
+points = PoolVector2Array( -340, 16, -340, 112, -352, 124, -481, 124 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -158,7 +158,7 @@ required_puzzle = NodePath("../PuzzleGrid6")
 [node name="Cable8" type="Line2D" parent="."]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( -528, 185 )
-points = PoolVector2Array( -445, 201, -445, 217, -454, 226, -539, 226, -547, 218, -547, 38, -557, 28, -574, 28 )
+points = PoolVector2Array( -445, 201, -445, 217, -454, 226, -539, 226, -547, 218, -547, 50, -553, 44, -574, 44 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -169,7 +169,7 @@ required_puzzle = NodePath("../PuzzleGrid6")
 [node name="Cable9" type="Line2D" parent="."]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( -316, 101 )
-points = PoolVector2Array( -463, 180, -463, 248, -473, 258, -639, 258 )
+points = PoolVector2Array( -463, 180, -463, 258, -472, 267, -639, 267 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
