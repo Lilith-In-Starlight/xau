@@ -1,6 +1,8 @@
 # Xau
 Xau is a game I'm working on, inspired by The Witness, Taiji and Yume Nikki. Its main mechanic is connecting nodes in a graph.
 
+![image](https://user-images.githubusercontent.com/56773311/193986698-2eaa3c36-10a2-4d33-a2c7-7cc03f441162.png)
+
 ## Why Xau?
 Xau means `That Which Is Connected` in Laiqbun. It works because of the main mechanic of the game.
 
