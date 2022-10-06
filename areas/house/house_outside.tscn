@@ -153,7 +153,7 @@ default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
 on_color = Color( 1, 0.611765, 0.858824, 1 )
 off_color = Color( 0.572549, 0.286275, 0.47451, 1 )
-required_puzzle = NodePath("../PuzzleGrid6")
+required_puzzle = NodePath("../PuzzleGrid7")
 
 [node name="Cable8" type="Line2D" parent="."]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
@@ -164,10 +164,10 @@ default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
 on_color = Color( 1, 0.611765, 0.858824, 1 )
 off_color = Color( 0.572549, 0.286275, 0.47451, 1 )
-required_puzzle = NodePath("../PuzzleGrid6")
+required_puzzle = NodePath("../PuzzleGrid8")
 
 [node name="Cable9" type="Line2D" parent="."]
-modulate = Color( 0.9, 0.9, 0.9, 1 )
+modulate = Color( 0.901961, 0.901961, 0.901961, 1 )
 position = Vector2( -316, 101 )
 points = PoolVector2Array( -463, 180, -463, 258, -472, 267, -639, 267 )
 width = 2.0
@@ -175,7 +175,7 @@ default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
 on_color = Color( 1, 0.611765, 0.858824, 1 )
 off_color = Color( 0.572549, 0.286275, 0.47451, 1 )
-required_puzzle = NodePath("../PuzzleGrid6")
+required_puzzle = NodePath("../PuzzleGrid9")
 
 [node name="Tree" type="Sprite" parent="."]
 position = Vector2( -938, 918 )
