@@ -4,7 +4,7 @@ Xau is a game I'm working on, inspired by The Witness, Taiji and Yume Nikki. Its
 ![image](https://user-images.githubusercontent.com/56773311/193986698-2eaa3c36-10a2-4d33-a2c7-7cc03f441162.png)
 
 ## Why Xau?
-Xau means `That Which Is Connected` in Laiqbun. It works because of the main mechanic of the game.
+Xau means `That Which Is Connected` in Laiqbun, referencing the main mechanic of the game.
 
 ## How will it be like The Witness and Taiji?
 Both of thes games are ones where you solve puzzles on screens that are all over the map. Xau is simila in this regard, as screend will node graphs will be found all over the map and the player will have to figure out the right way to connect them.
@@ -21,6 +21,6 @@ I want Xau to have that similar vibe, especially with the wandering around aimle
 ## How will it differ from those?
 For one, its puzzles will occur on node graphs, which is a pretty unique medium for puzzles, as the player has a lot of freedom on how to make a solution.
 
-Unlike in both Witness and Taiji, Xau will have text. Text parts will be usually brief, will only showcase optional storytelling, will be entirely optional, and will be very rare.
+Unlike in both Witness and Taiji, Xau will have text. Text parts will be usually brief, will only showcase storytelling, will be entirely optional, and will be very rare and cryptic.
 
 There will also be puzzles that aren't entirely logical. Some puzzles will focus on observation and interpretation, instead of applying rules to reach a solution. The game will use visual language to allow the player to discern between logical puzzles and interpretation puzzles.
