@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/droning_bass.mp3-9e9e28c56d2516c98c7a87e469a913f3.mp3str"
+
+[deps]
+
+source_file="res://music/droning_bass.mp3"
+dest_files=[ "res://.import/droning_bass.mp3-9e9e28c56d2516c98c7a87e469a913f3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

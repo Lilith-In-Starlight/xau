@@ -11,14 +11,14 @@ var stage := 0
 
 onready var player_node: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 onready var cursor_node = get_tree().get_nodes_in_group("Cursor")[0]
+onready var MusicHandler: Node = get_tree().get_nodes_in_group("MusicHandler")[0]
 
 func _ready():
-	if SaveData.upid.has("tutorial_puzzle"):
-		if SaveData.upid["tutorial_puzzle"].solved:
-			var tween := create_tween()
-			tween.tween_property($Space, "modulate:a", 0.0, 0.2)
-			tween.play()
-			stage = 4
+	if SaveData.data.has("done_tutorial"):
+		var tween := create_tween()
+		tween.tween_property($Space, "modulate:a", 0.0, 0.2)
+		tween.play()
+		stage = 4
 
 
 func _input(event):
@@ -47,6 +47,7 @@ func _input(event):
 					stage = 2
 		2:
 			if SaveData.upid["tutorial_puzzle"].solved:
+				MusicHandler.play_tutorial_guitar()
 				var tween := create_tween()
 				tween.tween_property($Space, "modulate:a", 0.0, 0.2)
 				tween.tween_property($Wasd, "modulate:a", 1.0, 0.2)
@@ -63,4 +64,5 @@ func _input(event):
 			tween.tween_property(self, "modulate:a", 0.0, 0.2)
 			tween.play()
 			stage = 5
+			SaveData.data["done_tutorial"] = true
 

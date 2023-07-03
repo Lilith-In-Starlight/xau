@@ -11,18 +11,8 @@ func _ready() -> void:
 	get_tree().call_group("Puzzle", "update_correctness_visuals")
 	get_tree().call_group("Puzzle", "update_enabled_visuals")
 	get_tree().call_group("AreaLoaders", "connect", "area_switched", self, "_on_area_switched")
-
-
-func _on_area_switched(next_area, transport_position):
-	var new_area = SectionLoading.sections[next_area].instance()
-	match next_area:
-		"forest":
-			get_parent().call_deferred("add_child", new_area)
-			queue_free()
-			player_node.global_position -= transport_position
-		"house":
-			get_parent().call_deferred("add_child", new_area)
-			queue_free()
-			player_node.global_position -= transport_position
-			player_node.global_position += Vector2(-1543, 930)
-	player_node.align_camera()
+	
+	if SaveData.data.has("player_state"):
+		$StatesDefiner.update_state(SaveData.data["player_state"], false)
+	else:
+		$StatesDefiner.update_state("first_room", false)

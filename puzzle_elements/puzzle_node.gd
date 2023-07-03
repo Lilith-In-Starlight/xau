@@ -56,6 +56,8 @@ onready var player :KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 func _ready():
 	$PathMark.visible = node_rule == TYPES.PATH
 	$PathMark.modulate = get_color()
+	$IsoMark.visible = node_rule == TYPES.ISOMORPH
+	$IsoMark.modulate = get_color()
 
 
 func _process(delta):
@@ -69,6 +71,8 @@ func _process(delta):
 	else:
 		$PathMark.modulate = get_color()
 		$PathMark.visible = node_rule == TYPES.PATH
+		$IsoMark.visible = node_rule == TYPES.ISOMORPH
+		$IsoMark.modulate = get_color()
 
 
 func set_node_rule(value):
@@ -109,6 +113,8 @@ func check() -> bool:
 				for i in hardcoded_connections:
 					if not get_node(i) in connections:
 						return false
+		TYPES.ISOMORPH:
+			pass
 	return true
 
 ## Makes the node flash red
@@ -201,6 +207,13 @@ func _get_property_list() -> Array:
 				hint = PROPERTY_HINT_ENUM,
 				hint_string = "Black,Blue,Yellow"
 			})
+		TYPES.ISOMORPH:
+			properties.append({
+				name = "color",
+				type = TYPE_INT,
+				hint = PROPERTY_HINT_ENUM,
+				hint_string = "Black,Blue,Yellow"
+			})
 		TYPES.SECTION:
 			properties.append({
 				name = "forced_edges",
@@ -233,3 +246,62 @@ func property_get_revert(property: String):
 		"color": return 0
 		"forced_edges": return 0
 		"hardcoded_connections": return []
+
+
+func get_graph_shape():
+	var node_ids := [self]
+	var unchecked_nodes := [self]
+	var checked_nodes := []
+	var vertices := {
+		0 : []
+	}
+	for checking in unchecked_nodes:
+		var checking_id := node_ids.find(checking)
+		checked_nodes.append(checking)
+		for neighbor in checking.connections:
+			if not node_ids.has(neighbor):
+				node_ids.append(neighbor)
+			var neighbor_id = node_ids.find(neighbor)
+			if not vertices.has(neighbor_id):
+				vertices[neighbor_id] = []
+			if not vertices[checking_id].has(neighbor_id):
+				vertices[checking_id].append(neighbor_id)
+			if not neighbor in checked_nodes:
+				unchecked_nodes.append(neighbor)
+	
+	for i in vertices:
+		vertices[i].sort()
+	
+	return vertices
+
+func get_all_nodes_in_graph():
+	var unchecked_nodes := [self]
+	var known_nodes := []
+	for checking in unchecked_nodes:
+		known_nodes.append(checking)
+		for neighbor in checking.connections:
+			if not neighbor in known_nodes:
+				unchecked_nodes.append(neighbor)
+	return known_nodes
+
+
+func get_neighbor_identifiers():
+	var unchecked_nodes := [self]
+	var checked_nodes := []
+	var neighbor_id := {}
+	var readable_id := {}
+	for checking in unchecked_nodes:
+		checked_nodes.append(checking)
+		var new_neighbor_list := []
+		for neighbor in checking.connections:
+			new_neighbor_list.append(neighbor.connections.size())
+			if not neighbor in checked_nodes:
+				unchecked_nodes.append(neighbor)
+		new_neighbor_list.sort()
+		if not neighbor_id.has(hash(new_neighbor_list)):
+			neighbor_id[hash(new_neighbor_list)] = 0
+			readable_id[new_neighbor_list] = 0
+		neighbor_id[hash(new_neighbor_list)] += 1
+		readable_id[new_neighbor_list] += 1
+	print(readable_id)
+	return neighbor_id

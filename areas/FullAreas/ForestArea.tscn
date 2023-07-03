@@ -1,0 +1,289 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://TreeDecoration.tscn" type="PackedScene" id=1]
+[ext_resource path="res://areas/area_transition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://areas/FullAreas/ForestStatesDefiner.gd" type="Script" id=3]
+[ext_resource path="res://misc/y_sort_object.gd" type="Script" id=4]
+[ext_resource path="res://puzzle_elements/puzzle_grid.tscn" type="PackedScene" id=5]
+[ext_resource path="res://puzzle_elements/puzzle_node.tscn" type="PackedScene" id=6]
+[ext_resource path="res://puzzle_elements/blockade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://areas/forest/forest_transition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://areas/area.gd" type="Script" id=9]
+[ext_resource path="res://sprites/areas/house/house_forest_transition_outside.png" type="Texture" id=10]
+[ext_resource path="res://puzzle_elements/puzzle_sequence.gd" type="Script" id=11]
+[ext_resource path="res://sprites/misc/statue.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 42.5, 10 )
+
+[node name="Forest" type="Node2D" groups=["World"]]
+script = ExtResource( 9 )
+
+[node name="StatesDefiner" type="Node" parent="." groups=["StateDefiner"]]
+script = ExtResource( 3 )
+
+[node name="transition_to_first_nexus" type="Node" parent="StatesDefiner"]
+
+[node name="AreaTransition8" parent="StatesDefiner/transition_to_first_nexus" instance=ExtResource( 2 )]
+position = Vector2( -1541, 84 )
+scale = Vector2( 0.44, 1 )
+
+[node name="AreaTransition9" parent="StatesDefiner/transition_to_first_nexus" instance=ExtResource( 2 )]
+position = Vector2( -1750, 83 )
+scale = Vector2( 0.44, 1 )
+
+[node name="outside" type="Node" parent="StatesDefiner"]
+
+[node name="AreaTransition6" parent="StatesDefiner/outside" instance=ExtResource( 2 )]
+position = Vector2( -1511, 83 )
+
+[node name="AreaTransition7" parent="StatesDefiner/outside" instance=ExtResource( 2 )]
+position = Vector2( -1780, 83 )
+
+[node name="Outside" type="Node2D" parent="."]
+
+[node name="Decoration" type="Node" parent="Outside"]
+
+[node name="Tree" parent="Outside/Decoration" instance=ExtResource( 1 )]
+position = Vector2( -1359, 146 )
+
+[node name="Tree2" parent="Outside/Decoration" instance=ExtResource( 1 )]
+position = Vector2( -1148, 260 )
+
+[node name="Tree3" parent="Outside/Decoration" instance=ExtResource( 1 )]
+position = Vector2( -1688, 325 )
+
+[node name="Tree4" parent="Outside/Decoration" instance=ExtResource( 1 )]
+position = Vector2( -1570, 337 )
+
+[node name="Tree5" parent="Outside/Decoration" instance=ExtResource( 1 )]
+position = Vector2( -1905, 359 )
+
+[node name="Tree6" parent="Outside/Decoration" instance=ExtResource( 1 )]
+position = Vector2( -1872, -49 )
+
+[node name="Tree7" parent="Outside/Decoration" instance=ExtResource( 1 )]
+position = Vector2( -1703, -114 )
+
+[node name="Statue" type="Sprite" parent="Outside/Decoration"]
+position = Vector2( -2048, 311 )
+texture = ExtResource( 12 )
+offset = Vector2( 0, -49 )
+script = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Outside/Decoration/Statue"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Decoration/Statue/StaticBody2D"]
+position = Vector2( 16, -1 )
+shape = SubResource( 1 )
+
+[node name="PuzzleSequence" type="Node2D" parent="Outside"]
+position = Vector2( -1463, 251 )
+script = ExtResource( 11 )
+
+[node name="PuzzleGrid" parent="Outside/PuzzleSequence" instance=ExtResource( 5 )]
+correct_node_color = Color( 1, 0.631373, 0, 1 )
+node_color = Color( 1, 0.94902, 0.623529, 1 )
+holes = PoolVector2Array( 0, 1, 1, 1 )
+
+[node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid" instance=ExtResource( 6 )]
+node_rule = 3
+color = 0
+
+[node name="PuzzleNode2" parent="Outside/PuzzleSequence/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 16, 0 )
+
+[node name="PuzzleNode3" parent="Outside/PuzzleSequence/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 0, 32 )
+
+[node name="PuzzleNode4" parent="Outside/PuzzleSequence/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 16, 32 )
+node_rule = 3
+color = 0
+
+[node name="PuzzleGrid2" parent="Outside/PuzzleSequence" instance=ExtResource( 5 )]
+position = Vector2( 40, 0 )
+required_puzzle = NodePath("../PuzzleGrid")
+correct_node_color = Color( 1, 0.631373, 0, 1 )
+node_color = Color( 1, 0.94902, 0.623529, 1 )
+row_size = 4
+holes = PoolVector2Array( 1, 0, 1, 1, 2, 1, 2, 2 )
+
+[node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource( 6 )]
+node_rule = 3
+color = 0
+
+[node name="PuzzleNode2" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource( 6 )]
+position = Vector2( 32, 0 )
+
+[node name="PuzzleNode3" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource( 6 )]
+position = Vector2( 48, 0 )
+
+[node name="PuzzleNode5" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource( 6 )]
+position = Vector2( 0, 16 )
+
+[node name="PuzzleNode6" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource( 6 )]
+position = Vector2( 48, 16 )
+
+[node name="PuzzleNode7" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource( 6 )]
+position = Vector2( 0, 32 )
+
+[node name="PuzzleNode8" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource( 6 )]
+position = Vector2( 16, 32 )
+
+[node name="PuzzleNode9" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource( 6 )]
+position = Vector2( 48, 32 )
+node_rule = 3
+color = 0
+
+[node name="Blockade2" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource( 7 )]
+position = Vector2( 24, 16 )
+scale = Vector2( 1, 10 )
+
+[node name="PuzzleGrid3" parent="Outside/PuzzleSequence" instance=ExtResource( 5 )]
+position = Vector2( 112, 0 )
+required_puzzle = NodePath("../PuzzleGrid2")
+correct_node_color = Color( 1, 0.631373, 0, 1 )
+node_color = Color( 1, 0.94902, 0.623529, 1 )
+row_size = 4
+holes = PoolVector2Array( 1, 0, 1, 1, 2, 1, 2, 2 )
+
+[node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource( 6 )]
+node_rule = 3
+color = 0
+
+[node name="PuzzleNode2" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource( 6 )]
+position = Vector2( 32, 0 )
+
+[node name="PuzzleNode3" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource( 6 )]
+position = Vector2( 48, 0 )
+
+[node name="PuzzleNode5" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource( 6 )]
+position = Vector2( 0, 16 )
+
+[node name="PuzzleNode6" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource( 6 )]
+position = Vector2( 48, 16 )
+node_rule = 3
+color = 0
+
+[node name="PuzzleNode7" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource( 6 )]
+position = Vector2( 0, 32 )
+
+[node name="PuzzleNode8" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource( 6 )]
+position = Vector2( 16, 32 )
+
+[node name="PuzzleNode9" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource( 6 )]
+position = Vector2( 48, 32 )
+
+[node name="Blockade2" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource( 7 )]
+position = Vector2( 24, 16 )
+scale = Vector2( 1, 10 )
+
+[node name="PuzzleGrid4" parent="Outside/PuzzleSequence" instance=ExtResource( 5 )]
+position = Vector2( 184, 0 )
+required_puzzle = NodePath("../PuzzleGrid3")
+correct_node_color = Color( 1, 0.631373, 0, 1 )
+node_color = Color( 1, 0.94902, 0.623529, 1 )
+row_size = 4
+holes = PoolVector2Array( 1, 0, 1, 1 )
+
+[node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource( 6 )]
+node_rule = 3
+color = 0
+
+[node name="PuzzleNode2" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource( 6 )]
+position = Vector2( 32, 0 )
+
+[node name="PuzzleNode3" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource( 6 )]
+position = Vector2( 48, 0 )
+
+[node name="PuzzleNode5" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource( 6 )]
+position = Vector2( 0, 16 )
+
+[node name="PuzzleNode7" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource( 6 )]
+position = Vector2( 32, 16 )
+
+[node name="PuzzleNode8" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource( 6 )]
+position = Vector2( 48, 16 )
+node_rule = 3
+color = 0
+
+[node name="PuzzleNode9" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource( 6 )]
+position = Vector2( 0, 32 )
+
+[node name="PuzzleNode10" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource( 6 )]
+position = Vector2( 16, 32 )
+
+[node name="Blockade2" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource( 7 )]
+position = Vector2( 24, 16 )
+scale = Vector2( 1, 10 )
+
+[node name="PuzzleGrid" parent="Outside" instance=ExtResource( 5 )]
+position = Vector2( -2050, 336 )
+correct_node_color = Color( 1, 0.631373, 0, 1 )
+node_color = Color( 1, 0.94902, 0.623529, 1 )
+row_size = 3
+
+[node name="PuzzleNode" parent="Outside/PuzzleGrid" instance=ExtResource( 6 )]
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode2" parent="Outside/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 16, 0 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode3" parent="Outside/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 32, 0 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode4" parent="Outside/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 0, 16 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode5" parent="Outside/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 16, 16 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode6" parent="Outside/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 32, 16 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode7" parent="Outside/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 0, 32 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode8" parent="Outside/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 16, 32 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="PuzzleNode9" parent="Outside/PuzzleGrid" instance=ExtResource( 6 )]
+position = Vector2( 32, 32 )
+node_rule = 5
+hardcoded_connections = [  ]
+
+[node name="Transition" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1646, 47 )
+to_area = "first_nexus"
+destination_state = "transition_to_forest"
+
+[node name="HouseForestTransitionOutside2" type="Node2D" parent="."]
+
+[node name="HouseForestTransitionOutside" type="Sprite" parent="HouseForestTransitionOutside2"]
+position = Vector2( -1646, 47 )
+texture = ExtResource( 10 )
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.870588, 0.321569, 0.152941, 1 )

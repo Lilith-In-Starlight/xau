@@ -83,6 +83,8 @@ func _ready():
 		if solved or correct: emit_signal("was_solved")
 		for i in get_child_count():
 			var child = get_child(i)
+			if not child.is_in_group("PuzzleNode"):
+				continue
 			if puzzle_data["connections"].has(str(i)):
 				for j in puzzle_data["connections"][str(i)]:
 					if j is String:
@@ -107,14 +109,47 @@ func _input(delta):
 			display_connections()
 		if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
 			if is_enabled():
+				print(name)
 				var unhappy_nodes := []
 				var hardcoded := []
 				var hardcode_fail := false
 				var failed := false
+				var graph_shapes := {}
+				var unhappy_graph_colors := []
 				for i in get_children():
 					if i.is_in_group("PuzzleNode"):
 						if i.node_rule == i.TYPES.HARDCODE:
 							hardcoded.append(i)
+						if i.node_rule == i.TYPES.ISOMORPH:
+							if not i.color in unhappy_graph_colors:
+								if not i.color in graph_shapes:
+									graph_shapes[i.color] = [i, i.get_neighbor_identifiers()]
+									print(i.get_neighbor_identifiers())
+									if i.connections.empty():
+										failed = true
+										i.show_failure(node_color)
+										unhappy_nodes.append(i)
+										unhappy_graph_colors.append(i.color)
+									for node_in_graph in i.get_all_nodes_in_graph():
+										if node_in_graph == i:
+											continue
+										if node_in_graph.node_rule == i.TYPES.ISOMORPH and node_in_graph.color == i.color:
+											failed = true
+											i.show_failure(node_color)
+											unhappy_nodes.append(i)
+											unhappy_graph_colors.append(i.color)
+											break
+								else:
+									print(i.get_neighbor_identifiers())
+									if not check_isomorphism(i.get_neighbor_identifiers(), graph_shapes[i.color][1]):
+										unhappy_nodes.append(i)
+										graph_shapes[i.color][0].show_failure(node_color)
+										unhappy_nodes.append(graph_shapes[i.color][0])
+										i.show_failure(node_color)
+										unhappy_graph_colors.append(i.color)
+							else:
+								i.show_failure(node_color)
+								unhappy_nodes.append(i)
 						if !i.check():
 							failed = true
 							if i.node_rule == i.TYPES.HARDCODE:
@@ -153,9 +188,12 @@ func set_required_puzzle(value):
 
 func check_correct():
 	var unhappy_nodes := []
+	var graph_shapes := {}
 	for i in get_children():
 		if i.is_in_group("PuzzleNode"):
-			if !i.check():
+			if i.node_rule == i.TYPES.ISOMORPH:
+				print(i.get_graph_shape())
+			elif !i.check():
 				unhappy_nodes.append(i)
 	return unhappy_nodes.empty()
 
@@ -283,7 +321,8 @@ func display_connections():
 		for i in known_connections.size():
 			var connection: Array = known_connections[i]
 			var line: Line2D = connection_display.get_child(i)
-			line.points = [connection[0].position, connection[1].global_position - global_position]
+			if connection[0] != null and connection[1] != null:
+				line.points = [connection[0].position, connection[1].global_position - global_position]
 
 
 func _on_correctness_unverified():
@@ -312,3 +351,14 @@ func _on_delete_node_connections_requested(requester, full_reset):
 func _on_connection_changed(from, to, type):
 	player.undo_history.append([[type, from, to, self]])
 	display_connections()
+
+
+func check_isomorphism(shape1: Dictionary, shape2: Dictionary):
+	if shape1.size() != shape2.size():
+		return false
+	for i in shape1:
+		if not i in shape2:
+			return false
+		if shape1[i] != shape2[i]:
+			return false
+	return true

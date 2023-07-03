@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "AreaTransition",
+"language": "GDScript",
+"path": "res://areas/area_transition.gd"
+}, {
 "base": "Line2D",
 "class": "Cable",
 "language": "GDScript",
@@ -44,12 +49,13 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://puzzle_elements/puzzle_sequence.gd"
 }, {
-"base": "Area2D",
-"class": "SectionTransition",
+"base": "Node",
+"class": "StatesDefiner",
 "language": "GDScript",
-"path": "res://areas/area_transition.gd"
+"path": "res://StatesDefiner.gd"
 } ]
 _global_script_class_icons={
+"AreaTransition": "",
 "Cable": "",
 "Cursor": "",
 "FullAreaTransition": "",
@@ -57,7 +63,7 @@ _global_script_class_icons={
 "PuzzleGrid": "",
 "PuzzleNode": "",
 "PuzzleSequence": "",
-"SectionTransition": ""
+"StatesDefiner": ""
 }
 
 [application]

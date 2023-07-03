@@ -21,7 +21,6 @@ func _ready():
 	if SaveData.data.has("player_pos_x"):
 		position.x = SaveData.data["player_pos_x"]
 		position.y = SaveData.data["player_pos_y"]
-		z_index = SaveData.data["player_z_index"]
 		$Camera2D.reset_smoothing()
 
 

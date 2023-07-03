@@ -14,6 +14,7 @@ var data := {
 
 ## The puzzles that have Unique Puzzle Identifiers
 var upid := {}
+var current_area := "first_nexus"
 
 func _ready():
 	var file := File.new()
@@ -21,6 +22,24 @@ func _ready():
 		file.open(SAVE_PATH, File.READ)
 		data = JSON.parse(file.get_as_text()).result
 		file.close()
+	
+	if data.has("version"):
+		if data["version"] != "1":
+			data = {
+				"puzzles" : {},
+				"doors" : {},
+				"sections" : {},
+			}
+			data["version"] = "1"
+			save()
+	else:
+		data = {
+			"puzzles" : {},
+			"doors" : {},
+			"sections" : {},
+		}
+		data["version"] = "1"
+		save()
 
 
 func _input(event):
@@ -39,14 +58,12 @@ func save():
 		if i.save() != false:
 			data["doors"][str(i.get_path())] = true
 	
-	for i in get_tree().get_nodes_in_group("World")[0].get_children():
-		data["sections"][str(i.get_path())] = i.modulate.a
 		
 	var file := File.new()
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	data["player_pos_x"] = player.position.x
 	data["player_pos_y"] = player.position.y
-	data["player_z_index"] = player.z_index
+	data["current_area"] = current_area
 	file.open(SAVE_PATH, File.WRITE)
 	file.store_string(JSON.print(data))
 	file.close()

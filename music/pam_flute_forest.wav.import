@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pam_flute_forest.wav-fc0fa17fe36941d3f6621d6ca565fd2f.sample"
+
+[deps]
+
+source_file="res://music/pam_flute_forest.wav"
+dest_files=[ "res://.import/pam_flute_forest.wav-fc0fa17fe36941d3f6621d6ca565fd2f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
