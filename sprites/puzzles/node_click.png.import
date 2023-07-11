@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/node_click.png-c345085d0fa9225d2fa482a6f627d746.res"
+
+[deps]
+
+source_file="res://sprites/puzzles/node_click.png"
+dest_files=[ "res://.import/node_click.png-c345085d0fa9225d2fa482a6f627d746.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5
