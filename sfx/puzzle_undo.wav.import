@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/puzzle_undo.wav-fd1531372d5f192258987ac1d7e3a92f.sample"
+type="AudioStreamWAV"
+uid="uid://d1fn4dxmsbswc"
+path="res://.godot/imported/puzzle_undo.wav-fd1531372d5f192258987ac1d7e3a92f.sample"
 
 [deps]
 
 source_file="res://sfx/puzzle_undo.wav"
-dest_files=[ "res://.import/puzzle_undo.wav-fd1531372d5f192258987ac1d7e3a92f.sample" ]
+dest_files=["res://.godot/imported/puzzle_undo.wav-fd1531372d5f192258987ac1d7e3a92f.sample"]
 
 [params]
 

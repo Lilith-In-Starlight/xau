@@ -1,121 +1,120 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=13 format=3 uid="uid://dg68j85qrm23c"]
 
-[ext_resource path="res://areas/house/house_room_1.tscn" type="PackedScene" id=1]
-[ext_resource path="res://areas/area_transition.tscn" type="PackedScene" id=2]
-[ext_resource path="res://areas/house/house_outside.tscn" type="PackedScene" id=3]
-[ext_resource path="res://areas/house/house_room_4.tscn" type="PackedScene" id=4]
-[ext_resource path="res://areas/house/house_exit.tscn" type="PackedScene" id=5]
-[ext_resource path="res://areas/house/house_room_3.tscn" type="PackedScene" id=6]
-[ext_resource path="res://areas/house/house_room_2.tscn" type="PackedScene" id=7]
-[ext_resource path="res://areas/forest/forest_transition.tscn" type="PackedScene" id=8]
-[ext_resource path="res://areas/area.gd" type="Script" id=9]
-[ext_resource path="res://sprites/areas/house/house_forest_transition_outside.png" type="Texture" id=10]
-[ext_resource path="res://FirstNexusStatesDefiner.gd" type="Script" id=11]
-[ext_resource path="res://misc/y_sort_object.gd" type="Script" id=12]
+[ext_resource type="PackedScene" uid="uid://c7770wy0yqkuu" path="res://areas/house/house_room_1.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://areas/house/house_outside.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://areas/house/house_room_4.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://areas/house/house_exit.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://areas/house/house_room_3.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://areas/house/house_room_2.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://areas/forest/forest_transition.tscn" id="8"]
+[ext_resource type="Script" path="res://areas/area.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://b6qvvktj7cs3h" path="res://sprites/areas/house/house_forest_transition_outside.png" id="10"]
+[ext_resource type="Script" path="res://FirstNexusStatesDefiner.gd" id="11"]
+[ext_resource type="Script" path="res://misc/y_sort_object.gd" id="12"]
 
 [node name="FirstArea" type="Node2D" groups=["World"]]
-script = ExtResource( 9 )
+script = ExtResource("9")
 first_section = NodePath("House")
 
 [node name="StatesDefiner" type="Node" parent="." groups=["StateDefiner"]]
-script = ExtResource( 11 )
+script = ExtResource("11")
 
 [node name="first_room" type="Node" parent="StatesDefiner"]
 
-[node name="AreaTransition" parent="StatesDefiner/first_room" instance=ExtResource( 2 )]
-position = Vector2( 448, 157 )
+[node name="AreaTransition" parent="StatesDefiner/first_room" instance=ExtResource("2")]
+position = Vector2(448, 157)
 
 [node name="living_room" type="Node" parent="StatesDefiner"]
 
-[node name="AreaTransition14" parent="StatesDefiner/living_room" instance=ExtResource( 2 )]
-position = Vector2( 58, 353 )
+[node name="AreaTransition14" parent="StatesDefiner/living_room" instance=ExtResource("2")]
+position = Vector2(58, 353)
 new_z_index = 2
 
-[node name="AreaTransition15" parent="StatesDefiner/living_room" instance=ExtResource( 2 )]
-position = Vector2( 154, 525 )
+[node name="AreaTransition15" parent="StatesDefiner/living_room" instance=ExtResource("2")]
+position = Vector2(154, 525)
 new_z_index = 2
 
 [node name="kitchen" type="Node" parent="StatesDefiner"]
 
-[node name="AreaTransition3" parent="StatesDefiner/kitchen" instance=ExtResource( 2 )]
-position = Vector2( 58, 321 )
+[node name="AreaTransition3" parent="StatesDefiner/kitchen" instance=ExtResource("2")]
+position = Vector2(58, 321)
 new_z_index = 2
 
-[node name="AreaTransition4" parent="StatesDefiner/kitchen" instance=ExtResource( 2 )]
-position = Vector2( -36, 272 )
+[node name="AreaTransition4" parent="StatesDefiner/kitchen" instance=ExtResource("2")]
+position = Vector2(-36, 272)
 
-[node name="AreaTransition5" parent="StatesDefiner/kitchen" instance=ExtResource( 2 )]
-position = Vector2( 448, 222 )
+[node name="AreaTransition5" parent="StatesDefiner/kitchen" instance=ExtResource("2")]
+position = Vector2(448, 222)
 
 [node name="bedroom" type="Node" parent="StatesDefiner"]
 
-[node name="AreaTransition2" parent="StatesDefiner/bedroom" instance=ExtResource( 2 )]
-position = Vector2( -36, 240 )
+[node name="AreaTransition2" parent="StatesDefiner/bedroom" instance=ExtResource("2")]
+position = Vector2(-36, 240)
 
 [node name="outside" type="Node" parent="StatesDefiner"]
 
-[node name="AreaTransition6" parent="StatesDefiner/outside" instance=ExtResource( 2 )]
-position = Vector2( 153, 1276 )
+[node name="AreaTransition6" parent="StatesDefiner/outside" instance=ExtResource("2")]
+position = Vector2(153, 1276)
 
-[node name="AreaTransition8" parent="StatesDefiner/outside" instance=ExtResource( 2 )]
-position = Vector2( -866, -319 )
+[node name="AreaTransition8" parent="StatesDefiner/outside" instance=ExtResource("2")]
+position = Vector2(-866, -319)
 
-[node name="AreaTransition9" parent="StatesDefiner/outside" instance=ExtResource( 2 )]
-position = Vector2( -1121, -319 )
+[node name="AreaTransition9" parent="StatesDefiner/outside" instance=ExtResource("2")]
+position = Vector2(-1121, -319)
 
 [node name="transition_to_forest" type="Node" parent="StatesDefiner"]
 
-[node name="AreaTransition10" parent="StatesDefiner/transition_to_forest" instance=ExtResource( 2 )]
-position = Vector2( -895, -319 )
-scale = Vector2( 0.44, 1 )
+[node name="AreaTransition10" parent="StatesDefiner/transition_to_forest" instance=ExtResource("2")]
+position = Vector2(-895, -319)
+scale = Vector2(0.44, 1)
 
-[node name="AreaTransition11" parent="StatesDefiner/transition_to_forest" instance=ExtResource( 2 )]
-position = Vector2( -1092, -319 )
-scale = Vector2( 0.44, 1 )
+[node name="AreaTransition11" parent="StatesDefiner/transition_to_forest" instance=ExtResource("2")]
+position = Vector2(-1092, -319)
+scale = Vector2(0.44, 1)
 
 [node name="exit_hall" type="Node" parent="StatesDefiner"]
 
-[node name="AreaTransition12" parent="StatesDefiner/exit_hall" instance=ExtResource( 2 )]
-position = Vector2( 154, 553 )
+[node name="AreaTransition12" parent="StatesDefiner/exit_hall" instance=ExtResource("2")]
+position = Vector2(154, 553)
 
-[node name="AreaTransition13" parent="StatesDefiner/exit_hall" instance=ExtResource( 2 )]
-position = Vector2( 155, 1243 )
+[node name="AreaTransition13" parent="StatesDefiner/exit_hall" instance=ExtResource("2")]
+position = Vector2(155, 1243)
 
-[node name="House" parent="." instance=ExtResource( 1 )]
+[node name="House" parent="." instance=ExtResource("1")]
 visible = false
 
-[node name="HouseRoom3" parent="." instance=ExtResource( 6 )]
+[node name="HouseRoom3" parent="." instance=ExtResource("6")]
 visible = false
-position = Vector2( -292, -43 )
+position = Vector2(-292, -43)
 
-[node name="HouseRoom2" parent="." instance=ExtResource( 7 )]
-visible = false
-position = Vector2( -70, -1 )
+[node name="HouseRoom2" parent="." instance=ExtResource("7")]
+position = Vector2(-70, -1)
 
-[node name="HouseRoom4" parent="." instance=ExtResource( 4 )]
+[node name="HouseRoom4" parent="." instance=ExtResource("4")]
 visible = false
-position = Vector2( 0, 247 )
 z_index = 2
+position = Vector2(0, 247)
 
-[node name="HouseExit" parent="." instance=ExtResource( 5 )]
+[node name="HouseExit" parent="." instance=ExtResource("5")]
 visible = false
-position = Vector2( 126, 539 )
 z_index = 3
+position = Vector2(126, 539)
 
-[node name="HouseOutside" parent="." instance=ExtResource( 3 )]
+[node name="HouseOutside" parent="." instance=ExtResource("3")]
 visible = false
-position = Vector2( -18, 504 )
 z_index = 3
+position = Vector2(-18, 504)
 
-[node name="HouseForestTransitionOutside" type="Sprite" parent="HouseOutside"]
-position = Vector2( -969, -715 )
-texture = ExtResource( 10 )
-offset = Vector2( 0, -145 )
-script = ExtResource( 12 )
+[node name="HouseForestTransitionOutside" type="Sprite2D" parent="HouseOutside"]
+position = Vector2(-969, -715)
+texture = ExtResource("10")
+offset = Vector2(0, -145)
+script = ExtResource("12")
 
-[node name="Transition" parent="." instance=ExtResource( 8 )]
+[node name="Transition" parent="." instance=ExtResource("8")]
 visible = false
-position = Vector2( -987, -356 )
+position = Vector2(-987, -356)
 to_area = "forest"
 destination_state = "transition_to_first_nexus"
-destination_position = Vector2( 285, 128 )
+destination_position = Vector2(285, 128)

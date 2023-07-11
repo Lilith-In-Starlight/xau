@@ -1,13 +1,13 @@
 extends Node2D
 
 
-export var to_area := ""
-export var destination_state := ""
-export var destination_position := Vector2(0, 0)
+@export var to_area := ""
+@export var destination_state := ""
+@export var destination_position := Vector2(0, 0)
 
-onready var PlayerNode: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
-onready var CameraNode: Camera2D = get_tree().get_nodes_in_group("Camera")[0]
-onready var GameNode: Node2D = get_tree().get_nodes_in_group("GameNode")[0]
+@onready var PlayerNode: CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var CameraNode: Camera2D = get_tree().get_nodes_in_group("Camera3D")[0]
+@onready var GameNode: Node2D = get_tree().get_nodes_in_group("GameNode")[0]
 
 var player_pos := Vector2()
 var camera_pos := Vector2()

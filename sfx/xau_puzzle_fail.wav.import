@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/xau_puzzle_fail.wav-8ae64b72808ba9856ce11bb218daf18f.sample"
+type="AudioStreamWAV"
+uid="uid://bg5dybmg7snqa"
+path="res://.godot/imported/xau_puzzle_fail.wav-8ae64b72808ba9856ce11bb218daf18f.sample"
 
 [deps]
 
 source_file="res://sfx/xau_puzzle_fail.wav"
-dest_files=[ "res://.import/xau_puzzle_fail.wav-8ae64b72808ba9856ce11bb218daf18f.sample" ]
+dest_files=["res://.godot/imported/xau_puzzle_fail.wav-8ae64b72808ba9856ce11bb218daf18f.sample"]
 
 [params]
 

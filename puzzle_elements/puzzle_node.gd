@@ -1,4 +1,4 @@
-tool
+@tool
 extends StaticBody2D
 
 class_name PuzzleNode
@@ -31,7 +31,7 @@ enum TYPES {
 	HARDCODE,
 }
 
-export(TYPES) var node_rule := TYPES.NONE setget set_node_rule
+@export var node_rule := TYPES.NONE: set = set_node_rule
 
 
 var forced_edges: int
@@ -42,18 +42,18 @@ var hardcoded_connections :Array
 var forced_connections: Array
 
 ## The node that represents the cursor
-onready var cursor_node: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
+@onready var cursor_node: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
 ## A [RayCast2D] that checks if the mouse will connect a node or not
-onready var raycast: RayCast2D = $RayCast
+@onready var raycast: RayCast2D = $RayCast3D
 
-onready var circle: Sprite = $Sprite2d
+@onready var circle: Sprite2D = $Sprite2d
 
 ## The [PuzzleNode]s that this node is connected
 var connections: Array = []
 
-onready var parent :Puzzle = get_parent()
+@onready var parent :Puzzle = get_parent()
 
-onready var player :KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var player :CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
 	$PathMark.visible = node_rule == TYPES.PATH
@@ -79,7 +79,7 @@ func _process(delta):
 				node.connections.append(self)
 				node.emit_signal("connection_changed", node, self, "connect")
 		
-	elif not get_parent() is Viewport:
+	elif not get_parent() is SubViewport:
 		$PathMark.modulate = get_color()
 		$PathMark.visible = node_rule == TYPES.PATH
 		$PathMark/PathMark2.visible = color != COLORS.black
@@ -90,7 +90,7 @@ func _process(delta):
 
 func set_node_rule(value):
 	node_rule = value
-	property_list_changed_notify()
+	notify_property_list_changed()
 
 ## Returns whether this node's requirements are satisfied
 func check() -> bool:
@@ -99,7 +99,7 @@ func check() -> bool:
 			if connections.size() > 1:
 				return false
 				
-			if connections.empty():
+			if connections.is_empty():
 				return false
 			
 			var next_checks: Array = [self]
@@ -143,10 +143,10 @@ func _on_node_button_gui_input(event: InputEvent):
 	if cursor_node.position.distance_to(global_position) >= 7:
 		return
 	if Input.is_action_just_pressed("connect"):
-		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 		solved_sound.stream = preload("res://sfx/node_connect.wav")
 		solved_sound.pitch_scale = 0.5 + randf() * 1.5
-		add_child(solved_sound)
+		get_parent().add_child(solved_sound)
 		emit_signal("correctness_unverified")
 		
 		if cursor_node.connecting_from == null:
@@ -159,7 +159,7 @@ func _on_node_button_gui_input(event: InputEvent):
 	elif Input.is_action_just_pressed("puzzle_reset"):
 		emit_signal("correctness_unverified")
 		emit_signal("delete_node_connections_request", self, true)
-		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 		solved_sound.stream = preload("res://sfx/xau_reset.wav")
 		solved_sound.pitch_scale = 0.8 + randf()*0.2
 		add_child(solved_sound)
@@ -168,36 +168,36 @@ func _on_node_button_gui_input(event: InputEvent):
 ## Try to connect to a node towards a particular direction, usually directed
 ## by the cursor
 func connect_puzzle(target, disconnect := false):
-	raycast.cast_to = target - global_position
+	raycast.target_position = target - global_position
 	raycast.force_raycast_update()
 	if not raycast.is_colliding():
-		raycast.cast_to = Vector2.ZERO
+		raycast.target_position = Vector2.ZERO
 		return
 	
 	var raycast_collider = raycast.get_collider()
 	if not raycast_collider.is_in_group("PuzzleNode"):
-		raycast.cast_to = Vector2.ZERO
+		raycast.target_position = Vector2.ZERO
 		return
 		
 	if raycast_collider.parent == parent or (!parent.framed and !raycast_collider.parent.framed):
 		if not raycast_collider.parent.is_enabled():
-			raycast.cast_to = Vector2.ZERO
+			raycast.target_position = Vector2.ZERO
 			return
 		
-		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 		solved_sound.stream = preload("res://sfx/node_connect.wav")
 		solved_sound.pitch_scale = 0.5 + randf() * 1.5
 		add_child(solved_sound)
-		raycast.cast_to = raycast_collider.global_position - raycast.global_position
+		raycast.target_position = raycast_collider.global_position - raycast.global_position
 		raycast.force_raycast_update()
 		
 		if not raycast.is_colliding():
-			raycast.cast_to = Vector2.ZERO
+			raycast.target_position = Vector2.ZERO
 			return
 		
 		var raycast_verification_collider := raycast.get_collider()
 		if not raycast_verification_collider == raycast_collider:
-			raycast.cast_to = Vector2.ZERO
+			raycast.target_position = Vector2.ZERO
 			return
 			
 			
@@ -214,7 +214,7 @@ func connect_puzzle(target, disconnect := false):
 			raycast_collider.connect_puzzle(target)
 			emit_signal("connection_changed", self, raycast_collider, "disconnect")
 	
-	raycast.cast_to = Vector2.ZERO
+	raycast.target_position = Vector2.ZERO
 
 
 func get_color():
@@ -272,13 +272,13 @@ func _get_property_list() -> Array:
 			})
 	return properties
 
-func property_can_revert(property: String) -> bool:
+func _property_can_revert(property: StringName) -> bool:
 	match property:
 		"color", "forced_edges", "hardcoded_connections": return true
 		_: return false
 
 
-func property_get_revert(property: String):
+func _property_get_revert(property: StringName):
 	match property:
 		"color": return 0
 		"forced_edges": return 0
@@ -347,15 +347,16 @@ func get_unique_id():
 	var new_to_see := []
 	var loop := true
 	var id := []
-	while not to_see.empty():
+	while not to_see.is_empty():
 		var new_id_num := 0
 		var next_already_seen := []
 		for checking in to_see:
 			next_already_seen.append(checking)
-			for neighbors in checking.connections:
-				if not neighbors in already_seen and not neighbors in checking:
+			for neighbor in checking.connections:
+				print(already_seen)
+				if not neighbor in already_seen and not neighbor in checking.connections:
 					new_id_num += 1
-					new_to_see.append(neighbors)
+					new_to_see.append(neighbor)
 		id.append(new_id_num)
 		already_seen.append_array(next_already_seen)
 		to_see = new_to_see.duplicate()

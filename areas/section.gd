@@ -8,6 +8,6 @@ func _ready() -> void:
 
 
 func _on_player_exited_section(emitter: Node2D, new_scene: String, new_section_entrance: int):
-	var instance :Node2D = load(new_scene).instance()
+	var instance :Node2D = load(new_scene).instantiate()
 	get_parent().call_deferred("add_child", instance)
 	queue_free()

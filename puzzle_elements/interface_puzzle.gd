@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var player_node :KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var player_node :CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 var children_modulate := 0
 

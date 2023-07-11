@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://ccmoki7wlrjfq"]
 
-[ext_resource path="res://sfx/ephemeral_sound.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://sfx/ephemeral_sound.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://dawmbsif66prx" path="res://sfx/node_connect.wav" id="1_2joxq"]
 
 [node name="EphemeralSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_2joxq")
 autoplay = true
-script = ExtResource( 1 )
-
-[connection signal="finished" from="." to="." method="_on_finished"]
+script = ExtResource("1")

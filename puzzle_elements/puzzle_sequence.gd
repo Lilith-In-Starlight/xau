@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node2D
 
 class_name PuzzleSequence
@@ -8,7 +8,7 @@ class_name PuzzleSequence
 ## All puzzles will be at the same y position
 
 ## The distance between puzzlews
-export var separation := 8.0
+@export var separation := 8.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,14 +16,14 @@ func _ready():
 	for i in get_children():
 		if n != null:
 			i.required_puzzle = i.get_path_to(n)
-			if not n.is_connected("was_solved", i, "_on_required_was_solved"):
-				n.connect("was_solved", i, "_on_required_was_solved")
+			if not n.is_connected("was_solved", Callable(i, "_on_required_was_solved")):
+				n.connect("was_solved", Callable(i, "_on_required_was_solved"))
 		n = i
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not Engine.editor_hint:
+	if not Engine.is_editor_hint():
 		return
 	
 	var x = 0

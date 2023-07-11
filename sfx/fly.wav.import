@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/fly.wav-058be695ce20b02aefd83f5aa671428b.sample"
+type="AudioStreamWAV"
+uid="uid://bavsvr5678uys"
+path="res://.godot/imported/fly.wav-058be695ce20b02aefd83f5aa671428b.sample"
 
 [deps]
 
 source_file="res://sfx/fly.wav"
-dest_files=[ "res://.import/fly.wav-058be695ce20b02aefd83f5aa671428b.sample" ]
+dest_files=["res://.godot/imported/fly.wav-058be695ce20b02aefd83f5aa671428b.sample"]
 
 [params]
 

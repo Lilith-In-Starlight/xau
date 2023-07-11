@@ -17,20 +17,21 @@ var upid := {}
 var current_area := "first_nexus"
 
 func _ready():
-	var file := File.new()
-	if file.file_exists(SAVE_PATH):
-		file.open(SAVE_PATH, File.READ)
-		data = JSON.parse(file.get_as_text()).result
+	if FileAccess.file_exists(SAVE_PATH):
+		var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(file.get_as_text())
+		data = test_json_conv.data
 		file.close()
 	
 	if data.has("version"):
-		if data["version"] != "2":
+		if data["version"] != "3":
 			data = {
 				"puzzles" : {},
 				"doors" : {},
 				"sections" : {},
 			}
-			data["version"] = "2"
+			data["version"] = "3"
 			save()
 	else:
 		data = {
@@ -38,7 +39,7 @@ func _ready():
 			"doors" : {},
 			"sections" : {},
 		}
-		data["version"] = "2"
+		data["version"] = "3"
 		save()
 
 
@@ -51,7 +52,7 @@ func _input(event):
 func save():
 	for i in get_tree().get_nodes_in_group("Puzzle"):
 		var isave: Dictionary = i.save()
-		if not isave.empty():
+		if not isave.is_empty():
 			data["puzzles"][str(i.get_path())] = i.save()
 	
 	for i in get_tree().get_nodes_in_group("Door"):
@@ -59,18 +60,17 @@ func save():
 			data["doors"][str(i.get_path())] = true
 	
 		
-	var file := File.new()
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	data["player_pos_x"] = player.position.x
 	data["player_pos_y"] = player.position.y
 	data["current_area"] = current_area
-	file.open(SAVE_PATH, File.WRITE)
-	file.store_string(JSON.print(data))
+	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	file.store_string(JSON.stringify(data))
 	file.close()
 
 
 func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save()
 		get_tree().quit()
 

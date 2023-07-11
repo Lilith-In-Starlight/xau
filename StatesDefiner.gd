@@ -4,7 +4,7 @@ class_name StatesDefiner
 
 var state :String
 var visible_objects :Array
-var tween: SceneTreeTween = SceneTreeTween.new()
+@onready var tween: Tween = get_tree().create_tween()
 
 func set_visible_objects():
 	pass
@@ -15,6 +15,7 @@ func update_state(set_to: String, transition := true):
 		return
 	state = set_to
 	set_visible_objects()
+	tween.stop()
 	tween.kill()
 	tween = get_tree().create_tween()
 	tween.set_parallel(true)

@@ -9,9 +9,9 @@ extends Node2D
 ## Stage 4 is the end
 var stage := 0
 
-onready var player_node: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
-onready var cursor_node = get_tree().get_nodes_in_group("Cursor")[0]
-onready var MusicHandler: Node = get_tree().get_nodes_in_group("MusicHandler")[0]
+@onready var player_node: CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var cursor_node = get_tree().get_nodes_in_group("Cursor")[0]
+@onready var MusicHandler: Node = get_tree().get_nodes_in_group("MusicHandler")[0]
 
 func _ready():
 	if SaveData.data.has("done_tutorial"):

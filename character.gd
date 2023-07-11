@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 ## The player character
 
@@ -10,8 +10,6 @@ const STOP_MULT = 0.3
 const GO_MULT = 0.2
 
 var last_direction = "down"
-
-var velocity := Vector2()
 
 var undo_history := []
 
@@ -47,8 +45,8 @@ func _process(delta):
 		$Animations.play("walking_%s" % direction_from_velocity())
 	
 	if Input.is_action_just_pressed("undo"):
-		if !undo_history.empty():
-			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+		if !undo_history.is_empty():
+			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 			solved_sound.stream = preload("res://sfx/puzzle_undo.wav")
 			solved_sound.pitch_scale = 0.8 + randf()*0.2
 			add_child(solved_sound)
@@ -64,7 +62,7 @@ func _process(delta):
 				i[3]._on_correctness_unverified()
 	
 func _physics_process(delta) -> void:
-	move_and_slide(velocity, Vector2.ZERO)
+	move_and_slide()
 
 
 func direction_from_velocity() -> String:

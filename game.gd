@@ -12,12 +12,12 @@ const areas := {
 	}
 
 ## The node that represents the cursor
-onready var CursorNode: Node2D = $Cursor
-onready var PlayerNode: Node2D = $Character
-onready var AreaNode: Node2D = null
+@onready var CursorNode: Node2D = $Cursor
+@onready var PlayerNode: Node2D = $Character
+@onready var AreaNode: Node2D = null
 
 var was_safe := true
-onready var last_safe_pos := PlayerNode.position
+@onready var last_safe_pos := PlayerNode.position
 
 var current_area := "first_nexus"
 
@@ -32,33 +32,33 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("fullscreen"):
-		OS.window_fullscreen = !OS.window_fullscreen
-		OS.window_borderless = OS.window_fullscreen
+		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
+		get_window().borderless = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
 	var a = PlayerNode.position.length()
 	var b = CursorNode.position.length()
-	if get_viewport().get_mouse_position().x > OS.get_window_safe_area().size.x:
+	if get_viewport().get_mouse_position().x > DisplayServer.get_display_safe_area().size.x:
 		return
 	if get_viewport().get_mouse_position().x < 0:
 		return
-	if get_viewport().get_mouse_position().y > OS.get_window_safe_area().size.y:
+	if get_viewport().get_mouse_position().y > DisplayServer.get_display_safe_area().size.y:
 		return
 	if get_viewport().get_mouse_position().y < 0:
 		return
 	if a > 2300:
 		CursorNode.change_blink(true)
-		if OS.is_window_focused():
+		if get_window().has_focus():
 			var playerp = PlayerNode.get_global_transform_with_canvas().get_origin()
 			var mouse_goal = playerp - PlayerNode.position.normalized() * 100
 			get_viewport().warp_mouse(get_viewport().get_mouse_position() + (mouse_goal - get_viewport().get_mouse_position()) / 20.0)
-		VisualServer.set_default_clear_color(bg_color.darkened((a - 2300)/600))
-		if bg_color.darkened((a - 2300)/600).b <= ColorN("Black").b:
+		RenderingServer.set_default_clear_color(bg_color.darkened((a - 2300)/600))
+		if bg_color.darkened((a - 2300)/600).b <= Color.BLACK.b:
 			get_tree().quit()
 	else:
 		last_safe_pos = PlayerNode.position
-		VisualServer.set_default_clear_color(bg_color)
+		RenderingServer.set_default_clear_color(bg_color)
 		if b > 2300:
 			CursorNode.change_blink(true)
-			if OS.is_window_focused():
+			if get_window().has_focus():
 				var cursor_goal = CursorNode.position.normalized() * 2300
 				var pos_delta = CursorNode.position - cursor_goal
 				get_viewport().warp_mouse(get_viewport().get_mouse_position() - pos_delta)
@@ -75,7 +75,7 @@ func set_current_area(to: String, save := true):
 			AreaNode.remove_from_group("World")
 			AreaNode.name = "leaving"
 			AreaNode.queue_free()
-		AreaNode = areas[to].instance()
+		AreaNode = areas[to].instantiate()
 		AreaNode.add_to_group("World")
 		add_child(AreaNode)
 		AreaNode.z_as_relative = false

@@ -1,6 +1,6 @@
 extends StatesDefiner
 
-onready var Player :KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var Player :CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 func set_visible_objects() -> void:
 	Player = get_tree().get_nodes_in_group("Player")[0]

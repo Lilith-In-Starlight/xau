@@ -1,4 +1,4 @@
-tool
+@tool
 extends Puzzle
 
 class_name PuzzleGrid
@@ -12,28 +12,29 @@ enum MODES {
 	BINTREE,
 }
 
-export(MODES) var mode :int
+@export var mode: MODES
 
 ## The size of a row. If there are more than [member row_size] [PuzzleNode]s,
 ## there will be more than one row.
-export var row_size :int = 1 setget set_row_size
+@export var row_size :int = 1: set = set_row_size
 
 ## The separation between adjacent nodes in this puzzle
-export var spacing :int = 16 setget set_spacing
+@export var spacing :int = 16: set = set_spacing
 		
 ## Positions of the puzzle where there should not be a node
-export var holes: PoolVector2Array = []
+@export var holes: PackedVector2Array = []
 
-export var bintree_solution := ""
+@export var bintree_solution := ""
 
 
 func _init():
 	base_display_connections = false
 
 func _ready():
+	super._ready()
 	update_children_positions()
 	display_connections()
-	if not Engine.editor_hint:
+	if not Engine.is_editor_hint():
 		set_bintree_solution()
 
 func set_row_size(value):
@@ -52,7 +53,7 @@ func _process(delta):
 
 
 func _draw():
-	._draw()
+	super._draw()
 	if framed:
 		$NoNode/Frame.visible = true
 		var new_rect = rect.grow(8)
@@ -76,8 +77,8 @@ func _draw():
 func update_children_positions(exclusions: Array = []):
 	var x := 0
 	var y := 0
-	if Engine.editor_hint:
-		update()
+	if Engine.is_editor_hint():
+		queue_redraw()
 	match mode:
 		MODES.GRID:
 			for i in get_children():
@@ -113,12 +114,12 @@ func update_children_positions(exclusions: Array = []):
 
 func _on_child_entered_tree(new_child: Node) -> void:
 	update_children_positions()
-	._on_child_entered_tree(new_child)
+	super._on_child_entered_tree(new_child)
 
 
 func _on_child_exiting_tree(new_child: Node) -> void:
 	update_children_positions([new_child])
-	._on_child_exiting_tree(new_child)
+	super._on_child_exiting_tree(new_child)
 
 
 func _on_screen_entered() -> void:

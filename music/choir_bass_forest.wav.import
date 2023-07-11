@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/choir_bass_forest.wav-9f155fdf84226c06b17170f27a1c9094.sample"
+type="AudioStreamWAV"
+uid="uid://b0up3wnrcytsj"
+path="res://.godot/imported/choir_bass_forest.wav-9f155fdf84226c06b17170f27a1c9094.sample"
 
 [deps]
 
 source_file="res://music/choir_bass_forest.wav"
-dest_files=[ "res://.import/choir_bass_forest.wav-9f155fdf84226c06b17170f27a1c9094.sample" ]
+dest_files=["res://.godot/imported/choir_bass_forest.wav-9f155fdf84226c06b17170f27a1c9094.sample"]
 
 [params]
 

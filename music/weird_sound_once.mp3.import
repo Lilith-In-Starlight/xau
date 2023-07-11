@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/weird_sound_once.mp3-033c262c6e8e79b05f10e303feac8f22.mp3str"
+uid="uid://decbx4t4t6wrl"
+path="res://.godot/imported/weird_sound_once.mp3-033c262c6e8e79b05f10e303feac8f22.mp3str"
 
 [deps]
 
 source_file="res://music/weird_sound_once.mp3"
-dest_files=[ "res://.import/weird_sound_once.mp3-033c262c6e8e79b05f10e303feac8f22.mp3str" ]
+dest_files=["res://.godot/imported/weird_sound_once.mp3-033c262c6e8e79b05f10e303feac8f22.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

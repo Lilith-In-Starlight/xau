@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/tubular_bell_forest.wav-66f178777d5a2b653d9998d477811f2e.sample"
+type="AudioStreamWAV"
+uid="uid://erg3rqoqa8db"
+path="res://.godot/imported/tubular_bell_forest.wav-66f178777d5a2b653d9998d477811f2e.sample"
 
 [deps]
 
 source_file="res://music/tubular_bell_forest.wav"
-dest_files=[ "res://.import/tubular_bell_forest.wav-66f178777d5a2b653d9998d477811f2e.sample" ]
+dest_files=["res://.godot/imported/tubular_bell_forest.wav-66f178777d5a2b653d9998d477811f2e.sample"]
 
 [params]
 

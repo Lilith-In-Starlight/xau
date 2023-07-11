@@ -3,7 +3,7 @@
 [ext_resource path="res://areas/full_area_transition.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 15 )
+size = Vector2( 24, 15 )
 
 [node name="FullAreaTransition" type="Area2D" groups=["AreaLoaders"]]
 collision_layer = 0

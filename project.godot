@@ -6,65 +6,7 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Area2D",
-"class": "AreaTransition",
-"language": "GDScript",
-"path": "res://areas/area_transition.gd"
-}, {
-"base": "Line2D",
-"class": "Cable",
-"language": "GDScript",
-"path": "res://cord.gd"
-}, {
-"base": "Node2D",
-"class": "Cursor",
-"language": "GDScript",
-"path": "res://gui/cursor.gd"
-}, {
-"base": "Area2D",
-"class": "FullAreaTransition",
-"language": "GDScript",
-"path": "res://areas/full_area_transition.gd"
-}, {
-"base": "Node2D",
-"class": "Puzzle",
-"language": "GDScript",
-"path": "res://puzzle_elements/puzzle.gd"
-}, {
-"base": "Puzzle",
-"class": "PuzzleGrid",
-"language": "GDScript",
-"path": "res://puzzle_elements/puzzle_grid.gd"
-}, {
-"base": "StaticBody2D",
-"class": "PuzzleNode",
-"language": "GDScript",
-"path": "res://puzzle_elements/puzzle_node.gd"
-}, {
-"base": "Node2D",
-"class": "PuzzleSequence",
-"language": "GDScript",
-"path": "res://puzzle_elements/puzzle_sequence.gd"
-}, {
-"base": "Node",
-"class": "StatesDefiner",
-"language": "GDScript",
-"path": "res://StatesDefiner.gd"
-} ]
-_global_script_class_icons={
-"AreaTransition": "",
-"Cable": "",
-"Cursor": "",
-"FullAreaTransition": "",
-"Puzzle": "",
-"PuzzleGrid": "",
-"PuzzleNode": "",
-"PuzzleSequence": "",
-"StatesDefiner": ""
-}
+config_version=5
 
 [application]
 
@@ -73,6 +15,7 @@ config/description="A game inspired by Yume Nikki and The Witness."
 run/main_scene="res://game.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Xau"
+config/features=PackedStringArray("4.1")
 config/icon="res://sprites/iconx4.png"
 config/windows_native_icon="res://sprites/icon.ico"
 
@@ -83,10 +26,9 @@ SectionLoading="*res://SectionLoading.gd"
 
 [display]
 
-window/size/width=576
-window/size/height=324
-window/dpi/allow_hidpi=true
-window/stretch/mode="2d"
+window/size/viewport_width=576
+window/size/viewport_height=324
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [gui]
@@ -96,138 +38,136 @@ common/drop_mouse_on_gui_input_disabled=true
 [importer_defaults]
 
 texture={
-"compress/bptc_ldr": 0,
-"compress/hdr_mode": 0,
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/high_quality": false,
 "compress/lossy_quality": 0.7,
 "compress/mode": 0,
 "compress/normal_map": 0,
-"detect_3d": false,
-"flags/anisotropic": false,
-"flags/filter": false,
-"flags/mipmaps": false,
-"flags/repeat": 0,
-"flags/srgb": 2,
-"process/HDR_as_SRGB": false,
+"detect_3d/compress_to": 0,
+"mipmaps/generate": false,
+"mipmaps/limit": -1,
 "process/fix_alpha_border": true,
-"process/invert_color": false,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
 "process/normal_map_invert_y": false,
 "process/premult_alpha": false,
-"size_limit": 0,
-"stream": false,
-"svg/scale": 1.0
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": ""
 }
 
 [input]
 
 ui_accept={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_select={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_cancel={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_focus_next={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_focus_prev={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_left={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_right={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_up={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_down={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_page_up={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_page_down={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_home={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_end={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 up={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":87,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 down={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":83,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 left={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":65,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 right={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":68,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 connect={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
- ]
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
 }
 noconnect={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
- ]
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
 }
 confirm={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 undo={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":90,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":67,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 redo={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":89,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":86,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":89,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":86,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 puzzle_reset={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":3,"pressed":false,"doubleclick":false,"script":null)
- ]
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":3,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
 }
 fullscreen={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777254,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 
 [layer_names]
@@ -247,6 +187,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.0235294, 0, 0, 1)
+environment/defaults/default_environment="res://default_env.tres"
 2d/snapping/use_gpu_pixel_snap=true
-environment/default_clear_color=Color( 0.0235294, 0, 0, 1 )
-environment/default_environment="res://default_env.tres"

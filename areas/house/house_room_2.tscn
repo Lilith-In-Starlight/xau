@@ -1,37 +1,37 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://sprites/areas/house/house_front.png" type="Texture" id=1]
+[ext_resource path="res://sprites/areas/house/house_front.png" type="Texture2D" id=1]
 [ext_resource path="res://misc/y_sort_object.gd" type="Script" id=2]
-[ext_resource path="res://sprites/areas/house/entrance.png" type="Texture" id=3]
+[ext_resource path="res://sprites/areas/house/entrance.png" type="Texture2D" id=3]
 [ext_resource path="res://puzzle_elements/blockade.tscn" type="PackedScene" id=4]
 [ext_resource path="res://puzzle_elements/puzzle_node.tscn" type="PackedScene" id=5]
 [ext_resource path="res://puzzle_elements/puzzle_grid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://puzzle_elements/puzzle_sequence.gd" type="Script" id=7]
-[ext_resource path="res://sprites/areas/house/wall_top.png" type="Texture" id=8]
+[ext_resource path="res://sprites/areas/house/wall_top.png" type="Texture2D" id=8]
 [ext_resource path="res://cord.gd" type="Script" id=9]
 [ext_resource path="res://misc/door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://puzzle_elements/connections/puzzle_and_gate.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sprites/misc/sitting_thing.png" type="Texture" id=12]
+[ext_resource path="res://sprites/misc/sitting_thing.png" type="Texture2D" id=12]
 [ext_resource path="res://areas/house/ToolButton.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 13, 3.5 )
+size = Vector2( 13, 3.5 )
 
 [node name="HouseRoom2" type="Node2D"]
 
-[node name="ToolButton" type="ToolButton" parent="."]
+[node name="Button" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 81.0
-margin_top = 126.0
-margin_right = 433.0
-margin_bottom = 201.0
+offset_left = 81.0
+offset_top = 126.0
+offset_right = 433.0
+offset_bottom = 201.0
 script = ExtResource( 13 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource( 1 )
 centered = false
 
-[node name="Entrance" type="Sprite" parent="."]
+[node name="Entrance" type="Sprite2D" parent="."]
 position = Vector2( 35, 261 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -45 )
@@ -39,7 +39,7 @@ script = ExtResource( 2 )
 
 [node name="Cable" type="Line2D" parent="."]
 position = Vector2( 56, 0 )
-points = PoolVector2Array( 143, 196, 143, 219 )
+points = PackedVector2Array( 143, 196, 143, 219 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -47,7 +47,7 @@ required_puzzle = NodePath("../PuzzleGrid")
 
 [node name="Cable2" type="Line2D" parent="Cable"]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
-points = PoolVector2Array( 229, 287, 156, 287, 143, 274, 143, 219 )
+points = PackedVector2Array( 229, 287, 156, 287, 143, 274, 143, 219 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -55,7 +55,7 @@ required_puzzle = NodePath("../Tutorial")
 
 [node name="Cable2" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
-points = PoolVector2Array( 59, 261, 59, 263, 115, 263, 115, 243, 121, 237, 197, 237, 198, 236, 200, 236, 201, 237, 448, 237, 448, 230 )
+points = PackedVector2Array( 59, 261, 59, 263, 115, 263, 115, 243, 121, 237, 197, 237, 198, 236, 200, 236, 201, 237, 448, 237, 448, 230 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -63,7 +63,7 @@ required_puzzle = NodePath("../PuzzleGrid3")
 
 [node name="Cable4" type="Line2D" parent="Cable2"]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
-points = PoolVector2Array( 115, 264, 115, 299, 124, 308, 193, 308, 193, 315 )
+points = PackedVector2Array( 115, 264, 115, 299, 124, 308, 193, 308, 193, 315 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -71,7 +71,7 @@ required_puzzle = NodePath("../../PuzzleGrid3")
 
 [node name="Cable3" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
-points = PoolVector2Array( 200, 315, 200, 308, 452, 308, 452, 295 )
+points = PackedVector2Array( 200, 315, 200, 308, 452, 308, 452, 295 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -83,14 +83,14 @@ inputs = [ NodePath("../PuzzleGrid3"), NodePath("../PuzzleSequence/PuzzleGrid2")
 
 [node name="Cable4" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
-points = PoolVector2Array( 196, 322, 196, 334, 153, 334 )
+points = PackedVector2Array( 196, 322, 196, 334, 153, 334 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
 required_puzzle = NodePath("../PuzzleAndGate")
 
 [node name="Cable5" type="Line2D" parent="Cable4"]
-points = PoolVector2Array( 154, 320, 154, 334 )
+points = PackedVector2Array( 154, 320, 154, 334 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -100,7 +100,7 @@ position = Vector2( 34, 262 )
 
 [node name="Cable3" type="Line2D" parent="Door"]
 position = Vector2( -34, -262 )
-points = PoolVector2Array( 59, 261, 59, 248, 61, 248, 61, 244 )
+points = PackedVector2Array( 59, 261, 59, 248, 61, 248, 61, 244 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 9 )
@@ -160,7 +160,7 @@ script = ExtResource( 7 )
 
 [node name="PuzzleGrid" parent="PuzzleSequence" instance=ExtResource( 6 )]
 required_puzzle = NodePath("../../PuzzleGrid2")
-holes = PoolVector2Array( 1, 0, 1, 1 )
+holes = PackedVector2Array( 1, 0, 1, 1 )
 
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
 node_rule = 1
@@ -186,7 +186,7 @@ color = 0
 position = Vector2( 40, 0 )
 required_puzzle = NodePath("../PuzzleGrid")
 row_size = 3
-holes = PoolVector2Array( 2, 0, 1, 1, 0, 2 )
+holes = PackedVector2Array( 2, 0, 1, 1, 0, 2 )
 
 [node name="PuzzleNode" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
 
@@ -274,7 +274,7 @@ position = Vector2( 24, 16 )
 [node name="PuzzleGrid3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 447, 188 )
 row_size = 3
-holes = PoolVector2Array( 1, 1 )
+holes = PackedVector2Array( 1, 1 )
 
 [node name="PuzzleNode" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 
@@ -320,7 +320,7 @@ position = Vector2( 24, 24 )
 [node name="Blockade5" parent="PuzzleGrid3" instance=ExtResource( 4 )]
 position = Vector2( 24, 32 )
 
-[node name="WallTop" type="Sprite" parent="."]
+[node name="WallTop" type="Sprite2D" parent="."]
 position = Vector2( 70, 163 )
 z_index = 2
 texture = ExtResource( 8 )
@@ -335,13 +335,13 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PoolVector2Array( 535, 335, 535, 153, 544, 153, 544, 345, 148, 345, 148, 335 )
+polygon = PackedVector2Array( 535, 335, 535, 153, 544, 153, 544, 345, 148, 345, 148, 335 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PoolVector2Array( 108, 345, 70, 345, 70, 302, -8, 301, -8, 253, 12, 253, 12, 261, 0, 261, 0, 293, 79, 293, 79, 335, 108, 335 )
+polygon = PackedVector2Array( 108, 345, 70, 345, 70, 302, -8, 301, -8, 253, 12, 253, 12, 261, 0, 261, 0, 293, 79, 293, 79, 335, 108, 335 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PoolVector2Array( 56, 253, 70, 253, 70, 210, 304, 210, 304, 171, 500, 171, 500, 299, 491, 299, 491, 176, 435, 176, 435, 214, 304, 214, 304, 218, 79, 218, 79, 261, 56, 261 )
+polygon = PackedVector2Array( 56, 253, 70, 253, 70, 210, 304, 210, 304, 171, 500, 171, 500, 299, 491, 299, 491, 176, 435, 176, 435, 214, 304, 214, 304, 218, 79, 218, 79, 261, 56, 261 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 203, 260 )
@@ -353,17 +353,17 @@ script = ExtResource( 2 )
 position = Vector2( 1, -3.5 )
 shape = SubResource( 1 )
 
-[node name="SittingThing" type="Sprite" parent="StaticBody2D"]
+[node name="SittingThing" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2( -17, -24 )
 texture = ExtResource( 12 )
 centered = false
 
-[node name="ToolButton2" type="ToolButton" parent="."]
+[node name="ToolButton2" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 260.0
-margin_top = 134.0
-margin_right = 532.0
-margin_bottom = 164.0
+offset_left = 260.0
+offset_top = 134.0
+offset_right = 532.0
+offset_bottom = 164.0
 
 [connection signal="was_solved" from="PuzzleAndGate" to="Door2" method="_on_required_was_solved"]
 [connection signal="was_solved" from="PuzzleGrid3" to="Door" method="_on_required_was_solved"]

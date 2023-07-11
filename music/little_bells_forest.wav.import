@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/little_bells_forest.wav-043f657024e668254f5eee22412ffb7c.sample"
+type="AudioStreamWAV"
+uid="uid://dghj1gbusoejl"
+path="res://.godot/imported/little_bells_forest.wav-043f657024e668254f5eee22412ffb7c.sample"
 
 [deps]
 
 source_file="res://music/little_bells_forest.wav"
-dest_files=[ "res://.import/little_bells_forest.wav-043f657024e668254f5eee22412ffb7c.sample" ]
+dest_files=["res://.godot/imported/little_bells_forest.wav-043f657024e668254f5eee22412ffb7c.sample"]
 
 [params]
 

@@ -1,17 +1,17 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://sprites/areas/house/house_livingroom.png" type="Texture" id=1]
+[ext_resource path="res://sprites/areas/house/house_livingroom.png" type="Texture2D" id=1]
 [ext_resource path="res://puzzle_elements/puzzle_node.tscn" type="PackedScene" id=2]
 [ext_resource path="res://puzzle_elements/puzzle_grid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://misc/door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://puzzle_elements/puzzle_sequence.gd" type="Script" id=5]
 [ext_resource path="res://puzzle_elements/blockade.tscn" type="PackedScene" id=6]
 [ext_resource path="res://cord.gd" type="Script" id=7]
-[ext_resource path="res://sprites/areas/house/tall_wall.png" type="Texture" id=8]
+[ext_resource path="res://sprites/areas/house/tall_wall.png" type="Texture2D" id=8]
 
 [node name="HouseRoom4" type="Node2D"]
 
-[node name="HouseLivingroom" type="Sprite" parent="."]
+[node name="HouseLivingroom" type="Sprite2D" parent="."]
 texture = ExtResource( 1 )
 centered = false
 
@@ -21,7 +21,7 @@ position = Vector2( 154, 292 )
 [node name="Cable" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( 80, 38 )
-points = PoolVector2Array( 124, 83, 227, 83, 233, 77, 238, 77 )
+points = PackedVector2Array( 124, 83, 227, 83, 233, 77, 238, 77 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -30,7 +30,7 @@ required_puzzle = NodePath("../PuzzleSequence/PuzzleGrid4")
 [node name="Cable2" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( 80, 38 )
-points = PoolVector2Array( 256, 192, 256, 105 )
+points = PackedVector2Array( 256, 192, 256, 105 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -39,7 +39,7 @@ required_puzzle = NodePath("../PuzzleGrid6")
 [node name="Cable3" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( 80, 38 )
-points = PoolVector2Array( 230, 234, 142, 234, 131, 223, 131, 145, 120, 134, 108, 134 )
+points = PackedVector2Array( 230, 234, 142, 234, 131, 223, 131, 145, 120, 134, 108, 134 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -48,7 +48,7 @@ required_puzzle = NodePath("../PuzzleGrid7")
 [node name="Cable4" type="Line2D" parent="."]
 self_modulate = Color( 0.9, 0.9, 0.9, 1 )
 position = Vector2( 80, 38 )
-points = PoolVector2Array( 98, 194, 98, 233, 105, 240, 105, 254 )
+points = PackedVector2Array( 98, 194, 98, 233, 105, 240, 105, 254 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -56,7 +56,7 @@ required_puzzle = NodePath("../PuzzleGrid7")
 
 [node name="Cable4" type="Line2D" parent="Cable4"]
 position = Vector2( 80, 38 )
-points = PoolVector2Array( 25, 215, 17, 215, 17, 201 )
+points = PackedVector2Array( 25, 215, 17, 215, 17, 201 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
@@ -324,7 +324,7 @@ position = Vector2( 24, 8 )
 [node name="Blockade5" parent="PuzzleGrid7" instance=ExtResource( 6 )]
 position = Vector2( 16, 8 )
 
-[node name="TallWall" type="Sprite" parent="."]
+[node name="TallWall" type="Sprite2D" parent="."]
 position = Vector2( 296, 10 )
 z_index = 1
 texture = ExtResource( 8 )
@@ -336,15 +336,15 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PoolVector2Array( 38, 87, 38, 92, 9, 92, 9, 292, 135, 292, 135, 301, 0, 301, 0, 87 )
+polygon = PackedVector2Array( 38, 87, 38, 92, 9, 92, 9, 292, 135, 292, 135, 301, 0, 301, 0, 87 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PoolVector2Array( 174, 292, 174, 301, 305, 301, 305, 278, 296, 278, 296, 292 )
+polygon = PackedVector2Array( 174, 292, 174, 301, 305, 301, 305, 278, 296, 278, 296, 292 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PoolVector2Array( 78, 87, 78, 92, 213, 92, 213, 114, 292, 114, 292, 92, 296, 92, 296, 115, 305, 115, 305, 92, 368, 92, 368, 292, 305, 292, 305, 301, 377, 301, 378, 87 )
+polygon = PackedVector2Array( 78, 87, 78, 92, 213, 92, 213, 114, 292, 114, 292, 92, 296, 92, 296, 115, 305, 115, 305, 92, 368, 92, 368, 292, 305, 292, 305, 301, 377, 301, 378, 87 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PoolVector2Array( 305, 145, 305, 248, 296, 248, 296, 145 )
+polygon = PackedVector2Array( 305, 145, 305, 248, 296, 248, 296, 145 )
 
 [connection signal="was_solved" from="PuzzleGrid5" to="Door" method="_on_required_was_solved"]

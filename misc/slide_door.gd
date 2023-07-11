@@ -4,10 +4,10 @@ extends Node2D
 
 ## How many puzzles must be solved for this to open. Must be less than or equal
 ## to the [member Puzzle.was_solved] signals connected to this node
-export var requirements := 1
+@export var requirements := 1
 
 ## The player node
-onready var player_node: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var player_node: CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 ## How many required puzzles have been solved
 var met_requirements := 0
@@ -17,7 +17,7 @@ var open := false
 
 func _ready():
 	if SaveData.has_data("doors|%s"%str(get_path())):
-		$Sprite.position.y = -128.0
+		$Sprite2D.position.y = -128.0
 		$CollisionShape2D.disabled = true
 		open = true
 
@@ -33,9 +33,9 @@ func _process(delta):
 func _on_required_was_solved():
 	if !open:
 		var tween := create_tween()
-		tween.tween_property($Sprite, "position:y", -128.0, 3.0)
+		tween.tween_property($Sprite2D, "position:y", -128.0, 3.0)
 		tween.play()
-		tween.connect("finished", self, "_on_animation_finished")
+		tween.connect("finished", Callable(self, "_on_animation_finished"))
 
 
 ## Disables the door's collisions when the animation of the door finishes

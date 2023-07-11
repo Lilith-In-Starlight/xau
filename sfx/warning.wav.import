@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/warning.wav-7ef7685d745cc4735c9566ee69dfd826.sample"
+type="AudioStreamWAV"
+uid="uid://bs031nxsth1y2"
+path="res://.godot/imported/warning.wav-7ef7685d745cc4735c9566ee69dfd826.sample"
 
 [deps]
 
 source_file="res://sfx/warning.wav"
-dest_files=[ "res://.import/warning.wav-7ef7685d745cc4735c9566ee69dfd826.sample" ]
+dest_files=["res://.godot/imported/warning.wav-7ef7685d745cc4735c9566ee69dfd826.sample"]
 
 [params]
 

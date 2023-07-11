@@ -1,9 +1,9 @@
 extends Node2D
 
-onready var player_node: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var player_node: CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
-onready var depth_line :Line2D = get_node_or_null("DepthLine")
-var points :PoolVector2Array = []
+@onready var depth_line :Line2D = get_node_or_null("DepthLine")
+var points :PackedVector2Array = []
 
 func _ready() -> void:
 	if depth_line != null:

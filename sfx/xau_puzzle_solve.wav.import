@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/xau_puzzle_solve.wav-265f79e5634f7aef7596c515066e307f.sample"
+type="AudioStreamWAV"
+uid="uid://b81ctgnlssd5g"
+path="res://.godot/imported/xau_puzzle_solve.wav-265f79e5634f7aef7596c515066e307f.sample"
 
 [deps]
 
 source_file="res://sfx/xau_puzzle_solve.wav"
-dest_files=[ "res://.import/xau_puzzle_solve.wav-265f79e5634f7aef7596c515066e307f.sample" ]
+dest_files=["res://.godot/imported/xau_puzzle_solve.wav-265f79e5634f7aef7596c515066e307f.sample"]
 
 [params]
 

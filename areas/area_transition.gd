@@ -7,9 +7,9 @@ class_name AreaTransition
 ## To make the illusion of looking down on a 3D world, it's necessary to hide
 ## parts of rooms that would obscure the player from view. This node does that
 
-export(int) var new_z_index: int = 1
+@export var new_z_index: int = 1
 
-onready var PlayerNode: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var PlayerNode: CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 
 func _ready():

@@ -9,12 +9,12 @@ class_name Cursor
 ## used
 
 ## The [AnimatedSprite2D] that represents the cursor in-game
-onready var sprite: AnimatedSprite = $Cursor
+@onready var sprite: AnimatedSprite2D = $Cursor
 ## The [Line2D] used to show the connection between a node and the mouse
-onready var connection_line: Line2D = $Connection
+@onready var connection_line: Line2D = $Connection
 ## The [RayCast2D] used to check whether the mouse is connecting from a node
 ## that is obstructed by some puzzle element
-onready var connection_raycast: RayCast2D = $ConnectionCast
+@onready var connection_raycast: RayCast2D = $ConnectionCast
 
 ## The position of the cursor in the previous frame,
 ## used for calculating the rotation and any other visual effects
@@ -33,16 +33,16 @@ func _process(delta):
 	var angle_mult = min(abs_delta_x / 20.0, 0.8)
 
 	if pos_delta.x < -1:
-		sprite.rotation = lerp_angle(sprite.rotation, deg2rad(-45 * angle_mult), 0.2)
+		sprite.rotation = lerp_angle(sprite.rotation, deg_to_rad(-45 * angle_mult), 0.2)
 	elif pos_delta.x > 1:
-		sprite.rotation = lerp_angle(sprite.rotation, deg2rad(45 * angle_mult), 0.2)
+		sprite.rotation = lerp_angle(sprite.rotation, deg_to_rad(45 * angle_mult), 0.2)
 	else:
 		sprite.rotation = lerp_angle(sprite.rotation, 0.0, 0.2)
 	
 	if connecting_from != null:
 		connection_line.visible = true
 		connection_raycast.position = connecting_from.global_position - global_position
-		connection_raycast.cast_to = -connection_raycast.position
+		connection_raycast.target_position = -connection_raycast.position
 		connection_raycast.force_raycast_update()
 		var connection_line_to :Vector2 = Vector2(0, 0)
 		if connection_raycast.is_colliding():
@@ -67,7 +67,9 @@ func _input(delta):
 
 
 func change_blink(to: bool):
-	if to:
-		$Blinker.play("Blink")
-		if not $Alarm.playing:
-			$Alarm.play()
+	if not to:
+		return
+		
+	$Blinker.play("Blink")
+	if not $Alarm.playing:
+		$Alarm.play()

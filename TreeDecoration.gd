@@ -1,5 +1,5 @@
-tool
-extends KinematicBody2D
+@tool
+extends StaticBody2D
 
 
 const TREE_SPRITES := [
@@ -23,13 +23,13 @@ const TREE_SPRITES := [
 ]
 
 func _ready() -> void:
-	$Sprite.texture = TREE_SPRITES[hash(global_position)%TREE_SPRITES.size()]
-	$Sprite.offset.y = - $Sprite.texture.get_height() / 2.0 + 5.0
-	$Sprite/VisibilityEnabler2D.rect.position.y = - $Sprite.texture.get_height()
+	$Sprite2D.texture = TREE_SPRITES[hash(global_position)%TREE_SPRITES.size()]
+	$Sprite2D.offset.y = - $Sprite2D.texture.get_height() / 2.0 + 5.0
+	$Sprite2D/VisibleOnScreenEnabler2D.rect.position.y = - $Sprite2D.texture.get_height()
 
 
 func _process(delta: float) -> void:
-	if Engine.editor_hint:
-		$Sprite.texture = TREE_SPRITES[hash(global_position)%TREE_SPRITES.size()]
-		$Sprite.offset.y = - $Sprite.texture.get_height() / 2.0 + 5.0
-		$Sprite/VisibilityEnabler2D.rect.position.y = - $Sprite.texture.get_height()
+	if Engine.is_editor_hint():
+		$Sprite2D.texture = TREE_SPRITES[hash(global_position)%TREE_SPRITES.size()]
+		$Sprite2D.offset.y = - $Sprite2D.texture.get_height() / 2.0 + 5.0
+		$Sprite2D/VisibleOnScreenEnabler2D.rect.position.y = - $Sprite2D.texture.get_height()

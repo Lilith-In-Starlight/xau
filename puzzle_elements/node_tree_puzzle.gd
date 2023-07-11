@@ -1,3 +1,3 @@
 extends PuzzleGrid
 
-export(Array, NodePath) var things :Array
+@export var things :Array # (Array, NodePath)

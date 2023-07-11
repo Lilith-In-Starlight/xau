@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/house_guitar_once.mp3-9ec5cc8d441d43b74d1179c7345b7804.mp3str"
+uid="uid://cpqg3oli2jbso"
+path="res://.godot/imported/house_guitar_once.mp3-9ec5cc8d441d43b74d1179c7345b7804.mp3str"
 
 [deps]
 
 source_file="res://music/house_guitar_once.mp3"
-dest_files=[ "res://.import/house_guitar_once.mp3-9ec5cc8d441d43b74d1179c7345b7804.mp3str" ]
+dest_files=["res://.godot/imported/house_guitar_once.mp3-9ec5cc8d441d43b74d1179c7345b7804.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

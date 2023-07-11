@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/first_spawn.mp3-3c17d00e177bb40e81c517ffce904e9b.mp3str"
+uid="uid://ckq6tt3ydqqjm"
+path="res://.godot/imported/first_spawn.mp3-3c17d00e177bb40e81c517ffce904e9b.mp3str"
 
 [deps]
 
 source_file="res://music/first_spawn.mp3"
-dest_files=[ "res://.import/first_spawn.mp3-3c17d00e177bb40e81c517ffce904e9b.mp3str" ]
+dest_files=["res://.godot/imported/first_spawn.mp3-3c17d00e177bb40e81c517ffce904e9b.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

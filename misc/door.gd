@@ -4,10 +4,10 @@ extends Node2D
 
 ## How many puzzles must be solved for this to open. Must be less than or equal
 ## to the [member Puzzle.was_solved] signals connected to this node
-export var requirements := 1
+@export var requirements := 1
 
 ## The player node
-onready var player_node: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var player_node: CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 ## How many required puzzles have been solved
 var met_requirements := 0
@@ -17,7 +17,7 @@ var open := false
 
 func _ready():
 	if SaveData.has_data("doors|%s"%str(get_path())):
-		$Sprite.frame = 8
+		$Sprite2D.frame = 8
 		$CollisionShape2D.disabled = true
 		open = true
 
@@ -35,7 +35,7 @@ func _on_required_was_solved():
 	met_requirements += 1
 	if met_requirements == requirements:
 		if !open: 
-			$Sprite.play("default")
+			$Sprite2D.play("default")
 			open = true
 
 

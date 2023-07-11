@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/droning_bass.ogg-799c6ec7f28fdaf01944cadf211de9b8.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bsbkgyavcb4w0"
+path="res://.godot/imported/droning_bass.ogg-799c6ec7f28fdaf01944cadf211de9b8.oggvorbisstr"
 
 [deps]
 
 source_file="res://music/droning_bass.ogg"
-dest_files=[ "res://.import/droning_bass.ogg-799c6ec7f28fdaf01944cadf211de9b8.oggstr" ]
+dest_files=["res://.godot/imported/droning_bass.ogg-799c6ec7f28fdaf01944cadf211de9b8.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

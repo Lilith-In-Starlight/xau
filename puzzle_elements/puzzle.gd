@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node2D
 
 class_name Puzzle
@@ -20,26 +20,26 @@ signal was_solved
 
 
 ## A Puzzle that is required to solve this one
-export var required_puzzle: NodePath setget set_required_puzzle
+@export var required_puzzle: NodePath: set = set_required_puzzle
 
 var required_node: Node2D
 
 ## The color of this puzzle's screen while the puzzle is enabled
-export var background_color: Color = Color("#131313")
+@export var background_color: Color = Color("#131313")
 ## The color of this puzzle's screen while the puzzle is disabled
-export var off_background_color: Color = Color("#0c0c0c")
+@export var off_background_color: Color = Color("#0c0c0c")
 ## The color of this puzzle's correct nodes
-export var correct_node_color: Color = Color( 0.866667, 0.627451, 0.866667)
+@export var correct_node_color: Color = Color( 0.866667, 0.627451, 0.866667)
 ## The color of this puzzle's regular nodes
-export var node_color: Color = Color("#ffffff")
+@export var node_color: Color = Color("#ffffff")
 
 ## Whether the puzzle can connect to other puzzles
-export var framed := true
+@export var framed := true
 
 ## Unique identifier used to connect puzzles across scenes
-export var puzzle_id := "default"
+@export var puzzle_id := "default"
 
-onready var cursor_node :Cursor = get_tree().get_nodes_in_group("Cursor")[0]
+@onready var cursor_node :Cursor = get_tree().get_nodes_in_group("Cursor")[0]
 
 ## Whether the puzzle was solved or not
 var solved := false
@@ -48,11 +48,11 @@ var solved := false
 var rect := Rect2()
 
 ## Whether the puzzle is currently verified as correct
-var correct := false setget set_correct
+var correct := false: set = set_correct
 
 var base_display_connections := true
 
-onready var player :KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var player :CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 var is_visible := false
 
@@ -71,9 +71,9 @@ func _ready():
 	if not Engine.is_editor_hint():
 		for i in get_children():
 			if i.is_in_group("PuzzleNode"):
-				i.connect("connection_changed", self, "_on_connection_changed")
-				i.connect("correctness_unverified", self, "_on_correctness_unverified")
-				i.connect("delete_node_connections_request", self, "_on_delete_node_connections_requested")
+				i.connect("connection_changed", Callable(self, "_on_connection_changed"))
+				i.connect("correctness_unverified", Callable(self, "_on_correctness_unverified"))
+				i.connect("delete_node_connections_request", Callable(self, "_on_delete_node_connections_requested"))
 	
 	var id = str(get_path())
 	if SaveData.has_data("puzzles|%s" % id):
@@ -97,10 +97,10 @@ func _ready():
 							child.connections.append(get_child(j))
 	
 	if not required_node == null:
-		required_node.connect("was_solved", self, "_on_required_was_solved")
-	if Engine.editor_hint:
-		connect("child_entered_tree", self, "_on_child_entered_tree")
-		connect("child_exiting_tree", self, "_on_child_exiting_tree")
+		required_node.connect("was_solved", Callable(self, "_on_required_was_solved"))
+	if Engine.is_editor_hint():
+		connect("child_entered_tree", Callable(self, "_on_child_entered_tree"))
+		connect("child_exiting_tree", Callable(self, "_on_child_exiting_tree"))
 	if puzzle_id != "default":
 		SaveData.upid[puzzle_id] = self
 	if base_display_connections:
@@ -117,11 +117,11 @@ func _input(delta):
 	if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
 		var unhappy_nodes := get_incorrect_nodes()
 		
-		if unhappy_nodes.empty():
+		if unhappy_nodes.is_empty():
 			show_correct()
 			if not correct:
 				correct = true
-				var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+				var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 				solved_sound.stream = preload("res://sfx/xau_puzzle_solve.wav")
 				solved_sound.pitch_scale = 0.8 + randf()*0.2
 				add_child(solved_sound)
@@ -129,7 +129,7 @@ func _input(delta):
 				solved = true
 				emit_signal("was_solved")
 		else:
-			var failed_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+			var failed_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 			failed_sound.stream = preload("res://sfx/xau_puzzle_fail.wav")
 			failed_sound.attenuation = 40
 			add_child(failed_sound)
@@ -155,7 +155,7 @@ func get_incorrect_nodes() -> Array:
 			if not i.color in graph_shapes:
 				graph_shapes[i.color] = [i, []]
 				
-				if i.connections.empty():
+				if i.connections.is_empty():
 					unhappy_nodes.append(i)
 					unhappy_graph_colors.append(i.color)
 					continue
@@ -181,7 +181,7 @@ func get_incorrect_nodes() -> Array:
 					isomorphic = false
 				
 				
-				while not comparison_graph_shape.empty() and isomorphic == true:
+				while not comparison_graph_shape.is_empty() and isomorphic == true:
 					var match_find := current_id.find(comparison_graph_shape[comparison_graph_shape.size() - 1])
 					
 					if match_find == -1:
@@ -189,7 +189,7 @@ func get_incorrect_nodes() -> Array:
 						break
 					
 					comparison_graph_shape.pop_back()
-					current_id.remove(match_find)
+					current_id.pop_at(match_find)
 				
 				if not isomorphic:
 					unhappy_nodes.append(i)
@@ -228,7 +228,7 @@ func check_correct():
 				print(i.get_graph_shape())
 			elif !i.check():
 				unhappy_nodes.append(i)
-	return unhappy_nodes.empty()
+	return unhappy_nodes.is_empty()
 
 ## Makes the puzzle look green to indicate that it is correct
 func show_correct():
@@ -271,7 +271,7 @@ func update_correctness_visuals(queue_redraw: bool = false) -> void:
 		if is_enabled():
 			if correct: show_correct()
 			else: unshow_correct()
-		if queue_redraw: update()
+		if queue_redraw: queue_redraw()
 
 ## Display whether the puzzle is enabled
 func update_enabled_visuals() -> void:
@@ -283,13 +283,13 @@ func update_enabled_visuals() -> void:
 				i.modulate.a = 1.0
 			else:
 				i.modulate.a = 0.0
-	update()
+	queue_redraw()
 
 func _on_child_entered_tree(gone_node: Node):
-	update()
+	queue_redraw()
 
 func _on_child_exiting_tree(gone_node: Node):
-	update()
+	queue_redraw()
 
 
 ## Calculates the square area that contains all the [PuzzleNode]s
@@ -323,9 +323,9 @@ func save() -> Dictionary:
 					c_con.append(j.get_index())
 				else:
 					c_con.append(str(j.get_path()))
-		if not c_con.empty():
+		if not c_con.is_empty():
 			conn[str(i.get_index())] = c_con
-	if not conn.empty():
+	if not conn.is_empty():
 		dict["connections"] = conn
 		dict["solved"] = solved
 		dict["correct"] = correct
@@ -346,7 +346,7 @@ func display_connections():
 		if known_connections.size() > connection_display.get_child_count():
 			for i in abs(connection_display.get_child_count() - known_connections.size()):
 				var new_line := Line2D.new()
-				new_line.default_color = ColorN("white")
+				new_line.default_color = Color.WHITE
 				new_line.width = 2.0
 				connection_display.add_child(new_line)
 		elif known_connections.size() < connection_display.get_child_count():
@@ -375,7 +375,7 @@ func display_connections():
 						
 				else:
 					line.width = 1.8
-					line.default_color = ColorN("white")
+					line.default_color = Color.WHITE
 				line.points = [connection[0].position, connection[1].global_position - global_position]
 
 
