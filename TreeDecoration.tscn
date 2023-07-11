@@ -14,5 +14,9 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, -40 )
 script = ExtResource( 3 )
 
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="Sprite"]
+process_parent = true
+physics_process_parent = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

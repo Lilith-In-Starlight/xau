@@ -21,26 +21,25 @@ func _ready():
 	if SaveData.data.has("player_pos_x"):
 		position.x = SaveData.data["player_pos_x"]
 		position.y = SaveData.data["player_pos_y"]
-		$Camera2D.reset_smoothing()
 
 
 func _process(delta):
-	if velocity.length() < 0.1:
-		var int_position = global_position.snapped(Vector2(1.0, 1.0))
-		$Animations.position = int_position - global_position
+#	if velocity.length() < 0.1:
+#		var int_position = global_position.snapped(Vector2(1.0, 1.0))
+#		$Animations.position = int_position - global_position
 	if Input.is_action_pressed("up") and not Input.is_action_pressed("down"):
-		velocity.y = lerp(velocity.y, -MAX_VEL * delta*60.0, GO_MULT)
+		velocity.y = lerp(velocity.y, -MAX_VEL, GO_MULT* delta*60.0)
 	elif Input.is_action_pressed("down") and not Input.is_action_pressed("up"):
-		velocity.y = lerp(velocity.y, MAX_VEL * delta*60.0, GO_MULT)
+		velocity.y = lerp(velocity.y, MAX_VEL, GO_MULT* delta*60.0)
 	else:
-		velocity.y = lerp(velocity.y, 0.0, STOP_MULT)
+		velocity.y = lerp(velocity.y, 0.0, STOP_MULT* delta*60.0)
 	
 	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
-		velocity.x = lerp(velocity.x, -MAX_VEL * delta*60.0, GO_MULT)
+		velocity.x = lerp(velocity.x, -MAX_VEL, GO_MULT* delta*60.0)
 	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
-		velocity.x = lerp(velocity.x, MAX_VEL * delta*60.0, GO_MULT)
+		velocity.x = lerp(velocity.x, MAX_VEL, GO_MULT* delta*60.0)
 	else:
-		velocity.x = lerp(velocity.x, 0.0, STOP_MULT)
+		velocity.x = lerp(velocity.x, 0.0, STOP_MULT* delta*60.0)
 	
 	if velocity.length() < 1.0:
 		$Animations.play("standing_%s" % direction_from_velocity())

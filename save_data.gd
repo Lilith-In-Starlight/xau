@@ -24,13 +24,13 @@ func _ready():
 		file.close()
 	
 	if data.has("version"):
-		if data["version"] != "1":
+		if data["version"] != "2":
 			data = {
 				"puzzles" : {},
 				"doors" : {},
 				"sections" : {},
 			}
-			data["version"] = "1"
+			data["version"] = "2"
 			save()
 	else:
 		data = {
@@ -38,7 +38,7 @@ func _ready():
 			"doors" : {},
 			"sections" : {},
 		}
-		data["version"] = "1"
+		data["version"] = "2"
 		save()
 
 

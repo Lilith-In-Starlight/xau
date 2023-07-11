@@ -33,11 +33,13 @@ enum TYPES {
 
 export(TYPES) var node_rule := TYPES.NONE setget set_node_rule
 
+
 var forced_edges: int
 
 var color :int
 
 var hardcoded_connections :Array
+var forced_connections: Array
 
 ## The node that represents the cursor
 onready var cursor_node: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
@@ -58,19 +60,30 @@ func _ready():
 	$PathMark.modulate = get_color()
 	$IsoMark.visible = node_rule == TYPES.ISOMORPH
 	$IsoMark.modulate = get_color()
+	$PathMark/PathMark2.visible = color != COLORS.black
+	$IsoMark/IsoMark2.visible = color != COLORS.black
 
 
 func _process(delta):
 	if not Engine.is_editor_hint():
-		if cursor_node.global_position.distance_to(global_position) < 6:
-			scale.x = 1.2
-			scale.y = 1.2
-		else:
-			scale.x = 1
-			scale.y = 1
-	else:
+		if cursor_node.connecting_from == self:
+			connect_puzzle(cursor_node.position)
+		
+		for i in forced_connections:
+			var node = get_node_or_null(i)
+			if node == null: continue
+			if not node in connections:
+				connections.append(node)
+				emit_signal("connection_changed", self, node, "connect")
+			if not self in node.connections:
+				node.connections.append(self)
+				node.emit_signal("connection_changed", node, self, "connect")
+		
+	elif not get_parent() is Viewport:
 		$PathMark.modulate = get_color()
 		$PathMark.visible = node_rule == TYPES.PATH
+		$PathMark/PathMark2.visible = color != COLORS.black
+		$IsoMark/IsoMark2.visible = color != COLORS.black
 		$IsoMark.visible = node_rule == TYPES.ISOMORPH
 		$IsoMark.modulate = get_color()
 
@@ -85,34 +98,30 @@ func check() -> bool:
 		TYPES.PATH:
 			if connections.size() > 1:
 				return false
-			else:
-				if connections.empty():
-					return false
-				var next_checks: Array = [connections[0]]
-				var already_checked: Array = [self]
-				var connection_color :int = color
-				var will_return := false
-				while next_checks.size() > 0:
-					var current_check = next_checks[0]
-					already_checked.append(current_check)
-					next_checks.remove(0)
-					if !current_check.node_rule == TYPES.PATH:
-						for i in current_check.connections:
-							if not i in already_checked:
-								next_checks.append(i)
-					else:
-						if current_check.color == connection_color or connection_color == COLORS.black or current_check.color == COLORS.black:
-							will_return = true
-						else:
-							will_return = false
-				return will_return # if it gets here it's cuz it never found a goal
+				
+			if connections.empty():
+				return false
+			
+			var next_checks: Array = [self]
+			var already_checked: Array = []
+			var connection_color :int = color
+			while next_checks.size() > 0:
+				var currently_checking = next_checks.pop_back()
+				already_checked.append(currently_checking)
+				for neighbor in currently_checking.connections:
+					if neighbor in already_checked or neighbor == self:
+						continue
+					if neighbor.node_rule == TYPES.PATH:
+						return neighbor.color == color or neighbor.color == COLORS.black or color == COLORS.black
+						
+					next_checks.append(neighbor)
+			return false
 		TYPES.HARDCODE:
 			if connections.size() != hardcoded_connections.size():
 				return false
-			else:
-				for i in hardcoded_connections:
-					if not get_node(i) in connections:
-						return false
+			for i in hardcoded_connections:
+				if not get_node(i) in connections:
+					return false
 		TYPES.ISOMORPH:
 			pass
 	return true
@@ -130,32 +139,30 @@ func show_failure(default_color: Color):
 
 
 
-func _input(delta):
+func _on_node_button_gui_input(event: InputEvent):
+	if cursor_node.position.distance_to(global_position) >= 7:
+		return
 	if Input.is_action_just_pressed("connect"):
-		if cursor_node.position.distance_to(global_position) < 6:
-			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
-			solved_sound.stream = preload("res://sfx/node_connect.wav")
-			solved_sound.pitch_scale = 0.5 + randf() * 1.5
-			add_child(solved_sound)
-	if Input.is_action_pressed("connect"):
-		if cursor_node.position.distance_to(global_position) < 6:
-			emit_signal("correctness_unverified")
-			if cursor_node.connecting_from == null:
-				cursor_node.connecting_from = self
-		elif cursor_node.connecting_from == self:
-			connect_puzzle(cursor_node.position)
+		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+		solved_sound.stream = preload("res://sfx/node_connect.wav")
+		solved_sound.pitch_scale = 0.5 + randf() * 1.5
+		add_child(solved_sound)
+		emit_signal("correctness_unverified")
+		
+		if cursor_node.connecting_from == null:
+			cursor_node.connecting_from = self
+	
 	elif Input.is_action_just_pressed("noconnect"):
-		if cursor_node.position.distance_to(global_position) < 6:
-			emit_signal("correctness_unverified")
-			emit_signal("delete_node_connections_request", self, false)
+		emit_signal("correctness_unverified")
+		emit_signal("delete_node_connections_request", self, false)
+	
 	elif Input.is_action_just_pressed("puzzle_reset"):
-		if cursor_node.position.distance_to(global_position) < 6:
-			emit_signal("correctness_unverified")
-			emit_signal("delete_node_connections_request", self, true)
-			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
-			solved_sound.stream = preload("res://sfx/xau_reset.wav")
-			solved_sound.pitch_scale = 0.8 + randf()*0.2
-			add_child(solved_sound)
+		emit_signal("correctness_unverified")
+		emit_signal("delete_node_connections_request", self, true)
+		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+		solved_sound.stream = preload("res://sfx/xau_reset.wav")
+		solved_sound.pitch_scale = 0.8 + randf()*0.2
+		add_child(solved_sound)
 
 
 ## Try to connect to a node towards a particular direction, usually directed
@@ -163,27 +170,50 @@ func _input(delta):
 func connect_puzzle(target, disconnect := false):
 	raycast.cast_to = target - global_position
 	raycast.force_raycast_update()
-	if raycast.is_colliding():
-		var raycast_collider = raycast.get_collider()
-		if raycast_collider.is_in_group("PuzzleNode"):
-			if raycast_collider.parent == parent or (!parent.framed and !raycast_collider.parent.framed):
-				if raycast_collider.parent.is_enabled():
-					var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
-					solved_sound.stream = preload("res://sfx/node_connect.wav")
-					solved_sound.pitch_scale = 0.5 + randf() * 1.5
-					add_child(solved_sound)
-					if not raycast_collider in connections and not disconnect:
-						connections.append(raycast_collider)
-						raycast_collider.connections.append(self)
-						cursor_node.connecting_from = raycast_collider
-						raycast_collider.connect_puzzle(target)
-						emit_signal("connection_changed", self, raycast_collider, "connect")
-					else:
-						connections.erase(raycast_collider)
-						raycast_collider.connections.erase(self)
-						cursor_node.connecting_from = raycast_collider
-						raycast_collider.connect_puzzle(target)
-						emit_signal("connection_changed", self, raycast_collider, "disconnect")
+	if not raycast.is_colliding():
+		raycast.cast_to = Vector2.ZERO
+		return
+	
+	var raycast_collider = raycast.get_collider()
+	if not raycast_collider.is_in_group("PuzzleNode"):
+		raycast.cast_to = Vector2.ZERO
+		return
+		
+	if raycast_collider.parent == parent or (!parent.framed and !raycast_collider.parent.framed):
+		if not raycast_collider.parent.is_enabled():
+			raycast.cast_to = Vector2.ZERO
+			return
+		
+		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+		solved_sound.stream = preload("res://sfx/node_connect.wav")
+		solved_sound.pitch_scale = 0.5 + randf() * 1.5
+		add_child(solved_sound)
+		raycast.cast_to = raycast_collider.global_position - raycast.global_position
+		raycast.force_raycast_update()
+		
+		if not raycast.is_colliding():
+			raycast.cast_to = Vector2.ZERO
+			return
+		
+		var raycast_verification_collider := raycast.get_collider()
+		if not raycast_verification_collider == raycast_collider:
+			raycast.cast_to = Vector2.ZERO
+			return
+			
+			
+		if not raycast_collider in connections and not disconnect:
+			connections.append(raycast_collider)
+			raycast_collider.connections.append(self)
+			cursor_node.connecting_from = raycast_collider
+			raycast_collider.connect_puzzle(target)
+			emit_signal("connection_changed", self, raycast_collider, "connect")
+		elif raycast_collider in connections:
+			connections.erase(raycast_collider)
+			raycast_collider.connections.erase(self)
+			cursor_node.connecting_from = raycast_collider
+			raycast_collider.connect_puzzle(target)
+			emit_signal("connection_changed", self, raycast_collider, "disconnect")
+	
 	raycast.cast_to = Vector2.ZERO
 
 
@@ -192,13 +222,20 @@ func get_color():
 		COLORS.black:
 			return Color(0, 0, 0)
 		COLORS.blue:
-			return Color(0.2, 0.2, 0.9)
+			return Color(0.3, 0.3, 1.0)
 		COLORS.yellow:
 			return Color(0.9, 0.6, 0.3)
 
 
 func _get_property_list() -> Array:
 	var properties := []
+	
+	properties.append({
+		name = "forced_connections",
+		type = TYPE_ARRAY,
+		hint = 26,
+		hint_string = "15:"
+	})
 	match node_rule:
 		TYPES.PATH:
 			properties.append({
@@ -278,7 +315,8 @@ func get_all_nodes_in_graph():
 	var unchecked_nodes := [self]
 	var known_nodes := []
 	for checking in unchecked_nodes:
-		known_nodes.append(checking)
+		if not checking in known_nodes:
+			known_nodes.append(checking)
 		for neighbor in checking.connections:
 			if not neighbor in known_nodes:
 				unchecked_nodes.append(neighbor)
@@ -289,7 +327,6 @@ func get_neighbor_identifiers():
 	var unchecked_nodes := [self]
 	var checked_nodes := []
 	var neighbor_id := {}
-	var readable_id := {}
 	for checking in unchecked_nodes:
 		checked_nodes.append(checking)
 		var new_neighbor_list := []
@@ -300,8 +337,42 @@ func get_neighbor_identifiers():
 		new_neighbor_list.sort()
 		if not neighbor_id.has(hash(new_neighbor_list)):
 			neighbor_id[hash(new_neighbor_list)] = 0
-			readable_id[new_neighbor_list] = 0
 		neighbor_id[hash(new_neighbor_list)] += 1
-		readable_id[new_neighbor_list] += 1
-	print(readable_id)
 	return neighbor_id
+
+
+func get_unique_id():
+	var already_seen := []
+	var to_see := [self]
+	var new_to_see := []
+	var loop := true
+	var id := []
+	while not to_see.empty():
+		var new_id_num := 0
+		var next_already_seen := []
+		for checking in to_see:
+			next_already_seen.append(checking)
+			for neighbors in checking.connections:
+				if not neighbors in already_seen and not neighbors in checking:
+					new_id_num += 1
+					new_to_see.append(neighbors)
+		id.append(new_id_num)
+		already_seen.append_array(next_already_seen)
+		to_see = new_to_see.duplicate()
+		new_to_see = []
+	return id
+
+
+func _on_node_button_down() -> void:
+	pass # Replace with function body.
+
+
+
+func _on_mouse_entered() -> void:
+	scale.x = 1.2
+	scale.y = 1.2
+
+func _on_mouse_exited() -> void:
+	scale.x = 1
+	scale.y = 1
+

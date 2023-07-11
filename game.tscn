@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://music/droning_bass.ogg" type="AudioStream" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://music/tubular_bell_forest.wav" type="AudioStream" id=8]
 [ext_resource path="res://music/little_bells_forest.wav" type="AudioStream" id=9]
 [ext_resource path="res://music/choir_bass_forest.wav" type="AudioStream" id=10]
+[ext_resource path="res://gui/tutorial.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Camera.gd" type="Script" id=12]
 
 [node name="Game" type="Node2D" groups=["GameNode"]]
 script = ExtResource( 1 )
@@ -53,3 +55,11 @@ autoplay = true
 
 [node name="WeirdSound" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+current = true
+smoothing_speed = 8.0
+script = ExtResource( 12 )
+
+[node name="Tutorial" parent="Camera2D" instance=ExtResource( 11 )]
+position = Vector2( -0.5, 9 )

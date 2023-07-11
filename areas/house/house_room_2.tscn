@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sprites/areas/house/house_front.png" type="Texture" id=1]
 [ext_resource path="res://misc/y_sort_object.gd" type="Script" id=2]
@@ -12,11 +12,20 @@
 [ext_resource path="res://misc/door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://puzzle_elements/connections/puzzle_and_gate.tscn" type="PackedScene" id=11]
 [ext_resource path="res://sprites/misc/sitting_thing.png" type="Texture" id=12]
+[ext_resource path="res://areas/house/ToolButton.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 3.5 )
 
 [node name="HouseRoom2" type="Node2D"]
+
+[node name="ToolButton" type="ToolButton" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 81.0
+margin_top = 126.0
+margin_right = 433.0
+margin_bottom = 201.0
+script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -158,18 +167,18 @@ node_rule = 1
 color = 0
 
 [node name="PuzzleNode2" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
-position = Vector2( 16, 0 )
+position = Vector2( 0, 16 )
 node_rule = 2
 forced_edges = 0
 color = 0
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 32 )
 node_rule = 1
 color = 0
 
 [node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
+position = Vector2( 16, 32 )
 node_rule = 1
 color = 0
 
@@ -187,22 +196,22 @@ node_rule = 1
 color = 0
 
 [node name="PuzzleNode3" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 32, 0 )
-node_rule = 1
-color = 0
-
-[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 0, 16 )
 node_rule = 1
 color = 0
 
+[node name="PuzzleNode4" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 32, 16 )
+node_rule = 1
+color = 0
+
 [node name="PuzzleNode5" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
+position = Vector2( 16, 32 )
 node_rule = 1
 color = 0
 
 [node name="PuzzleNode6" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 32, 16 )
+position = Vector2( 32, 32 )
 
 [node name="Blockade" parent="PuzzleSequence/PuzzleGrid3" instance=ExtResource( 4 )]
 position = Vector2( 16, 8 )
@@ -281,20 +290,20 @@ position = Vector2( 32, 0 )
 position = Vector2( 0, 16 )
 
 [node name="PuzzleNode5" parent="PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
-node_rule = 1
-color = 0
-
-[node name="PuzzleNode6" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 32, 16 )
 node_rule = 1
 color = 0
 
-[node name="PuzzleNode7" parent="PuzzleGrid3" instance=ExtResource( 5 )]
+[node name="PuzzleNode6" parent="PuzzleGrid3" instance=ExtResource( 5 )]
 position = Vector2( 0, 32 )
+node_rule = 1
+color = 0
+
+[node name="PuzzleNode7" parent="PuzzleGrid3" instance=ExtResource( 5 )]
+position = Vector2( 16, 32 )
 
 [node name="PuzzleNode8" parent="PuzzleGrid3" instance=ExtResource( 5 )]
-position = Vector2( 16, 32 )
+position = Vector2( 32, 32 )
 
 [node name="Blockade" parent="PuzzleGrid3" instance=ExtResource( 4 )]
 position = Vector2( 0, 24 )
@@ -348,6 +357,13 @@ shape = SubResource( 1 )
 position = Vector2( -17, -24 )
 texture = ExtResource( 12 )
 centered = false
+
+[node name="ToolButton2" type="ToolButton" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 260.0
+margin_top = 134.0
+margin_right = 532.0
+margin_bottom = 164.0
 
 [connection signal="was_solved" from="PuzzleAndGate" to="Door2" method="_on_required_was_solved"]
 [connection signal="was_solved" from="PuzzleGrid3" to="Door" method="_on_required_was_solved"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://areas/transition_room.gd" type="Script" id=1]
+[ext_resource path="res://misc/y_sort_object.gd" type="Script" id=2]
 [ext_resource path="res://sprites/areas/house/house_forest_transition_wall.png" type="Texture" id=3]
 [ext_resource path="res://sprites/areas/house/house_forest_transition.png" type="Texture" id=4]
 
@@ -11,14 +12,16 @@ script = ExtResource( 1 )
 z_index = -2
 texture = ExtResource( 4 )
 
-[node name="HouseForestTransitionWall" type="Sprite" parent="."]
-position = Vector2( 108.5, 72 )
-z_index = 1
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2( 0, 141 )
+script = ExtResource( 2 )
+
+[node name="HouseForestTransitionWall" type="Sprite" parent="Walls"]
+position = Vector2( 108.5, -69 )
 texture = ExtResource( 3 )
 
-[node name="HouseForestTransitionWall2" type="Sprite" parent="."]
-position = Vector2( -107.5, 72 )
-z_index = 1
+[node name="HouseForestTransitionWall2" type="Sprite" parent="Walls"]
+position = Vector2( -107.5, -69 )
 texture = ExtResource( 3 )
 
 [node name="WorldCollision" type="StaticBody2D" parent="."]

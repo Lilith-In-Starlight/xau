@@ -28,11 +28,11 @@ func _process(delta: float) -> void:
 				var tween = create_tween()
 				tween.set_ease(Tween.EASE_OUT)
 				tween.set_trans(Tween.TRANS_QUINT)
-				tween.tween_property($"../Character/Camera2D", "zoom", Vector2(5, 5), 1.0)
-				tween.tween_property($"../Character/Camera2D", "zoom", Vector2(5, 5), 2.0)
+				tween.tween_property($"../Camera2D", "zoom", Vector2(5, 5), 1.0)
+				tween.tween_property($"../Camera2D", "zoom", Vector2(5, 5), 2.0)
 				tween.set_ease(Tween.EASE_IN_OUT)
 				tween.set_trans(Tween.TRANS_QUAD)
-				tween.tween_property($"../Character/Camera2D", "zoom", Vector2(1, 1), 6.0)
+				tween.tween_property($"../Camera2D", "zoom", Vector2(1, 1), 6.0)
 			else:
 				$DroneBass.volume_db = lerp($DroneBass.volume_db, 0.0, SONG_LERP)
 		elif get_parent().AreaNode.get_node("StatesDefiner").state == "exit_hall":

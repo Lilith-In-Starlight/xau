@@ -24,6 +24,8 @@ export var spacing :int = 16 setget set_spacing
 ## Positions of the puzzle where there should not be a node
 export var holes: PoolVector2Array = []
 
+export var bintree_solution := ""
+
 
 func _init():
 	base_display_connections = false
@@ -31,6 +33,8 @@ func _init():
 func _ready():
 	update_children_positions()
 	display_connections()
+	if not Engine.editor_hint:
+		set_bintree_solution()
 
 func set_row_size(value):
 	row_size = value
@@ -123,3 +127,32 @@ func _on_screen_entered() -> void:
 
 func _on_screen_exited() -> void:
 	is_visible = false
+
+
+func set_bintree_solution() -> void:
+	if not mode == MODES.BINTREE:
+		return
+	var parenthesis_depth := 0
+	var tree_positions := [1]
+	for ch in bintree_solution:
+		var current_child := get_child(tree_positions[parenthesis_depth])
+		match ch:
+			"l":
+				tree_positions[parenthesis_depth] *= 2
+				var new_child = get_child(tree_positions[parenthesis_depth])
+				new_child.hardcoded_connections.append(new_child.get_path_to(current_child))
+				current_child.hardcoded_connections.append(current_child.get_path_to(new_child))
+			"r":
+				tree_positions[parenthesis_depth] *= 2
+				tree_positions[parenthesis_depth] += 1
+				var new_child = get_child(tree_positions[parenthesis_depth])
+				new_child.hardcoded_connections.append(new_child.get_path_to(current_child))
+				current_child.hardcoded_connections.append(current_child.get_path_to(new_child))
+			"(":
+				parenthesis_depth += 1
+				tree_positions.append(tree_positions[parenthesis_depth-1])
+			")":
+				parenthesis_depth -= 1
+				tree_positions.pop_back()
+	
+	display_connections()

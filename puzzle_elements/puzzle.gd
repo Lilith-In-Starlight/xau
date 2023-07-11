@@ -88,9 +88,13 @@ func _ready():
 			if puzzle_data["connections"].has(str(i)):
 				for j in puzzle_data["connections"][str(i)]:
 					if j is String:
-						child.connections.append(get_node(j))
+						var new_j = get_node_or_null(j)
+						if new_j == null:
+							continue
+						child.connections.append(new_j)
 					else:
-						child.connections.append(get_child(j))
+						if j < get_child_count():
+							child.connections.append(get_child(j))
 	
 	if not required_node == null:
 		required_node.connect("was_solved", self, "_on_required_was_solved")
@@ -104,78 +108,107 @@ func _ready():
 
 
 func _input(delta):
-	if is_visible:
-		if Input.is_action_just_pressed("connect") and is_enabled():
-			display_connections()
-		if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
-			if is_enabled():
-				print(name)
-				var unhappy_nodes := []
-				var hardcoded := []
-				var hardcode_fail := false
-				var failed := false
-				var graph_shapes := {}
-				var unhappy_graph_colors := []
-				for i in get_children():
-					if i.is_in_group("PuzzleNode"):
-						if i.node_rule == i.TYPES.HARDCODE:
-							hardcoded.append(i)
-						if i.node_rule == i.TYPES.ISOMORPH:
-							if not i.color in unhappy_graph_colors:
-								if not i.color in graph_shapes:
-									graph_shapes[i.color] = [i, i.get_neighbor_identifiers()]
-									print(i.get_neighbor_identifiers())
-									if i.connections.empty():
-										failed = true
-										i.show_failure(node_color)
-										unhappy_nodes.append(i)
-										unhappy_graph_colors.append(i.color)
-									for node_in_graph in i.get_all_nodes_in_graph():
-										if node_in_graph == i:
-											continue
-										if node_in_graph.node_rule == i.TYPES.ISOMORPH and node_in_graph.color == i.color:
-											failed = true
-											i.show_failure(node_color)
-											unhappy_nodes.append(i)
-											unhappy_graph_colors.append(i.color)
-											break
-								else:
-									print(i.get_neighbor_identifiers())
-									if not check_isomorphism(i.get_neighbor_identifiers(), graph_shapes[i.color][1]):
-										unhappy_nodes.append(i)
-										graph_shapes[i.color][0].show_failure(node_color)
-										unhappy_nodes.append(graph_shapes[i.color][0])
-										i.show_failure(node_color)
-										unhappy_graph_colors.append(i.color)
-							else:
-								i.show_failure(node_color)
-								unhappy_nodes.append(i)
-						if !i.check():
-							failed = true
-							if i.node_rule == i.TYPES.HARDCODE:
-								hardcode_fail = true
-							else:
-								i.show_failure(node_color)
-							unhappy_nodes.append(i)
-				if hardcode_fail:
-					for i in hardcoded:
-						i.show_failure(node_color)
-				if failed:
-					var failed_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
-					failed_sound.stream = preload("res://sfx/xau_puzzle_fail.wav")
-					failed_sound.attenuation = 40
-					add_child(failed_sound)
-				if unhappy_nodes.empty():
-					if not correct:
-						correct = true
-						var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
-						solved_sound.stream = preload("res://sfx/xau_puzzle_solve.wav")
-						solved_sound.pitch_scale = 0.8 + randf()*0.2
-						add_child(solved_sound)
-					if not solved:
-						solved = true
-						emit_signal("was_solved")
-					show_correct()
+	if not is_visible or not is_enabled():
+		return
+		
+	if Input.is_action_just_pressed("connect"):
+		display_connections()
+	
+	if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
+		var unhappy_nodes := get_incorrect_nodes()
+		
+		if unhappy_nodes.empty():
+			show_correct()
+			if not correct:
+				correct = true
+				var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+				solved_sound.stream = preload("res://sfx/xau_puzzle_solve.wav")
+				solved_sound.pitch_scale = 0.8 + randf()*0.2
+				add_child(solved_sound)
+			if not solved:
+				solved = true
+				emit_signal("was_solved")
+		else:
+			var failed_sound := preload("res://sfx/ephemeral_sound.tscn").instance()
+			failed_sound.stream = preload("res://sfx/xau_puzzle_fail.wav")
+			failed_sound.attenuation = 40
+			add_child(failed_sound)
+			for i in unhappy_nodes:
+				i.show_failure(node_color)
+
+
+func get_incorrect_nodes() -> Array:
+	var unhappy_nodes := []
+	var hardcode_fail := false
+	var graph_shapes := {}
+	var unhappy_graph_colors := []
+
+	for i in get_children():
+		if not i.is_in_group("PuzzleNode"):
+			continue
+		
+		if i.node_rule == i.TYPES.ISOMORPH:
+			if i.color in unhappy_graph_colors:
+				unhappy_nodes.append(i)
+				continue
+			
+			if not i.color in graph_shapes:
+				graph_shapes[i.color] = [i, []]
+				
+				if i.connections.empty():
+					unhappy_nodes.append(i)
+					unhappy_graph_colors.append(i.color)
+					continue
+				
+				for node_in_graph in i.get_all_nodes_in_graph():
+					graph_shapes[i.color][1].append(node_in_graph.get_unique_id())
+					
+					if node_in_graph.color == i.color and node_in_graph.node_rule == i.TYPES.ISOMORPH and not i == node_in_graph:
+						unhappy_nodes.append(i)
+						unhappy_graph_colors.append(i.color)
+						break
+					
+			else:
+				var current_id := []
+				
+				for node_in_graph in i.get_all_nodes_in_graph():
+					current_id.append(node_in_graph.get_unique_id())
+				
+				var isomorphic := true
+				var comparison_graph_shape = graph_shapes[i.color][1].duplicate()
+				
+				if comparison_graph_shape.size() != current_id.size():
+					isomorphic = false
+				
+				
+				while not comparison_graph_shape.empty() and isomorphic == true:
+					var match_find := current_id.find(comparison_graph_shape[comparison_graph_shape.size() - 1])
+					
+					if match_find == -1:
+						isomorphic = false
+						break
+					
+					comparison_graph_shape.pop_back()
+					current_id.remove(match_find)
+				
+				if not isomorphic:
+					unhappy_nodes.append(i)
+					unhappy_nodes.append(graph_shapes[i.color][0])
+					unhappy_graph_colors.append(i.color)
+		
+		elif i.node_rule == i.TYPES.HARDCODE:
+			if hardcode_fail:
+				unhappy_nodes.append(i)
+			
+			elif !i.check(): 
+				hardcode_fail = true
+				unhappy_nodes.append(i)
+		
+		elif !i.check():
+			unhappy_nodes.append(i)
+	
+	return unhappy_nodes
+
 
 func set_correct(value):
 	correct = value
@@ -221,7 +254,9 @@ func unshow_correct():
 
 ## Called when the puzzle required to interact with this one is solved
 func _on_required_was_solved():
+	display_connections()
 	update_enabled_visuals()
+	update_correctness_visuals()
 
 
 ## Whether the puzzle is enabled
@@ -321,7 +356,26 @@ func display_connections():
 		for i in known_connections.size():
 			var connection: Array = known_connections[i]
 			var line: Line2D = connection_display.get_child(i)
-			if connection[0] != null and connection[1] != null:
+			if connection[0] != null and connection[1] != null and connection[0].is_in_group("PuzzleNode") and connection[1].is_in_group("PuzzleNode"):
+				var fc_0 := []
+				var fc_1 := []
+				for fc in connection[0].forced_connections:
+					var n = connection[0].get_node_or_null(fc)
+					if n == null: continue
+					fc_0.append(n)
+				for fc in connection[1].forced_connections:
+					var n = connection[1].get_node_or_null(fc)
+					if n == null: continue
+					fc_1.append(n)
+				if connection[0] in fc_1 or connection[1] in fc_0:
+					line.width = 2.8
+					line.default_color = correct_node_color.lightened(0.7)
+					if !is_enabled():
+						line.default_color = off_background_color
+						
+				else:
+					line.width = 1.8
+					line.default_color = ColorN("white")
 				line.points = [connection[0].position, connection[1].global_position - global_position]
 
 

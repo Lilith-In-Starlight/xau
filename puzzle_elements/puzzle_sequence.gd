@@ -23,6 +23,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not Engine.editor_hint:
+		return
+	
 	var x = 0
 	for i in get_children():
 		i.position.x = x

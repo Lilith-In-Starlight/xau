@@ -31,7 +31,7 @@ func update_state(set_to: String, transition := true):
 		else:
 			if transition:
 				tween.tween_property(child, "modulate:a", 0.0, 0.5)
-				tween.tween_property(child, "visible", false, 0.5)
+				tween.tween_property(child, "visible", false, 1.0)
 			else:
 				child.modulate.a = 0.0
 				child.visible = false
