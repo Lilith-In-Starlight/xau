@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://cord.gd" id="9"]
 [ext_resource type="Script" path="res://NodeArrangementGrid.gd" id="9_6y6pe"]
 [ext_resource type="PackedScene" path="res://misc/door.tscn" id="10"]
-[ext_resource type="Script" path="res://PathNodeRule.gd" id="10_e1845"]
+[ext_resource type="Script" path="res://puzzle_elements/node_rules/PathNodeRule.gd" id="10_e1845"]
 [ext_resource type="PackedScene" path="res://puzzle_elements/connections/puzzle_and_gate.tscn" id="11"]
 [ext_resource type="Texture2D" uid="uid://ccow5aor52t85" path="res://sprites/misc/sitting_thing.png" id="12"]
 [ext_resource type="Script" path="res://areas/house/ToolButton.gd" id="13"]

@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bwp5autw4c330" path="res://sprites/misc/trees/orange/puzzle_3.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://brhlhfpkll7gd" path="res://sprites/misc/trees/orange/puzzle_4.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://5s27t66bmw4p" path="res://sprites/misc/trees/orange/puzzle_5.png" id="10"]
-[ext_resource type="Script" path="res://NodeArrangementTree.gd" id="10_aqxex"]
+[ext_resource type="Script" path="res://puzzle_elements/node_arrangements/NodeArrangementTree.gd" id="10_aqxex"]
 [ext_resource type="Texture2D" uid="uid://diavry2op3hsg" path="res://sprites/misc/area1_path.png" id="11"]
-[ext_resource type="Script" path="res://HardcodeNodeRule.gd" id="11_eeifi"]
 [ext_resource type="Texture2D" uid="uid://1f18wc308bg2" path="res://sprites/misc/trees/orange/tree_6.png" id="12"]
+[ext_resource type="Script" path="res://puzzle_elements/node_rules/HardcodeNodeRule.gd" id="12_opjg1"]
 [ext_resource type="Texture2D" uid="uid://gt0i6fki7cnc" path="res://sprites/misc/trees/orange/tree_7.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://c0kdwb2iy2cv1" path="res://sprites/misc/trees/orange/tree_8.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://cww3oq3glen58" path="res://sprites/misc/trees/orange/tree_9.png" id="15"]
@@ -39,17 +39,17 @@ tree_solution = "r"
 
 [sub_resource type="Resource" id="Resource_d8dpt"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_yw2cg"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_row8u"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_8ytsn"]
@@ -59,17 +59,17 @@ tree_solution = "l"
 
 [sub_resource type="Resource" id="Resource_d7dj6"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_tm7gf"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_r1fvl"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_lq8c0"]
@@ -79,17 +79,17 @@ tree_solution = "r"
 
 [sub_resource type="Resource" id="Resource_pncb3"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_uw7ti"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_nj6l8"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_0okt7"]
@@ -99,37 +99,37 @@ tree_solution = "lr"
 
 [sub_resource type="Resource" id="Resource_ta4xx"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_2u2nr"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_en1gi"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_tly1v"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_jcqeq"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_yljn5"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_fkgf1"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_1ohe2"]
@@ -139,37 +139,37 @@ tree_solution = "rl"
 
 [sub_resource type="Resource" id="Resource_psce7"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_3eyk1"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_mvk7o"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_ueyov"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_fiby5"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_dvuqc"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_dsaln"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_15e4b"]
@@ -179,17 +179,17 @@ tree_solution = "r"
 
 [sub_resource type="Resource" id="Resource_48cy5"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_p2emi"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_6ukrh"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_a2cvv"]
@@ -199,37 +199,37 @@ tree_solution = "l"
 
 [sub_resource type="Resource" id="Resource_e2t0i"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_trgvg"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_4dw4d"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_vqvpc"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_2n0go"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_s47v0"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_scj7o"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_m4aet"]
@@ -239,37 +239,37 @@ tree_solution = "lr"
 
 [sub_resource type="Resource" id="Resource_kvupq"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_uy40g"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_7t6j8"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_evkag"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_1nia0"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_vu7wf"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_36w5f"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_enyu7"]
@@ -279,17 +279,17 @@ tree_solution = "(r)(l)"
 
 [sub_resource type="Resource" id="Resource_vgbpf"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_yj51q"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_pqqkt"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_c2m15"]
@@ -299,37 +299,37 @@ tree_solution = "(l)(rl)"
 
 [sub_resource type="Resource" id="Resource_76mrt"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_wgfq6"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_5abr2"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_wnlmb"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_3k47l"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_kewyp"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_emgui"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_t6rx1"]
@@ -339,37 +339,37 @@ tree_solution = "(lr)(rl)"
 
 [sub_resource type="Resource" id="Resource_3yyxx"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_1pfja"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_qv5k3"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_koor2"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_r8wl0"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_0lqdq"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_tdl0a"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_auni0"]
@@ -379,37 +379,37 @@ tree_solution = "(ll)(rl)"
 
 [sub_resource type="Resource" id="Resource_4uxrk"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_f7k10"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_qbt5d"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_q181h"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_dvjmh"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_xtsvd"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_3oop1"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_vsf4v"]
@@ -419,17 +419,17 @@ tree_solution = "l"
 
 [sub_resource type="Resource" id="Resource_wnrxs"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_x6o7a"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_uoxl3"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_h1l04"]
@@ -439,17 +439,17 @@ tree_solution = "r"
 
 [sub_resource type="Resource" id="Resource_qrug5"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_cb7n0"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_h3fi6"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_e1kvc"]
@@ -459,17 +459,17 @@ tree_solution = "l"
 
 [sub_resource type="Resource" id="Resource_n1wia"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_asbue"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_u55ur"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_ruw7r"]
@@ -479,17 +479,17 @@ tree_solution = "r"
 
 [sub_resource type="Resource" id="Resource_jha73"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_hlqog"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_r1e23"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_wr8ra"]
@@ -499,17 +499,17 @@ tree_solution = "r"
 
 [sub_resource type="Resource" id="Resource_rn3mq"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_k8wxt"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_so2y2"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_fat52"]
@@ -519,37 +519,37 @@ tree_solution = "l"
 
 [sub_resource type="Resource" id="Resource_k53jl"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_a1hda"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_ifslj"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_mvh37"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_rlska"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_3lnkn"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_opibg"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_s6ayr"]
@@ -559,37 +559,37 @@ tree_solution = "lr"
 
 [sub_resource type="Resource" id="Resource_umewf"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_o56yo"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_a0i4s"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_0xoo7"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_qeqwn"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_ebqxa"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_uldxc"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_hwinh"]
@@ -599,17 +599,17 @@ tree_solution = "r"
 
 [sub_resource type="Resource" id="Resource_lkgfn"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_77klg"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_56p8v"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_s0ei1"]
@@ -619,37 +619,37 @@ tree_solution = "r"
 
 [sub_resource type="Resource" id="Resource_ytaut"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_dsdby"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_gro8f"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_vx4en"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_gtpp3"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_wxush"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_cxr67"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_i0t7c"]
@@ -659,77 +659,77 @@ tree_solution = "(lr(l)(r))(rl)"
 
 [sub_resource type="Resource" id="Resource_oo84a"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_ejale"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_ju72h"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_simfy"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_fgbmh"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_30tam"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_4kqlr"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_3t7xg"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_4vivb"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_tajyk"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_c6s4x"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_sh8n0"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_t4q1f"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_51ut6"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="Resource" id="Resource_pbbjy"]
 resource_local_to_scene = true
-script = ExtResource("11_eeifi")
+script = ExtResource("12_opjg1")
 color = 0
 
 [sub_resource type="CircleShape2D" id="1"]

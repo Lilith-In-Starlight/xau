@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://puzzle_elements/puzzle_sequence.gd" id="4"]
 [ext_resource type="Script" path="res://NodeArrangementGrid.gd" id="4_f7ukl"]
 [ext_resource type="PackedScene" uid="uid://doitx77x0wy2l" path="res://puzzle_elements/blockade.tscn" id="5"]
-[ext_resource type="Script" path="res://PathNodeRule.gd" id="5_yr7nd"]
+[ext_resource type="Script" path="res://puzzle_elements/node_rules/PathNodeRule.gd" id="5_yr7nd"]
 [ext_resource type="PackedScene" path="res://misc/jail.tscn" id="6"]
 [ext_resource type="PackedScene" path="res://misc/door.tscn" id="7"]
 [ext_resource type="Script" path="res://cord.gd" id="8"]
