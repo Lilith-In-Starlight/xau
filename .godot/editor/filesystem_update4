@@ -1,2 +1,5 @@
 res://default_env.tres
 res://areas/FullAreas/ForestArea.tscn
+res://puzzle_elements/puzzle_node.gd
+res://puzzle_elements/blockade.tscn
+res://character.tscn

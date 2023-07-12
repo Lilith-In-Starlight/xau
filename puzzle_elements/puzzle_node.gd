@@ -18,7 +18,7 @@ var forced_edges: int
 @export var forced_connections: Array
 
 ## The node that represents the cursor
-@onready var cursor_node: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
+@onready var cursor_node: Node2D = get_tree().get_first_node_in_group("Cursor")
 ## A [RayCast2D] that checks if the mouse will connect a node or not
 @onready var raycast: RayCast2D = $RayCast3D
 
@@ -29,7 +29,7 @@ var connections: Array = []
 
 @onready var parent :Puzzle = get_parent()
 
-@onready var player :CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var player :CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
 func _ready():
 	set_node_visuals()
@@ -50,7 +50,7 @@ func _process(delta):
 				node.connections.append(self)
 				node.connection_changed.emit(node, self, "connect")
 		
-	elif not get_parent() is SubViewport:
+	elif not get_parent() is Viewport:
 		set_node_visuals()
 
 
@@ -245,14 +245,13 @@ func get_unique_id():
 	return id
 
 
-func _on_node_button_down() -> void:
-	pass # Replace with function body.
-
-
-
 func _on_mouse_entered() -> void:
 	scale.x = 1.2
 	scale.y = 1.2
+	
+	if Input.is_action_pressed("noconnect"):
+		correctness_unverified.emit()
+		delete_node_connections_request.emit(self, false)
 
 
 func _on_mouse_exited() -> void:
