@@ -9,37 +9,13 @@ signal connection_changed(from, to, type)
 signal correctness_unverified
 signal delete_node_connections_request(node, full)
 
-enum COLORS {
-	black,
-	blue,
-	yellow,
-}
 
-enum TYPES {
-	NONE,
-	## A path node must have only one conneciton and must connect to at least
-	## another path node of the same color. Black doesn't care about color.
-	PATH,
-	## A Section node must be in a section whose edges amount to the sum
-	## of all the Section nodes in it
-	SECTION,
-	## Two Isomorph nodes of the same color must be in isomorphic sections
-	ISOMORPH,
-	## A Loop node must be in a section that loops into itself
-	LOOP,
-	## A hardcoded node must be connected to the specified nodes
-	HARDCODE,
-}
-
-@export var node_rule := TYPES.NONE: set = set_node_rule
+@export var node_rule :NodeRule = null
 
 
 var forced_edges: int
 
-var color :int
-
-var hardcoded_connections :Array
-var forced_connections: Array
+@export var forced_connections: Array
 
 ## The node that represents the cursor
 @onready var cursor_node: Node2D = get_tree().get_nodes_in_group("Cursor")[0]
@@ -56,12 +32,7 @@ var connections: Array = []
 @onready var player :CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
-	$PathMark.visible = node_rule == TYPES.PATH
-	$PathMark.modulate = get_color()
-	$IsoMark.visible = node_rule == TYPES.ISOMORPH
-	$IsoMark.modulate = get_color()
-	$PathMark/PathMark2.visible = color != COLORS.black
-	$IsoMark/IsoMark2.visible = color != COLORS.black
+	set_node_visuals()
 
 
 func _process(delta):
@@ -74,18 +45,13 @@ func _process(delta):
 			if node == null: continue
 			if not node in connections:
 				connections.append(node)
-				emit_signal("connection_changed", self, node, "connect")
+				connection_changed.emit(self, node, "connect")
 			if not self in node.connections:
 				node.connections.append(self)
-				node.emit_signal("connection_changed", node, self, "connect")
+				node.connection_changed.emit(node, self, "connect")
 		
 	elif not get_parent() is SubViewport:
-		$PathMark.modulate = get_color()
-		$PathMark.visible = node_rule == TYPES.PATH
-		$PathMark/PathMark2.visible = color != COLORS.black
-		$IsoMark/IsoMark2.visible = color != COLORS.black
-		$IsoMark.visible = node_rule == TYPES.ISOMORPH
-		$IsoMark.modulate = get_color()
+		set_node_visuals()
 
 
 func set_node_rule(value):
@@ -94,37 +60,9 @@ func set_node_rule(value):
 
 ## Returns whether this node's requirements are satisfied
 func check() -> bool:
-	match node_rule:
-		TYPES.PATH:
-			if connections.size() > 1:
-				return false
-				
-			if connections.is_empty():
-				return false
-			
-			var next_checks: Array = [self]
-			var already_checked: Array = []
-			var connection_color :int = color
-			while next_checks.size() > 0:
-				var currently_checking = next_checks.pop_back()
-				already_checked.append(currently_checking)
-				for neighbor in currently_checking.connections:
-					if neighbor in already_checked or neighbor == self:
-						continue
-					if neighbor.node_rule == TYPES.PATH:
-						return neighbor.color == color or neighbor.color == COLORS.black or color == COLORS.black
-						
-					next_checks.append(neighbor)
-			return false
-		TYPES.HARDCODE:
-			if connections.size() != hardcoded_connections.size():
-				return false
-			for i in hardcoded_connections:
-				if not get_node(i) in connections:
-					return false
-		TYPES.ISOMORPH:
-			pass
-	return true
+	if node_rule == null:
+		return true
+	return node_rule.check_correctness(self)
 
 ## Makes the node flash red
 func show_failure(default_color: Color):
@@ -147,18 +85,18 @@ func _on_node_button_gui_input(event: InputEvent):
 		solved_sound.stream = preload("res://sfx/node_connect.wav")
 		solved_sound.pitch_scale = 0.5 + randf() * 1.5
 		get_parent().add_child(solved_sound)
-		emit_signal("correctness_unverified")
+		correctness_unverified.emit()
 		
 		if cursor_node.connecting_from == null:
 			cursor_node.connecting_from = self
 	
 	elif Input.is_action_just_pressed("noconnect"):
-		emit_signal("correctness_unverified")
-		emit_signal("delete_node_connections_request", self, false)
+		correctness_unverified.emit()
+		delete_node_connections_request.emit(self, false)
 	
 	elif Input.is_action_just_pressed("puzzle_reset"):
-		emit_signal("correctness_unverified")
-		emit_signal("delete_node_connections_request", self, true)
+		correctness_unverified.emit()
+		delete_node_connections_request.emit(self, true)
 		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 		solved_sound.stream = preload("res://sfx/xau_reset.wav")
 		solved_sound.pitch_scale = 0.8 + randf()*0.2
@@ -206,83 +144,27 @@ func connect_puzzle(target, disconnect := false):
 			raycast_collider.connections.append(self)
 			cursor_node.connecting_from = raycast_collider
 			raycast_collider.connect_puzzle(target)
-			emit_signal("connection_changed", self, raycast_collider, "connect")
+			connection_changed.emit(self, raycast_collider, "connect")
 		elif raycast_collider in connections:
 			connections.erase(raycast_collider)
 			raycast_collider.connections.erase(self)
 			cursor_node.connecting_from = raycast_collider
 			raycast_collider.connect_puzzle(target)
-			emit_signal("connection_changed", self, raycast_collider, "disconnect")
+			connection_changed.emit(self, raycast_collider, "disconnect")
 	
 	raycast.target_position = Vector2.ZERO
 
 
 func get_color():
-	match color:
-		COLORS.black:
+	if node_rule == null:
+		return Color(0, 0, 0)
+	match node_rule.color:
+		NodeRule.COLORS.black:
 			return Color(0, 0, 0)
-		COLORS.blue:
+		NodeRule.COLORS.blue:
 			return Color(0.3, 0.3, 1.0)
-		COLORS.yellow:
+		NodeRule.COLORS.yellow:
 			return Color(0.9, 0.6, 0.3)
-
-
-func _get_property_list() -> Array:
-	var properties := []
-	
-	properties.append({
-		name = "forced_connections",
-		type = TYPE_ARRAY,
-		hint = 26,
-		hint_string = "15:"
-	})
-	match node_rule:
-		TYPES.PATH:
-			properties.append({
-				name = "color",
-				type = TYPE_INT,
-				hint = PROPERTY_HINT_ENUM,
-				hint_string = "Black,Blue,Yellow"
-			})
-		TYPES.ISOMORPH:
-			properties.append({
-				name = "color",
-				type = TYPE_INT,
-				hint = PROPERTY_HINT_ENUM,
-				hint_string = "Black,Blue,Yellow"
-			})
-		TYPES.SECTION:
-			properties.append({
-				name = "forced_edges",
-				type = TYPE_INT,
-				
-			})
-			properties.append({
-				name = "color",
-				type = TYPE_INT,
-				hint = PROPERTY_HINT_ENUM,
-				hint_string = "Black,Blue,Yellow"
-			})
-		TYPES.HARDCODE:
-			properties.append({
-				name = "hardcoded_connections",
-				type = TYPE_ARRAY,
-				hint = 26,
-				hint_string = "15:",
-			})
-	return properties
-
-func _property_can_revert(property: StringName) -> bool:
-	match property:
-		"color", "forced_edges", "hardcoded_connections": return true
-		_: return false
-
-
-func _property_get_revert(property: StringName):
-	match property:
-		"color": return 0
-		"forced_edges": return 0
-		"hardcoded_connections": return []
 
 
 func get_graph_shape():
@@ -353,8 +235,7 @@ func get_unique_id():
 		for checking in to_see:
 			next_already_seen.append(checking)
 			for neighbor in checking.connections:
-				print(already_seen)
-				if not neighbor in already_seen and not neighbor in checking.connections:
+				if not neighbor in already_seen and not neighbor == checking:
 					new_id_num += 1
 					new_to_see.append(neighbor)
 		id.append(new_id_num)
@@ -373,7 +254,17 @@ func _on_mouse_entered() -> void:
 	scale.x = 1.2
 	scale.y = 1.2
 
+
 func _on_mouse_exited() -> void:
 	scale.x = 1
 	scale.y = 1
 
+
+func set_node_visuals() -> void:
+	$PathMark.visible = node_rule is PathNodeRule
+	$PathMark.modulate = get_color()
+	$IsoMark.visible = node_rule is IsoNodeRule
+	$IsoMark.modulate = get_color()
+	if node_rule != null:
+		$PathMark/PathMark2.visible = node_rule.color != NodeRule.COLORS.black
+		$IsoMark/IsoMark2.visible = node_rule.color != NodeRule.COLORS.black

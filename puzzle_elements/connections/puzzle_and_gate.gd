@@ -12,7 +12,6 @@ func _ready():
 		var node = get_node_or_null(i)
 		if node != null and node is Puzzle:
 			node.was_solved.connect(_on_required_was_solved)
-			node.connect("was_solved", Callable(self, "_on_required_was_solved"))
 
 
 func _on_required_was_solved():

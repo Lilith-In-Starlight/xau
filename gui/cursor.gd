@@ -23,6 +23,10 @@ var past_pos = Vector2(0, 0)
 var connecting_from = null
 
 
+func _ready():
+	$Cursor.play("default")
+
+
 func _process(delta):
 	position = get_global_mouse_position()
 	var pos_delta :Vector2 = position - past_pos

@@ -1,21 +1,26 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://cbjc4bsbskiun"]
 
-[ext_resource path="res://sprites/areas/house/kid_room.png" type="Texture2D" id=1]
-[ext_resource path="res://sprites/areas/house/library_pc.png" type="Texture2D" id=2]
-[ext_resource path="res://puzzle_elements/puzzle_grid.tscn" type="PackedScene" id=3]
-[ext_resource path="res://puzzle_elements/puzzle_node.tscn" type="PackedScene" id=4]
-[ext_resource path="res://puzzle_elements/interface_puzzle.tscn" type="PackedScene" id=5]
+[ext_resource type="Texture2D" uid="uid://bf2opijh01l5v" path="res://sprites/areas/house/kid_room.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://b8eogqmo6rn3t" path="res://sprites/areas/house/library_pc.png" id="2"]
+[ext_resource type="PackedScene" path="res://puzzle_elements/puzzle_grid.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bkmy6maifarrx" path="res://puzzle_elements/puzzle_node.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://ymuedr5tf7od" path="res://puzzle_elements/interface_puzzle.tscn" id="5"]
+[ext_resource type="Script" path="res://PathNodeRule.gd" id="6_7wpvn"]
+
+[sub_resource type="Resource" id="Resource_ludk5"]
+script = ExtResource("6_7wpvn")
+color = 0
 
 [node name="HouseRoom3" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 centered = false
 
 [node name="LibraryPc" type="Sprite2D" parent="."]
-position = Vector2( 12, 143 )
 z_index = 2
-texture = ExtResource( 2 )
+position = Vector2(12, 143)
+texture = ExtResource("2")
 centered = false
 
 [node name="WorldCollision" type="StaticBody2D" parent="."]
@@ -24,20 +29,19 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PackedVector2Array( 217, 311, 0, 310, 0, 83, 292, 84, 292, 303, 281, 303, 280, 92, 260, 92, 260, 168, 200, 168, 200, 91, 172, 91, 172, 155, 123, 155, 123, 91, 95, 91, 95, 168, 35, 168, 35, 92, 12, 92, 12, 300, 89, 300, 89, 303, 217, 303 )
+polygon = PackedVector2Array(217, 311, 0, 310, 0, 83, 292, 84, 292, 303, 281, 303, 280, 92, 260, 92, 260, 168, 200, 168, 200, 91, 172, 91, 172, 155, 123, 155, 123, 91, 95, 91, 95, 168, 35, 168, 35, 92, 12, 92, 12, 300, 89, 300, 89, 303, 217, 303)
 
-[node name="InterfacePuzzle" parent="." instance=ExtResource( 5 )]
-position = Vector2( 51, 267 )
+[node name="InterfacePuzzle" parent="." instance=ExtResource("5")]
+position = Vector2(51, 267)
 
-[node name="PuzzleGrid" parent="InterfacePuzzle" instance=ExtResource( 3 )]
-position = Vector2( 0, -40 )
+[node name="PuzzleGrid" parent="InterfacePuzzle" instance=ExtResource("3")]
+position = Vector2(0, -40)
 row_size = 1
+holes = PackedVector2Array()
 
-[node name="PuzzleNode" parent="InterfacePuzzle/PuzzleGrid" instance=ExtResource( 4 )]
-node_rule = 1
-color = 0
+[node name="PuzzleNode" parent="InterfacePuzzle/PuzzleGrid" instance=ExtResource("4")]
+node_rule = SubResource("Resource_ludk5")
 
-[node name="PuzzleNode2" parent="InterfacePuzzle/PuzzleGrid" instance=ExtResource( 4 )]
-position = Vector2( 0, 16 )
-node_rule = 1
-color = 0
+[node name="PuzzleNode2" parent="InterfacePuzzle/PuzzleGrid" instance=ExtResource("4")]
+position = Vector2(0, 16)
+node_rule = SubResource("Resource_ludk5")

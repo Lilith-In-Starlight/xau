@@ -102,6 +102,10 @@ func update_children_positions(exclusions: Array = []):
 				c /= 2.0
 			for i in get_children():
 				if i.is_in_group("PuzzleNode") and not i in exclusions:
+					if not i.node_rule is HardcodeNodeRule:
+						i.node_rule = HardcodeNodeRule.new()
+					else:
+						i.node_rule = i.node_rule.duplicate(true)
 					i.position = Vector2(expected_max_x / 2.0 - current_depth_max_x / 2.0 + x, y) * spacing
 					x += 1
 					if x >= current_depth_max_x:
@@ -141,14 +145,14 @@ func set_bintree_solution() -> void:
 			"l":
 				tree_positions[parenthesis_depth] *= 2
 				var new_child = get_child(tree_positions[parenthesis_depth])
-				new_child.hardcoded_connections.append(new_child.get_path_to(current_child))
-				current_child.hardcoded_connections.append(current_child.get_path_to(new_child))
+				new_child.node_rule.hardcoded_connections.append(current_child)
+				current_child.node_rule.hardcoded_connections.append(new_child)
 			"r":
 				tree_positions[parenthesis_depth] *= 2
 				tree_positions[parenthesis_depth] += 1
-				var new_child = get_child(tree_positions[parenthesis_depth])
-				new_child.hardcoded_connections.append(new_child.get_path_to(current_child))
-				current_child.hardcoded_connections.append(current_child.get_path_to(new_child))
+				var new_child :PuzzleNode = get_child(tree_positions[parenthesis_depth])
+				new_child.node_rule.hardcoded_connections.append(current_child)
+				current_child.node_rule.hardcoded_connections.append(new_child)
 			"(":
 				parenthesis_depth += 1
 				tree_positions.append(tree_positions[parenthesis_depth-1])

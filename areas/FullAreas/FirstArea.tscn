@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c7770wy0yqkuu" path="res://areas/house/house_room_1.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://areas/house/house_outside.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://areas/house/house_room_4.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bdchwcglbn74g" path="res://areas/house/house_outside.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bggtrgtv8bof3" path="res://areas/house/house_room_4.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://areas/house/house_exit.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://areas/house/house_room_3.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://areas/house/house_room_2.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://cbjc4bsbskiun" path="res://areas/house/house_room_3.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://dr3k4xin5t86e" path="res://areas/house/house_room_2.tscn" id="7"]
 [ext_resource type="PackedScene" path="res://areas/forest/forest_transition.tscn" id="8"]
 [ext_resource type="Script" path="res://areas/area.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://b6qvvktj7cs3h" path="res://sprites/areas/house/house_forest_transition_outside.png" id="10"]
@@ -89,6 +89,7 @@ visible = false
 position = Vector2(-292, -43)
 
 [node name="HouseRoom2" parent="." instance=ExtResource("7")]
+visible = false
 position = Vector2(-70, -1)
 
 [node name="HouseRoom4" parent="." instance=ExtResource("4")]

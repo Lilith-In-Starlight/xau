@@ -71,16 +71,16 @@ func _ready():
 	if not Engine.is_editor_hint():
 		for i in get_children():
 			if i.is_in_group("PuzzleNode"):
-				i.connect("connection_changed", Callable(self, "_on_connection_changed"))
-				i.connect("correctness_unverified", Callable(self, "_on_correctness_unverified"))
-				i.connect("delete_node_connections_request", Callable(self, "_on_delete_node_connections_requested"))
+				i.connection_changed.connect(_on_connection_changed)
+				i.correctness_unverified.connect(_on_correctness_unverified)
+				i.delete_node_connections_request.connect(_on_delete_node_connections_requested)
 	
 	var id = str(get_path())
 	if SaveData.has_data("puzzles|%s" % id):
 		var puzzle_data = SaveData.get_data("puzzles|%s" % id)
 		solved = puzzle_data["solved"]
 		correct = puzzle_data["correct"]
-		if solved or correct: emit_signal("was_solved")
+		if solved or correct: was_solved.emit()
 		for i in get_child_count():
 			var child = get_child(i)
 			if not child.is_in_group("PuzzleNode"):
@@ -97,10 +97,10 @@ func _ready():
 							child.connections.append(get_child(j))
 	
 	if not required_node == null:
-		required_node.connect("was_solved", Callable(self, "_on_required_was_solved"))
+		required_node.was_solved.connect(_on_required_was_solved)
 	if Engine.is_editor_hint():
-		connect("child_entered_tree", Callable(self, "_on_child_entered_tree"))
-		connect("child_exiting_tree", Callable(self, "_on_child_exiting_tree"))
+		child_entered_tree.connect(_on_child_entered_tree)
+		child_exiting_tree.connect(_on_child_exiting_tree)
 	if puzzle_id != "default":
 		SaveData.upid[puzzle_id] = self
 	if base_display_connections:
@@ -127,7 +127,7 @@ func _input(delta):
 				add_child(solved_sound)
 			if not solved:
 				solved = true
-				emit_signal("was_solved")
+				was_solved.emit()
 		else:
 			var failed_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 			failed_sound.stream = preload("res://sfx/xau_puzzle_fail.wav")
@@ -147,25 +147,25 @@ func get_incorrect_nodes() -> Array:
 		if not i.is_in_group("PuzzleNode"):
 			continue
 		
-		if i.node_rule == i.TYPES.ISOMORPH:
-			if i.color in unhappy_graph_colors:
+		if i.node_rule is IsoNodeRule:
+			if i.node_rule.color in unhappy_graph_colors:
 				unhappy_nodes.append(i)
 				continue
 			
-			if not i.color in graph_shapes:
-				graph_shapes[i.color] = [i, []]
+			if not i.node_rule.color in graph_shapes:
+				graph_shapes[i.node_rule.color] = [i, []]
 				
 				if i.connections.is_empty():
 					unhappy_nodes.append(i)
-					unhappy_graph_colors.append(i.color)
+					unhappy_graph_colors.append(i.node_rule.color)
 					continue
 				
 				for node_in_graph in i.get_all_nodes_in_graph():
-					graph_shapes[i.color][1].append(node_in_graph.get_unique_id())
+					graph_shapes[i.node_rule.color][1].append(node_in_graph.get_unique_id())
 					
-					if node_in_graph.color == i.color and node_in_graph.node_rule == i.TYPES.ISOMORPH and not i == node_in_graph:
+					if node_in_graph.node_rule is IsoNodeRule and node_in_graph.node_rule.color == i.node_rule.color and not i == node_in_graph:
 						unhappy_nodes.append(i)
-						unhappy_graph_colors.append(i.color)
+						unhappy_graph_colors.append(i.node_rule.color)
 						break
 					
 			else:
@@ -175,7 +175,7 @@ func get_incorrect_nodes() -> Array:
 					current_id.append(node_in_graph.get_unique_id())
 				
 				var isomorphic := true
-				var comparison_graph_shape = graph_shapes[i.color][1].duplicate()
+				var comparison_graph_shape = graph_shapes[i.node_rule.color][1].duplicate()
 				
 				if comparison_graph_shape.size() != current_id.size():
 					isomorphic = false
@@ -193,10 +193,10 @@ func get_incorrect_nodes() -> Array:
 				
 				if not isomorphic:
 					unhappy_nodes.append(i)
-					unhappy_nodes.append(graph_shapes[i.color][0])
-					unhappy_graph_colors.append(i.color)
+					unhappy_nodes.append(graph_shapes[i.node_rule.color][0])
+					unhappy_graph_colors.append(i.node_rule.color)
 		
-		elif i.node_rule == i.TYPES.HARDCODE:
+		elif i.node_rule is HardcodeNodeRule:
 			if hardcode_fail:
 				unhappy_nodes.append(i)
 			
@@ -220,14 +220,7 @@ func set_required_puzzle(value):
 	update_enabled_visuals()
 
 func check_correct():
-	var unhappy_nodes := []
-	var graph_shapes := {}
-	for i in get_children():
-		if i.is_in_group("PuzzleNode"):
-			if i.node_rule == i.TYPES.ISOMORPH:
-				print(i.get_graph_shape())
-			elif !i.check():
-				unhappy_nodes.append(i)
+	var unhappy_nodes := get_incorrect_nodes()
 	return unhappy_nodes.is_empty()
 
 ## Makes the puzzle look green to indicate that it is correct
