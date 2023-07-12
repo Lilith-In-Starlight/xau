@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://doitx77x0wy2l" path="res://puzzle_elements/blockade.tscn" id="6"]
 [ext_resource type="Script" path="res://NodeArrangementGrid.gd" id="6_vb5ja"]
 [ext_resource type="Script" path="res://cord.gd" id="7"]
-[ext_resource type="Script" path="res://puzzle_elements/node_rules/PathNodeRule.gd" id="7_y2kv7"]
+[ext_resource type="Script" path="res://PathNodeRule.gd" id="7_y2kv7"]
 [ext_resource type="Texture2D" uid="uid://cseneyh2frfhe" path="res://sprites/areas/house/tall_wall.png" id="8"]
 
 [sub_resource type="Resource" id="Resource_n1tnh"]

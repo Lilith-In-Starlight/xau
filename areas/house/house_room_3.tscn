@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkmy6maifarrx" path="res://puzzle_elements/puzzle_node.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://ymuedr5tf7od" path="res://puzzle_elements/interface_puzzle.tscn" id="5"]
 [ext_resource type="Script" path="res://NodeArrangementGrid.gd" id="5_u7plc"]
-[ext_resource type="Script" path="res://puzzle_elements/node_rules/PathNodeRule.gd" id="6_7wpvn"]
+[ext_resource type="Script" path="res://PathNodeRule.gd" id="6_7wpvn"]
 
 [sub_resource type="Resource" id="Resource_medjc"]
 script = ExtResource("5_u7plc")
