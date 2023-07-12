@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://bdchwcglbn74g"]
+[gd_scene load_steps=173 format=3 uid="uid://bdchwcglbn74g"]
 
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://sfdum3mqeju8" path="res://sprites/misc/trees/orange/puzzle_1.png" id="2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bwp5autw4c330" path="res://sprites/misc/trees/orange/puzzle_3.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://brhlhfpkll7gd" path="res://sprites/misc/trees/orange/puzzle_4.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://5s27t66bmw4p" path="res://sprites/misc/trees/orange/puzzle_5.png" id="10"]
+[ext_resource type="Script" path="res://NodeArrangementTree.gd" id="10_aqxex"]
 [ext_resource type="Texture2D" uid="uid://diavry2op3hsg" path="res://sprites/misc/area1_path.png" id="11"]
 [ext_resource type="Script" path="res://HardcodeNodeRule.gd" id="11_eeifi"]
 [ext_resource type="Texture2D" uid="uid://1f18wc308bg2" path="res://sprites/misc/trees/orange/tree_6.png" id="12"]
@@ -31,592 +32,702 @@
 [ext_resource type="Texture2D" uid="uid://dgyqfqx3o0ch0" path="res://sprites/misc/trees/orange/tree_20.png" id="28"]
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="29"]
 
-[sub_resource type="Resource" id="Resource_pv3fi"]
+[sub_resource type="Resource" id="Resource_yinvs"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "r"
+
+[sub_resource type="Resource" id="Resource_d8dpt"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_iqbor"]
+[sub_resource type="Resource" id="Resource_yw2cg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_ofef0"]
+[sub_resource type="Resource" id="Resource_row8u"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
+
+[sub_resource type="Resource" id="Resource_8ytsn"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "l"
 
-[sub_resource type="Resource" id="Resource_q3fyw"]
+[sub_resource type="Resource" id="Resource_d7dj6"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_ux5vo"]
+[sub_resource type="Resource" id="Resource_tm7gf"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_rltoj"]
+[sub_resource type="Resource" id="Resource_r1fvl"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_uloae"]
+[sub_resource type="Resource" id="Resource_lq8c0"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "r"
+
+[sub_resource type="Resource" id="Resource_pncb3"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_4gfbv"]
+[sub_resource type="Resource" id="Resource_uw7ti"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_lk6eg"]
+[sub_resource type="Resource" id="Resource_nj6l8"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_2artr"]
+[sub_resource type="Resource" id="Resource_0okt7"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "lr"
+
+[sub_resource type="Resource" id="Resource_ta4xx"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_jiyht"]
+[sub_resource type="Resource" id="Resource_2u2nr"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_5yuig"]
+[sub_resource type="Resource" id="Resource_en1gi"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_uwr70"]
+[sub_resource type="Resource" id="Resource_tly1v"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_q565b"]
+[sub_resource type="Resource" id="Resource_jcqeq"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_bo1x1"]
+[sub_resource type="Resource" id="Resource_yljn5"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_8ao8l"]
+[sub_resource type="Resource" id="Resource_fkgf1"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
+
+[sub_resource type="Resource" id="Resource_1ohe2"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "rl"
 
-[sub_resource type="Resource" id="Resource_dlqir"]
+[sub_resource type="Resource" id="Resource_psce7"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_gp13n"]
+[sub_resource type="Resource" id="Resource_3eyk1"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_ow3p2"]
+[sub_resource type="Resource" id="Resource_mvk7o"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_v78pu"]
+[sub_resource type="Resource" id="Resource_ueyov"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_w5xck"]
+[sub_resource type="Resource" id="Resource_fiby5"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_xqajg"]
+[sub_resource type="Resource" id="Resource_dvuqc"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_f1wpe"]
+[sub_resource type="Resource" id="Resource_dsaln"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_wc0yw"]
+[sub_resource type="Resource" id="Resource_15e4b"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "r"
+
+[sub_resource type="Resource" id="Resource_48cy5"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_4k0cr"]
+[sub_resource type="Resource" id="Resource_p2emi"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_uil74"]
+[sub_resource type="Resource" id="Resource_6ukrh"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_nt5dv"]
+[sub_resource type="Resource" id="Resource_a2cvv"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "l"
+
+[sub_resource type="Resource" id="Resource_e2t0i"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_vpcee"]
+[sub_resource type="Resource" id="Resource_trgvg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_do0jq"]
+[sub_resource type="Resource" id="Resource_4dw4d"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_e40ig"]
+[sub_resource type="Resource" id="Resource_vqvpc"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_ahab7"]
+[sub_resource type="Resource" id="Resource_2n0go"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_s2ue7"]
+[sub_resource type="Resource" id="Resource_s47v0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_ctadx"]
+[sub_resource type="Resource" id="Resource_scj7o"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
+
+[sub_resource type="Resource" id="Resource_m4aet"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "lr"
 
-[sub_resource type="Resource" id="Resource_1jgiy"]
+[sub_resource type="Resource" id="Resource_kvupq"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_41dvi"]
+[sub_resource type="Resource" id="Resource_uy40g"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_imeem"]
+[sub_resource type="Resource" id="Resource_7t6j8"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_h1jku"]
+[sub_resource type="Resource" id="Resource_evkag"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_exac6"]
+[sub_resource type="Resource" id="Resource_1nia0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_lfpuw"]
+[sub_resource type="Resource" id="Resource_vu7wf"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_hss7i"]
+[sub_resource type="Resource" id="Resource_36w5f"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_lj0nv"]
+[sub_resource type="Resource" id="Resource_enyu7"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "(r)(l)"
+
+[sub_resource type="Resource" id="Resource_vgbpf"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_nbynu"]
+[sub_resource type="Resource" id="Resource_yj51q"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_1pim2"]
+[sub_resource type="Resource" id="Resource_pqqkt"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_mi2me"]
+[sub_resource type="Resource" id="Resource_c2m15"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "(l)(rl)"
+
+[sub_resource type="Resource" id="Resource_76mrt"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_inhoc"]
+[sub_resource type="Resource" id="Resource_wgfq6"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_3hcov"]
+[sub_resource type="Resource" id="Resource_5abr2"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_cyhl8"]
+[sub_resource type="Resource" id="Resource_wnlmb"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_a4r3k"]
+[sub_resource type="Resource" id="Resource_3k47l"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_7xmqa"]
+[sub_resource type="Resource" id="Resource_kewyp"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_thv1n"]
+[sub_resource type="Resource" id="Resource_emgui"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
+
+[sub_resource type="Resource" id="Resource_t6rx1"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "(lr)(rl)"
 
-[sub_resource type="Resource" id="Resource_w4qxu"]
+[sub_resource type="Resource" id="Resource_3yyxx"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_gsaol"]
+[sub_resource type="Resource" id="Resource_1pfja"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_x8t62"]
+[sub_resource type="Resource" id="Resource_qv5k3"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_fvl5e"]
+[sub_resource type="Resource" id="Resource_koor2"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_pwphg"]
+[sub_resource type="Resource" id="Resource_r8wl0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_qm4tl"]
+[sub_resource type="Resource" id="Resource_0lqdq"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_jhthn"]
+[sub_resource type="Resource" id="Resource_tdl0a"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_2qeyk"]
+[sub_resource type="Resource" id="Resource_auni0"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "(ll)(rl)"
+
+[sub_resource type="Resource" id="Resource_4uxrk"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_apdmb"]
+[sub_resource type="Resource" id="Resource_f7k10"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_t82ch"]
+[sub_resource type="Resource" id="Resource_qbt5d"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_xk6cu"]
+[sub_resource type="Resource" id="Resource_q181h"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_8gvc2"]
+[sub_resource type="Resource" id="Resource_dvjmh"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_twi22"]
+[sub_resource type="Resource" id="Resource_xtsvd"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_yjj2g"]
+[sub_resource type="Resource" id="Resource_3oop1"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
+
+[sub_resource type="Resource" id="Resource_vsf4v"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "l"
 
-[sub_resource type="Resource" id="Resource_nhiwp"]
+[sub_resource type="Resource" id="Resource_wnrxs"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_jhnyu"]
+[sub_resource type="Resource" id="Resource_x6o7a"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_gkj5a"]
+[sub_resource type="Resource" id="Resource_uoxl3"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_wltmn"]
+[sub_resource type="Resource" id="Resource_h1l04"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "r"
+
+[sub_resource type="Resource" id="Resource_qrug5"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_fljas"]
+[sub_resource type="Resource" id="Resource_cb7n0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_ioef8"]
+[sub_resource type="Resource" id="Resource_h3fi6"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_syldd"]
+[sub_resource type="Resource" id="Resource_e1kvc"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "l"
+
+[sub_resource type="Resource" id="Resource_n1wia"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_likb0"]
+[sub_resource type="Resource" id="Resource_asbue"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_qe5aq"]
+[sub_resource type="Resource" id="Resource_u55ur"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
+
+[sub_resource type="Resource" id="Resource_ruw7r"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "r"
 
-[sub_resource type="Resource" id="Resource_n4162"]
+[sub_resource type="Resource" id="Resource_jha73"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_jr0y8"]
+[sub_resource type="Resource" id="Resource_hlqog"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_qvlb8"]
+[sub_resource type="Resource" id="Resource_r1e23"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_42gde"]
+[sub_resource type="Resource" id="Resource_wr8ra"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "r"
+
+[sub_resource type="Resource" id="Resource_rn3mq"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_suc6g"]
+[sub_resource type="Resource" id="Resource_k8wxt"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_qcqc2"]
+[sub_resource type="Resource" id="Resource_so2y2"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_0r1js"]
+[sub_resource type="Resource" id="Resource_fat52"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "l"
+
+[sub_resource type="Resource" id="Resource_k53jl"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_ct5yq"]
+[sub_resource type="Resource" id="Resource_a1hda"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_3itlj"]
+[sub_resource type="Resource" id="Resource_ifslj"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_qca6r"]
+[sub_resource type="Resource" id="Resource_mvh37"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_3tsdq"]
+[sub_resource type="Resource" id="Resource_rlska"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_pcjy6"]
+[sub_resource type="Resource" id="Resource_3lnkn"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_hwy2f"]
+[sub_resource type="Resource" id="Resource_opibg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
+
+[sub_resource type="Resource" id="Resource_s6ayr"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "lr"
 
-[sub_resource type="Resource" id="Resource_a1vl3"]
+[sub_resource type="Resource" id="Resource_umewf"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_8rotv"]
+[sub_resource type="Resource" id="Resource_o56yo"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_yktnv"]
+[sub_resource type="Resource" id="Resource_a0i4s"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_7chaj"]
+[sub_resource type="Resource" id="Resource_0xoo7"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_p1dc5"]
+[sub_resource type="Resource" id="Resource_qeqwn"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_fnkik"]
+[sub_resource type="Resource" id="Resource_ebqxa"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_v8d1y"]
+[sub_resource type="Resource" id="Resource_uldxc"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_66iin"]
+[sub_resource type="Resource" id="Resource_hwinh"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "r"
+
+[sub_resource type="Resource" id="Resource_lkgfn"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_h4b8c"]
+[sub_resource type="Resource" id="Resource_77klg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_qxshy"]
+[sub_resource type="Resource" id="Resource_56p8v"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_l8s2p"]
+[sub_resource type="Resource" id="Resource_s0ei1"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "r"
+
+[sub_resource type="Resource" id="Resource_ytaut"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_od7e2"]
+[sub_resource type="Resource" id="Resource_dsdby"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_wfdyn"]
+[sub_resource type="Resource" id="Resource_gro8f"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_5t8h3"]
+[sub_resource type="Resource" id="Resource_vx4en"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_spgkp"]
+[sub_resource type="Resource" id="Resource_gtpp3"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_u25xs"]
+[sub_resource type="Resource" id="Resource_wxush"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_wgd2y"]
+[sub_resource type="Resource" id="Resource_cxr67"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
+
+[sub_resource type="Resource" id="Resource_i0t7c"]
+script = ExtResource("10_aqxex")
+spacing = Vector2(16, 16)
+tree_solution = "(lr(l)(r))(rl)"
 
-[sub_resource type="Resource" id="Resource_cjxgm"]
+[sub_resource type="Resource" id="Resource_oo84a"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_7c2pu"]
+[sub_resource type="Resource" id="Resource_ejale"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_yd5k3"]
+[sub_resource type="Resource" id="Resource_ju72h"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_v5dbb"]
+[sub_resource type="Resource" id="Resource_simfy"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_gmoju"]
+[sub_resource type="Resource" id="Resource_fgbmh"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_gaa8p"]
+[sub_resource type="Resource" id="Resource_30tam"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_axi0s"]
+[sub_resource type="Resource" id="Resource_4kqlr"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_bnyvx"]
+[sub_resource type="Resource" id="Resource_3t7xg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_lix1y"]
+[sub_resource type="Resource" id="Resource_4vivb"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_48wdd"]
+[sub_resource type="Resource" id="Resource_tajyk"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_fjokp"]
+[sub_resource type="Resource" id="Resource_c6s4x"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_cnyey"]
+[sub_resource type="Resource" id="Resource_sh8n0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_ig3nn"]
+[sub_resource type="Resource" id="Resource_t4q1f"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_rpsib"]
+[sub_resource type="Resource" id="Resource_51ut6"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
 
-[sub_resource type="Resource" id="Resource_mo1ax"]
+[sub_resource type="Resource" id="Resource_pbbjy"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
 color = 0
@@ -903,9 +1014,7 @@ script = ExtResource("1")
 
 [node name="PuzzleGrid" parent="." instance=ExtResource("4")]
 position = Vector2(-353, 855)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "r"
+node_arrangement = SubResource("Resource_yinvs")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
 correct_node_color = Color(1, 0.380392, 0.137255, 1)
@@ -913,21 +1022,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_pv3fi")
+node_rule = SubResource("Resource_d8dpt")
 
 [node name="PuzzleNode2" parent="PuzzleGrid" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_iqbor")
+node_rule = SubResource("Resource_yw2cg")
 
 [node name="PuzzleNode3" parent="PuzzleGrid" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_ofef0")
+node_rule = SubResource("Resource_row8u")
 
 [node name="PuzzleGrid3" parent="." instance=ExtResource("4")]
 position = Vector2(-591, 613)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "l"
+node_arrangement = SubResource("Resource_8ytsn")
 required_puzzle = NodePath("../PuzzleGrid")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -936,21 +1043,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid3" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_q3fyw")
+node_rule = SubResource("Resource_d7dj6")
 
 [node name="PuzzleNode2" parent="PuzzleGrid3" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_ux5vo")
+node_rule = SubResource("Resource_tm7gf")
 
 [node name="PuzzleNode3" parent="PuzzleGrid3" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_rltoj")
+node_rule = SubResource("Resource_r1fvl")
 
 [node name="PuzzleGrid5" parent="." instance=ExtResource("4")]
 position = Vector2(-781, 609)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "r"
+node_arrangement = SubResource("Resource_lq8c0")
 required_puzzle = NodePath("../PuzzleGrid3")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -959,21 +1064,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid5" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_uloae")
+node_rule = SubResource("Resource_pncb3")
 
 [node name="PuzzleNode2" parent="PuzzleGrid5" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_4gfbv")
+node_rule = SubResource("Resource_uw7ti")
 
 [node name="PuzzleNode3" parent="PuzzleGrid5" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_lk6eg")
+node_rule = SubResource("Resource_nj6l8")
 
 [node name="PuzzleGrid2" parent="." instance=ExtResource("4")]
 position = Vector2(-906, 473)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "lr"
+node_arrangement = SubResource("Resource_0okt7")
 required_puzzle = NodePath("../PuzzleGrid5")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -982,37 +1085,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid2" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_2artr")
+node_rule = SubResource("Resource_ta4xx")
 
 [node name="PuzzleNode2" parent="PuzzleGrid2" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_jiyht")
+node_rule = SubResource("Resource_2u2nr")
 
 [node name="PuzzleNode3" parent="PuzzleGrid2" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_5yuig")
+node_rule = SubResource("Resource_en1gi")
 
 [node name="PuzzleNode4" parent="PuzzleGrid2" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_uwr70")
+node_rule = SubResource("Resource_tly1v")
 
 [node name="PuzzleNode5" parent="PuzzleGrid2" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_q565b")
+node_rule = SubResource("Resource_jcqeq")
 
 [node name="PuzzleNode6" parent="PuzzleGrid2" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_bo1x1")
+node_rule = SubResource("Resource_yljn5")
 
 [node name="PuzzleNode7" parent="PuzzleGrid2" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_8ao8l")
+node_rule = SubResource("Resource_fkgf1")
 
 [node name="PuzzleGrid4" parent="." instance=ExtResource("4")]
 position = Vector2(-1116, 571)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "rl"
+node_arrangement = SubResource("Resource_1ohe2")
 required_puzzle = NodePath("../PuzzleGrid2")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1021,37 +1122,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid4" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_dlqir")
+node_rule = SubResource("Resource_psce7")
 
 [node name="PuzzleNode2" parent="PuzzleGrid4" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_gp13n")
+node_rule = SubResource("Resource_3eyk1")
 
 [node name="PuzzleNode3" parent="PuzzleGrid4" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_ow3p2")
+node_rule = SubResource("Resource_mvk7o")
 
 [node name="PuzzleNode4" parent="PuzzleGrid4" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_v78pu")
+node_rule = SubResource("Resource_ueyov")
 
 [node name="PuzzleNode5" parent="PuzzleGrid4" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_w5xck")
+node_rule = SubResource("Resource_fiby5")
 
 [node name="PuzzleNode6" parent="PuzzleGrid4" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_xqajg")
+node_rule = SubResource("Resource_dvuqc")
 
 [node name="PuzzleNode7" parent="PuzzleGrid4" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_f1wpe")
+node_rule = SubResource("Resource_dsaln")
 
 [node name="PuzzleGrid6" parent="." instance=ExtResource("4")]
 position = Vector2(-1321, 555)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "r"
+node_arrangement = SubResource("Resource_15e4b")
 required_puzzle = NodePath("../PuzzleGrid4")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1060,21 +1159,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid6" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_wc0yw")
+node_rule = SubResource("Resource_48cy5")
 
 [node name="PuzzleNode2" parent="PuzzleGrid6" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_4k0cr")
+node_rule = SubResource("Resource_p2emi")
 
 [node name="PuzzleNode3" parent="PuzzleGrid6" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_uil74")
+node_rule = SubResource("Resource_6ukrh")
 
 [node name="PuzzleGrid7" parent="." instance=ExtResource("4")]
 position = Vector2(-1327, 381)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "l"
+node_arrangement = SubResource("Resource_a2cvv")
 required_puzzle = NodePath("../PuzzleGrid6")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1083,37 +1180,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid7" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_nt5dv")
+node_rule = SubResource("Resource_e2t0i")
 
 [node name="PuzzleNode2" parent="PuzzleGrid7" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_vpcee")
+node_rule = SubResource("Resource_trgvg")
 
 [node name="PuzzleNode3" parent="PuzzleGrid7" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_do0jq")
+node_rule = SubResource("Resource_4dw4d")
 
 [node name="PuzzleNode4" parent="PuzzleGrid7" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_e40ig")
+node_rule = SubResource("Resource_vqvpc")
 
 [node name="PuzzleNode5" parent="PuzzleGrid7" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_ahab7")
+node_rule = SubResource("Resource_2n0go")
 
 [node name="PuzzleNode6" parent="PuzzleGrid7" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_s2ue7")
+node_rule = SubResource("Resource_s47v0")
 
 [node name="PuzzleNode7" parent="PuzzleGrid7" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_ctadx")
+node_rule = SubResource("Resource_scj7o")
 
 [node name="PuzzleGrid8" parent="." instance=ExtResource("4")]
 position = Vector2(-1152, 245)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "lr"
+node_arrangement = SubResource("Resource_m4aet")
 required_puzzle = NodePath("../PuzzleGrid7")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1122,37 +1217,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid8" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_1jgiy")
+node_rule = SubResource("Resource_kvupq")
 
 [node name="PuzzleNode2" parent="PuzzleGrid8" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_41dvi")
+node_rule = SubResource("Resource_uy40g")
 
 [node name="PuzzleNode3" parent="PuzzleGrid8" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_imeem")
+node_rule = SubResource("Resource_7t6j8")
 
 [node name="PuzzleNode4" parent="PuzzleGrid8" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_h1jku")
+node_rule = SubResource("Resource_evkag")
 
 [node name="PuzzleNode5" parent="PuzzleGrid8" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_exac6")
+node_rule = SubResource("Resource_1nia0")
 
 [node name="PuzzleNode6" parent="PuzzleGrid8" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_lfpuw")
+node_rule = SubResource("Resource_vu7wf")
 
 [node name="PuzzleNode7" parent="PuzzleGrid8" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_hss7i")
+node_rule = SubResource("Resource_36w5f")
 
 [node name="PuzzleGrid9" parent="." instance=ExtResource("4")]
 position = Vector2(-981, 375)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "(r)(l)"
+node_arrangement = SubResource("Resource_enyu7")
 required_puzzle = NodePath("../PuzzleGrid8")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1161,21 +1254,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid9" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_lj0nv")
+node_rule = SubResource("Resource_vgbpf")
 
 [node name="PuzzleNode2" parent="PuzzleGrid9" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_nbynu")
+node_rule = SubResource("Resource_yj51q")
 
 [node name="PuzzleNode3" parent="PuzzleGrid9" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_1pim2")
+node_rule = SubResource("Resource_pqqkt")
 
 [node name="PuzzleGrid10" parent="." instance=ExtResource("4")]
 position = Vector2(-795, 270)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "(l)(rl)"
+node_arrangement = SubResource("Resource_c2m15")
 required_puzzle = NodePath("../PuzzleGrid9")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1184,37 +1275,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid10" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_mi2me")
+node_rule = SubResource("Resource_76mrt")
 
 [node name="PuzzleNode2" parent="PuzzleGrid10" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_inhoc")
+node_rule = SubResource("Resource_wgfq6")
 
 [node name="PuzzleNode3" parent="PuzzleGrid10" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_3hcov")
+node_rule = SubResource("Resource_5abr2")
 
 [node name="PuzzleNode4" parent="PuzzleGrid10" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_cyhl8")
+node_rule = SubResource("Resource_wnlmb")
 
 [node name="PuzzleNode5" parent="PuzzleGrid10" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_a4r3k")
+node_rule = SubResource("Resource_3k47l")
 
 [node name="PuzzleNode6" parent="PuzzleGrid10" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_7xmqa")
+node_rule = SubResource("Resource_kewyp")
 
 [node name="PuzzleNode7" parent="PuzzleGrid10" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_thv1n")
+node_rule = SubResource("Resource_emgui")
 
 [node name="PuzzleGrid11" parent="." instance=ExtResource("4")]
 position = Vector2(-502, 206)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "(lr)(rl)"
+node_arrangement = SubResource("Resource_t6rx1")
 required_puzzle = NodePath("../PuzzleGrid10")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1223,37 +1312,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid11" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_w4qxu")
+node_rule = SubResource("Resource_3yyxx")
 
 [node name="PuzzleNode2" parent="PuzzleGrid11" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_gsaol")
+node_rule = SubResource("Resource_1pfja")
 
 [node name="PuzzleNode3" parent="PuzzleGrid11" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_x8t62")
+node_rule = SubResource("Resource_qv5k3")
 
 [node name="PuzzleNode4" parent="PuzzleGrid11" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_fvl5e")
+node_rule = SubResource("Resource_koor2")
 
 [node name="PuzzleNode5" parent="PuzzleGrid11" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_pwphg")
+node_rule = SubResource("Resource_r8wl0")
 
 [node name="PuzzleNode6" parent="PuzzleGrid11" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_qm4tl")
+node_rule = SubResource("Resource_0lqdq")
 
 [node name="PuzzleNode7" parent="PuzzleGrid11" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_jhthn")
+node_rule = SubResource("Resource_tdl0a")
 
 [node name="PuzzleGrid12" parent="." instance=ExtResource("4")]
 position = Vector2(-826, 121)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "(ll)(rl)"
+node_arrangement = SubResource("Resource_auni0")
 required_puzzle = NodePath("../PuzzleGrid11")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1262,37 +1349,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid12" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_2qeyk")
+node_rule = SubResource("Resource_4uxrk")
 
 [node name="PuzzleNode2" parent="PuzzleGrid12" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_apdmb")
+node_rule = SubResource("Resource_f7k10")
 
 [node name="PuzzleNode3" parent="PuzzleGrid12" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_t82ch")
+node_rule = SubResource("Resource_qbt5d")
 
 [node name="PuzzleNode4" parent="PuzzleGrid12" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_xk6cu")
+node_rule = SubResource("Resource_q181h")
 
 [node name="PuzzleNode5" parent="PuzzleGrid12" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_8gvc2")
+node_rule = SubResource("Resource_dvjmh")
 
 [node name="PuzzleNode6" parent="PuzzleGrid12" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_twi22")
+node_rule = SubResource("Resource_xtsvd")
 
 [node name="PuzzleNode7" parent="PuzzleGrid12" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_yjj2g")
+node_rule = SubResource("Resource_3oop1")
 
 [node name="PuzzleGrid13" parent="." instance=ExtResource("4")]
 position = Vector2(-1009, 119)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "l"
+node_arrangement = SubResource("Resource_vsf4v")
 required_puzzle = NodePath("../PuzzleGrid12")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1301,21 +1386,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid13" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_nhiwp")
+node_rule = SubResource("Resource_wnrxs")
 
 [node name="PuzzleNode2" parent="PuzzleGrid13" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_jhnyu")
+node_rule = SubResource("Resource_x6o7a")
 
 [node name="PuzzleNode3" parent="PuzzleGrid13" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_gkj5a")
+node_rule = SubResource("Resource_uoxl3")
 
 [node name="PuzzleGrid14" parent="." instance=ExtResource("4")]
 position = Vector2(-1350, 146)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "r"
+node_arrangement = SubResource("Resource_h1l04")
 required_puzzle = NodePath("../PuzzleGrid13")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1324,21 +1407,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid14" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_wltmn")
+node_rule = SubResource("Resource_qrug5")
 
 [node name="PuzzleNode2" parent="PuzzleGrid14" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_fljas")
+node_rule = SubResource("Resource_cb7n0")
 
 [node name="PuzzleNode3" parent="PuzzleGrid14" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_ioef8")
+node_rule = SubResource("Resource_h3fi6")
 
 [node name="PuzzleGrid15" parent="." instance=ExtResource("4")]
 position = Vector2(-1458, 313)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "l"
+node_arrangement = SubResource("Resource_e1kvc")
 required_puzzle = NodePath("../PuzzleGrid14")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1347,21 +1428,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid15" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_syldd")
+node_rule = SubResource("Resource_n1wia")
 
 [node name="PuzzleNode2" parent="PuzzleGrid15" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_likb0")
+node_rule = SubResource("Resource_asbue")
 
 [node name="PuzzleNode3" parent="PuzzleGrid15" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_qe5aq")
+node_rule = SubResource("Resource_u55ur")
 
 [node name="PuzzleGrid16" parent="." instance=ExtResource("4")]
 position = Vector2(-1494, 160)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "r"
+node_arrangement = SubResource("Resource_ruw7r")
 required_puzzle = NodePath("../PuzzleGrid15")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1370,21 +1449,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid16" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_n4162")
+node_rule = SubResource("Resource_jha73")
 
 [node name="PuzzleNode2" parent="PuzzleGrid16" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_jr0y8")
+node_rule = SubResource("Resource_hlqog")
 
 [node name="PuzzleNode3" parent="PuzzleGrid16" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_qvlb8")
+node_rule = SubResource("Resource_r1e23")
 
 [node name="PuzzleGrid17" parent="." instance=ExtResource("4")]
 position = Vector2(-1632, 141)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "r"
+node_arrangement = SubResource("Resource_wr8ra")
 required_puzzle = NodePath("../PuzzleGrid16")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1393,21 +1470,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid17" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_42gde")
+node_rule = SubResource("Resource_rn3mq")
 
 [node name="PuzzleNode2" parent="PuzzleGrid17" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_suc6g")
+node_rule = SubResource("Resource_k8wxt")
 
 [node name="PuzzleNode3" parent="PuzzleGrid17" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_qcqc2")
+node_rule = SubResource("Resource_so2y2")
 
 [node name="PuzzleGrid18" parent="." instance=ExtResource("4")]
 position = Vector2(-1458, -13)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "l"
+node_arrangement = SubResource("Resource_fat52")
 required_puzzle = NodePath("../PuzzleGrid17")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1416,37 +1491,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid18" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_0r1js")
+node_rule = SubResource("Resource_k53jl")
 
 [node name="PuzzleNode2" parent="PuzzleGrid18" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_ct5yq")
+node_rule = SubResource("Resource_a1hda")
 
 [node name="PuzzleNode3" parent="PuzzleGrid18" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_3itlj")
+node_rule = SubResource("Resource_ifslj")
 
 [node name="PuzzleNode4" parent="PuzzleGrid18" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_qca6r")
+node_rule = SubResource("Resource_mvh37")
 
 [node name="PuzzleNode5" parent="PuzzleGrid18" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_3tsdq")
+node_rule = SubResource("Resource_rlska")
 
 [node name="PuzzleNode6" parent="PuzzleGrid18" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_pcjy6")
+node_rule = SubResource("Resource_3lnkn")
 
 [node name="PuzzleNode7" parent="PuzzleGrid18" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_hwy2f")
+node_rule = SubResource("Resource_opibg")
 
 [node name="PuzzleGrid19" parent="." instance=ExtResource("4")]
 position = Vector2(-1165, 61)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "lr"
+node_arrangement = SubResource("Resource_s6ayr")
 required_puzzle = NodePath("../PuzzleGrid18")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1455,37 +1528,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid19" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_a1vl3")
+node_rule = SubResource("Resource_umewf")
 
 [node name="PuzzleNode2" parent="PuzzleGrid19" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_8rotv")
+node_rule = SubResource("Resource_o56yo")
 
 [node name="PuzzleNode3" parent="PuzzleGrid19" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_yktnv")
+node_rule = SubResource("Resource_a0i4s")
 
 [node name="PuzzleNode4" parent="PuzzleGrid19" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_7chaj")
+node_rule = SubResource("Resource_0xoo7")
 
 [node name="PuzzleNode5" parent="PuzzleGrid19" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_p1dc5")
+node_rule = SubResource("Resource_qeqwn")
 
 [node name="PuzzleNode6" parent="PuzzleGrid19" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_fnkik")
+node_rule = SubResource("Resource_ebqxa")
 
 [node name="PuzzleNode7" parent="PuzzleGrid19" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_v8d1y")
+node_rule = SubResource("Resource_uldxc")
 
 [node name="PuzzleGrid20" parent="." instance=ExtResource("4")]
 position = Vector2(-983, -92)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "r"
+node_arrangement = SubResource("Resource_hwinh")
 required_puzzle = NodePath("../PuzzleGrid19")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1494,21 +1565,19 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(8, 0)
-node_rule = SubResource("Resource_66iin")
+node_rule = SubResource("Resource_lkgfn")
 
 [node name="PuzzleNode2" parent="PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(0, -16)
-node_rule = SubResource("Resource_h4b8c")
+node_rule = SubResource("Resource_77klg")
 
 [node name="PuzzleNode3" parent="PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_qxshy")
+node_rule = SubResource("Resource_56p8v")
 
 [node name="PuzzleGrid21" parent="." instance=ExtResource("4")]
 position = Vector2(-987, -304)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "r"
+node_arrangement = SubResource("Resource_s0ei1")
 required_puzzle = NodePath("../PuzzleGrid20")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1517,37 +1586,35 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid21" instance=ExtResource("5")]
 position = Vector2(16, 0)
-node_rule = SubResource("Resource_l8s2p")
+node_rule = SubResource("Resource_ytaut")
 
 [node name="PuzzleNode2" parent="PuzzleGrid21" instance=ExtResource("5")]
 position = Vector2(8, -16)
-node_rule = SubResource("Resource_od7e2")
+node_rule = SubResource("Resource_dsdby")
 
 [node name="PuzzleNode3" parent="PuzzleGrid21" instance=ExtResource("5")]
 position = Vector2(24, -16)
-node_rule = SubResource("Resource_wfdyn")
+node_rule = SubResource("Resource_gro8f")
 
 [node name="PuzzleNode4" parent="PuzzleGrid21" instance=ExtResource("5")]
 position = Vector2(-8, -32)
-node_rule = SubResource("Resource_5t8h3")
+node_rule = SubResource("Resource_vx4en")
 
 [node name="PuzzleNode5" parent="PuzzleGrid21" instance=ExtResource("5")]
 position = Vector2(8, -32)
-node_rule = SubResource("Resource_spgkp")
+node_rule = SubResource("Resource_gtpp3")
 
 [node name="PuzzleNode6" parent="PuzzleGrid21" instance=ExtResource("5")]
 position = Vector2(24, -32)
-node_rule = SubResource("Resource_u25xs")
+node_rule = SubResource("Resource_wxush")
 
 [node name="PuzzleNode7" parent="PuzzleGrid21" instance=ExtResource("5")]
 position = Vector2(40, -32)
-node_rule = SubResource("Resource_wgd2y")
+node_rule = SubResource("Resource_cxr67")
 
 [node name="PuzzleGrid22" parent="." instance=ExtResource("4")]
 position = Vector2(-995, -464)
-mode = 1
-holes = PackedVector2Array()
-bintree_solution = "(lr(l)(r))(rl)"
+node_arrangement = SubResource("Resource_i0t7c")
 required_puzzle = NodePath("../PuzzleGrid21")
 background_color = Color(1, 0.603922, 0.145098, 1)
 off_background_color = Color(0.741176, 0.396078, 0.164706, 1)
@@ -1556,63 +1623,63 @@ node_color = Color(1, 0.827451, 0.498039, 1)
 
 [node name="PuzzleNode" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(24, 0)
-node_rule = SubResource("Resource_cjxgm")
+node_rule = SubResource("Resource_oo84a")
 
 [node name="PuzzleNode2" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(16, -16)
-node_rule = SubResource("Resource_7c2pu")
+node_rule = SubResource("Resource_ejale")
 
 [node name="PuzzleNode3" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(32, -16)
-node_rule = SubResource("Resource_yd5k3")
+node_rule = SubResource("Resource_ju72h")
 
 [node name="PuzzleNode4" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(0, -32)
-node_rule = SubResource("Resource_v5dbb")
+node_rule = SubResource("Resource_simfy")
 
 [node name="PuzzleNode5" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(16, -32)
-node_rule = SubResource("Resource_gmoju")
+node_rule = SubResource("Resource_fgbmh")
 
 [node name="PuzzleNode6" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(32, -32)
-node_rule = SubResource("Resource_gaa8p")
+node_rule = SubResource("Resource_30tam")
 
 [node name="PuzzleNode7" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(48, -32)
-node_rule = SubResource("Resource_axi0s")
+node_rule = SubResource("Resource_4kqlr")
 
 [node name="PuzzleNode8" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(-32, -48)
-node_rule = SubResource("Resource_bnyvx")
+node_rule = SubResource("Resource_3t7xg")
 
 [node name="PuzzleNode9" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(-16, -48)
-node_rule = SubResource("Resource_lix1y")
+node_rule = SubResource("Resource_4vivb")
 
 [node name="PuzzleNode10" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(0, -48)
-node_rule = SubResource("Resource_48wdd")
+node_rule = SubResource("Resource_tajyk")
 
 [node name="PuzzleNode11" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(16, -48)
-node_rule = SubResource("Resource_fjokp")
+node_rule = SubResource("Resource_c6s4x")
 
 [node name="PuzzleNode12" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(32, -48)
-node_rule = SubResource("Resource_cnyey")
+node_rule = SubResource("Resource_sh8n0")
 
 [node name="PuzzleNode13" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(48, -48)
-node_rule = SubResource("Resource_ig3nn")
+node_rule = SubResource("Resource_t4q1f")
 
 [node name="PuzzleNode14" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(64, -48)
-node_rule = SubResource("Resource_rpsib")
+node_rule = SubResource("Resource_51ut6")
 
 [node name="PuzzleNode15" parent="PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(80, -48)
-node_rule = SubResource("Resource_mo1ax")
+node_rule = SubResource("Resource_pbbjy")
 
 [node name="Puzzle5" type="Sprite2D" parent="."]
 position = Vector2(-1050, 639)

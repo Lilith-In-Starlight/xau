@@ -30,4 +30,6 @@ func _process(delta):
 	for i in get_children():
 		i.position.x = x
 		i.position.y = 0
-		x += i.row_size * i.spacing + separation
+		if i is PuzzleGrid:
+			if i.node_arrangement is NodeArrangementGrid:
+				x += i.node_arrangement.size.x * i.node_arrangement.spacing.x + separation

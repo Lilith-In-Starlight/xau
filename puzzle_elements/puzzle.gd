@@ -142,6 +142,7 @@ func get_incorrect_nodes() -> Array:
 	var hardcode_fail := false
 	var graph_shapes := {}
 	var unhappy_graph_colors := []
+	var correct_hardcodes := []
 
 	for i in get_children():
 		if not i.is_in_group("PuzzleNode"):
@@ -203,6 +204,10 @@ func get_incorrect_nodes() -> Array:
 			elif !i.check(): 
 				hardcode_fail = true
 				unhappy_nodes.append(i)
+				unhappy_nodes.append_array(correct_hardcodes)
+				correct_hardcodes = []
+			else:
+				correct_hardcodes.append(i)
 		
 		elif !i.check():
 			unhappy_nodes.append(i)
