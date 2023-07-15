@@ -1255,7 +1255,7 @@ texture = ExtResource("16")
 script = ExtResource("4")
 
 [node name="DepthLine" type="Line2D" parent="HouseVillageInside/Back"]
-points = PackedVector2Array(-63, 31, 27, 2, 66, 59)
+points = PackedVector2Array(-64, 31, 27, 2, 66, 59)
 width = 1.2
 
 [node name="PuzzleGrid" parent="HouseVillageInside/Back" instance=ExtResource("5")]
@@ -1332,7 +1332,7 @@ flip_h = true
 script = ExtResource("4")
 
 [node name="DepthLine" type="Line2D" parent="HouseVillageInside2/Back"]
-points = PackedVector2Array(-65, 59, -27, 3, 63, 31)
+points = PackedVector2Array(-66, 59, -27, 3, 64, 31)
 width = 1.2
 
 [node name="PuzzleGrid" parent="HouseVillageInside2/Back" instance=ExtResource("5")]
@@ -1369,7 +1369,6 @@ position = Vector2(32, 32)
 position = Vector2(48, 32)
 
 [node name="HouseVillageOutside2" type="Node2D" parent="."]
-visible = false
 position = Vector2(395, 71)
 
 [node name="Front" type="Sprite2D" parent="HouseVillageOutside2"]
@@ -1379,7 +1378,7 @@ flip_h = true
 script = ExtResource("4")
 
 [node name="DepthLine" type="Line2D" parent="HouseVillageOutside2/Front"]
-points = PackedVector2Array(25, 88, 63, 32)
+points = PackedVector2Array(-66, 59, 25, 88)
 width = 1.2
 
 [node name="Side" type="Sprite2D" parent="HouseVillageOutside2"]
@@ -1389,7 +1388,7 @@ flip_h = true
 script = ExtResource("4")
 
 [node name="DepthLine" type="Line2D" parent="HouseVillageOutside2/Side"]
-points = PackedVector2Array(-66, 59, 25, 88)
+points = PackedVector2Array(25, 88, 64, 31)
 width = 1.2
 
 [node name="Transition" parent="." instance=ExtResource("8")]
@@ -1417,7 +1416,6 @@ color = Color(0.870588, 0.321569, 0.152941, 1)
 metadata/_edit_lock_ = true
 
 [node name="Collissions" type="StaticBody2D" parent="."]
-visible = false
 collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collissions"]
@@ -1425,7 +1423,7 @@ polygon = PackedVector2Array(1036, 769, 997, 712, 1088, 683, 1127, 738, 1127, 74
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collissions"]
 position = Vector2(382, 48)
-polygon = PackedVector2Array(1008, 763, 1047, 703, 1137, 732, 1138, 734, 1099, 792, 1060, 779, 1062, 775, 1098, 786, 1132, 735, 1048, 709, 1015, 761, 1047, 771, 1045, 775)
+polygon = PackedVector2Array(1008, 763, 1047, 707, 1138, 735, 1099, 792, 1060, 779, 1062, 775, 1098, 786, 1131, 737, 1048, 711, 1015, 761, 1047, 771, 1045, 775)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collissions"]
 position = Vector2(1252, 896)
