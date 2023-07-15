@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://dvt05unxpupw6"]
 
-[ext_resource path="res://sprites/areas/house/house_exit.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://be0pvdhbqlvkq" path="res://sprites/areas/house/house_exit.png" id="1"]
 
-[sub_resource type="RectangleShape2D" id=1]
-size = Vector2( 4.5, 366.5 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(9, 734.656)
 
 [node name="HouseExit" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2( 0, -80 )
-texture = ExtResource( 1 )
+position = Vector2(0, -80)
+texture = ExtResource("1")
 centered = false
 
 [node name="WorldCollision" type="StaticBody2D" parent="."]
@@ -18,9 +18,9 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldCollision"]
-position = Vector2( 4.5, 366.5 )
-shape = SubResource( 1 )
+position = Vector2(5, 367)
+shape = SubResource("1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldCollision"]
-position = Vector2( 52.5, 366.5 )
-shape = SubResource( 1 )
+position = Vector2(53, 367.672)
+shape = SubResource("1")

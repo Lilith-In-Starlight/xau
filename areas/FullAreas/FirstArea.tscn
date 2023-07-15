@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://bdchwcglbn74g" path="res://areas/house/house_outside.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://bggtrgtv8bof3" path="res://areas/house/house_room_4.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://areas/house/house_exit.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://dvt05unxpupw6" path="res://areas/house/house_exit.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://cbjc4bsbskiun" path="res://areas/house/house_room_3.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://dr3k4xin5t86e" path="res://areas/house/house_room_2.tscn" id="7"]
 [ext_resource type="PackedScene" path="res://areas/forest/forest_transition.tscn" id="8"]
@@ -55,7 +55,7 @@ position = Vector2(-36, 240)
 [node name="outside" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition6" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(153, 1276)
+position = Vector2(155, 1276)
 
 [node name="AreaTransition8" parent="StatesDefiner/outside" instance=ExtResource("2")]
 position = Vector2(-866, -319)
@@ -98,12 +98,10 @@ z_index = 2
 position = Vector2(0, 247)
 
 [node name="HouseExit" parent="." instance=ExtResource("5")]
-visible = false
 z_index = 3
 position = Vector2(126, 539)
 
 [node name="HouseOutside" parent="." instance=ExtResource("3")]
-visible = false
 z_index = 3
 position = Vector2(-18, 504)
 

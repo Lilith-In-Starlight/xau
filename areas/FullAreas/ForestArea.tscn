@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://b5fd7btpj7xwl"]
+[gd_scene load_steps=79 format=3 uid="uid://b5fd7btpj7xwl"]
 
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://dstsit7fgwee0" path="res://sprites/misc/forest_houses/house_1/side.png" id="18"]
 [ext_resource type="Texture2D" uid="uid://dqrhl3hl5bulb" path="res://sprites/misc/forest_houses/house_1/floor.png" id="19"]
 [ext_resource type="Resource" uid="uid://bji2lwd20ly74" path="res://puzzle_elements/puzzle_style/PuzzleThemeForestForest.tres" id="19_0awcd"]
-[ext_resource type="Script" path="res://FixNodeRule.gd" id="21_dp157"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(42.5, 10)
@@ -255,18 +254,6 @@ holes = Array[Vector2i]([])
 
 [sub_resource type="Resource" id="Resource_mknr5"]
 script = ExtResource("13_hm00l")
-color = 0
-
-[sub_resource type="Resource" id="Resource_7ulhl"]
-script = ExtResource("10_eu1vb")
-color = 0
-
-[sub_resource type="Resource" id="Resource_5f1dy"]
-script = ExtResource("21_dp157")
-color = 0
-
-[sub_resource type="Resource" id="Resource_blq1f"]
-script = ExtResource("10_eu1vb")
 color = 0
 
 [sub_resource type="Resource" id="Resource_jjt4w"]
@@ -1255,32 +1242,6 @@ scale = Vector2(0.5, 11)
 [node name="Blockade2" parent="Outside/Table/PuzzleGrid3" instance=ExtResource("7")]
 position = Vector2(24, 16)
 scale = Vector2(0.5, 11)
-
-[node name="PuzzleGrid4" parent="Outside/Table" instance=ExtResource("5")]
-position = Vector2(97, 32)
-node_arrangement = SubResource("Resource_711rd")
-required_puzzle = NodePath("../PuzzleGrid2")
-puzzle_theme = ExtResource("19_0awcd")
-
-[node name="PuzzleNode" parent="Outside/Table/PuzzleGrid4" instance=ExtResource("6")]
-node_rule = SubResource("Resource_7ulhl")
-
-[node name="PuzzleNode2" parent="Outside/Table/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(16, 0)
-node_rule = SubResource("Resource_5f1dy")
-
-[node name="PuzzleNode3" parent="Outside/Table/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(32, 0)
-node_rule = SubResource("Resource_blq1f")
-
-[node name="PuzzleNode4" parent="Outside/Table/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(0, 16)
-
-[node name="PuzzleNode5" parent="Outside/Table/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(16, 16)
-
-[node name="PuzzleNode6" parent="Outside/Table/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(32, 16)
 
 [node name="HouseVillageInside" type="Node2D" parent="."]
 
