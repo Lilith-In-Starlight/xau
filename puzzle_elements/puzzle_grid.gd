@@ -19,6 +19,7 @@ enum MODES {
 
 func _init():
 	base_display_connections = false
+	
 
 func _ready():
 	update_children_positions()
@@ -35,6 +36,7 @@ func _process(delta):
 
 func _draw():
 	super._draw()
+	
 	if framed:
 		$NoNode/Frame.visible = true
 		var new_rect = rect.grow(8)
@@ -50,6 +52,13 @@ func _draw():
 		$NoNode/Frame/Bottom.scale.y = new_rect.size.x - 2
 		$NoNode/Frame/Top.position = new_rect.position + Vector2(2, -2)
 		$NoNode/Frame/Top.scale.y = new_rect.size.x - 2
+		$NoNode/Frame/Background.scale.y = (new_rect.size.y) * 0.5
+		$NoNode/Frame/Background.scale.x = new_rect.size.x - 1
+		$NoNode/Frame/Background.position = new_rect.position
+		if is_enabled():
+			$NoNode/Frame/Background.modulate = get_on_background_color()
+		else:
+			$NoNode/Frame/Background.modulate = get_off_background_color()
 	else:
 		$NoNode/Frame.visible = false
 

@@ -4,6 +4,10 @@ extends Resource
 class_name NodeArrangement
 
 
+func _init():
+	resource_local_to_scene = true
+
+
 func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 	var node_count := 0
 	var holes_count := 0

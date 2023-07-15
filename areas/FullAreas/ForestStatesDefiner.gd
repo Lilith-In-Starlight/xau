@@ -18,11 +18,20 @@ func set_visible_objects() -> void:
 					$"../Transition",
 					$"../HouseVillageOutside",
 					$"../HouseVillageInside",
+					$"../HouseVillageOutside2",
+					$"../HouseVillageInside2",
 				]
 			Player.z_index = $"../Outside".z_index + 1
 		"in_house_1":
 			visible_objects = [
 					$"../Outside",
 					$"../HouseVillageInside",
+					$"../HouseVillageOutside2",
+				]
+		"in_house_2":
+			visible_objects = [
+					$"../Outside",
+					$"../HouseVillageInside2",
+					$"../HouseVillageOutside",
 				]
 			Player.z_index = $"../Outside".z_index + 1

@@ -24,14 +24,8 @@ signal was_solved
 
 var required_node: Node2D
 
-## The color of this puzzle's screen while the puzzle is enabled
-@export var background_color: Color = Color("#131313")
-## The color of this puzzle's screen while the puzzle is disabled
-@export var off_background_color: Color = Color("#0c0c0c")
-## The color of this puzzle's correct nodes
-@export var correct_node_color: Color = Color( 0.866667, 0.627451, 0.866667)
-## The color of this puzzle's regular nodes
-@export var node_color: Color = Color("#ffffff")
+
+@export var puzzle_theme: PuzzleTheme = null
 
 ## Whether the puzzle can connect to other puzzles
 @export var framed := true
@@ -39,7 +33,7 @@ var required_node: Node2D
 ## Unique identifier used to connect puzzles across scenes
 @export var puzzle_id := "default"
 
-@onready var cursor_node :Cursor = get_tree().get_nodes_in_group("Cursor")[0]
+@onready var cursor_node :Cursor = get_tree().get_first_node_in_group("Cursor")
 
 ## Whether the puzzle was solved or not
 var solved := false
@@ -52,71 +46,65 @@ var correct := false: set = set_correct
 
 var base_display_connections := true
 
-@onready var player :CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
+@onready var player :CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
 var is_visible := false
 
 func _draw():
 	get_rect()
-	var new_rect = rect.grow(8)
-	var color := off_background_color
-	if is_enabled():
-		color = background_color
-	draw_rect(new_rect, color, true)
-	draw_rect(rect.grow(8), color, true)
 
 
 func _ready():
-	required_node = get_node_or_null(required_puzzle)
-	if not Engine.is_editor_hint():
+	if Engine.is_editor_hint():
+		child_entered_tree.connect(_on_child_entered_tree)
+		child_exiting_tree.connect(_on_child_exiting_tree)
+	else:
+		required_node = get_node_or_null(required_puzzle)
 		for i in get_children():
 			if i.is_in_group("PuzzleNode"):
 				i.connection_changed.connect(_on_connection_changed)
 				i.correctness_unverified.connect(_on_correctness_unverified)
 				i.delete_node_connections_request.connect(_on_delete_node_connections_requested)
 	
-	var id = str(get_path())
-	if SaveData.has_data("puzzles|%s" % id):
-		var puzzle_data = SaveData.get_data("puzzles|%s" % id)
-		solved = puzzle_data["solved"]
-		correct = puzzle_data["correct"]
-		if solved or correct: was_solved.emit()
-		for i in get_child_count():
-			var child = get_child(i)
-			if not child.is_in_group("PuzzleNode"):
-				continue
-			if puzzle_data["connections"].has(str(i)):
-				for j in puzzle_data["connections"][str(i)]:
-					if j is String:
-						var new_j = get_node_or_null(j)
-						if new_j == null:
-							continue
-						child.connections.append(new_j)
-					else:
-						if j < get_child_count():
-							child.connections.append(get_child(j))
-	
-	if not required_node == null:
-		required_node.was_solved.connect(_on_required_was_solved)
-	if Engine.is_editor_hint():
-		child_entered_tree.connect(_on_child_entered_tree)
-		child_exiting_tree.connect(_on_child_exiting_tree)
-	if puzzle_id != "default":
-		SaveData.upid[puzzle_id] = self
-	if base_display_connections:
-		display_connections()
+		var id = str(get_path())
+		if SaveData.has_data("puzzles|%s" % id):
+			var puzzle_data = SaveData.get_data("puzzles|%s" % id)
+			solved = puzzle_data["solved"]
+			correct = puzzle_data["correct"]
+			if solved or correct: was_solved.emit()
+			for i in get_child_count():
+				var child = get_child(i)
+				if not child.is_in_group("PuzzleNode"):
+					continue
+				if puzzle_data["connections"].has(str(i)):
+					for j in puzzle_data["connections"][str(i)]:
+						if j is String:
+							var new_j = get_node_or_null(j)
+							if new_j == null:
+								continue
+							child.connections.append(new_j)
+						else:
+							if j < get_child_count():
+								child.connections.append(get_child(j))
+		
+		if not required_node == null:
+			required_node.was_solved.connect(_on_required_was_solved)
+		if puzzle_id != "default":
+			SaveData.upid[puzzle_id] = self
+		if base_display_connections:
+			display_connections()
 
 
 func _input(delta):
 	if not is_visible or not is_enabled():
 		return
 		
+	
 	if Input.is_action_just_pressed("connect"):
 		display_connections()
 	
 	if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
 		var unhappy_nodes := get_incorrect_nodes()
-		
 		if unhappy_nodes.is_empty():
 			show_correct()
 			if not correct:
@@ -134,7 +122,7 @@ func _input(delta):
 			failed_sound.attenuation = 40
 			add_child(failed_sound)
 			for i in unhappy_nodes:
-				i.show_failure(node_color)
+				i.show_failure(get_node_color())
 
 
 func get_incorrect_nodes() -> Array:
@@ -143,12 +131,15 @@ func get_incorrect_nodes() -> Array:
 	var graph_shapes := {}
 	var unhappy_graph_colors := []
 	var correct_hardcodes := []
+	var iso_nodes := []
+	var fix_nodes := []
 
 	for i in get_children():
 		if not i.is_in_group("PuzzleNode"):
 			continue
 		
 		if i.node_rule is IsoNodeRule:
+			iso_nodes.append(i)
 			if i.node_rule.color in unhappy_graph_colors:
 				unhappy_nodes.append(i)
 				continue
@@ -175,24 +166,7 @@ func get_incorrect_nodes() -> Array:
 				for node_in_graph in i.get_all_nodes_in_graph():
 					current_id.append(node_in_graph.get_unique_id())
 				
-				var isomorphic := true
-				var comparison_graph_shape = graph_shapes[i.node_rule.color][1].duplicate()
-				
-				if comparison_graph_shape.size() != current_id.size():
-					isomorphic = false
-				
-				
-				while not comparison_graph_shape.is_empty() and isomorphic == true:
-					var match_find := current_id.find(comparison_graph_shape[comparison_graph_shape.size() - 1])
-					
-					if match_find == -1:
-						isomorphic = false
-						break
-					
-					comparison_graph_shape.pop_back()
-					current_id.pop_at(match_find)
-				
-				if not isomorphic:
+				if not compare_arrays_by_content(graph_shapes[i.node_rule.color][1], current_id):
 					unhappy_nodes.append(i)
 					unhappy_nodes.append(graph_shapes[i.node_rule.color][0])
 					unhappy_graph_colors.append(i.node_rule.color)
@@ -209,7 +183,48 @@ func get_incorrect_nodes() -> Array:
 			else:
 				correct_hardcodes.append(i)
 		
+		elif i.node_rule is FixNodeRule:
+			fix_nodes.append(i)
+		
 		elif !i.check():
+			unhappy_nodes.append(i)
+	
+	if graph_shapes.size() > 1:
+		var black_iso_with :NodeRule.COLORS = -1
+		var comparisons := []
+		for color1 in graph_shapes:
+			for color2 in graph_shapes:
+				if color1 == color2:
+					continue
+				
+				if [color2, color1] in comparisons:
+					continue
+				
+				comparisons.append([color1, color2])
+				
+				if compare_arrays_by_content(graph_shapes[color1][1], graph_shapes[color2][1]):
+					if black_iso_with == -1 and (color1 == NodeRule.COLORS.black or color2 == NodeRule.COLORS.black):
+						continue
+					else:
+						unhappy_nodes.append(graph_shapes[color1][0])
+						unhappy_nodes.append(graph_shapes[color2][0])
+						unhappy_graph_colors.append(color1)
+						unhappy_graph_colors.append(color2)
+						break
+	
+	for i in iso_nodes:
+		if i.node_rule.color in unhappy_graph_colors:
+			if not i in unhappy_nodes:
+				unhappy_nodes.append(i)
+	
+	for i in fix_nodes:
+		var found_unhappy := false
+		for j in i.get_all_nodes_in_graph():
+			if j in unhappy_nodes:
+				unhappy_nodes.erase(j)
+				found_unhappy = true
+				break
+		if not found_unhappy:
 			unhappy_nodes.append(i)
 	
 	return unhappy_nodes
@@ -234,9 +249,9 @@ func show_correct():
 		if not i.name == "NoNode":
 			var tween = i.create_tween()
 			if i.is_in_group("PuzzleNode"):
-				tween.tween_property(i.circle, "modulate", correct_node_color, 0.2)
+				tween.tween_property(i.circle, "modulate", get_correct_node_color(), 0.2)
 			else:
-				tween.tween_property(i, "modulate", correct_node_color, 0.2)
+				tween.tween_property(i, "modulate", get_correct_node_color(), 0.2)
 			tween.play()
 
 ## Makes the puzzle look white to show that it is not correct
@@ -245,9 +260,9 @@ func unshow_correct():
 		if not i.name == "NoNode":
 			var tween = i.create_tween()
 			if i.is_in_group("PuzzleNode"):
-				tween.tween_property(i.circle, "modulate", node_color, 0.2)
+				tween.tween_property(i.circle, "modulate", get_node_color(), 0.2)
 			else:
-				tween.tween_property(i, "modulate", node_color, 0.2)
+				tween.tween_property(i, "modulate", get_node_color(), 0.2)
 			tween.play()
 
 ## Called when the puzzle required to interact with this one is solved
@@ -367,14 +382,15 @@ func display_connections():
 					fc_1.append(n)
 				if connection[0] in fc_1 or connection[1] in fc_0:
 					line.width = 2.8
-					line.default_color = correct_node_color.lightened(0.7)
+					line.default_color = get_correct_node_color().lightened(0.7)
 					if !is_enabled():
-						line.default_color = off_background_color
+						line.default_color = get_off_background_color()
 						
 				else:
 					line.width = 1.8
 					line.default_color = Color.WHITE
-				line.points = [connection[0].position, connection[1].global_position - global_position]
+				line.points = [connection[0].position, to_local(connection[1].global_position)]
+				
 
 
 func _on_correctness_unverified():
@@ -414,3 +430,52 @@ func check_isomorphism(shape1: Dictionary, shape2: Dictionary):
 		if shape1[i] != shape2[i]:
 			return false
 	return true
+
+
+func apply_matrix_transform(vec: Vector2) -> Vector2:
+	return transform.basis_xform_inv(vec)
+
+
+func compare_arrays_by_content(array1: Array, array2: Array) -> bool:
+	var test_array_1 :Array = array1.duplicate()
+			
+	var identical := true
+	var test_array_2 = array2.duplicate()
+	
+	if test_array_2.size() != test_array_1.size():
+		identical = false
+	
+	while not test_array_2.is_empty() and identical == true:
+		var match_find := test_array_1.find(test_array_2[test_array_2.size() - 1])
+		
+		if match_find == -1:
+			identical = false
+			break
+		
+		test_array_2.pop_back()
+		test_array_1.pop_at(match_find)
+	
+	return identical
+
+
+func get_node_color() -> Color:
+	if puzzle_theme == null:
+		return Color.WHITE
+	return puzzle_theme.node_color
+
+
+func get_correct_node_color() -> Color:
+	if puzzle_theme == null:
+		return Color( 0.866667, 0.627451, 0.866667)
+	return puzzle_theme.correct_node_color
+
+
+func get_off_background_color() -> Color:
+	if puzzle_theme == null:
+		return Color("#0c0c0c")
+	return puzzle_theme.off_background_color
+
+func get_on_background_color() -> Color:
+	if puzzle_theme == null:
+		return Color("#131313")
+	return puzzle_theme.on_background_color

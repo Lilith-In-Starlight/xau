@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PuzzleTheme" load_steps=2 format=3 uid="uid://bji2lwd20ly74"]
+
+[ext_resource type="Script" path="res://puzzle_elements/puzzle_style/puzzle_style.gd" id="1_2h30l"]
+
+[resource]
+script = ExtResource("1_2h30l")
+on_background_color = Color(0.784314, 0, 0.0784314, 1)
+off_background_color = Color(0, 0, 0, 1)
+correct_node_color = Color(1, 0.443137, 0.454902, 1)
+node_color = Color(1, 0.807843, 0.788235, 1)

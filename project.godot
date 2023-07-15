@@ -38,23 +38,8 @@ common/drop_mouse_on_gui_input_disabled=true
 [importer_defaults]
 
 texture={
-"compress/channel_pack": 0,
-"compress/hdr_compression": 1,
-"compress/high_quality": false,
-"compress/lossy_quality": 0.7,
-"compress/mode": 0,
-"compress/normal_map": 0,
-"detect_3d/compress_to": 0,
-"mipmaps/generate": false,
-"mipmaps/limit": -1,
-"process/fix_alpha_border": true,
-"process/hdr_as_srgb": false,
-"process/hdr_clamp_exposure": false,
-"process/normal_map_invert_y": false,
-"process/premult_alpha": false,
-"process/size_limit": 0,
-"roughness/mode": 0,
-"roughness/src_normal": ""
+"mipmaps/generate": true,
+"svg/scale": 2.0
 }
 
 [input]
@@ -187,7 +172,10 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_filter=3
 environment/defaults/default_clear_color=Color(0.0235294, 0, 0, 1)
+anti_aliasing/quality/msaa_2d=1
+anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/use_taa=true
 environment/defaults/default_environment="res://default_env.tres"
 2d/snapping/use_gpu_pixel_snap=true

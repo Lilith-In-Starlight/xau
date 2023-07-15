@@ -15,7 +15,7 @@ signal delete_node_connections_request(node, full)
 
 var forced_edges: int
 
-@export var forced_connections: Array
+@export var forced_connections: Array[NodePath]
 
 ## The node that represents the cursor
 @onready var cursor_node: Node2D = get_tree().get_first_node_in_group("Cursor")
@@ -106,7 +106,8 @@ func _on_node_button_gui_input(event: InputEvent):
 ## Try to connect to a node towards a particular direction, usually directed
 ## by the cursor
 func connect_puzzle(target, disconnect := false):
-	raycast.target_position = target - global_position
+	raycast.target_position = to_local(target)
+	
 	raycast.force_raycast_update()
 	if not raycast.is_colliding():
 		raycast.target_position = Vector2.ZERO
@@ -126,7 +127,7 @@ func connect_puzzle(target, disconnect := false):
 		solved_sound.stream = preload("res://sfx/node_connect.wav")
 		solved_sound.pitch_scale = 0.5 + randf() * 1.5
 		add_child(solved_sound)
-		raycast.target_position = raycast_collider.global_position - raycast.global_position
+		raycast.target_position = to_local(raycast_collider.global_position)
 		raycast.force_raycast_update()
 		
 		if not raycast.is_colliding():
@@ -264,6 +265,7 @@ func set_node_visuals() -> void:
 	$PathMark.modulate = get_color()
 	$IsoMark.visible = node_rule is IsoNodeRule
 	$IsoMark.modulate = get_color()
+	$FixMark.visible = node_rule is FixNodeRule
 	if node_rule != null:
 		$PathMark/PathMark2.visible = node_rule.color != NodeRule.COLORS.black
 		$IsoMark/IsoMark2.visible = node_rule.color != NodeRule.COLORS.black
