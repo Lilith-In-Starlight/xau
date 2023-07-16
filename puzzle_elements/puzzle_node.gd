@@ -32,6 +32,8 @@ var connections: Array = []
 @onready var player :CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
 func _ready():
+	if not Engine.is_editor_hint():
+		get_tree().get_first_node_in_group("HUD").color_settings_changed.connect(set_node_visuals)
 	set_node_visuals()
 
 
@@ -157,20 +159,16 @@ func connect_puzzle(target, disconnect := false):
 	raycast.target_position = Vector2.ZERO
 
 
-func get_color():
+func get_color() -> Color:
 	if node_rule == null:
 		return Color(0, 0, 0)
 	match node_rule.color:
 		NodeRule.COLORS.black:
 			return Color(0, 0, 0)
-		NodeRule.COLORS.blue:
-			return Color(0.3, 0.3, 1.0)
-		NodeRule.COLORS.yellow:
-			return Color(0.9, 0.6, 0.3)
-		NodeRule.COLORS.green:
-			return Color("#59ff00")
-		NodeRule.COLORS.purple:
-			return Color("#ff7bb7")
+		_:
+			if Engine.is_editor_hint():
+				return NodeRule.get_default_color(node_rule.color)
+			return SaveData.get_node_color(node_rule.color)
 
 
 func get_graph_shape():

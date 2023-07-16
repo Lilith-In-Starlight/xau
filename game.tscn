@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcjdjvvoka0jm"]
+[gd_scene load_steps=18 format=3 uid="uid://dcjdjvvoka0jm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://bsbkgyavcb4w0" path="res://music/droning_bass.ogg" id="2"]
@@ -12,6 +12,13 @@
 [ext_resource type="AudioStream" uid="uid://b0up3wnrcytsj" path="res://music/choir_bass_forest.wav" id="10"]
 [ext_resource type="PackedScene" uid="uid://jt5sc2xuw6dk" path="res://gui/tutorial.tscn" id="11"]
 [ext_resource type="Script" path="res://Camera.gd" id="12"]
+[ext_resource type="Script" path="res://PauseMenu.gd" id="13_hle2u"]
+[ext_resource type="Texture2D" uid="uid://4u80jrvtvorq" path="res://sprites/puzzles/node.png" id="14_vm5vt"]
+[ext_resource type="Texture2D" uid="uid://3x0uyofcyjrm" path="res://sprites/puzzles/iso_node.png" id="15_6cith"]
+[ext_resource type="Texture2D" uid="uid://0f78ohbpovfd" path="res://sprites/puzzles/iso_node_bg.png" id="16_p3dfc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk8x4"]
+bg_color = Color(0, 0, 0, 0.6)
 
 [node name="Game" type="Node2D" groups=["GameNode"]]
 script = ExtResource("1")
@@ -21,7 +28,7 @@ z_index = 1
 position = Vector2(122, 127)
 
 [node name="Cursor" parent="." instance=ExtResource("4")]
-z_index = 100
+z_index = 200
 
 [node name="Music" type="Node" parent="." groups=["MusicHandler"]]
 script = ExtResource("7")
@@ -62,3 +69,191 @@ script = ExtResource("12")
 
 [node name="Tutorial" parent="Camera2D" instance=ExtResource("11")]
 position = Vector2(-0.5, 9)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Control" type="Control" parent="Camera2D/CanvasLayer" groups=["HUD"]]
+process_mode = 3
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_hle2u")
+
+[node name="Background" type="Panel" parent="Camera2D/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tk8x4")
+
+[node name="PauseLabel" type="Label" parent="Camera2D/CanvasLayer/Control/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -133.0
+offset_right = 35.5
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTIONS"
+
+[node name="ColorPicker" type="ColorPicker" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -130.0
+offset_right = 161.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.8)
+edit_alpha = false
+can_add_swatches = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="Buttons" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ColorPicker"]
+layout_mode = 2
+
+[node name="DoneButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorPicker/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Done"
+
+[node name="RegretButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorPicker/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Undo"
+
+[node name="ColorButtons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 227.0
+offset_top = 98.0
+offset_right = 362.0
+offset_bottom = 138.0
+alignment = 1
+
+[node name="BlueButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons"]
+layout_mode = 2
+text = "Change Color 1"
+icon = ExtResource("14_vm5vt")
+
+[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/BlueButton"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 12.0
+offset_bottom = 19.0
+texture = ExtResource("15_6cith")
+
+[node name="Button2" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/BlueButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 12.0
+offset_bottom = 19.0
+texture = ExtResource("16_p3dfc")
+
+[node name="YellowButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons"]
+layout_mode = 2
+text = "Change Color 2"
+icon = ExtResource("14_vm5vt")
+
+[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/YellowButton"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 12.0
+offset_bottom = 19.0
+texture = ExtResource("15_6cith")
+
+[node name="Button2" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/YellowButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 12.0
+offset_bottom = 19.0
+texture = ExtResource("16_p3dfc")
+
+[node name="GreenButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons"]
+layout_mode = 2
+text = "Change Color 3"
+icon = ExtResource("14_vm5vt")
+
+[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/GreenButton"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 12.0
+offset_bottom = 19.0
+texture = ExtResource("15_6cith")
+
+[node name="Button2" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/GreenButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 12.0
+offset_bottom = 19.0
+texture = ExtResource("16_p3dfc")
+
+[node name="PurpleButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons"]
+layout_mode = 2
+text = "Change Color 4"
+icon = ExtResource("14_vm5vt")
+
+[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/PurpleButton"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 12.0
+offset_bottom = 19.0
+texture = ExtResource("15_6cith")
+
+[node name="Button2" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/PurpleButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 12.0
+offset_bottom = 19.0
+texture = ExtResource("16_p3dfc")
+
+[node name="QuitButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -51.0
+offset_right = 21.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quit"
+
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorPicker/Buttons/DoneButton" to="Camera2D/CanvasLayer/Control" method="_on_done_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorPicker/Buttons/RegretButton" to="Camera2D/CanvasLayer/Control" method="_on_regret_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/QuitButton" to="Camera2D/CanvasLayer/Control" method="_on_quit_pressed"]
