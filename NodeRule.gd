@@ -5,6 +5,8 @@ enum COLORS {
 	black,
 	blue,
 	yellow,
+	green,
+	purple,
 }
 
 @export var color : COLORS = COLORS.black

@@ -19,6 +19,9 @@ func _ready():
 		tween.tween_property($Space, "modulate:a", 0.0, 0.2)
 		tween.play()
 		stage = 4
+	$Space.play()
+	$Wasd.play()
+	$ClickHold.play()
 
 
 func _input(event):

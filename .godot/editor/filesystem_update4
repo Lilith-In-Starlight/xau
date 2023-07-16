@@ -1,9 +1,13 @@
 res://default_env.tres
-res://areas/house/house_exit.tscn
+res://areas/FullAreas/ForestArea.tscn
 res://puzzle_elements/puzzle_node.gdshader
-res://misc/door.tscn
+res://puzzle_elements/puzzle_node.gd
 res://game.tscn
 res://puzzle_elements/puzzle_grid.tscn
-res://areas/FullAreas/ForestArea.tscn
-res://areas/FullAreas/FirstArea.tscn
+res://gui/tutorial.tscn
 res://misc/y_sort_object.gd
+res://NodeRule.gd
+res://Camera.gd
+res://puzzle_elements/puzzle.gd
+res://gui/cursor.gd
+res://puzzle_elements/puzzle_sequence.gd

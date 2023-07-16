@@ -1,78 +1,107 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=17 format=3 uid="uid://jt5sc2xuw6dk"]
 
-[ext_resource path="res://gui/tutorial.gd" type="Script" id=1]
-[ext_resource path="res://sprites/gui/wasd_keys.png" type="Texture2D" id=2]
-[ext_resource path="res://sprites/gui/click_hold.png" type="Texture2D" id=3]
-[ext_resource path="res://sprites/gui/space_key.png" type="Texture2D" id=4]
+[ext_resource type="Script" path="res://gui/tutorial.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cllmcaxt8gg1p" path="res://sprites/gui/wasd_keys.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://gc82ib130ijt" path="res://sprites/gui/click_hold.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://nlfps71ippii" path="res://sprites/gui/space_key.png" id="4"]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 105, 24 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 105, 24)
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 4 )
-region = Rect2( 105, 0, 105, 24 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("4")
+region = Rect2(105, 0, 105, 24)
 
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 2.0
-} ]
+}]
 
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 45, 55 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 45, 55)
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 3 )
-region = Rect2( 45, 0, 45, 55 )
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("3")
+region = Rect2(45, 0, 45, 55)
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 3 )
-region = Rect2( 90, 0, 45, 55 )
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("3")
+region = Rect2(90, 0, 45, 55)
 
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 3 )
-region = Rect2( 135, 0, 45, 55 )
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("3")
+region = Rect2(135, 0, 45, 55)
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 180, 0, 45, 55 )
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("3")
+region = Rect2(180, 0, 45, 55)
 
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 3 )
-region = Rect2( 225, 0, 45, 55 )
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("3")
+region = Rect2(225, 0, 45, 55)
 
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 3 )
-region = Rect2( 270, 0, 45, 55 )
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("3")
+region = Rect2(270, 0, 45, 55)
 
-[sub_resource type="SpriteFrames" id=12]
-animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+[sub_resource type="SpriteFrames" id="12"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("5")
+}, {
+"duration": 1.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}, {
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}, {
+"duration": 1.0,
+"texture": SubResource("10")
+}, {
+"duration": 1.0,
+"texture": SubResource("11")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 2.0
-} ]
+}]
 
 [node name="Tutorial" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Space" type="AnimatedSprite2D" parent="."]
-position = Vector2( -196, 98 )
-frames = SubResource( 3 )
+position = Vector2(-196, 98)
+sprite_frames = SubResource("3")
 frame = 1
-playing = true
 
 [node name="Label" type="Label" parent="Space"]
 offset_left = -21.0
@@ -80,12 +109,11 @@ offset_top = 16.0
 offset_right = 19.0
 offset_bottom = 30.0
 text = "SPACE"
-align = 1
 
 [node name="Wasd" type="AnimatedSprite2D" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -197, 87 )
-frames = SubResource( 4 )
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-197, 87)
+sprite_frames = SubResource("4")
 
 [node name="Label2" type="Label" parent="Wasd"]
 offset_left = -20.0
@@ -93,14 +121,12 @@ offset_top = 27.0
 offset_right = 20.0
 offset_bottom = 41.0
 text = "WASD"
-align = 1
 
 [node name="ClickHold" type="AnimatedSprite2D" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -197, 80 )
-frames = SubResource( 12 )
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-197, 80)
+sprite_frames = SubResource("12")
 frame = 1
-playing = true
 
 [node name="Label3" type="Label" parent="ClickHold"]
 offset_left = -20.0
@@ -108,4 +134,3 @@ offset_top = 34.0
 offset_right = 20.0
 offset_bottom = 48.0
 text = "HOLD"
-align = 1

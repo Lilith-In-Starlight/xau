@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://erg3rqoqa8db" path="res://music/tubular_bell_forest.wav" id="8"]
 [ext_resource type="AudioStream" uid="uid://dghj1gbusoejl" path="res://music/little_bells_forest.wav" id="9"]
 [ext_resource type="AudioStream" uid="uid://b0up3wnrcytsj" path="res://music/choir_bass_forest.wav" id="10"]
-[ext_resource type="PackedScene" path="res://gui/tutorial.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://jt5sc2xuw6dk" path="res://gui/tutorial.tscn" id="11"]
 [ext_resource type="Script" path="res://Camera.gd" id="12"]
 
 [node name="Game" type="Node2D" groups=["GameNode"]]

@@ -78,8 +78,9 @@ func show_failure(default_color: Color):
 
 
 func _on_node_button_gui_input(event: InputEvent):
-	if cursor_node.position.distance_to(global_position) >= 7:
+	if to_local(cursor_node.position).length() >= 7:
 		return
+	get_parent().was_interacted_with.emit()
 	if Input.is_action_just_pressed("connect"):
 		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 		solved_sound.stream = preload("res://sfx/node_connect.wav")
@@ -166,6 +167,10 @@ func get_color():
 			return Color(0.3, 0.3, 1.0)
 		NodeRule.COLORS.yellow:
 			return Color(0.9, 0.6, 0.3)
+		NodeRule.COLORS.green:
+			return Color("#59ff00")
+		NodeRule.COLORS.purple:
+			return Color("#ff7bb7")
 
 
 func get_graph_shape():

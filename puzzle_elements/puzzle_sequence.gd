@@ -14,6 +14,9 @@ class_name PuzzleSequence
 func _ready():
 	var n :Node2D = null
 	for i in get_children():
+		if not Engine.is_editor_hint():
+			if i is Puzzle:
+				i.was_solved.connect(_on_child_was_solved.bind(i))
 		if n != null:
 			i.required_puzzle = i.get_path_to(n)
 			if not n.is_connected("was_solved", i._on_required_was_solved):
@@ -33,3 +36,10 @@ func _process(delta):
 		if i is PuzzleGrid:
 			if i.node_arrangement is NodeArrangementGrid:
 				x += i.node_arrangement.size.x * i.node_arrangement.spacing.x + separation
+
+
+func _on_child_was_solved(child: Puzzle):
+	if get_child_count() > child.get_index() + 1:
+		get_tree().call_group("Camera3D", "set_target_zoom", get_child(child.get_index() + 1))
+	else:
+		get_tree().call_group("Camera3D", "set_target_zoom", null)

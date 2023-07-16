@@ -17,6 +17,7 @@ class_name Puzzle
 
 ## Emitted when the puzzle is solved
 signal was_solved
+signal was_interacted_with(puzzle)
 
 
 ## A Puzzle that is required to solve this one
@@ -59,6 +60,8 @@ func _ready():
 		child_entered_tree.connect(_on_child_entered_tree)
 		child_exiting_tree.connect(_on_child_exiting_tree)
 	else:
+		var camera_node = get_tree().get_first_node_in_group("Camera3D")
+		was_interacted_with.connect(camera_node.set_target_zoom.bind(self))
 		required_node = get_node_or_null(required_puzzle)
 		for i in get_children():
 			if i.is_in_group("PuzzleNode"):
