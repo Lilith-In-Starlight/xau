@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	camera_pos = CameraNode.position
 	on_left_side = player_pos.x < global_position.x
 	if on_left_side != previous_side and player_pos.y > global_position.y-50 and player_pos.y < global_position.y + 50:
-		SaveData.data["player_state"] = destination_state
+		SaveData.save_handler.save_value("player_state", destination_state)
 		CameraNode.position += destination_position - global_position
 		PlayerNode.position += destination_position - global_position
 		SaveData.save()

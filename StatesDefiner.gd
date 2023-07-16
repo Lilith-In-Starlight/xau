@@ -10,7 +10,7 @@ func set_visible_objects():
 	pass
 
 func update_state(set_to: String, transition := true):
-	SaveData.data["player_state"] = set_to
+	SaveData.save_handler.save_value("player_state", set_to)
 	if set_to == state:
 		return
 	state = set_to

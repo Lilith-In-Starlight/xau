@@ -24,10 +24,7 @@ var current_area := "first_nexus"
 func _ready():
 	$Camera2D.position = $Character.position
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	if SaveData.data.has("current_area"):
-		set_current_area(SaveData.data["current_area"], false)
-	else:
-		set_current_area("first_nexus", false)
+	set_current_area(SaveData.save_handler.get_value("current_area", "first_nexus"), false)
 	
 
 func _process(delta):
@@ -65,10 +62,13 @@ func _process(delta):
 		else:
 			CursorNode.change_blink(false)
 
+
 func set_current_area(to: String, save := true):
 	if areas.has(to):
+		get_tree().call_group("Puzzle", "save_data")
 		SaveData.current_area = to
 		current_area = to
+		SaveData.save_handler.save_value("current_area", to)
 		if save:
 			SaveData.save()
 		if AreaNode != null:

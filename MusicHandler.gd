@@ -3,8 +3,8 @@ extends Node
 const SONG_LERP := 0.01
 
 func _process(delta: float) -> void:
-	if not SaveData.data.has("not_first_enter"):
-		SaveData.data["not_first_enter"] = true
+	if SaveData.save_handler.get_value("first_enter", true):
+		SaveData.save_handler.save_value("first_enter", false)
 		$HomeGuitar.stream = preload("res://music/first_spawn.mp3")
 		$HomeGuitar.play()
 	
@@ -21,8 +21,8 @@ func _process(delta: float) -> void:
 		else:
 			$ChoirBass.volume_db = lerp($ChoirBass.volume_db, -10.0, SONG_LERP)
 		if get_parent().AreaNode.get_node("StatesDefiner").state == "outside":
-			if not SaveData.data.has("not_first_exit"):
-				SaveData.data["not_first_exit"] = true
+			if SaveData.save_handler.get_value("first_exit", true):
+				SaveData.save_handler.save_value("first_exit", false)
 				$WeirdSound.stream = preload("res://music/weird_sound_once.mp3")
 				$WeirdSound.play()
 				var tween = create_tween()
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 			else:
 				$DroneBass.volume_db = lerp($DroneBass.volume_db, 0.0, SONG_LERP)
 		elif get_parent().AreaNode.get_node("StatesDefiner").state == "exit_hall":
-			if not SaveData.data.has("not_first_exit"):
+			if SaveData.save_handler.get_value("first_exit", true):
 				if $"../Character".position.y < 560:
 					$DroneBass.volume_db = lerp($DroneBass.volume_db, 0.0, SONG_LERP)
 				else:

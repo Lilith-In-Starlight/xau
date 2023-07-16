@@ -70,25 +70,29 @@ func _ready():
 				i.delete_node_connections_request.connect(_on_delete_node_connections_requested)
 	
 		var id = str(get_path())
-		if SaveData.has_data("puzzles|%s" % id):
-			var puzzle_data = SaveData.get_data("puzzles|%s" % id)
-			solved = puzzle_data["solved"]
-			correct = puzzle_data["correct"]
-			if solved or correct: was_solved.emit()
-			for i in get_child_count():
-				var child = get_child(i)
-				if not child.is_in_group("PuzzleNode"):
-					continue
-				if puzzle_data["connections"].has(str(i)):
-					for j in puzzle_data["connections"][str(i)]:
-						if j is String:
-							var new_j = get_node_or_null(j)
-							if new_j == null:
-								continue
-							child.connections.append(new_j)
-						else:
-							if j < get_child_count():
-								child.connections.append(get_child(j))
+		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
+		
+		solved = puzzle_data["solved"]
+		correct = puzzle_data["correct"]
+		
+		if solved or correct: was_solved.emit()
+		
+		for i in get_child_count():
+			var child = get_child(i)
+			
+			if not child.is_in_group("PuzzleNode"):
+				continue
+				
+			if puzzle_data["connections"].has(str(i)):
+				for j in puzzle_data["connections"][str(i)]:
+					if j is String:
+						var new_j = get_node_or_null(j)
+						if new_j == null:
+							continue
+						child.connections.append(new_j)
+					else:
+						if j < get_child_count():
+							child.connections.append(get_child(j))
 		
 		if not required_node == null:
 			required_node.was_solved.connect(_on_required_was_solved)
@@ -126,6 +130,9 @@ func _input(delta):
 			add_child(failed_sound)
 			for i in unhappy_nodes:
 				i.show_failure(get_node_color())
+		
+		var id := str(get_path())
+		SaveData.save_handler.vsave_value(["puzzles", id], save())
 
 
 func get_incorrect_nodes() -> Array:
@@ -331,6 +338,9 @@ func get_rect() -> Rect2:
 func save() -> Dictionary:
 	var dict := {}
 	var conn := {}
+	dict["solved"] = solved
+	dict["correct"] = correct
+	dict["connections"] = {}
 	for i in get_children():
 		var c_con = []
 		if i.is_in_group("PuzzleNode"):
@@ -343,8 +353,6 @@ func save() -> Dictionary:
 			conn[str(i.get_index())] = c_con
 	if not conn.is_empty():
 		dict["connections"] = conn
-		dict["solved"] = solved
-		dict["correct"] = correct
 	return dict
 
 
@@ -482,3 +490,8 @@ func get_on_background_color() -> Color:
 	if puzzle_theme == null:
 		return Color("#131313")
 	return puzzle_theme.on_background_color
+
+
+func save_data():
+	var id = str(get_path())
+	SaveData.save_handler.vsave_value(["puzzles", id], save())

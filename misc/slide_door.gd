@@ -9,6 +9,9 @@ extends Node2D
 ## The player node
 @onready var player_node: CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
 
+
+@onready var door_id := str(get_path())
+
 ## How many required puzzles have been solved
 var met_requirements := 0
 
@@ -16,7 +19,7 @@ var open := false
 
 
 func _ready():
-	if SaveData.has_data("doors|%s"%str(get_path())):
+	if SaveData.save_handler.vget_value(["doors", door_id], false):
 		$Sprite2D.position.y = -128.0
 		$CollisionShape2D.disabled = true
 		open = true
@@ -32,6 +35,7 @@ func _process(delta):
 ## Must be called by [member Puzzle.was_solved]. Increases met_requirements by 1.
 func _on_required_was_solved():
 	if !open:
+		SaveData.save_handler.vsave_value(["doors", door_id], true)
 		var tween := create_tween()
 		tween.tween_property($Sprite2D, "position:y", -128.0, 3.0)
 		tween.play()

@@ -14,7 +14,7 @@ var stage := 0
 @onready var MusicHandler: Node = get_tree().get_nodes_in_group("MusicHandler")[0]
 
 func _ready():
-	if SaveData.data.has("done_tutorial"):
+	if SaveData.save_handler.vget_value(["player", "completed_tutorial"], false):
 		var tween := create_tween()
 		tween.tween_property($Space, "modulate:a", 0.0, 0.2)
 		tween.play()
@@ -67,5 +67,5 @@ func _input(event):
 			tween.tween_property(self, "modulate:a", 0.0, 0.2)
 			tween.play()
 			stage = 5
-			SaveData.data["done_tutorial"] = true
+			SaveData.save_handler.vsave_value(["player", "completed_tutorial"], true)
 

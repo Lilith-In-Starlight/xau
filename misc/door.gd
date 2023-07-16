@@ -16,7 +16,7 @@ var open := false
 
 
 func _ready():
-	if SaveData.has_data("doors|%s"%str(get_path())):
+	if SaveData.save_handler.vget_value(["doors", str(get_path())], false):
 		$Sprite2D.frame = 8
 		$CollisionShape2D.disabled = true
 		open = true
@@ -34,7 +34,8 @@ func _process(delta):
 func _on_required_was_solved():
 	met_requirements += 1
 	if met_requirements == requirements:
-		if !open: 
+		if !open:
+			SaveData.save_handler.vsave_value(["doors", str(get_path())], true)
 			$Sprite2D.play("default")
 			open = true
 

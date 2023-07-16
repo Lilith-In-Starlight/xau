@@ -16,15 +16,11 @@ var undo_history := []
 var current_section :Node2D
 
 func _ready():
-	if SaveData.data.has("player_pos_x"):
-		position.x = SaveData.data["player_pos_x"]
-		position.y = SaveData.data["player_pos_y"]
+	position = SaveData.save_handler.vget_value(["player", "position"], position)
 
 
 func _process(delta):
-#	if velocity.length() < 0.1:
-#		var int_position = global_position.snapped(Vector2(1.0, 1.0))
-#		$Animations.position = int_position - global_position
+	SaveData.save_handler.vsave_value(["player", "position"], position)
 	if Input.is_action_pressed("up") and not Input.is_action_pressed("down"):
 		velocity.y = lerp(velocity.y, -MAX_VEL, GO_MULT* delta*60.0)
 	elif Input.is_action_pressed("down") and not Input.is_action_pressed("up"):
