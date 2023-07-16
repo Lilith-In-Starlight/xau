@@ -12,6 +12,8 @@ var data := {
 	"sections" : {},
 }
 
+
+
 ## The puzzles that have Unique Puzzle Identifiers
 var upid := {}
 var current_area := "first_nexus"
