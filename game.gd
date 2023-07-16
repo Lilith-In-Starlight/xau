@@ -66,6 +66,7 @@ func _process(delta):
 func set_current_area(to: String, save := true):
 	if areas.has(to):
 		get_tree().call_group("Puzzle", "save_data")
+		DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 		SaveData.current_area = to
 		current_area = to
 		SaveData.save_handler.save_value("current_area", to)

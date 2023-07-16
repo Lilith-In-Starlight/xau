@@ -18,13 +18,6 @@ var save_handler := SaveHandler.new()
 var upid := {}
 var current_area := "first_nexus"
 
-var colors := {
-	str(NodeRule.COLORS.blue) : NodeRule.get_default_color(NodeRule.COLORS.blue).to_html(),
-	str(NodeRule.COLORS.yellow) : NodeRule.get_default_color(NodeRule.COLORS.yellow).to_html(),
-	str(NodeRule.COLORS.green) : NodeRule.get_default_color(NodeRule.COLORS.green).to_html(),
-	str(NodeRule.COLORS.purple) : NodeRule.get_default_color(NodeRule.COLORS.purple).to_html(),
-}
-
 
 func _ready():
 	save_handler.load_data()
@@ -74,9 +67,4 @@ func get_saved_value(key: Variant, default: Variant) -> Variant:
 
 
 func get_node_color(key: NodeRule.COLORS) -> Color:
-	if colors.has(str(key)):
-		if colors[str(key)] is String and colors[str(key)].is_valid_html_color():
-			return Color(colors[str(key)])
-		elif colors[str(key)] is Color:
-			return colors[str(key)]
-	return NodeRule.get_default_color(key)
+	return save_handler.vget_value(["options", "accessibility", "colors", str(key)], NodeRule.get_default_color(key))

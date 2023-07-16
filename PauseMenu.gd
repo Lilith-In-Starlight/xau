@@ -53,7 +53,7 @@ func open_color_picker(color: NodeRule.COLORS):
 
 
 func _on_done_pressed():
-	SaveData.colors[str(editing_color)] = ColorPickerNode.color.to_html()
+	SaveData.save_handler.vsave_value(["options", "accessibility", "colors", str(editing_color)], ColorPickerNode.color)
 	_on_regret_pressed()
 	SaveData.save()
 	color_settings_changed.emit()

@@ -16,6 +16,8 @@ run/main_scene="res://game.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Xau"
 config/features=PackedStringArray("4.1")
+boot_splash/bg_color=Color(0.0196078, 0.0196078, 0.0196078, 1)
+boot_splash/show_image=false
 config/icon="res://sprites/iconx4.png"
 config/windows_native_icon="res://sprites/icon.ico"
 
@@ -28,6 +30,7 @@ SectionLoading="*res://SectionLoading.gd"
 
 window/size/viewport_width=576
 window/size/viewport_height=324
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
