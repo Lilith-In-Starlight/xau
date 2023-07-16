@@ -24,13 +24,14 @@ func _process(delta: float) -> void:
 			set_target_zoom(null)
 			return
 		var true_pos :Vector2 = target_zoom.get_rect().get_center() + target_zoom.global_position
-		var dist :Vector2 = existing_cursor_pos * (puzzle_zoom_factor - existing_puzzle_zoom + 1) - existing_cursor_pos
+		var zoom_thing :float = (puzzle_zoom_factor - existing_puzzle_zoom + 1)
+		var dist :Vector2 = (existing_cursor_pos * zoom_thing - existing_cursor_pos) / zoom_thing
 		var tdist :Vector2 = position - true_pos
 		position = lerp(position, $"../Character".position + dist, puzzle_zoom_speed)
 		zoom = lerp(zoom, Vector2(puzzle_zoom_factor, puzzle_zoom_factor), puzzle_zoom_speed)
 		if tdist.length() < existing_dist:
 			existing_dist = tdist.length()
-		if tdist.length() > existing_dist + 25:
+		if tdist.length() > existing_dist + 20:
 			set_target_zoom(null)
 
 
