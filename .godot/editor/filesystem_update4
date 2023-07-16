@@ -1,9 +1,0 @@
-res://default_env.tres
-res://game.tscn
-res://puzzle_elements/puzzle_node.gdshader
-res://PauseMenu.gd
-res://puzzle_elements/puzzle_grid.tscn
-res://areas/FullAreas/ForestArea.tscn
-res://gui/tutorial.tscn
-res://save_data.gd
-res://puzzle_elements/puzzle_node.gd
