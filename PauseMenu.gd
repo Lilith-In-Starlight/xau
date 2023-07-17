@@ -64,4 +64,6 @@ func _on_regret_pressed():
 
 
 func _on_quit_pressed():
+	get_tree().call_group("Puzzle", "save_data")
+	SaveData.save()
 	get_tree().quit()

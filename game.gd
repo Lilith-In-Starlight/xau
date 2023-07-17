@@ -60,6 +60,7 @@ func _process(delta):
 				var pos_delta = CursorNode.position - cursor_goal
 				get_viewport().warp_mouse(get_viewport().get_mouse_position() - pos_delta)
 		else:
+			SaveData.save_handler.vsave_value(["player", "position"], $Character.position)
 			CursorNode.change_blink(false)
 
 

@@ -20,7 +20,6 @@ func _ready():
 
 
 func _process(delta):
-	SaveData.save_handler.vsave_value(["player", "position"], position)
 	if Input.is_action_pressed("up") and not Input.is_action_pressed("down"):
 		velocity.y = lerp(velocity.y, -MAX_VEL, GO_MULT* delta*60.0)
 	elif Input.is_action_pressed("down") and not Input.is_action_pressed("up"):
