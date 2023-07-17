@@ -16,6 +16,7 @@ var existing_puzzle_zoom = 1.0
 
 
 func _process(delta: float) -> void:
+	$Tutorial.scale = Vector2(1.0/zoom.x, 1.0/zoom.y)
 	if target_zoom == null:
 		position = lerp(position, $"../Character".position, player_camera_speed)
 		zoom = lerp(zoom, Vector2(1, 1), player_camera_speed)

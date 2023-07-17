@@ -2,8 +2,6 @@ extends Node
 
 ## The singletone that handles global data like save files
 
-## The path where the game progress is saved
-const SAVE_PATH := "user://savedata.xau"
 
 ## The data of the entire game
 var data := {
@@ -38,32 +36,6 @@ func _notification(what):
 		save()
 		get_tree().quit()
 
-
-func get_data(path: String):
-	var parts = path.split("|")
-	var current = data
-	for i in parts:
-		current = current[i]
-	return current
-
-
-func has_data(path: String):
-	var parts = path.split("|")
-	var current = data
-	for i in parts:
-		if i in current:
-			current = current[i]
-		else:
-			return false
-	return true
-
-
-func get_saved_value(key: Variant, default: Variant) -> Variant:
-	if key == "accessibility_colors":
-		print(key, ": ", data[key])
-	if data.has(key):
-		return data[key]
-	return default
 
 
 func get_node_color(key: NodeRule.COLORS) -> Color:

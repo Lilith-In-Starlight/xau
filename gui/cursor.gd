@@ -29,6 +29,9 @@ func _ready():
 
 func _process(delta):
 	position = get_global_mouse_position()
+	var dist :Vector2 = position - $"../Camera2D".position
+	var d :Vector2 = dist - dist * $"../Camera2D".zoom.x
+#	position += d
 	var pos_delta :Vector2 = position - past_pos
 	sprite.speed_scale = 1 + pos_delta.length() / 20.0
 	past_pos = position
