@@ -54,6 +54,7 @@ func _process(delta):
 		
 	elif not get_parent() is Viewport:
 		set_node_visuals()
+		queue_redraw()
 
 
 func set_node_rule(value):
@@ -272,3 +273,10 @@ func set_node_visuals() -> void:
 	if node_rule != null:
 		$PathMark/PathMark2.visible = node_rule.color != NodeRule.COLORS.black
 		$IsoMark/IsoMark2.visible = node_rule.color != NodeRule.COLORS.black
+
+
+func _draw():
+	if Engine.is_editor_hint():
+		for i in forced_connections:
+			var ch = get_node_or_null(i)
+			draw_line(Vector2(0, 0), to_local(ch.global_position), Color.AQUAMARINE, 2.0)
