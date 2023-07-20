@@ -65,6 +65,10 @@ func _process(_delta: float) -> void:
 
 func set_current_area(to: String, save := true):
 	if areas.has(to):
+		if to == "forest":
+			PlayerNode.stepping_on[0] = "grass"
+		else:
+			PlayerNode.stepping_on[0] = "void"
 		SaveData.current_area = to
 		current_area = to
 		SaveData.save_handler.save_value("current_area", to)

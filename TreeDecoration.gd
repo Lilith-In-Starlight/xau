@@ -26,6 +26,7 @@ func _ready() -> void:
 	$Sprite2D.texture = TREE_SPRITES[hash(global_position)%TREE_SPRITES.size()]
 	$Sprite2D.offset.y = - $Sprite2D.texture.get_height() / 2.0 + 5.0
 	$Sprite2D/VisibleOnScreenEnabler2D.rect.position.y = - $Sprite2D.texture.get_height()
+	$Sprite2D.flip_h = bool(hash(global_position)%2)
 
 
 func _process(_delta: float) -> void:
