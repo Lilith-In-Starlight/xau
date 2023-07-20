@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dvt05unxpupw6" path="res://areas/house/house_exit.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://cbjc4bsbskiun" path="res://areas/house/house_room_3.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://dr3k4xin5t86e" path="res://areas/house/house_room_2.tscn" id="7"]
-[ext_resource type="PackedScene" uid="uid://cqrpufcp7vmvo" path="res://areas/forest/forest_transition.tscn" id="8"]
 [ext_resource type="Script" path="res://areas/area.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://b6qvvktj7cs3h" path="res://sprites/areas/house/house_forest_transition_outside.png" id="10"]
 [ext_resource type="Script" path="res://FirstNexusStatesDefiner.gd" id="11"]
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="12"]
+[ext_resource type="PackedScene" uid="uid://cqrpufcp7vmvo" path="res://areas/forest/transition_room.tscn" id="12_gbsbi"]
 [ext_resource type="Script" path="res://material_area.gd" id="13_djs83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3l1sb"]
@@ -126,7 +126,7 @@ texture = ExtResource("10")
 offset = Vector2(0, -145)
 script = ExtResource("12")
 
-[node name="Transition" parent="." instance=ExtResource("8")]
+[node name="Transition" parent="." instance=ExtResource("12_gbsbi")]
 visible = false
 position = Vector2(-987, -356)
 to_area = "forest"
