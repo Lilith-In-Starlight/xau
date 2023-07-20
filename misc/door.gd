@@ -22,7 +22,7 @@ func _ready():
 		open = true
 
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	if player_node.global_position.distance_to(global_position) < 60:
 		if player_node.global_position.y < global_position.y and z_index != 1:
 			z_index = 1
@@ -34,10 +34,11 @@ func _process(delta):
 func _on_required_was_solved():
 	met_requirements += 1
 	if met_requirements == requirements:
-		if !open:
+		if !SaveData.save_handler.vget_value(["doors", str(get_path())], false):
 			SaveData.save_handler.vsave_value(["doors", str(get_path())], true)
 			$Sprite2D.play("default")
 			open = true
+			$AudioStreamPlayer2D.play()
 
 
 ## Disables the door's collisions when the animation of the door finishes
