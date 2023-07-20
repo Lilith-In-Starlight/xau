@@ -36,6 +36,8 @@ var required_node: Node2D
 
 @onready var cursor_node :Cursor = get_tree().get_first_node_in_group("Cursor")
 
+@onready var id = str(get_path())
+
 ## Whether the puzzle was solved or not
 var solved := false
 
@@ -60,6 +62,7 @@ func _ready():
 		child_entered_tree.connect(_on_child_entered_tree)
 		child_exiting_tree.connect(_on_child_exiting_tree)
 	else:
+		tree_exiting.connect(save_data)
 		var camera_node = get_tree().get_first_node_in_group("Camera3D")
 		was_interacted_with.connect(camera_node.set_target_zoom.bind(self))
 		required_node = get_node_or_null(required_puzzle)
@@ -68,10 +71,9 @@ func _ready():
 				i.connection_changed.connect(_on_connection_changed)
 				i.correctness_unverified.connect(_on_correctness_unverified)
 				i.delete_node_connections_request.connect(_on_delete_node_connections_requested)
-	
-		var id = str(get_path())
-		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
 		
+		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
+
 		solved = puzzle_data["solved"]
 		correct = puzzle_data["correct"]
 		
@@ -102,7 +104,7 @@ func _ready():
 			display_connections()
 
 
-func _input(delta):
+func _input(_event: InputEvent) -> void:
 	if not is_visible or not is_enabled():
 		return
 		
@@ -131,7 +133,6 @@ func _input(delta):
 			for i in unhappy_nodes:
 				i.show_failure(get_node_color())
 		
-		var id := str(get_path())
 		SaveData.save_handler.vsave_value(["puzzles", id], save())
 
 
@@ -200,7 +201,7 @@ func get_incorrect_nodes() -> Array:
 			unhappy_nodes.append(i)
 	
 	if graph_shapes.size() > 1:
-		var black_iso_with :NodeRule.COLORS = -1
+		var black_iso_with :NodeRule.COLORS = NodeRule.COLORS.black
 		var comparisons := []
 		for color1 in graph_shapes:
 			for color2 in graph_shapes:
@@ -213,7 +214,7 @@ func get_incorrect_nodes() -> Array:
 				comparisons.append([color1, color2])
 				
 				if compare_arrays_by_content(graph_shapes[color1][1], graph_shapes[color2][1]):
-					if black_iso_with == -1 and (color1 == NodeRule.COLORS.black or color2 == NodeRule.COLORS.black):
+					if black_iso_with == NodeRule.COLORS.black and (color1 == NodeRule.COLORS.black or color2 == NodeRule.COLORS.black):
 						continue
 					else:
 						unhappy_nodes.append(graph_shapes[color1][0])
@@ -308,10 +309,10 @@ func update_enabled_visuals() -> void:
 				i.modulate.a = 0.0
 	queue_redraw()
 
-func _on_child_entered_tree(gone_node: Node):
+func _on_child_entered_tree(_gone_node: Node):
 	queue_redraw()
 
-func _on_child_exiting_tree(gone_node: Node):
+func _on_child_exiting_tree(_gone_node: Node):
 	queue_redraw()
 
 
@@ -493,5 +494,7 @@ func get_on_background_color() -> Color:
 
 
 func save_data():
-	var id = str(get_path())
-	SaveData.save_handler.vsave_value(["puzzles", id], save())
+	var saving :Dictionary = save()
+	SaveData.save_handler.vsave_value(["puzzles", id], saving)
+
+

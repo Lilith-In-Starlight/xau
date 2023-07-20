@@ -27,7 +27,7 @@ func _ready():
 	set_current_area(SaveData.save_handler.get_value("current_area", "first_nexus"), false)
 	
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("fullscreen"):
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
 		get_window().borderless = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
@@ -60,14 +60,11 @@ func _process(delta):
 				var pos_delta = CursorNode.position - cursor_goal
 				get_viewport().warp_mouse(get_viewport().get_mouse_position() - pos_delta)
 		else:
-			SaveData.save_handler.vsave_value(["player", "position"], $Character.position)
 			CursorNode.change_blink(false)
 
 
 func set_current_area(to: String, save := true):
 	if areas.has(to):
-		get_tree().call_group("Puzzle", "save_data")
-		DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 		SaveData.current_area = to
 		current_area = to
 		SaveData.save_handler.save_value("current_area", to)
