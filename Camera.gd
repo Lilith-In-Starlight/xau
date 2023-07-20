@@ -9,13 +9,12 @@ var state := 0
 
 var target_zoom :Puzzle = null
 
-@onready var tween := get_tree().create_tween()
 var existing_dist := 100.0
 var existing_cursor_pos = Vector2()
 var existing_puzzle_zoom = 1.0
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Tutorial.scale = Vector2(1.0/zoom.x, 1.0/zoom.y)
 	if target_zoom == null:
 		position = lerp(position, $"../Character".position, player_camera_speed)
@@ -39,11 +38,6 @@ func _process(delta: float) -> void:
 func set_target_zoom(node: Puzzle):
 	if node == target_zoom:
 		return
-	tween.kill()
-	tween = create_tween()
-	tween.set_parallel(true)
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_QUAD)
 	target_zoom = node
 	if target_zoom == null:
 		return
