@@ -210,24 +210,6 @@ func get_all_nodes_in_graph():
 	return known_nodes
 
 
-func get_neighbor_identifiers():
-	var unchecked_nodes := [self]
-	var checked_nodes := []
-	var neighbor_id := {}
-	for checking in unchecked_nodes:
-		checked_nodes.append(checking)
-		var new_neighbor_list := []
-		for neighbor in checking.connections:
-			new_neighbor_list.append(neighbor.connections.size())
-			if not neighbor in checked_nodes:
-				unchecked_nodes.append(neighbor)
-		new_neighbor_list.sort()
-		if not neighbor_id.has(hash(new_neighbor_list)):
-			neighbor_id[hash(new_neighbor_list)] = 0
-		neighbor_id[hash(new_neighbor_list)] += 1
-	return neighbor_id
-
-
 func get_unique_id():
 	var already_seen := []
 	var to_see := [self]
