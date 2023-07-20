@@ -60,7 +60,7 @@ func save_value_in_dict(dict: Dictionary, key: StringName, value: Variant):
 			"type": "vector2",
 			"value": [value.x, value.y]
 		}
-	else:
+	else:	
 		dict[key] = value
 
 
@@ -82,11 +82,13 @@ func vget_value(keys: Array[StringName], default: Variant) -> Variant:
 func vsave_value(keys: Array[StringName], value: Variant):
 	var c_dict :Dictionary = data_dictionary
 	
+	
 	for key_index in keys.size() - 1:
 		var current_key :StringName = keys[key_index]
 		if c_dict is Dictionary:
 			if current_key in c_dict:
 				c_dict = c_dict[current_key]
+	
 	
 	save_value_in_dict(c_dict, keys.pop_back(), value)
 

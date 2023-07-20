@@ -10,8 +10,6 @@ func _init():
 
 func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 	var node_count := 0
-	var holes_count := 0
-	var valid_children_count := 0
 	
 	for child in puzzle.get_children():
 		if (not child is PuzzleNode) or child in exclusions:
@@ -25,4 +23,3 @@ func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 		if child.name != new_name:
 			child.set_name.call_deferred(new_name)
 		node_count += 1
-		valid_children_count += 1

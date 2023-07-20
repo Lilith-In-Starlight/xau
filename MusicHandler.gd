@@ -2,7 +2,7 @@ extends Node
 
 const SONG_LERP := 0.01
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if SaveData.save_handler.get_value("first_enter", true):
 		SaveData.save_handler.save_value("first_enter", false)
 		$HomeGuitar.stream = preload("res://music/first_spawn.mp3")

@@ -37,7 +37,7 @@ func _ready():
 	set_node_visuals()
 
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
 		if cursor_node.connecting_from == self:
 			connect_puzzle(cursor_node.position)
@@ -80,7 +80,7 @@ func show_failure(default_color: Color):
 
 
 
-func _on_node_button_gui_input(event: InputEvent):
+func _on_node_button_gui_input(_event: InputEvent) -> void:
 	if to_local(cursor_node.position).length() >= 7:
 		return
 	get_parent().was_interacted_with.emit()
@@ -232,7 +232,6 @@ func get_unique_id():
 	var already_seen := []
 	var to_see := [self]
 	var new_to_see := []
-	var loop := true
 	var id := []
 	while not to_see.is_empty():
 		var new_id_num := 0

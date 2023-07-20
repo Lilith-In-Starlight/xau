@@ -10,7 +10,7 @@ func _ready():
 		i.modulate.a = 0.0
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_node.global_position.distance_to(global_position) < 30 and children_modulate == 0:
 		var tween := create_tween()
 		for i in get_children():

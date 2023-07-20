@@ -27,11 +27,8 @@ func _ready():
 	$Cursor.play("default")
 
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	position = get_global_mouse_position()
-	var dist :Vector2 = position - $"../Camera2D".position
-	var d :Vector2 = dist - dist * $"../Camera2D".zoom.x
-#	position += d
 	var pos_delta :Vector2 = position - past_pos
 	sprite.speed_scale = 1 + pos_delta.length() / 20.0
 	past_pos = position
@@ -61,7 +58,7 @@ func _process(delta):
 		connection_line.visible = false
 
 
-func _input(delta):
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("noconnect"):
 		if connecting_from:
 			connecting_from.queue_redraw()
@@ -73,7 +70,7 @@ func _input(delta):
 		connecting_from = null
 
 
-func change_blink(to: bool):
+func change_blink(to: bool) -> void:
 	if not to:
 		return
 		

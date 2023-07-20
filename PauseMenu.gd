@@ -27,7 +27,7 @@ func _ready():
 	PurpleColorButton.pressed.connect(open_color_picker.bind(NodeRule.COLORS.purple))
 
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = !get_tree().paused
 	

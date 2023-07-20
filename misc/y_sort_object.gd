@@ -12,7 +12,7 @@ func _ready() -> void:
 		depth_line.free()
 	
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	var y_limit :float = global_position.y
 	if not points.is_empty():
 		if player_node.position.x < points[0].x:

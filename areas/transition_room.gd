@@ -22,15 +22,16 @@ func _ready() -> void:
 	previous_side = on_left_side
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	player_pos = PlayerNode.position
 	camera_pos = CameraNode.position
 	on_left_side = player_pos.x < global_position.x
+	
 	if on_left_side != previous_side and player_pos.y > global_position.y-50 and player_pos.y < global_position.y + 50:
-		SaveData.save_handler.save_value("player_state", destination_state)
 		CameraNode.position += destination_position - global_position
 		PlayerNode.position += destination_position - global_position
-		SaveData.save()
+		SaveData.save_handler.vsave_value(["player", "position"], PlayerNode.position)
+		SaveData.save_handler.save_value("player_state", destination_state)
 		GameNode.set_current_area(to_area)
 	
 	previous_side = on_left_side

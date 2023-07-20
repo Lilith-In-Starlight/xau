@@ -24,7 +24,7 @@ func _ready():
 	$ClickHold.play()
 
 
-func _input(event):
+func _input(_event: InputEvent) -> void:
 	match stage:
 		0:
 			if Input.is_action_just_pressed("confirm"):

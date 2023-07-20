@@ -14,7 +14,7 @@ enum COLORS {
 func _init():
 	resource_local_to_scene = true
 
-func check_correctness(local_node: PuzzleNode) -> bool:
+func check_correctness(_local_node: PuzzleNode) -> bool:
 	return true
 
 

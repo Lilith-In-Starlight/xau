@@ -28,7 +28,7 @@ func _ready() -> void:
 	$Sprite2D/VisibleOnScreenEnabler2D.rect.position.y = - $Sprite2D.texture.get_height()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		$Sprite2D.texture = TREE_SPRITES[hash(global_position)%TREE_SPRITES.size()]
 		$Sprite2D.offset.y = - $Sprite2D.texture.get_height() / 2.0 + 5.0
