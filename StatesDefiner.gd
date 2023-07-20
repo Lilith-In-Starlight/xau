@@ -4,7 +4,7 @@ class_name StatesDefiner
 
 var state :String
 var visible_objects :Array
-@onready var tween: Tween = get_tree().create_tween()
+@onready var tween: Tween = null
 
 func set_visible_objects():
 	pass
@@ -15,10 +15,12 @@ func update_state(set_to: String, transition := true):
 		return
 	state = set_to
 	set_visible_objects()
-	tween.stop()
-	tween.kill()
-	tween = get_tree().create_tween()
+	if not tween == null:
+		tween.stop()
+		tween.kill()
+	tween = create_tween()
 	tween.set_parallel(true)
+	var tweened := false
 	for child in get_tree().get_nodes_in_group("World")[0].get_children():
 		if not child is Node2D:
 			continue
@@ -27,14 +29,18 @@ func update_state(set_to: String, transition := true):
 			child.visible = true
 			if transition:
 				tween.tween_property(child, "modulate:a", 1.0, 0.5)
+				tweened = true
 			else:
 				child.modulate.a = 1.0
 		else:
 			if transition:
 				tween.tween_property(child, "modulate:a", 0.0, 0.5)
 				tween.tween_property(child, "visible", false, 1.0)
+				tweened = true
 			else:
 				child.modulate.a = 0.0
 				child.visible = false
-	tween.play()
+		
+		if not tweened:
+			tween.kill()
 
