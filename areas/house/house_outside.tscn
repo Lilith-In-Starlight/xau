@@ -39,6 +39,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "r"
+thing = Rect2(0, -16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_d8dpt"]
 resource_local_to_scene = true
@@ -60,6 +61,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "l"
+thing = Rect2(0, -16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_d7dj6"]
 resource_local_to_scene = true
@@ -81,6 +83,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "r"
+thing = Rect2(0, -16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_pncb3"]
 resource_local_to_scene = true
@@ -102,6 +105,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "lr"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_ta4xx"]
 resource_local_to_scene = true
@@ -143,6 +147,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "rl"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_psce7"]
 resource_local_to_scene = true
@@ -184,6 +189,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "r"
+thing = Rect2(0, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_48cy5"]
 resource_local_to_scene = true
@@ -205,6 +211,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "l"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_e2t0i"]
 resource_local_to_scene = true
@@ -246,6 +253,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "lr"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_kvupq"]
 resource_local_to_scene = true
@@ -287,6 +295,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "(r)(l)"
+thing = Rect2(0, -16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_vgbpf"]
 resource_local_to_scene = true
@@ -308,6 +317,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "(l)(rl)"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_76mrt"]
 resource_local_to_scene = true
@@ -349,6 +359,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "(lr)(rl)"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_3yyxx"]
 resource_local_to_scene = true
@@ -390,6 +401,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "(ll)(rl)"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_4uxrk"]
 resource_local_to_scene = true
@@ -431,6 +443,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "l"
+thing = Rect2(0, -16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_wnrxs"]
 resource_local_to_scene = true
@@ -452,6 +465,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "r"
+thing = Rect2(0, -16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_qrug5"]
 resource_local_to_scene = true
@@ -473,6 +487,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "l"
+thing = Rect2(0, -16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_n1wia"]
 resource_local_to_scene = true
@@ -494,6 +509,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "r"
+thing = Rect2(0, -16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_jha73"]
 resource_local_to_scene = true
@@ -515,6 +531,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "r"
+thing = Rect2(0, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_rn3mq"]
 resource_local_to_scene = true
@@ -536,6 +553,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "l"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_k53jl"]
 resource_local_to_scene = true
@@ -577,6 +595,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "lr"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_umewf"]
 resource_local_to_scene = true
@@ -618,6 +637,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "r"
+thing = Rect2(0, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_lkgfn"]
 resource_local_to_scene = true
@@ -639,6 +659,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "l"
+thing = Rect2(-8, -32, 48, 32)
 
 [sub_resource type="Resource" id="Resource_ytaut"]
 resource_local_to_scene = true
@@ -680,6 +701,7 @@ resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "(lr(l)(r))(rl)"
+thing = Rect2(-32, -48, 112, 48)
 
 [sub_resource type="Resource" id="Resource_oo84a"]
 resource_local_to_scene = true

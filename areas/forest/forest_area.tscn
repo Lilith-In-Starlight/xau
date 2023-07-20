@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl2vmpdvii400"]
-
-[ext_resource type="PackedScene" path="res://areas/forest/forest_house_transition.tscn" id="1"]
-[ext_resource type="Script" path="res://areas/area.gd" id="2"]
-
-[node name="ForestArea" type="Node2D"]
-script = ExtResource("2")
-
-[node name="ForestHouseTransition" parent="." instance=ExtResource("1")]

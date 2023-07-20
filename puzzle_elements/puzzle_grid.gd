@@ -99,3 +99,10 @@ func _on_screen_entered() -> void:
 
 func _on_screen_exited() -> void:
 	is_visible = false
+
+
+func get_rect() -> Rect2:
+	if node_arrangement == null:
+		return super.get_rect()
+	rect = node_arrangement.get_used_area(self)
+	return rect

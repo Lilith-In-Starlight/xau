@@ -34,3 +34,7 @@ func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 			spaces_count += 1
 		
 		child.position = Vector2(x_position, y_position) * spacing
+
+
+func get_used_area(puzzle: Puzzle) -> Rect2:
+	return Rect2(Vector2(), Vector2(size.x - 1, size.y - 1) * spacing)

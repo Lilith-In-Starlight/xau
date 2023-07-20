@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://rhicuqvd5uu4" path="res://puzzle_elements/puzzle_grid.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://bkmy6maifarrx" path="res://puzzle_elements/puzzle_node.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://doitx77x0wy2l" path="res://puzzle_elements/blockade.tscn" id="7"]
-[ext_resource type="PackedScene" uid="uid://cqrpufcp7vmvo" path="res://areas/forest/forest_transition.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://cqrpufcp7vmvo" path="res://areas/forest/transition_room.tscn" id="8"]
 [ext_resource type="Script" path="res://areas/area.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://b6qvvktj7cs3h" path="res://sprites/areas/house/house_forest_transition_outside.png" id="10"]
 [ext_resource type="Script" path="res://PathNodeRule.gd" id="10_eu1vb"]
@@ -36,6 +36,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_f4shx"]
 script = ExtResource("10_eu1vb")
@@ -55,6 +56,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_hj021"]
 script = ExtResource("10_eu1vb")
@@ -82,6 +84,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_n2egy"]
 script = ExtResource("13_hm00l")
@@ -97,6 +100,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_hpwnu"]
 script = ExtResource("10_eu1vb")
@@ -120,6 +124,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(2, 2)
 spacing = Vector2(16, 32)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_65j5s"]
 script = ExtResource("13_hm00l")
@@ -131,6 +136,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(1, 0), Vector2i(1, 1), Vector2i(3, 0), Vector2i(3, 1)])
+thing = null
 
 [sub_resource type="Resource" id="Resource_3ssj4"]
 script = ExtResource("13_hm00l")
@@ -146,6 +152,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(1, 0), Vector2i(1, 1), Vector2i(2, 1), Vector2i(2, 2)])
+thing = null
 
 [sub_resource type="Resource" id="Resource_kvhl1"]
 script = ExtResource("13_hm00l")
@@ -157,6 +164,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(2, 2), Vector2i(3, 2), Vector2i(1, 0), Vector2i(1, 1)])
+thing = null
 
 [sub_resource type="Resource" id="Resource_pbvqf"]
 script = ExtResource("13_hm00l")
@@ -171,6 +179,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_buaje"]
 script = ExtResource("13_hm00l")
@@ -182,6 +191,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_pm2h1"]
 resource_local_to_scene = true
@@ -189,6 +199,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(0, 2), Vector2i(1, 2), Vector2i(3, 0)])
+thing = null
 
 [sub_resource type="Resource" id="Resource_fq15y"]
 resource_local_to_scene = true
@@ -196,6 +207,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(0, 2), Vector2i(1, 2), Vector2i(3, 0)])
+thing = null
 
 [sub_resource type="Resource" id="Resource_u2sj3"]
 resource_local_to_scene = true
@@ -203,6 +215,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(0, 2), Vector2i(1, 2), Vector2i(3, 0), Vector2i(3, 1)])
+thing = null
 
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(366, 9.5)
@@ -213,6 +226,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_dusfm"]
 script = ExtResource("13_hm00l")
@@ -236,13 +250,15 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(1, 1)])
+thing = null
 
-[sub_resource type="Resource" id="Resource_711rd"]
+[sub_resource type="Resource" id="Resource_t7gtb"]
 resource_local_to_scene = true
 script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_mm08v"]
 script = ExtResource("13_hm00l")
@@ -266,6 +282,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_ru2re"]
 script = ExtResource("13_hm00l")
@@ -285,6 +302,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(1, 1)])
+thing = null
 
 [sub_resource type="Resource" id="Resource_gqh2o"]
 script = ExtResource("13_hm00l")
@@ -304,6 +322,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+thing = null
 
 [sub_resource type="Resource" id="Resource_u47s4"]
 script = ExtResource("13_hm00l")
@@ -315,6 +334,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(3, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(0, 2), Vector2i(1, 2)])
+thing = null
 
 [sub_resource type="Resource" id="Resource_7filt"]
 script = ExtResource("13_hm00l")
@@ -327,9 +347,10 @@ color = 1
 [sub_resource type="Resource" id="Resource_jhhyc"]
 resource_local_to_scene = true
 script = ExtResource("15_pn7qs")
-size = Vector2i(4, 3)
+size = Vector2i(4, 2)
 spacing = Vector2(16, 32)
 holes = Array[Vector2i]([Vector2i(2, 0)])
+thing = null
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beg8f"]
 size = Vector2(88, 204)
@@ -1259,7 +1280,7 @@ scale = Vector2(0.5, 7)
 
 [node name="PuzzleGrid3" parent="Outside/Table" instance=ExtResource("5")]
 position = Vector2(-24, 32)
-node_arrangement = SubResource("Resource_711rd")
+node_arrangement = SubResource("Resource_t7gtb")
 required_puzzle = NodePath("../PuzzleGrid2")
 puzzle_theme = ExtResource("19_0awcd")
 
