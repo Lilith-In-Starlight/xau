@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://rhicuqvd5uu4" path="res://puzzle_elements/puzzle_grid.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://bkmy6maifarrx" path="res://puzzle_elements/puzzle_node.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://doitx77x0wy2l" path="res://puzzle_elements/blockade.tscn" id="7"]
-[ext_resource type="PackedScene" path="res://areas/forest/forest_transition.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://cqrpufcp7vmvo" path="res://areas/forest/forest_transition.tscn" id="8"]
 [ext_resource type="Script" path="res://areas/area.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://b6qvvktj7cs3h" path="res://sprites/areas/house/house_forest_transition_outside.png" id="10"]
 [ext_resource type="Script" path="res://PathNodeRule.gd" id="10_eu1vb"]
@@ -28,7 +28,7 @@
 [ext_resource type="Resource" uid="uid://bji2lwd20ly74" path="res://puzzle_elements/puzzle_style/PuzzleThemeForestForest.tres" id="19_0awcd"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(42.5, 10)
+size = Vector2(86, 10)
 
 [sub_resource type="Resource" id="Resource_1mfp8"]
 resource_local_to_scene = true
@@ -415,7 +415,7 @@ script = ExtResource("4")
 [node name="StaticBody2D" type="StaticBody2D" parent="Outside/Decoration/Statue"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Decoration/Statue/StaticBody2D"]
-position = Vector2(16, -1)
+position = Vector2(15, -1)
 shape = SubResource("1")
 
 [node name="Cable19" type="Line2D" parent="Outside/Decoration"]
@@ -508,9 +508,11 @@ position = Vector2(32, 0)
 
 [node name="PuzzleNode4" parent="Outside/PuzzleGrid" instance=ExtResource("6")]
 position = Vector2(0, 16)
+forced_connections = Array[NodePath]([NodePath("../PuzzleNode2"), NodePath("../PuzzleNode5"), NodePath("../PuzzleNode8")])
 
 [node name="PuzzleNode5" parent="Outside/PuzzleGrid" instance=ExtResource("6")]
 position = Vector2(16, 16)
+forced_connections = Array[NodePath]([NodePath("../PuzzleNode6")])
 
 [node name="PuzzleNode6" parent="Outside/PuzzleGrid" instance=ExtResource("6")]
 position = Vector2(32, 16)
@@ -786,6 +788,7 @@ script = ExtResource("11")
 
 [node name="PuzzleGrid" parent="Outside/Wall/PuzzleSequence" instance=ExtResource("5")]
 node_arrangement = SubResource("Resource_mkoi7")
+is_on_floor = false
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/Wall/PuzzleSequence/PuzzleGrid" instance=ExtResource("6")]
@@ -804,6 +807,7 @@ node_rule = SubResource("Resource_65j5s")
 [node name="PuzzleGrid2" parent="Outside/Wall/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(40, 0)
 node_arrangement = SubResource("Resource_kcivw")
+is_on_floor = false
 required_puzzle = NodePath("../PuzzleGrid")
 puzzle_theme = ExtResource("11_b5eal")
 
@@ -842,6 +846,7 @@ scale = Vector2(1, 10)
 [node name="PuzzleGrid3" parent="Outside/Wall/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(112, 0)
 node_arrangement = SubResource("Resource_2cbi7")
+is_on_floor = false
 required_puzzle = NodePath("../PuzzleGrid2")
 puzzle_theme = ExtResource("11_b5eal")
 
@@ -880,6 +885,7 @@ scale = Vector2(1, 10)
 [node name="PuzzleGrid4" parent="Outside/Wall/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(184, 0)
 node_arrangement = SubResource("Resource_f0y4x")
+is_on_floor = false
 required_puzzle = NodePath("../PuzzleGrid3")
 puzzle_theme = ExtResource("11_b5eal")
 
@@ -936,6 +942,7 @@ script = ExtResource("11")
 
 [node name="PuzzleGrid" parent="Outside/Wall2/PuzzleSequence" instance=ExtResource("5")]
 node_arrangement = SubResource("Resource_d48h3")
+is_on_floor = false
 required_puzzle = NodePath("../../../Wall/PuzzleSequence/PuzzleGrid4")
 puzzle_theme = ExtResource("11_b5eal")
 
@@ -984,6 +991,7 @@ scale = Vector2(1, 10)
 [node name="PuzzleGrid2" parent="Outside/Wall2/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(72, 0)
 node_arrangement = SubResource("Resource_3yjqs")
+is_on_floor = false
 required_puzzle = NodePath("../PuzzleGrid")
 puzzle_theme = ExtResource("11_b5eal")
 
@@ -1035,6 +1043,7 @@ position = Vector2(40, 16)
 [node name="PuzzleGrid3" parent="Outside/Wall2/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(144, 0)
 node_arrangement = SubResource("Resource_pm2h1")
+is_on_floor = false
 required_puzzle = NodePath("../PuzzleGrid2")
 puzzle_theme = ExtResource("11_b5eal")
 
@@ -1071,6 +1080,7 @@ scale = Vector2(1, 10)
 [node name="PuzzleGrid4" parent="Outside/Wall2/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(216, 0)
 node_arrangement = SubResource("Resource_fq15y")
+is_on_floor = false
 required_puzzle = NodePath("../PuzzleGrid3")
 puzzle_theme = ExtResource("11_b5eal")
 
@@ -1108,6 +1118,7 @@ scale = Vector2(1, 10)
 [node name="PuzzleGrid5" parent="Outside/Wall2/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(288, 0)
 node_arrangement = SubResource("Resource_u2sj3")
+is_on_floor = false
 required_puzzle = NodePath("../PuzzleGrid4")
 puzzle_theme = ExtResource("11_b5eal")
 
@@ -1151,6 +1162,7 @@ position = Vector2(1, 30.25)
 shape = SubResource("3")
 
 [node name="GreenGirlSitting" type="Sprite2D" parent="Outside"]
+visible = false
 position = Vector2(1296, 794)
 texture = ExtResource("17_88t0k")
 script = ExtResource("4")
@@ -1333,7 +1345,7 @@ scale = Vector2(0.5, 7)
 [node name="PuzzleGrid2" parent="Outside/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(72, 0)
 node_arrangement = SubResource("Resource_yabyq")
-required_puzzle = NodePath("../../PuzzleGrid2")
+required_puzzle = NodePath("../PuzzleGrid")
 puzzle_theme = ExtResource("19_0awcd")
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource("6")]
@@ -1379,7 +1391,7 @@ position = Vector2(40, 16)
 [node name="PuzzleGrid3" parent="Outside/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(160, 0)
 node_arrangement = SubResource("Resource_nxtep")
-required_puzzle = NodePath("../../PuzzleGrid2")
+required_puzzle = NodePath("../PuzzleGrid2")
 puzzle_theme = ExtResource("19_0awcd")
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource("6")]
@@ -1437,7 +1449,7 @@ position = Vector2(-30, -33)
 rotation = -0.314159
 skew = 0.314159
 node_arrangement = SubResource("Resource_jjt4w")
-required_puzzle = NodePath("../../../Outside/PuzzleGrid4")
+is_on_floor = false
 puzzle_theme = ExtResource("19_0awcd")
 
 [node name="PuzzleNode" parent="HouseVillageInside/Back/PuzzleGrid" instance=ExtResource("6")]
@@ -1514,7 +1526,7 @@ position = Vector2(-6, -42)
 rotation = 0.314159
 skew = -0.314159
 node_arrangement = SubResource("Resource_jhhyc")
-required_puzzle = NodePath("../../../Outside/PuzzleGrid4")
+is_on_floor = false
 puzzle_theme = ExtResource("19_0awcd")
 
 [node name="PuzzleNode" parent="HouseVillageInside2/Back/PuzzleGrid" instance=ExtResource("6")]

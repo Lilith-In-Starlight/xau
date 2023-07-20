@@ -1,44 +1,65 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://cqrpufcp7vmvo"]
 
-[ext_resource path="res://areas/transition_room.gd" type="Script" id=1]
-[ext_resource path="res://misc/y_sort_object.gd" type="Script" id=2]
-[ext_resource path="res://sprites/areas/house/house_forest_transition_wall.png" type="Texture2D" id=3]
-[ext_resource path="res://sprites/areas/house/house_forest_transition.png" type="Texture2D" id=4]
+[ext_resource type="Script" path="res://areas/transition_room.gd" id="1"]
+[ext_resource type="Script" path="res://misc/y_sort_object.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://np5g5jcicvid" path="res://sprites/areas/house/house_forest_transition_wall.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://ui2h6y5ts4y1" path="res://sprites/areas/house/house_forest_transition.png" id="4"]
+[ext_resource type="Script" path="res://material_area.gd" id="5_ubvdo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdnxy"]
+resource_local_to_scene = true
+size = Vector2(231, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqyc2"]
+size = Vector2(252, 27)
 
 [node name="Transition" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="HouseForestTransition" type="Sprite2D" parent="."]
 z_index = -2
-texture = ExtResource( 4 )
+texture = ExtResource("4")
 
 [node name="Walls" type="Node2D" parent="."]
-position = Vector2( 0, 141 )
-script = ExtResource( 2 )
+position = Vector2(0, 141)
+script = ExtResource("2")
 
 [node name="HouseForestTransitionWall" type="Sprite2D" parent="Walls"]
-position = Vector2( 108.5, -69 )
-texture = ExtResource( 3 )
+position = Vector2(108.5, -69)
+texture = ExtResource("3")
 
 [node name="HouseForestTransitionWall2" type="Sprite2D" parent="Walls"]
-position = Vector2( -107.5, -69 )
-texture = ExtResource( 3 )
+position = Vector2(-107.5, -69)
+texture = ExtResource("3")
 
 [node name="WorldCollision" type="StaticBody2D" parent="."]
-position = Vector2( -112, -147 )
 z_index = 99
+position = Vector2(-112, -147)
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PackedVector2Array( -5, 170, -5, 83, 229, 83, 229, 170, 212, 170, 212, 92, 123, 92, 13, 92, 13, 170 )
+polygon = PackedVector2Array(-5, 170, -5, 83, 229, 83, 229, 170, 212, 170, 212, 92, 123, 92, 13, 92, 13, 170)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PackedVector2Array( -5, 197, -5, 292, 229, 292, 229, 197, 212, 197, 212, 279, 13, 279, 13, 197 )
+polygon = PackedVector2Array(-5, 197, -5, 292, 229, 292, 229, 197, 212, 197, 212, 279, 13, 279, 13, 197)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="WorldCollision"]
-polygon = PackedVector2Array( 112, 197, 175, 197, 112, 259, 50, 197 )
+polygon = PackedVector2Array(112, 197, 175, 197, 112, 259, 50, 197)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="WorldCollision"]
-position = Vector2( 0, -27 )
-polygon = PackedVector2Array( 112, 197, 175, 197, 112, 134, 49, 197 )
+position = Vector2(0, -27)
+polygon = PackedVector2Array(112, 197, 175, 197, 112, 134, 49, 197)
+
+[node name="metal" type="Area2D" parent="." groups=["MaterialAreas"]]
+collision_layer = 4
+priority = 2
+script = ExtResource("5_ubvdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="metal"]
+position = Vector2(-0.5, 42.5)
+shape = SubResource("RectangleShape2D_cdnxy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="metal"]
+position = Vector2(0, 36.5)
+shape = SubResource("RectangleShape2D_xqyc2")

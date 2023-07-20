@@ -157,6 +157,7 @@ required_puzzle = NodePath("../../PuzzleGrid3")
 [node name="PuzzleGrid" parent="." instance=ExtResource("6")]
 position = Vector2(270, 169)
 node_arrangement = SubResource("Resource_8ias0")
+is_on_floor = false
 
 [node name="PuzzleNode" parent="PuzzleGrid" instance=ExtResource("5")]
 node_rule = SubResource("Resource_mvtam")

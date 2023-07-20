@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://rhicuqvd5uu4"]
+[gd_scene load_steps=10 format=3 uid="uid://rhicuqvd5uu4"]
 
 [ext_resource type="Script" path="res://puzzle_elements/puzzle_grid.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://b5bgacwdhjj50" path="res://sprites/puzzles/screen_frame/bottom_left.png" id="2"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://y8icqnx3x0xo" path="res://sprites/puzzles/screen_frame/top_right.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://da1nef11lf22s" path="res://sprites/puzzles/screen_frame/bottom_right.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://bbgrjd16jdokw" path="res://sprites/puzzles/screen_frame/background.png" id="7_dlpch"]
+[ext_resource type="Script" path="res://material_area.gd" id="8_a2c7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g165b"]
+resource_local_to_scene = true
 
 [node name="PuzzleGrid" type="Node2D" groups=["Puzzle", "PuzzleGrid"]]
 script = ExtResource("1")
@@ -76,6 +80,14 @@ centered = false
 [node name="Lines" type="Node2D" parent="NoNode"]
 
 [node name="VisibilityCheck" type="VisibleOnScreenNotifier2D" parent="NoNode"]
+
+[node name="metal" type="Area2D" parent="NoNode" groups=["MaterialAreas"]]
+collision_layer = 4
+priority = 2
+script = ExtResource("8_a2c7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoNode/metal"]
+shape = SubResource("RectangleShape2D_g165b")
 
 [connection signal="screen_entered" from="NoNode/VisibilityCheck" to="." method="_on_screen_entered"]
 [connection signal="screen_exited" from="NoNode/VisibilityCheck" to="." method="_on_screen_exited"]

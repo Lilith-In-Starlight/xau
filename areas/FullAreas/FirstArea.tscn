@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dg68j85qrm23c"]
+[gd_scene load_steps=20 format=3 uid="uid://dg68j85qrm23c"]
 
 [ext_resource type="PackedScene" uid="uid://c7770wy0yqkuu" path="res://areas/house/house_room_1.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
@@ -7,11 +7,30 @@
 [ext_resource type="PackedScene" uid="uid://dvt05unxpupw6" path="res://areas/house/house_exit.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://cbjc4bsbskiun" path="res://areas/house/house_room_3.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://dr3k4xin5t86e" path="res://areas/house/house_room_2.tscn" id="7"]
-[ext_resource type="PackedScene" path="res://areas/forest/forest_transition.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://cqrpufcp7vmvo" path="res://areas/forest/forest_transition.tscn" id="8"]
 [ext_resource type="Script" path="res://areas/area.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://b6qvvktj7cs3h" path="res://sprites/areas/house/house_forest_transition_outside.png" id="10"]
 [ext_resource type="Script" path="res://FirstNexusStatesDefiner.gd" id="11"]
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="12"]
+[ext_resource type="Script" path="res://material_area.gd" id="13_djs83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l1sb"]
+size = Vector2(368, 207)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qj7vw"]
+size = Vector2(48, 736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20ibp"]
+size = Vector2(468, 207)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fktod"]
+size = Vector2(226, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct2xn"]
+size = Vector2(290, 222.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htcmk"]
+size = Vector2(79, 82.25)
 
 [node name="FirstArea" type="Node2D" groups=["World"]]
 script = ExtResource("9")
@@ -82,18 +101,14 @@ position = Vector2(154, 553)
 position = Vector2(155, 1243)
 
 [node name="House" parent="." instance=ExtResource("1")]
-visible = false
 
 [node name="HouseRoom3" parent="." instance=ExtResource("6")]
-visible = false
 position = Vector2(-292, -43)
 
 [node name="HouseRoom2" parent="." instance=ExtResource("7")]
-visible = false
 position = Vector2(-70, -1)
 
 [node name="HouseRoom4" parent="." instance=ExtResource("4")]
-visible = false
 z_index = 2
 position = Vector2(0, 247)
 
@@ -117,3 +132,45 @@ position = Vector2(-987, -356)
 to_area = "forest"
 destination_state = "transition_to_first_nexus"
 destination_position = Vector2(285, 128)
+
+[node name="Materials" type="Node" parent="."]
+
+[node name="concrete" type="Area2D" parent="Materials" groups=["MaterialAreas"]]
+collision_layer = 4
+priority = 1
+script = ExtResource("13_djs83")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Materials/concrete"]
+z_index = 6
+position = Vector2(186, 438.5)
+shape = SubResource("RectangleShape2D_3l1sb")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Materials/concrete"]
+z_index = 6
+position = Vector2(155, 905)
+shape = SubResource("RectangleShape2D_qj7vw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Materials/concrete"]
+z_index = 6
+position = Vector2(238.5, 241.5)
+shape = SubResource("RectangleShape2D_20ibp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Materials/concrete"]
+z_index = 6
+position = Vector2(115, 129.5)
+shape = SubResource("RectangleShape2D_fktod")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Materials/concrete"]
+z_index = 6
+position = Vector2(-141, 154.75)
+shape = SubResource("RectangleShape2D_ct2xn")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Materials/concrete"]
+z_index = 6
+position = Vector2(-35.5, 296.875)
+shape = SubResource("RectangleShape2D_htcmk")
+
+[node name="CollisionShape2D8" type="CollisionPolygon2D" parent="Materials/concrete"]
+z_index = 6
+position = Vector2(154, 1291)
+polygon = PackedVector2Array(-14, -6, 5, -10, 21, -2, 11, 14, 12, 26, 1, 31, -3, 40, -23, 46, -42, 56, -60, 54, -73, 47, -107, 36, -114, 20, -114, 6, -107, 6, -72, 24, -52, 33, -28, 15, -30, 3, -19, 2)

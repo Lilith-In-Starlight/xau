@@ -14,7 +14,7 @@ enum MODES {
 
 @export var node_arrangement: NodeArrangement = null
 
-
+@export var is_on_floor: bool = true
 
 
 func _init():
@@ -25,9 +25,19 @@ func _ready():
 	update_children_positions()
 	super._ready()
 	display_connections()
+	
+	if not Engine.is_editor_hint():
+		if is_on_floor:
+			var new_shape = RectangleShape2D.new()
+			var rectt := get_rect()
+			new_shape.size = rectt.grow(8).size
+			$NoNode/metal/CollisionShape2D.shape = new_shape
+			$NoNode/metal/CollisionShape2D.position = rectt.get_center()
+		else:
+			$NoNode/metal.queue_free()
 
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		update_children_positions()
 	else:
@@ -64,10 +74,7 @@ func _draw():
 
 
 ## Updates the node's children positions to match the row size
-func update_children_positions(exclusions: Array[Node] = []):
-	var x := 0
-	var y := 0
-	
+func update_children_positions(exclusions: Array[Node] = []):	
 	if Engine.is_editor_hint():
 		queue_redraw()
 		
