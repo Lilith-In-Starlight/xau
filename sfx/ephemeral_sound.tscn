@@ -6,4 +6,5 @@
 [node name="EphemeralSound" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_2joxq")
 autoplay = true
+bus = &"WorldSounds"
 script = ExtResource("1")
