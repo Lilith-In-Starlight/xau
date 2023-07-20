@@ -387,5 +387,7 @@ shape = SubResource("1")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("42")
-animation = &"walking_down_left"
+animation = &"walking_down_right"
 offset = Vector2(0, -9)
+
+[connection signal="frame_changed" from="Animations" to="." method="_on_frame_changed"]
