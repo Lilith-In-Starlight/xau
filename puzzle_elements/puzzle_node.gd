@@ -127,10 +127,6 @@ func connect_puzzle(target, disconnect := false):
 			raycast.target_position = Vector2.ZERO
 			return
 		
-		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
-		solved_sound.stream = preload("res://sfx/node_connect.wav")
-		solved_sound.pitch_scale = 0.5 + randf() * 1.5
-		add_child(solved_sound)
 		raycast.target_position = to_local(raycast_collider.global_position)
 		raycast.force_raycast_update()
 		
@@ -142,7 +138,11 @@ func connect_puzzle(target, disconnect := false):
 		if not raycast_verification_collider == raycast_collider:
 			raycast.target_position = Vector2.ZERO
 			return
-			
+		
+		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
+		solved_sound.stream = preload("res://sfx/node_connect.wav")
+		solved_sound.pitch_scale = 0.5 + randf() * 1.5
+		add_child(solved_sound)
 			
 		if not raycast_collider in connections and not disconnect:
 			connections.append(raycast_collider)
