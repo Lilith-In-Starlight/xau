@@ -97,11 +97,9 @@ func direction_from_velocity() -> String:
 
 func _on_material_entered(_body: Node2D, n := "void"):
 	stepping_on.append(n)
-	print("enter ", n)
 	
 func _on_material_exited(_body: Node2D, n := "void"):
 	stepping_on.erase(n)
-	print("exit ", n, " now in ", stepping_on.back())
 
 
 func _on_frame_changed():

@@ -28,8 +28,6 @@ func _process(delta):
 		y_limit = (player_node.global_position.x - min_x) * slope + points[index].y
 		break
 	
-#	print(player_node.global_position.y)
-	print(y_limit)
 	if player_node.global_position.y < y_limit and z_index != 1:
 		z_index = 1
 	elif player_node.global_position.y > y_limit and z_index != 0:
