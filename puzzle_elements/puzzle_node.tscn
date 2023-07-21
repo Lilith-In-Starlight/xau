@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkmy6maifarrx"]
+[gd_scene load_steps=14 format=3 uid="uid://bkmy6maifarrx"]
 
 [ext_resource type="Texture2D" uid="uid://4u80jrvtvorq" path="res://sprites/puzzles/node.png" id="1"]
 [ext_resource type="Script" path="res://puzzle_elements/puzzle_node.gd" id="2"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dbrl6bobqn0yr" path="res://sprites/puzzles/path_node_bg.png" id="6"]
 [ext_resource type="BitMap" uid="uid://gfrb2crjwkjb" path="res://sprites/puzzles/node_click.png" id="7"]
 [ext_resource type="Shader" path="res://puzzle_elements/puzzle_node.gdshader" id="7_1qd2i"]
+[ext_resource type="Texture2D" uid="uid://e3vghcbe7t2f" path="res://sprites/puzzles/cycle_node.png" id="7_fjblm"]
 [ext_resource type="Texture2D" uid="uid://nvby6li1wlfx" path="res://sprites/puzzles/fix_node.png" id="7_kds1c"]
+[ext_resource type="Texture2D" uid="uid://cqpaxkbw2p80m" path="res://sprites/puzzles/cycle_node_bg.png" id="8_hibby"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceykn"]
 shader = ExtResource("7_1qd2i")
@@ -42,6 +44,16 @@ texture = ExtResource("4")
 visible = false
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("5")
+
+[node name="IsoMark2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("7_fjblm")
+
+[node name="IsoMark2" type="Sprite2D" parent="IsoMark2"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("8_hibby")
 
 [node name="FixMark" type="Sprite2D" parent="."]
 visible = false

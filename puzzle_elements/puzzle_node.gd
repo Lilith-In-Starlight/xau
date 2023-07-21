@@ -249,6 +249,7 @@ func set_node_visuals() -> void:
 	$PathMark.visible = node_rule is PathNodeRule
 	$PathMark.modulate = get_color()
 	$IsoMark.visible = node_rule is IsoNodeRule
+	$IsoMark2.visible =  node_rule is CycleNodeRule
 	$IsoMark.modulate = get_color()
 	$FixMark.visible = node_rule is FixNodeRule
 	if node_rule != null:
@@ -261,3 +262,39 @@ func _draw():
 		for i in forced_connections:
 			var ch = get_node_or_null(i)
 			draw_line(Vector2(0, 0), to_local(ch.global_position), Color.AQUAMARINE, 2.0)
+
+
+func get_closest_loop() -> Array:
+	if Engine.is_editor_hint():
+		print("a")
+		return []
+	var dogs :Array[Array] = [[self]]
+	
+	var latest_nodes := []
+	var loop_found :bool = false
+	var loop :Array
+	
+	while not dogs.is_empty():
+		var dog = dogs.pop_back()
+		var latest_node :PuzzleNode = dog.back()
+		
+		for neighbor in latest_node.connections:
+			if dog.size() >= 2:
+				var before_latest_node = dog[dog.size() - 2]
+				if neighbor == before_latest_node:
+					continue
+			
+			if neighbor == self:
+				if dog.size() < loop.size() or loop.is_empty():
+					loop = dog
+				break
+			
+			elif neighbor in dog:
+				continue
+			
+			var new_dog: Array = dog.duplicate()
+			new_dog.append(neighbor)
+			dogs.append(new_dog)
+	
+	
+	return loop
