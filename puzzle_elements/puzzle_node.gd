@@ -25,7 +25,7 @@ var forced_edges: int
 @onready var circle: Sprite2D = $Sprite2d
 
 ## The [PuzzleNode]s that this node is connected
-var connections: Array = []
+var connections: Array[PuzzleNode] = []
 
 @onready var parent :Puzzle = get_parent()
 
@@ -298,3 +298,25 @@ func get_closest_loop() -> Array:
 	
 	
 	return loop
+
+
+func get_branch_length() -> int:
+	var already_checked :Array[PuzzleNode] = []
+	var to_check :Array[PuzzleNode]= [self]
+	var nodes_in_branch := 1
+	
+	for checking_node in to_check:
+		already_checked.append(checking_node)
+		if checking_node.connections.size() > 2:
+			continue
+		
+		for neighbor in checking_node.connections:
+			if neighbor in already_checked:
+				continue
+				already_checked.append(neighbor)
+			nodes_in_branch += 1
+			
+	
+	return nodes_in_branch
+	
+	
