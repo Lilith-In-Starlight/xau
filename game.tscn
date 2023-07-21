@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://0f78ohbpovfd" path="res://sprites/puzzles/iso_node_bg.png" id="16_p3dfc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk8x4"]
-bg_color = Color(0, 0, 0, 0.776471)
+bg_color = Color(0, 0, 0, 0.6)
 
 [node name="Game" type="Node2D" groups=["GameNode"]]
 script = ExtResource("1")
@@ -115,10 +115,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -98.0
-offset_right = 193.0
-offset_bottom = 264.0
+offset_left = -65.0
+offset_top = -106.0
+offset_right = 185.0
+offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.8)

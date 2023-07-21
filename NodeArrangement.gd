@@ -3,6 +3,7 @@ extends Resource
 
 class_name NodeArrangement
 
+@export var thing := Rect2()
 
 func _init():
 	resource_local_to_scene = true
@@ -31,4 +32,5 @@ func get_used_area(puzzle: Puzzle) -> Rect2:
 		if child is Node2D and not child.name == "NoNode":
 			area = area.expand(child.position)
 	
+	thing = area
 	return area

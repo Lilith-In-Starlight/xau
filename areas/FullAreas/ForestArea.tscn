@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://b5fd7btpj7xwl"]
+[gd_scene load_steps=98 format=3 uid="uid://b5fd7btpj7xwl"]
 
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
@@ -100,7 +100,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_f4shx"]
 script = ExtResource("10_eu1vb")
@@ -120,7 +120,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_hj021"]
 script = ExtResource("10_eu1vb")
@@ -148,7 +148,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_n2egy"]
 script = ExtResource("13_hm00l")
@@ -164,7 +164,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_hpwnu"]
 script = ExtResource("10_eu1vb")
@@ -188,7 +188,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(2, 2)
 spacing = Vector2(16, 32)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_65j5s"]
 script = ExtResource("13_hm00l")
@@ -200,7 +200,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(1, 0), Vector2i(1, 1), Vector2i(3, 0), Vector2i(3, 1)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_3ssj4"]
 script = ExtResource("13_hm00l")
@@ -216,7 +216,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(1, 0), Vector2i(1, 1), Vector2i(2, 1), Vector2i(2, 2)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_kvhl1"]
 script = ExtResource("13_hm00l")
@@ -228,7 +228,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(2, 2), Vector2i(3, 2), Vector2i(1, 0), Vector2i(1, 1)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_pbvqf"]
 script = ExtResource("13_hm00l")
@@ -243,7 +243,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_buaje"]
 script = ExtResource("13_hm00l")
@@ -255,7 +255,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_pm2h1"]
 resource_local_to_scene = true
@@ -263,7 +263,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(0, 2), Vector2i(1, 2), Vector2i(3, 0)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_fq15y"]
 resource_local_to_scene = true
@@ -271,7 +271,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(0, 2), Vector2i(1, 2), Vector2i(3, 0)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_u2sj3"]
 resource_local_to_scene = true
@@ -279,7 +279,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(0, 2), Vector2i(1, 2), Vector2i(3, 0), Vector2i(3, 1)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(366, 9.5)
@@ -290,7 +290,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_dusfm"]
 script = ExtResource("13_hm00l")
@@ -314,7 +314,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 2)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(1, 1)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_t7gtb"]
 resource_local_to_scene = true
@@ -322,7 +322,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_mm08v"]
 script = ExtResource("13_hm00l")
@@ -346,7 +346,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 2)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_ru2re"]
 script = ExtResource("13_hm00l")
@@ -366,7 +366,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 2)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(1, 1)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_gqh2o"]
 script = ExtResource("13_hm00l")
@@ -386,7 +386,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(5, 2)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_u47s4"]
 script = ExtResource("13_hm00l")
@@ -398,7 +398,7 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(3, 3)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([Vector2i(0, 2), Vector2i(1, 2)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="Resource" id="Resource_7filt"]
 script = ExtResource("13_hm00l")
@@ -414,10 +414,13 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(4, 2)
 spacing = Vector2(16, 32)
 holes = Array[Vector2i]([Vector2i(2, 0)])
-thing = Rect2(0, 0, 0, 0)
+thing = null
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beg8f"]
 size = Vector2(88, 204)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uefw8"]
+size = Vector2(8, 6)
 
 [node name="Forest" type="Node2D" groups=["World"]]
 script = ExtResource("9")
@@ -444,23 +447,23 @@ position = Vector2(411, 164)
 position = Vector2(157, 165)
 
 [node name="AreaTransition8" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(1375, 33.5)
+position = Vector2(1088, 764)
 rotation = -0.335142
 
 [node name="AreaTransition9" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(1715, 110.5)
+position = Vector2(1428, 841)
 rotation = 0.331613
 
 [node name="in_house_1" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition7" parent="StatesDefiner/in_house_1" instance=ExtResource("2")]
-position = Vector2(1363, 5.5)
+position = Vector2(1076, 736)
 rotation = -0.341515
 
 [node name="in_house_2" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition8" parent="StatesDefiner/in_house_2" instance=ExtResource("2")]
-position = Vector2(1726, 80.5)
+position = Vector2(1439, 811)
 rotation = 0.331613
 
 [node name="Outside" type="Node2D" parent="."]
@@ -564,27 +567,6 @@ position = Vector2(1202, 521)
 
 [node name="Tree12" parent="Outside/Decoration" instance=ExtResource("1")]
 position = Vector2(1180, 122)
-
-[node name="Tree17" parent="Outside/Decoration" instance=ExtResource("1")]
-position = Vector2(982, 594)
-
-[node name="Tree18" parent="Outside/Decoration" instance=ExtResource("1")]
-position = Vector2(774, 556)
-
-[node name="Tree19" parent="Outside/Decoration" instance=ExtResource("1")]
-position = Vector2(1281, 114)
-
-[node name="Tree20" parent="Outside/Decoration" instance=ExtResource("1")]
-position = Vector2(1761, 269)
-
-[node name="Tree21" parent="Outside/Decoration" instance=ExtResource("1")]
-position = Vector2(1631, 536)
-
-[node name="Tree22" parent="Outside/Decoration" instance=ExtResource("1")]
-position = Vector2(1566, -59)
-
-[node name="Tree23" parent="Outside/Decoration" instance=ExtResource("1")]
-position = Vector2(1888, 413)
 
 [node name="Tree13" parent="Outside/Decoration" instance=ExtResource("1")]
 position = Vector2(548, 539)
@@ -1283,7 +1265,7 @@ points = PackedVector2Array(-2, 166, 5, 166)
 width = 1.2
 
 [node name="Table" type="Sprite2D" parent="Outside"]
-position = Vector2(1539, 158.5)
+position = Vector2(1252, 889)
 texture = ExtResource("17_6n0jl")
 script = ExtResource("4")
 
@@ -1413,7 +1395,7 @@ position = Vector2(32, 32)
 position = Vector2(48, 32)
 
 [node name="PuzzleSequence" type="Node2D" parent="Outside"]
-position = Vector2(1435, 310.5)
+position = Vector2(1148, 1041)
 script = ExtResource("11")
 
 [node name="PuzzleGrid" parent="Outside/PuzzleSequence" instance=ExtResource("5")]
@@ -1542,11 +1524,11 @@ position = Vector2(64, 16)
 [node name="HouseVillageInside" type="Node2D" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="HouseVillageInside"]
-position = Vector2(1348, -49.5)
+position = Vector2(1061, 681)
 texture = ExtResource("19")
 
 [node name="Back" type="Sprite2D" parent="HouseVillageInside"]
-position = Vector2(1348, -49.5)
+position = Vector2(1061, 681)
 texture = ExtResource("16")
 script = ExtResource("4")
 
@@ -1596,7 +1578,7 @@ scale = Vector2(1, 9)
 [node name="HouseVillageOutside" type="Node2D" parent="."]
 
 [node name="Front" type="Sprite2D" parent="HouseVillageOutside"]
-position = Vector2(1348, -49.5)
+position = Vector2(1061, 681)
 texture = ExtResource("17")
 script = ExtResource("4")
 
@@ -1605,7 +1587,7 @@ points = PackedVector2Array(-25, 88, -21, 89, 66, 59)
 width = 1.2
 
 [node name="Side" type="Sprite2D" parent="HouseVillageOutside"]
-position = Vector2(1348, -49.5)
+position = Vector2(1061, 681)
 texture = ExtResource("18")
 script = ExtResource("4")
 
@@ -1617,12 +1599,12 @@ width = 1.2
 position = Vector2(395, 71)
 
 [node name="Floor" type="Sprite2D" parent="HouseVillageInside2"]
-position = Vector2(1348, -49.5)
+position = Vector2(1061, 681)
 texture = ExtResource("19")
 flip_h = true
 
 [node name="Back" type="Sprite2D" parent="HouseVillageInside2"]
-position = Vector2(1348, -49.5)
+position = Vector2(1061, 681)
 texture = ExtResource("16")
 flip_h = true
 script = ExtResource("4")
@@ -1668,7 +1650,7 @@ position = Vector2(48, 32)
 position = Vector2(395, 71)
 
 [node name="Front" type="Sprite2D" parent="HouseVillageOutside2"]
-position = Vector2(1348, -49.5)
+position = Vector2(1061, 681)
 texture = ExtResource("17")
 flip_h = true
 script = ExtResource("4")
@@ -1678,7 +1660,7 @@ points = PackedVector2Array(-66, 59, 25, 88)
 width = 1.2
 
 [node name="Side" type="Sprite2D" parent="HouseVillageOutside2"]
-position = Vector2(1348, -49.5)
+position = Vector2(1061, 681)
 texture = ExtResource("18")
 flip_h = true
 script = ExtResource("4")
@@ -1712,16 +1694,20 @@ color = Color(0.870588, 0.321569, 0.152941, 1)
 metadata/_edit_lock_ = true
 
 [node name="Collissions" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collissions"]
-position = Vector2(287, -729.9)
 polygon = PackedVector2Array(1036, 769, 997, 712, 1088, 683, 1127, 738, 1127, 740, 1090, 753, 1090, 748, 1122, 737, 1087, 687, 1003, 713, 1037, 763, 1040, 765, 1076, 752, 1076, 757, 1040, 770)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collissions"]
-position = Vector2(669, -681.9)
+position = Vector2(382, 48)
 polygon = PackedVector2Array(1008, 763, 1047, 707, 1138, 735, 1099, 792, 1060, 779, 1062, 775, 1098, 786, 1131, 737, 1048, 711, 1015, 761, 1047, 771, 1045, 775)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collissions"]
-position = Vector2(1539, 166.1)
+position = Vector2(1252, 896)
 shape = SubResource("RectangleShape2D_beg8f")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collissions"]
+position = Vector2(1297, 802)
+shape = SubResource("RectangleShape2D_uefw8")
