@@ -328,14 +328,20 @@ func get_branch() -> Array[PuzzleNode]:
 	for checking_node in to_check:
 		already_checked.append(checking_node)
 		nodes_in_branch.append(checking_node)
+		
 		if checking_node.connections.size() > 2:
 			continue
 		
 		for neighbor in checking_node.connections:
 			if neighbor in already_checked:
 				continue
-			to_check.append(neighbor)
+			if not neighbor in to_check:
+				to_check.append(neighbor)
 			
+	if nodes_in_branch.size() > 2:
+		if self in nodes_in_branch.back().connections:
+			nodes_in_branch.append(self)
+	
 	
 	return nodes_in_branch
 	

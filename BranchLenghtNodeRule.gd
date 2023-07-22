@@ -11,11 +11,19 @@ func _init():
 func check_correctness(local_node: PuzzleNode) -> bool:
 	var branch :Array[PuzzleNode] = local_node.get_branch()
 	var collective_required_length := required_length
+	var endpoints : Array[PuzzleNode] = []
+	
 	for node in branch:
+		if node.connections.size() != 2:
+			endpoints.append(node)
+		
 		if node == local_node:
 			continue
+		
 		if node.node_rule is BranchLengthNodeRule and node.node_rule.color == color:
 			collective_required_length += node.node_rule.required_length
 	
-		
-	return branch.size() == collective_required_length
+	if endpoints.is_empty():
+		return branch.size() == collective_required_length
+	
+	return branch.size() - 1 == collective_required_length
