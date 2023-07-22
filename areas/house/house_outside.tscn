@@ -1,4 +1,4 @@
-[gd_scene load_steps=181 format=3 uid="uid://bdchwcglbn74g"]
+[gd_scene load_steps=182 format=3 uid="uid://bdchwcglbn74g"]
 
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://sfdum3mqeju8" path="res://sprites/misc/trees/orange/puzzle_1.png" id="2"]
@@ -914,9 +914,9 @@ script = ExtResource("35_fdoj3")
 required_length = 3
 color = 0
 
-[sub_resource type="Resource" id="Resource_yx2q2"]
+[sub_resource type="Resource" id="Resource_xhwsn"]
 script = ExtResource("35_fdoj3")
-required_length = 6
+required_length = 2
 color = 0
 
 [sub_resource type="Resource" id="Resource_h6lel"]
@@ -926,6 +926,11 @@ size = Vector2i(3, 2)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
 thing = Rect2(0, 0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_yx2q2"]
+script = ExtResource("35_fdoj3")
+required_length = 6
+color = 0
 
 [node name="HouseOutside" type="Node2D"]
 
@@ -2210,7 +2215,7 @@ position = Vector2(597, 1120)
 node_arrangement = SubResource("Resource_ryoyi")
 
 [node name="PuzzleNode" parent="PuzzleGrid24" instance=ExtResource("5")]
-node_rule = SubResource("Resource_yx2q2")
+node_rule = SubResource("Resource_xhwsn")
 
 [node name="PuzzleNode2" parent="PuzzleGrid24" instance=ExtResource("5")]
 position = Vector2(16, 0)
