@@ -415,7 +415,7 @@ func _on_delete_node_connections_requested(requester, full_reset):
 		for i in requester.connections:
 			i.connections.erase(requester)
 			group_undoes.append(["disconnect", requester, i, self])
-		requester.connections = []
+		requester.connections.clear()
 	else:
 		for i in get_children():
 			if i.is_in_group("PuzzleNode"):
@@ -424,7 +424,7 @@ func _on_delete_node_connections_requested(requester, full_reset):
 					var invert_connection := ["disconnect", j, i, self]
 					if !group_undoes.has(invert_connection):
 						group_undoes.append(connection)
-				i.connections = []
+				i.connections.clear()
 	player.undo_history.append(group_undoes)
 	display_connections()
 

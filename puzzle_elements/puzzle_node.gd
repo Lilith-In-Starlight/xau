@@ -320,21 +320,21 @@ func get_closest_loop() -> Array:
 	return loop
 
 
-func get_branch_length() -> int:
+func get_branch() -> Array[PuzzleNode]:
 	var already_checked :Array[PuzzleNode] = []
-	var to_check :Array[PuzzleNode]= [self]
-	var nodes_in_branch := 1
+	var to_check :Array[PuzzleNode] = [self]
+	var nodes_in_branch :Array[PuzzleNode] = []
 	
 	for checking_node in to_check:
 		already_checked.append(checking_node)
+		nodes_in_branch.append(checking_node)
 		if checking_node.connections.size() > 2:
 			continue
 		
 		for neighbor in checking_node.connections:
 			if neighbor in already_checked:
 				continue
-				already_checked.append(neighbor)
-			nodes_in_branch += 1
+			to_check.append(neighbor)
 			
 	
 	return nodes_in_branch
