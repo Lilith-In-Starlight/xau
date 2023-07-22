@@ -9,6 +9,16 @@ signal connection_changed(from, to, type)
 signal correctness_unverified
 signal delete_node_connections_request(node, full)
 
+const branch_symbols := [
+		null,
+		preload("res://sprites/puzzles/branch_node_1.png"),
+		preload("res://sprites/puzzles/branch_node_2.png"),
+		preload("res://sprites/puzzles/branch_node_3.png"),
+		preload("res://sprites/puzzles/branch_node_4.png"),
+		preload("res://sprites/puzzles/branch_node_5.png"),
+		preload("res://sprites/puzzles/branch_node_6.png"),
+	]
+
 
 @export var node_rule :NodeRule = null
 
@@ -258,6 +268,9 @@ func set_node_visuals() -> void:
 		$Symbol.texture = preload("res://sprites/puzzles/fix_node.png")
 	elif node_rule is CycleNodeRule:
 		$Symbol.texture = preload("res://sprites/puzzles/cycle_node.png")
+		$Symbol/Frame.texture = preload("res://sprites/puzzles/cycle_node_bg.png")
+	elif node_rule is BranchLengthNodeRule:
+		$Symbol.texture = branch_symbols[node_rule.required_length]
 		$Symbol/Frame.texture = preload("res://sprites/puzzles/cycle_node_bg.png")
 	
 	if node_rule != null:

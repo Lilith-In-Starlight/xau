@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=3 uid="uid://bdchwcglbn74g"]
+[gd_scene load_steps=179 format=3 uid="uid://bdchwcglbn74g"]
 
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://sfdum3mqeju8" path="res://sprites/misc/trees/orange/puzzle_1.png" id="2"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://c2qv5p6thqs4h" path="res://sprites/misc/trees/orange/tree_19.png" id="27"]
 [ext_resource type="Texture2D" uid="uid://dgyqfqx3o0ch0" path="res://sprites/misc/trees/orange/tree_20.png" id="28"]
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="29"]
+[ext_resource type="Script" path="res://NodeArrangementGrid.gd" id="34_1boqa"]
+[ext_resource type="Script" path="res://BranchLenghtNodeRule.gd" id="35_fdoj3"]
 
 [sub_resource type="Resource" id="Resource_yinvs"]
 resource_local_to_scene = true
@@ -44,16 +46,19 @@ thing = Rect2(0, -16, 16, 16)
 [sub_resource type="Resource" id="Resource_d8dpt"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_yw2cg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_row8u"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_8ytsn"]
@@ -66,16 +71,19 @@ thing = Rect2(0, -16, 16, 16)
 [sub_resource type="Resource" id="Resource_d7dj6"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_tm7gf"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_r1fvl"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_lq8c0"]
@@ -88,16 +96,19 @@ thing = Rect2(0, -16, 16, 16)
 [sub_resource type="Resource" id="Resource_pncb3"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_uw7ti"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_nj6l8"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_0okt7"]
@@ -110,36 +121,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_ta4xx"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_2u2nr"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_en1gi"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_tly1v"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_jcqeq"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_yljn5"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_fkgf1"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_1ohe2"]
@@ -152,36 +170,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_psce7"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_3eyk1"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_mvk7o"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_ueyov"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_fiby5"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_dvuqc"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_dsaln"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_15e4b"]
@@ -194,16 +219,19 @@ thing = Rect2(0, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_48cy5"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_p2emi"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_6ukrh"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_a2cvv"]
@@ -216,36 +244,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_e2t0i"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_trgvg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_4dw4d"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_vqvpc"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_2n0go"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_s47v0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_scj7o"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_m4aet"]
@@ -258,36 +293,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_kvupq"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_uy40g"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_7t6j8"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_evkag"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_1nia0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_vu7wf"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_36w5f"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_enyu7"]
@@ -300,16 +342,19 @@ thing = Rect2(0, -16, 16, 16)
 [sub_resource type="Resource" id="Resource_vgbpf"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_yj51q"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_pqqkt"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_c2m15"]
@@ -322,36 +367,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_76mrt"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_wgfq6"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_5abr2"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_wnlmb"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_3k47l"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_kewyp"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_emgui"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_t6rx1"]
@@ -364,36 +416,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_3yyxx"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_1pfja"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_qv5k3"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_koor2"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_r8wl0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_0lqdq"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_tdl0a"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_auni0"]
@@ -406,36 +465,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_4uxrk"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_f7k10"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_qbt5d"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_q181h"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_dvjmh"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_xtsvd"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_3oop1"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_vsf4v"]
@@ -448,16 +514,19 @@ thing = Rect2(0, -16, 16, 16)
 [sub_resource type="Resource" id="Resource_wnrxs"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_x6o7a"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_uoxl3"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_h1l04"]
@@ -470,16 +539,19 @@ thing = Rect2(0, -16, 16, 16)
 [sub_resource type="Resource" id="Resource_qrug5"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_cb7n0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_h3fi6"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_e1kvc"]
@@ -492,16 +564,19 @@ thing = Rect2(0, -16, 16, 16)
 [sub_resource type="Resource" id="Resource_n1wia"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_asbue"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_u55ur"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_ruw7r"]
@@ -514,16 +589,19 @@ thing = Rect2(0, -16, 16, 16)
 [sub_resource type="Resource" id="Resource_jha73"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_hlqog"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_r1e23"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_wr8ra"]
@@ -536,16 +614,19 @@ thing = Rect2(0, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_rn3mq"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_k8wxt"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_so2y2"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_fat52"]
@@ -558,36 +639,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_k53jl"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_a1hda"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_ifslj"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_mvh37"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_rlska"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_3lnkn"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_opibg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_s6ayr"]
@@ -600,36 +688,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_umewf"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_o56yo"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_a0i4s"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_0xoo7"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_qeqwn"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_ebqxa"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_uldxc"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_hwinh"]
@@ -642,16 +737,19 @@ thing = Rect2(0, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_lkgfn"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_77klg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_56p8v"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_s0ei1"]
@@ -664,36 +762,43 @@ thing = Rect2(-8, -32, 48, 32)
 [sub_resource type="Resource" id="Resource_ytaut"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_dsdby"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_gro8f"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_vx4en"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_gtpp3"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_wxush"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_cxr67"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_i0t7c"]
@@ -706,80 +811,108 @@ thing = Rect2(-32, -48, 112, 48)
 [sub_resource type="Resource" id="Resource_oo84a"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_ejale"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_ju72h"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_simfy"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_fgbmh"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_30tam"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_4kqlr"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_3t7xg"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_4vivb"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_tajyk"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_c6s4x"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_sh8n0"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_t4q1f"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_51ut6"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_pbbjy"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 7.07107
+
+[sub_resource type="Resource" id="Resource_ryoyi"]
+resource_local_to_scene = true
+script = ExtResource("34_1boqa")
+size = Vector2i(3, 1)
+spacing = Vector2(16, 16)
+holes = Array[Vector2i]([])
+thing = Rect2(0, 0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_uaqex"]
+script = ExtResource("35_fdoj3")
+required_length = 3
+color = 0
 
 [node name="HouseOutside" type="Node2D"]
 
@@ -2045,3 +2178,16 @@ position = Vector2(-1236, -322)
 
 [node name="Tree15" parent="." instance=ExtResource("29")]
 position = Vector2(-770, -381)
+
+[node name="PuzzleGrid23" parent="." instance=ExtResource("4")]
+position = Vector2(470, 1014)
+node_arrangement = SubResource("Resource_ryoyi")
+
+[node name="PuzzleNode" parent="PuzzleGrid23" instance=ExtResource("5")]
+node_rule = SubResource("Resource_uaqex")
+
+[node name="PuzzleNode2" parent="PuzzleGrid23" instance=ExtResource("5")]
+position = Vector2(16, 0)
+
+[node name="PuzzleNode3" parent="PuzzleGrid23" instance=ExtResource("5")]
+position = Vector2(32, 0)
