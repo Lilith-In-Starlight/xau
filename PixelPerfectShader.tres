@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bfmy1jvpespa6"]
+
+[ext_resource type="Shader" path="res://puzzle_elements/puzzle_node.gdshader" id="1_1k8pg"]
+
+[resource]
+shader = ExtResource("1_1k8pg")

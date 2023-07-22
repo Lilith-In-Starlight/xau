@@ -25,6 +25,7 @@ config/windows_native_icon="res://sprites/icon.ico"
 
 SaveData="*res://save_data.gd"
 SectionLoading="*res://SectionLoading.gd"
+ResolutionHandler="*res://resolution_handler.gd"
 
 [display]
 
@@ -185,6 +186,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3
+textures/default_filters/anisotropic_filtering_level=0
 environment/defaults/default_clear_color=Color(0.0235294, 0, 0, 1)
 anti_aliasing/quality/msaa_2d=1
 anti_aliasing/quality/screen_space_aa=1
