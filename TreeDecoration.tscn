@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmkfuyye8dqrq"]
 
 [ext_resource type="Script" path="res://TreeDecoration.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://brhlhfpkll7gd" path="res://sprites/misc/trees/orange/puzzle_4.png" id="2_ithcv"]
+[ext_resource type="Texture2D" uid="uid://sfdum3mqeju8" path="res://sprites/misc/trees/orange/puzzle_1.png" id="2_plbqk"]
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="3"]
 
 [sub_resource type="CircleShape2D" id="1"]
@@ -9,14 +9,15 @@
 [node name="Tree" type="StaticBody2D"]
 collision_layer = 4
 script = ExtResource("1")
+species = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ithcv")
-offset = Vector2(0, -56)
+texture = ExtResource("2_plbqk")
+offset = Vector2(0, -44)
 script = ExtResource("3")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Sprite2D"]
-rect = Rect2(-10, -122, 20, 20)
+rect = Rect2(-10, -98, 20, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")

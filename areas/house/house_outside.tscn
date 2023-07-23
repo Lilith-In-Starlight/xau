@@ -1,4 +1,4 @@
-[gd_scene load_steps=193 format=3 uid="uid://bdchwcglbn74g"]
+[gd_scene load_steps=198 format=3 uid="uid://bdchwcglbn74g"]
 
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://sfdum3mqeju8" path="res://sprites/misc/trees/orange/puzzle_1.png" id="2"]
@@ -36,6 +36,7 @@
 [ext_resource type="Script" path="res://NodeArrangementGrid.gd" id="34_1boqa"]
 [ext_resource type="Script" path="res://BranchLenghtNodeRule.gd" id="35_fdoj3"]
 [ext_resource type="Resource" uid="uid://b13id3qbexjr2" path="res://puzzle_elements/puzzle_style/PuzzleThemeBranchPuzzles.tres" id="35_jkwqk"]
+[ext_resource type="Script" path="res://PathNodeRule.gd" id="37_f7g7c"]
 
 [sub_resource type="Resource" id="Resource_yinvs"]
 resource_local_to_scene = true
@@ -990,6 +991,27 @@ color = 0
 [sub_resource type="Resource" id="Resource_bucgq"]
 script = ExtResource("35_fdoj3")
 required_length = 3
+color = 0
+
+[sub_resource type="Resource" id="Resource_2k3te"]
+resource_local_to_scene = true
+script = ExtResource("34_1boqa")
+size = Vector2i(4, 3)
+spacing = Vector2(16, 12)
+holes = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 1)])
+thing = Rect2(0, 0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_i21mu"]
+script = ExtResource("37_f7g7c")
+color = 0
+
+[sub_resource type="Resource" id="Resource_48ljr"]
+script = ExtResource("35_fdoj3")
+required_length = 2
+color = 0
+
+[sub_resource type="Resource" id="Resource_68x5n"]
+script = ExtResource("37_f7g7c")
 color = 0
 
 [node name="HouseOutside" type="Node2D"]
@@ -2449,3 +2471,101 @@ position = Vector2(16, 16)
 [node name="PuzzleNode6" parent="PuzzleGrid31" instance=ExtResource("5")]
 position = Vector2(32, 16)
 node_rule = SubResource("Resource_bucgq")
+
+[node name="PuzzleGrid32" parent="." instance=ExtResource("4")]
+position = Vector2(1179, 1171)
+node_arrangement = SubResource("Resource_2k3te")
+required_puzzle = NodePath("../PuzzleGrid26")
+puzzle_theme = ExtResource("35_jkwqk")
+
+[node name="PuzzleNode" parent="PuzzleGrid32" instance=ExtResource("5")]
+position = Vector2(48, 0)
+node_rule = SubResource("Resource_i21mu")
+
+[node name="PuzzleNode2" parent="PuzzleGrid32" instance=ExtResource("5")]
+position = Vector2(0, 12)
+node_rule = SubResource("Resource_48ljr")
+
+[node name="PuzzleNode3" parent="PuzzleGrid32" instance=ExtResource("5")]
+position = Vector2(16, 12)
+
+[node name="PuzzleNode4" parent="PuzzleGrid32" instance=ExtResource("5")]
+position = Vector2(32, 12)
+
+[node name="PuzzleNode5" parent="PuzzleGrid32" instance=ExtResource("5")]
+position = Vector2(48, 24)
+node_rule = SubResource("Resource_68x5n")
+
+[node name="Blockade" parent="PuzzleGrid32" instance=ExtResource("14_nupm0")]
+position = Vector2(48, 12)
+
+[node name="Tree16" parent="." instance=ExtResource("29")]
+position = Vector2(435, 1125)
+species = 1
+
+[node name="Tree17" parent="." instance=ExtResource("29")]
+position = Vector2(712, 1220)
+species = 1
+
+[node name="Tree18" parent="." instance=ExtResource("29")]
+position = Vector2(648, 988)
+species = 1
+
+[node name="Tree19" parent="." instance=ExtResource("29")]
+position = Vector2(461, 896)
+species = 1
+
+[node name="Tree20" parent="." instance=ExtResource("29")]
+position = Vector2(995, 840)
+species = 1
+
+[node name="Tree21" parent="." instance=ExtResource("29")]
+position = Vector2(1128, 1092)
+species = 1
+
+[node name="Tree22" parent="." instance=ExtResource("29")]
+position = Vector2(1010, 1274)
+species = 1
+
+[node name="Tree23" parent="." instance=ExtResource("29")]
+position = Vector2(1243, 894)
+species = 1
+
+[node name="Tree24" parent="." instance=ExtResource("29")]
+position = Vector2(931, 996)
+species = 1
+
+[node name="Tree25" parent="." instance=ExtResource("29")]
+position = Vector2(163, 1016)
+species = 1
+
+[node name="Tree28" parent="." instance=ExtResource("29")]
+position = Vector2(-41, 1088)
+species = 1
+
+[node name="Tree29" parent="." instance=ExtResource("29")]
+position = Vector2(303, 1165)
+species = 1
+
+[node name="Tree30" parent="." instance=ExtResource("29")]
+position = Vector2(1334, 1006)
+species = 1
+
+[node name="Tree26" parent="." instance=ExtResource("29")]
+position = Vector2(-183, 972)
+species = 1
+
+[node name="Tree31" parent="." instance=ExtResource("29")]
+position = Vector2(1364, 1334)
+species = 1
+
+[node name="Tree32" parent="." instance=ExtResource("29")]
+position = Vector2(1508, 1133)
+species = 1
+
+[node name="Tree33" parent="." instance=ExtResource("29")]
+position = Vector2(785, 824)
+species = 1
+
+[node name="Tree27" parent="." instance=ExtResource("29")]
+position = Vector2(259, 878)
