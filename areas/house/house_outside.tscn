@@ -1,4 +1,4 @@
-[gd_scene load_steps=198 format=3 uid="uid://bdchwcglbn74g"]
+[gd_scene load_steps=195 format=3 uid="uid://bdchwcglbn74g"]
 
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://sfdum3mqeju8" path="res://sprites/misc/trees/orange/puzzle_1.png" id="2"]
@@ -36,7 +36,6 @@
 [ext_resource type="Script" path="res://NodeArrangementGrid.gd" id="34_1boqa"]
 [ext_resource type="Script" path="res://BranchLenghtNodeRule.gd" id="35_fdoj3"]
 [ext_resource type="Resource" uid="uid://b13id3qbexjr2" path="res://puzzle_elements/puzzle_style/PuzzleThemeBranchPuzzles.tres" id="35_jkwqk"]
-[ext_resource type="Script" path="res://PathNodeRule.gd" id="37_f7g7c"]
 
 [sub_resource type="Resource" id="Resource_yinvs"]
 resource_local_to_scene = true
@@ -1001,17 +1000,9 @@ spacing = Vector2(16, 12)
 holes = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 1)])
 thing = Rect2(0, 0, 0, 0)
 
-[sub_resource type="Resource" id="Resource_i21mu"]
-script = ExtResource("37_f7g7c")
-color = 0
-
 [sub_resource type="Resource" id="Resource_48ljr"]
 script = ExtResource("35_fdoj3")
 required_length = 2
-color = 0
-
-[sub_resource type="Resource" id="Resource_68x5n"]
-script = ExtResource("37_f7g7c")
 color = 0
 
 [node name="HouseOutside" type="Node2D"]
@@ -2257,35 +2248,27 @@ shape = SubResource("1")
 
 [node name="Tree8" parent="." instance=ExtResource("29")]
 position = Vector2(-610, -76)
-species = 0
 
 [node name="Tree9" parent="." instance=ExtResource("29")]
 position = Vector2(-584, 386)
-species = 0
 
 [node name="Tree10" parent="." instance=ExtResource("29")]
 position = Vector2(-1518, 482)
-species = 0
 
 [node name="Tree11" parent="." instance=ExtResource("29")]
 position = Vector2(-1562, -189)
-species = 0
 
 [node name="Tree12" parent="." instance=ExtResource("29")]
 position = Vector2(-1204, -132)
-species = 0
 
 [node name="Tree13" parent="." instance=ExtResource("29")]
 position = Vector2(-817, -151)
-species = 0
 
 [node name="Tree14" parent="." instance=ExtResource("29")]
 position = Vector2(-1236, -322)
-species = 0
 
 [node name="Tree15" parent="." instance=ExtResource("29")]
 position = Vector2(-770, -381)
-species = 0
 
 [node name="PuzzleGrid23" parent="." instance=ExtResource("4")]
 position = Vector2(470, 1014)
@@ -2488,7 +2471,6 @@ puzzle_theme = ExtResource("35_jkwqk")
 
 [node name="PuzzleNode" parent="PuzzleGrid32" instance=ExtResource("5")]
 position = Vector2(48, 0)
-node_rule = SubResource("Resource_i21mu")
 
 [node name="PuzzleNode2" parent="PuzzleGrid32" instance=ExtResource("5")]
 position = Vector2(0, 12)
@@ -2502,7 +2484,7 @@ position = Vector2(32, 12)
 
 [node name="PuzzleNode5" parent="PuzzleGrid32" instance=ExtResource("5")]
 position = Vector2(48, 24)
-node_rule = SubResource("Resource_68x5n")
+forced_connections = Array[NodePath]([NodePath("../PuzzleNode4")])
 
 [node name="Blockade" parent="PuzzleGrid32" instance=ExtResource("14_nupm0")]
 position = Vector2(48, 12)
@@ -2577,4 +2559,3 @@ species = 1
 
 [node name="Tree27" parent="." instance=ExtResource("29")]
 position = Vector2(259, 878)
-species = 0
