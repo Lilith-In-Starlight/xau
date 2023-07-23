@@ -61,8 +61,8 @@ offset_bottom = 4.0
 texture_click_mask = ExtResource("7")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(2.38419e-07, 2.38419e-07)
-scale = Vector2(0.4, 0.4)
+position = Vector2(4.17233e-07, 4.17233e-07)
+scale = Vector2(0.7, 0.7)
 
 [connection signal="gui_input" from="Button" to="." method="_on_node_button_gui_input"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_mouse_entered"]
