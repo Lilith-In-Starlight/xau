@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://b5fd7btpj7xwl"]
+[gd_scene load_steps=111 format=3 uid="uid://b5fd7btpj7xwl"]
 
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
@@ -41,7 +41,7 @@ color = 0
 script = ExtResource("10_1ufl3")
 hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([Object(StaticBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 16),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":64,"collision_mask":0,"collision_priority":1.0,"input_pickable":false,"physics_material_override":null,"constant_linear_velocity":Vector2(0, 0),"constant_angular_velocity":0.0,"script":Resource("res://puzzle_elements/puzzle_node.gd"),"node_rule":null,"forced_edges":0,"forced_connections":Array[NodePath]([]),"cursor_node":null,"raycast":Object(RayCast2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"enabled":true,"exclude_parent":true,"target_position":Vector2(0, 0),"collision_mask":192,"hit_from_inside":false,"collide_with_areas":false,"collide_with_bodies":true,"script":null)
 ,"circle":Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture":Resource("res://sprites/puzzles/node.png"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
-,"connections":[],"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
+,"connections":Array[Resource("res://puzzle_elements/puzzle_node.gd")]([]),"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
 ,"player":null)
 ])
 color = 0
@@ -55,15 +55,15 @@ color = 0
 script = ExtResource("10_1ufl3")
 hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([Object(StaticBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(16, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":64,"collision_mask":0,"collision_priority":1.0,"input_pickable":false,"physics_material_override":null,"constant_linear_velocity":Vector2(0, 0),"constant_angular_velocity":0.0,"script":Resource("res://puzzle_elements/puzzle_node.gd"),"node_rule":SubResource("Resource_5xe03"),"forced_edges":0,"forced_connections":Array[NodePath]([]),"cursor_node":null,"raycast":Object(RayCast2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"enabled":true,"exclude_parent":true,"target_position":Vector2(0, 0),"collision_mask":192,"hit_from_inside":false,"collide_with_areas":false,"collide_with_bodies":true,"script":null)
 ,"circle":Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture":Resource("res://sprites/puzzles/node.png"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
-,"connections":[],"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
+,"connections":Array[Resource("res://puzzle_elements/puzzle_node.gd")]([]),"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
 ,"player":null)
 , Object(StaticBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(16, 16),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":64,"collision_mask":0,"collision_priority":1.0,"input_pickable":false,"physics_material_override":null,"constant_linear_velocity":Vector2(0, 0),"constant_angular_velocity":0.0,"script":Resource("res://puzzle_elements/puzzle_node.gd"),"node_rule":null,"forced_edges":0,"forced_connections":Array[NodePath]([]),"cursor_node":null,"raycast":Object(RayCast2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"enabled":true,"exclude_parent":true,"target_position":Vector2(0, 0),"collision_mask":192,"hit_from_inside":false,"collide_with_areas":false,"collide_with_bodies":true,"script":null)
 ,"circle":Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture":Resource("res://sprites/puzzles/node.png"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
-,"connections":[],"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
+,"connections":Array[Resource("res://puzzle_elements/puzzle_node.gd")]([]),"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
 ,"player":null)
 , Object(StaticBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(16, 32),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":64,"collision_mask":0,"collision_priority":1.0,"input_pickable":false,"physics_material_override":null,"constant_linear_velocity":Vector2(0, 0),"constant_angular_velocity":0.0,"script":Resource("res://puzzle_elements/puzzle_node.gd"),"node_rule":null,"forced_edges":0,"forced_connections":Array[NodePath]([]),"cursor_node":null,"raycast":Object(RayCast2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"enabled":true,"exclude_parent":true,"target_position":Vector2(0, 0),"collision_mask":192,"hit_from_inside":false,"collide_with_areas":false,"collide_with_bodies":true,"script":null)
 ,"circle":Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture":Resource("res://sprites/puzzles/node.png"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
-,"connections":[],"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
+,"connections":Array[Resource("res://puzzle_elements/puzzle_node.gd")]([]),"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
 ,"player":null)
 ])
 color = 0
@@ -72,11 +72,11 @@ color = 0
 script = ExtResource("10_1ufl3")
 hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([Object(StaticBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 16),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":64,"collision_mask":0,"collision_priority":1.0,"input_pickable":false,"physics_material_override":null,"constant_linear_velocity":Vector2(0, 0),"constant_angular_velocity":0.0,"script":Resource("res://puzzle_elements/puzzle_node.gd"),"node_rule":SubResource("Resource_qg80b"),"forced_edges":0,"forced_connections":Array[NodePath]([]),"cursor_node":null,"raycast":Object(RayCast2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"enabled":true,"exclude_parent":true,"target_position":Vector2(0, 0),"collision_mask":192,"hit_from_inside":false,"collide_with_areas":false,"collide_with_bodies":true,"script":null)
 ,"circle":Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture":Resource("res://sprites/puzzles/node.png"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
-,"connections":[],"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
+,"connections":Array[Resource("res://puzzle_elements/puzzle_node.gd")]([]),"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
 ,"player":null)
 , Object(StaticBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(32, 16),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":64,"collision_mask":0,"collision_priority":1.0,"input_pickable":false,"physics_material_override":null,"constant_linear_velocity":Vector2(0, 0),"constant_angular_velocity":0.0,"script":Resource("res://puzzle_elements/puzzle_node.gd"),"node_rule":SubResource("Resource_27136"),"forced_edges":0,"forced_connections":Array[NodePath]([]),"cursor_node":null,"raycast":Object(RayCast2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"enabled":true,"exclude_parent":true,"target_position":Vector2(0, 0),"collision_mask":192,"hit_from_inside":false,"collide_with_areas":false,"collide_with_bodies":true,"script":null)
 ,"circle":Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture":Resource("res://sprites/puzzles/node.png"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
-,"connections":[],"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
+,"connections":Array[Resource("res://puzzle_elements/puzzle_node.gd")]([]),"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
 ,"player":null)
 ])
 color = 0
@@ -85,7 +85,7 @@ color = 0
 script = ExtResource("10_1ufl3")
 hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([Object(StaticBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 16),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":64,"collision_mask":0,"collision_priority":1.0,"input_pickable":false,"physics_material_override":null,"constant_linear_velocity":Vector2(0, 0),"constant_angular_velocity":0.0,"script":Resource("res://puzzle_elements/puzzle_node.gd"),"node_rule":SubResource("Resource_qg80b"),"forced_edges":0,"forced_connections":Array[NodePath]([]),"cursor_node":null,"raycast":Object(RayCast2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"enabled":true,"exclude_parent":true,"target_position":Vector2(0, 0),"collision_mask":192,"hit_from_inside":false,"collide_with_areas":false,"collide_with_bodies":true,"script":null)
 ,"circle":Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture":Resource("res://sprites/puzzles/node.png"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
-,"connections":[],"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
+,"connections":Array[Resource("res://puzzle_elements/puzzle_node.gd")]([]),"parent":Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-119, 417),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://puzzle_elements/puzzle_grid.gd"),"node_arrangement":null,"is_on_floor":true,"required_puzzle":NodePath(""),"required_node":null,"puzzle_theme":null,"framed":true,"puzzle_id":"default","cursor_node":null,"id":"/root/@EditorNode@17637/@Control@697/@Panel@698/@VBoxContainer@706/@HSplitContainer@709/@HSplitContainer@717/@HSplitContainer@725/@VBoxContainer@726/@VSplitContainer@728/@VSplitContainer@754/@VBoxContainer@755/@PanelContainer@800/MainScreen/@CanvasItemEditor@10090/@VSplitContainer@9915/@HSplitContainer@9917/@HSplitContainer@9919/@Control@9920/@SubViewportContainer@9921/@SubViewport@9922/Forest/Outside/PuzzleGrid","solved":false,"rect":Rect2(0, 0, 32, 32),"correct":false,"base_display_connections":false,"player":null,"is_visible":false)
 ,"player":null)
 ])
 color = 0
@@ -182,6 +182,38 @@ color = 0
 [sub_resource type="Resource" id="Resource_og5vc"]
 script = ExtResource("13_hm00l")
 color = 0
+
+[sub_resource type="Resource" id="Resource_nn4te"]
+resource_local_to_scene = true
+script = ExtResource("15_pn7qs")
+size = Vector2i(2, 2)
+spacing = Vector2(16, 16)
+holes = Array[Vector2i]([])
+thing = Rect2(0, 0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_8g5j1"]
+script = ExtResource("13_hm00l")
+color = 0
+
+[sub_resource type="Resource" id="Resource_6y6y2"]
+script = ExtResource("13_hm00l")
+color = 0
+
+[sub_resource type="Resource" id="Resource_bgn3j"]
+script = ExtResource("13_hm00l")
+color = 0
+
+[sub_resource type="Resource" id="Resource_ygjkq"]
+script = ExtResource("13_hm00l")
+color = 0
+
+[sub_resource type="Resource" id="Resource_pgjdy"]
+script = ExtResource("13_hm00l")
+color = 3
+
+[sub_resource type="Resource" id="Resource_ulrps"]
+script = ExtResource("13_hm00l")
+color = 3
 
 [sub_resource type="Resource" id="Resource_mkoi7"]
 resource_local_to_scene = true
@@ -571,12 +603,32 @@ required_puzzle = NodePath("../../PuzzleGrid3")
 [node name="Cable23" type="Line2D" parent="Outside/Decoration"]
 modulate = Color(0.901961, 0.901961, 0.901961, 1)
 position = Vector2(2064, 324)
-points = PackedVector2Array(-845, 78, -814, 78, -809, 83, -809, 171, -804, 176, -686, 176)
+points = PackedVector2Array(-845, 78, -814, 78, -809, 83, -809, 171, -804, 176, -792, 176)
 width = 2.0
 script = ExtResource("15")
 on_color = Color(1, 0.611765, 0.858824, 1)
 off_color = Color(0.572549, 0.286275, 0.47451, 1)
 required_puzzle = NodePath("../../PuzzleGrid4")
+
+[node name="Cable24" type="Line2D" parent="Outside/Decoration"]
+modulate = Color(0.901961, 0.901961, 0.901961, 1)
+position = Vector2(2064, 324)
+points = PackedVector2Array(-757, 176, -743, 176)
+width = 2.0
+script = ExtResource("15")
+on_color = Color(1, 0.611765, 0.858824, 1)
+off_color = Color(0.572549, 0.286275, 0.47451, 1)
+required_puzzle = NodePath("../../PuzzleGrid7")
+
+[node name="Cable25" type="Line2D" parent="Outside/Decoration"]
+modulate = Color(0.901961, 0.901961, 0.901961, 1)
+position = Vector2(2064, 324)
+points = PackedVector2Array(-707, 176, -686, 176)
+width = 2.0
+script = ExtResource("15")
+on_color = Color(1, 0.611765, 0.858824, 1)
+off_color = Color(0.572549, 0.286275, 0.47451, 1)
+required_puzzle = NodePath("../../PuzzleGrid8")
 
 [node name="Tree8" parent="Outside/Decoration" instance=ExtResource("1")]
 position = Vector2(1028, 338)
@@ -838,7 +890,7 @@ position = Vector2(24, 16)
 [node name="PuzzleGrid5" parent="Outside" instance=ExtResource("5")]
 position = Vector2(1388, 484)
 node_arrangement = SubResource("Resource_f8fbw")
-required_puzzle = NodePath("../PuzzleGrid4")
+required_puzzle = NodePath("../PuzzleGrid8")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/PuzzleGrid5" instance=ExtResource("6")]
@@ -892,6 +944,71 @@ position = Vector2(16, 24)
 
 [node name="Blockade4" parent="Outside/PuzzleGrid5" instance=ExtResource("7")]
 position = Vector2(48, 24)
+
+[node name="PuzzleGrid7" parent="Outside" instance=ExtResource("5")]
+position = Vector2(1282, 492)
+node_arrangement = SubResource("Resource_nn4te")
+required_puzzle = NodePath("../PuzzleGrid4")
+puzzle_theme = ExtResource("11_b5eal")
+
+[node name="PuzzleNode" parent="Outside/PuzzleGrid7" instance=ExtResource("6")]
+node_rule = SubResource("Resource_8g5j1")
+
+[node name="PuzzleNode2" parent="Outside/PuzzleGrid7" instance=ExtResource("6")]
+position = Vector2(16, 0)
+
+[node name="PuzzleNode3" parent="Outside/PuzzleGrid7" instance=ExtResource("6")]
+position = Vector2(0, 16)
+
+[node name="PuzzleNode4" parent="Outside/PuzzleGrid7" instance=ExtResource("6")]
+position = Vector2(16, 16)
+node_rule = SubResource("Resource_6y6y2")
+
+[node name="Blockade5" parent="Outside/PuzzleGrid7" instance=ExtResource("7")]
+position = Vector2(0, 8)
+
+[node name="Blockade4" parent="Outside/PuzzleGrid7" instance=ExtResource("7")]
+position = Vector2(16, 8)
+
+[node name="PuzzleGrid8" parent="Outside" instance=ExtResource("5")]
+position = Vector2(1331, 492)
+node_arrangement = SubResource("Resource_nn4te")
+required_puzzle = NodePath("../PuzzleGrid7")
+puzzle_theme = ExtResource("11_b5eal")
+
+[node name="PuzzleNode" parent="Outside/PuzzleGrid8" instance=ExtResource("6")]
+
+[node name="PuzzleNode2" parent="Outside/PuzzleGrid8" instance=ExtResource("6")]
+position = Vector2(16, 0)
+
+[node name="PuzzleNode3" parent="Outside/PuzzleGrid8" instance=ExtResource("6")]
+position = Vector2(0, 16)
+node_rule = SubResource("Resource_bgn3j")
+
+[node name="PuzzleNode4" parent="Outside/PuzzleGrid8" instance=ExtResource("6")]
+position = Vector2(16, 16)
+node_rule = SubResource("Resource_ygjkq")
+
+[node name="Blockade5" parent="Outside/PuzzleGrid8" instance=ExtResource("7")]
+position = Vector2(8, 8)
+
+[node name="PuzzleGrid9" parent="Outside" instance=ExtResource("5")]
+position = Vector2(1243, 746)
+required_puzzle = NodePath("../PuzzleGrid7")
+puzzle_theme = ExtResource("11_b5eal")
+
+[node name="PuzzleNode" parent="Outside/PuzzleGrid9" instance=ExtResource("6")]
+
+[node name="PuzzleNode2" parent="Outside/PuzzleGrid9" instance=ExtResource("6")]
+position = Vector2(16, 0)
+
+[node name="PuzzleNode3" parent="Outside/PuzzleGrid9" instance=ExtResource("6")]
+position = Vector2(0, 16)
+node_rule = SubResource("Resource_pgjdy")
+
+[node name="PuzzleNode4" parent="Outside/PuzzleGrid9" instance=ExtResource("6")]
+position = Vector2(16, 16)
+node_rule = SubResource("Resource_ulrps")
 
 [node name="Wall" type="Sprite2D" parent="Outside"]
 position = Vector2(588, 344)
@@ -1302,6 +1419,7 @@ width = 1.2
 [node name="PuzzleGrid" parent="Outside/Table" instance=ExtResource("5")]
 position = Vector2(-24, -65)
 node_arrangement = SubResource("Resource_r5n5p")
+required_puzzle = NodePath("../../../HouseVillageInside2/Back/PuzzleGrid")
 puzzle_theme = ExtResource("19_0awcd")
 
 [node name="PuzzleNode" parent="Outside/Table/PuzzleGrid" instance=ExtResource("6")]
@@ -1684,6 +1802,7 @@ rotation = 0.314159
 skew = -0.314159
 node_arrangement = SubResource("Resource_jhhyc")
 is_on_floor = false
+required_puzzle = NodePath("../../../HouseVillageInside/Back/PuzzleGrid")
 puzzle_theme = ExtResource("19_0awcd")
 
 [node name="PuzzleNode" parent="HouseVillageInside2/Back/PuzzleGrid" instance=ExtResource("6")]
