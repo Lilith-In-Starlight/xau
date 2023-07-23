@@ -1,7 +1,8 @@
-[gd_scene load_steps=53 format=3 uid="uid://1vbneyv4gotk"]
+[gd_scene load_steps=54 format=3 uid="uid://1vbneyv4gotk"]
 
 [ext_resource type="Script" path="res://character.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://vqogghuw1qn3" path="res://sprites/player/walking_up_right.png" id="2"]
+[ext_resource type="Material" uid="uid://bfmy1jvpespa6" path="res://PixelPerfectShader.tres" id="2_cpn5y"]
 [ext_resource type="Texture2D" uid="uid://c3fdjiwmbf6ur" path="res://sprites/player/walking_left.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cgwembpluqsve" path="res://sprites/player/walking_right.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://cp45uj6h23n6g" path="res://sprites/player/standing.png" id="5"]
@@ -386,6 +387,8 @@ script = ExtResource("1")
 shape = SubResource("1")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+material = ExtResource("2_cpn5y")
 sprite_frames = SubResource("42")
 animation = &"walking_down_right"
 offset = Vector2(0, -9)

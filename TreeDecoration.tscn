@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmkfuyye8dqrq"]
+[gd_scene load_steps=6 format=3 uid="uid://cmkfuyye8dqrq"]
 
 [ext_resource type="Script" path="res://TreeDecoration.gd" id="1"]
+[ext_resource type="Material" uid="uid://bfmy1jvpespa6" path="res://PixelPerfectShader.tres" id="2_5tc37"]
 [ext_resource type="Texture2D" uid="uid://brhlhfpkll7gd" path="res://sprites/misc/trees/orange/puzzle_4.png" id="2_qo4uu"]
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="3"]
 
@@ -11,6 +12,8 @@ collision_layer = 4
 script = ExtResource("1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+material = ExtResource("2_5tc37")
 texture = ExtResource("2_qo4uu")
 offset = Vector2(0, -56)
 script = ExtResource("3")
