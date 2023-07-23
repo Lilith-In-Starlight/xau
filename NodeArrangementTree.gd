@@ -69,3 +69,22 @@ func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 			")":
 				parenthesis_depth -= 1
 				tree_positions.pop_back()
+
+
+func get_used_area(puzzle: Puzzle) -> Rect2:
+	var first_node_x := 0.0
+	var first_node_set := false
+	var highest_node_abs := 0.0
+	var lowest_node_y := 0.0
+	
+	for node in puzzle.get_children():
+		if node is PuzzleNode:
+			if not first_node_set:
+				first_node_x = node.position.x
+				first_node_set = true
+			highest_node_abs = max(highest_node_abs, abs(node.position.x - first_node_x))
+			lowest_node_y = min(lowest_node_y, node.position.y)
+	
+	var rect_beginning := first_node_x - highest_node_abs
+	
+	return Rect2(rect_beginning, lowest_node_y, first_node_x + highest_node_abs - rect_beginning + 1, - lowest_node_y)

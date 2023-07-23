@@ -30,13 +30,17 @@ func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
 		set_process(false)
 		return
-	
 	var x := 0.0
 	var y := 0.0
 	var column := 0
 	var puzzle_id := 0
+	var previous: Puzzle = null
+	
 	for i in get_children():
 		if i is PuzzleGrid:
+			if previous != null:
+				i.required_puzzle = i.get_path_to(previous)
+			previous = i
 			puzzle_id += 1
 			var new_name :StringName = &"PuzzleGrid%s" % str(puzzle_id)
 			if puzzle_id == 1:
