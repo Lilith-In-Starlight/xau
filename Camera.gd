@@ -34,7 +34,6 @@ func _process(_delta: float) -> void:
 		if tdist.length() > existing_dist + 20:
 			set_target_zoom(null)
 	
-	position = position.snapped(Vector2(0.25, 0.25))
 
 
 func set_target_zoom(node: Puzzle):
