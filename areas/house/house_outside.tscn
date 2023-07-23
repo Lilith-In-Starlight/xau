@@ -2257,27 +2257,35 @@ shape = SubResource("1")
 
 [node name="Tree8" parent="." instance=ExtResource("29")]
 position = Vector2(-610, -76)
+species = 0
 
 [node name="Tree9" parent="." instance=ExtResource("29")]
 position = Vector2(-584, 386)
+species = 0
 
 [node name="Tree10" parent="." instance=ExtResource("29")]
 position = Vector2(-1518, 482)
+species = 0
 
 [node name="Tree11" parent="." instance=ExtResource("29")]
 position = Vector2(-1562, -189)
+species = 0
 
 [node name="Tree12" parent="." instance=ExtResource("29")]
 position = Vector2(-1204, -132)
+species = 0
 
 [node name="Tree13" parent="." instance=ExtResource("29")]
 position = Vector2(-817, -151)
+species = 0
 
 [node name="Tree14" parent="." instance=ExtResource("29")]
 position = Vector2(-1236, -322)
+species = 0
 
 [node name="Tree15" parent="." instance=ExtResource("29")]
 position = Vector2(-770, -381)
+species = 0
 
 [node name="PuzzleGrid23" parent="." instance=ExtResource("4")]
 position = Vector2(470, 1014)
@@ -2569,3 +2577,4 @@ species = 1
 
 [node name="Tree27" parent="." instance=ExtResource("29")]
 position = Vector2(259, 878)
+species = 0

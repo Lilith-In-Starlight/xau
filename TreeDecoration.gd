@@ -48,3 +48,5 @@ func _process(_delta: float) -> void:
 		$Sprite2D.offset.y = - $Sprite2D.texture.get_height() / 2.0 + 5.0
 		$Sprite2D/VisibleOnScreenEnabler2D.rect.position.y = - $Sprite2D.texture.get_height()
 		$Sprite2D.flip_h = bool(hash(global_position)%2)
+	else:
+		set_process(false)
