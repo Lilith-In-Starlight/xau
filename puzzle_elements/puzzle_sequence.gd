@@ -9,6 +9,7 @@ class_name PuzzleSequence
 
 ## The distance between puzzlews
 @export var separation := 8.0
+@export var row_size := -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,15 +28,33 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
+		set_process(false)
 		return
 	
-	var x = 0
+	var x := 0.0
+	var y := 0.0
+	var column := 0
+	var puzzle_id := 0
 	for i in get_children():
-		i.position.x = x
-		i.position.y = 0
 		if i is PuzzleGrid:
-			if i.node_arrangement is NodeArrangementGrid:
-				x += i.node_arrangement.size.x * i.node_arrangement.spacing.x + separation
+			puzzle_id += 1
+			var new_name :StringName = &"PuzzleGrid%s" % str(puzzle_id)
+			if puzzle_id == 1:
+				new_name = &"PuzzleGrid"
+			if i.name != new_name:
+				i.set_name.call_deferred(new_name)
+				
+			if row_size <= -1:
+				continue
+				
+			i.position.x = x
+			i.position.y = y
+			column += 1
+			x += i.rect.size.x - i.rect.position.x + 16 + separation
+			if column > row_size:
+				column = 0.0
+				x = 0.0
+				y += i.rect.size.y + separation - i.rect.position.y + 16
 
 
 func _on_child_was_solved(child: Puzzle):
