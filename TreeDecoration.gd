@@ -32,6 +32,7 @@ const TREE_SPRITES := {
 			preload("res://sprites/misc/trees/orange/tree_22.png"),
 			preload("res://sprites/misc/trees/orange/tree_23.png"),
 			preload("res://sprites/misc/trees/orange/tree_24.png"),
+			preload("res://sprites/misc/trees/orange/tree_25.png"),
 		],
 		COLOR.BLUE: [
 			preload("res://sprites/misc/trees/blue/tree_1.png"),
@@ -57,7 +58,7 @@ func _process(_delta: float) -> void:
 func set_style():
 	var id_to_use := force_id
 	var flip_to_use := flip
-	if id_to_use == -1:
+	if id_to_use <= -1:
 		id_to_use = hash(global_position)%TREE_SPRITES[species].size()
 		flip_to_use = bool(hash(global_position)%2)
 	$Sprite2D.texture = TREE_SPRITES[species][id_to_use]

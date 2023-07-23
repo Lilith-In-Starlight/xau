@@ -13,16 +13,16 @@ class_name PuzzleSequence
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var n :Node2D = null
+	var n :Puzzle = null
 	for i in get_children():
-		if not Engine.is_editor_hint():
-			if i is Puzzle:
-				i.was_solved.connect(_on_child_was_solved.bind(i))
-		if n != null:
-			i.required_puzzle = i.get_path_to(n)
-			if not n.is_connected("was_solved", i._on_required_was_solved):
-				n.was_solved.connect(i._on_required_was_solved)
-		n = i
+		if i is Puzzle:
+			if not Engine.is_editor_hint():
+					i.was_solved.connect(_on_child_was_solved.bind(i))
+			if n != null:
+				i.required_puzzle = i.get_path_to(n)
+				if not n.is_connected("was_solved", i._on_required_was_solved):
+					n.was_solved.connect(i._on_required_was_solved)
+			n = i
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +37,10 @@ func _process(_delta: float) -> void:
 	var previous: Puzzle = null
 	
 	for i in get_children():
+		if i is Cable:
+			if previous == null:
+				continue
+			i.required_puzzle = previous
 		if i is PuzzleGrid:
 			if previous != null:
 				i.required_puzzle = i.get_path_to(previous)
