@@ -33,6 +33,8 @@ var current_section :Node2D
 
 var stepping_on := ["void"]
 
+var walk_animation_frame := 0
+
 func _ready():
 	position = SaveData.save_handler.vget_value(["player", "position"], position)
 
@@ -103,13 +105,22 @@ func _on_material_exited(_body: Node2D, n := "void"):
 
 
 func _on_frame_changed():
-	if $Animations.animation.find("walking_") != -1 and not footsteps[stepping_on.back()].is_empty() and $Animations.frame % 2 == 0:
-		var new_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
-		new_sound.stream = footsteps[stepping_on.back()][randi() % footsteps[stepping_on.back()].size()]
-		
-		new_sound.pitch_scale = 0.8 + randf() * 0.3
-		new_sound.position = position
-		new_sound.volume_db = -10.0
-		if stepping_on.back() == "metal":
-			new_sound.volume_db = -5.0
-		get_parent().add_child(new_sound)
+	if $Animations.animation.find("walking_") != -1:
+		walk_animation_frame += 1
+		if not footsteps[stepping_on.back()].is_empty() and $Animations.frame % 2 == 0:
+			var new_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
+			new_sound.stream = footsteps[stepping_on.back()][randi() % footsteps[stepping_on.back()].size()]
+			
+			new_sound.pitch_scale = 0.8 + randf() * 0.3
+			new_sound.position = position
+			new_sound.volume_db = -10.0
+			if stepping_on.back() == "metal":
+				new_sound.volume_db = -5.0
+			get_parent().add_child(new_sound)
+
+
+func _on_animation_changed():
+	if $Animations.animation.find("walking_") != -1:
+		$Animations.frame = walk_animation_frame
+	else:
+		walk_animation_frame = 0
