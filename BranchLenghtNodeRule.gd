@@ -23,7 +23,6 @@ func check_correctness(local_node: PuzzleNode) -> bool:
 		if node.node_rule is BranchLengthNodeRule and node.node_rule.color == color:
 			collective_required_length += node.node_rule.required_length
 	
-	print(branch)
 	
 	if endpoints.is_empty():
 		return branch.size() == collective_required_length

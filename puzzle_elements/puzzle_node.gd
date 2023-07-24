@@ -286,7 +286,6 @@ func _draw():
 
 func get_closest_loop() -> Array:
 	if Engine.is_editor_hint():
-		print("a")
 		return []
 	var dogs :Array[Array] = [[self]]
 	
