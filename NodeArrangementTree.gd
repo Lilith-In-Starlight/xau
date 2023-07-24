@@ -23,6 +23,7 @@ func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 			continue
 		
 		if not i.node_rule is HardcodeNodeRule:
+			print("a")
 			i.node_rule = HardcodeNodeRule.new()
 		elif not Engine.is_editor_hint():
 			i.node_rule = i.node_rule.duplicate(true)

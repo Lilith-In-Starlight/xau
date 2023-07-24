@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bdchwcglbn74g"]
+[gd_scene load_steps=63 format=3 uid="uid://bdchwcglbn74g"]
 
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bs3efkw03xj00" path="res://sprites/areas/house/house_from_the_outside.png" id="3"]
@@ -163,7 +163,7 @@ tree_solution = "r"
 [sub_resource type="Resource" id="Resource_chgyn"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
-hardcoded_connections = Array[NodePath]([])
+hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_bvini"]
@@ -232,36 +232,6 @@ script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "(rl)(ll)"
 
-[sub_resource type="Resource" id="Resource_1ywlv"]
-resource_local_to_scene = true
-script = ExtResource("10_aqxex")
-spacing = Vector2(16, 16)
-tree_solution = "l"
-
-[sub_resource type="Resource" id="Resource_64fsv"]
-resource_local_to_scene = true
-script = ExtResource("10_aqxex")
-spacing = Vector2(16, 16)
-tree_solution = "r"
-
-[sub_resource type="Resource" id="Resource_fejsx"]
-resource_local_to_scene = true
-script = ExtResource("10_aqxex")
-spacing = Vector2(16, 16)
-tree_solution = "l"
-
-[sub_resource type="Resource" id="Resource_utcla"]
-resource_local_to_scene = true
-script = ExtResource("10_aqxex")
-spacing = Vector2(16, 16)
-tree_solution = "rl"
-
-[sub_resource type="Resource" id="Resource_67n85"]
-resource_local_to_scene = true
-script = ExtResource("10_aqxex")
-spacing = Vector2(16, 16)
-tree_solution = "r"
-
 [sub_resource type="Resource" id="Resource_4e1g8"]
 resource_local_to_scene = true
 script = ExtResource("10_aqxex")
@@ -298,11 +268,11 @@ script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
 tree_solution = "l"
 
-[sub_resource type="Resource" id="Resource_kclsk"]
+[sub_resource type="Resource" id="Resource_id8mg"]
 resource_local_to_scene = true
 script = ExtResource("10_aqxex")
 spacing = Vector2(16, 16)
-tree_solution = "l"
+tree_solution = "rl"
 
 [sub_resource type="Resource" id="Resource_jfbqm"]
 resource_local_to_scene = true
@@ -1207,7 +1177,7 @@ position = Vector2(-519, 272)
 force_id = 11
 
 [node name="Cable11" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-481, 310, -409, 310, -401, 302, -401, 247)
+points = PackedVector2Array(-481, 310, -444, 310, -440, 306, -440, 150)
 width = 2.0
 default_color = Color(0.615686, 0.415686, 0.639216, 1)
 script = ExtResource("16_n1w84")
@@ -1215,29 +1185,49 @@ on_color = Color(0.952941, 0.72549, 0.980392, 1)
 off_color = Color(0.615686, 0.415686, 0.639216, 1)
 
 [node name="PuzzleGrid13" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-409, 237)
-node_arrangement = SubResource("Resource_1ywlv")
+position = Vector2(-463, 139)
+node_arrangement = SubResource("Resource_4e1g8")
 required_puzzle = NodePath("../PuzzleGrid12")
 puzzle_theme = ExtResource("11_id4wv")
 
 [node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("5")]
-position = Vector2(8, 0)
+position = Vector2(24, 0)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("5")]
-position = Vector2(0, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("5")]
 position = Vector2(16, -16)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="Tree13" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-337, 231)
-force_id = 12
+[node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("5")]
+position = Vector2(32, -16)
+node_rule = SubResource("Resource_chgyn")
 
-[node name="Cable12" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-401, 212, -401, 174, -391, 164, -296, 164, -290, 170, -290, 341, -283, 348, -266, 348)
+[node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("5")]
+position = Vector2(0, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("5")]
+position = Vector2(16, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("5")]
+position = Vector2(32, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("5")]
+position = Vector2(48, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="Blockade" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("14_nupm0")]
+position = Vector2(24, -24)
+scale = Vector2(15, 0.5)
+
+[node name="Tree18" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
+position = Vector2(-484, 110)
+force_id = 18
+
+[node name="Cable16" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
+points = PackedVector2Array(-473, 126, -525, 125, -534, 116, -534, 48, -544, 38, -567, 38)
 width = 2.0
 default_color = Color(0.615686, 0.415686, 0.639216, 1)
 script = ExtResource("16_n1w84")
@@ -1245,29 +1235,45 @@ on_color = Color(0.952941, 0.72549, 0.980392, 1)
 off_color = Color(0.615686, 0.415686, 0.639216, 1)
 
 [node name="PuzzleGrid14" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-256, 356)
-node_arrangement = SubResource("Resource_64fsv")
+position = Vector2(-617, 37)
+node_arrangement = SubResource("Resource_kstmk")
 required_puzzle = NodePath("../PuzzleGrid13")
 puzzle_theme = ExtResource("11_id4wv")
 
 [node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("5")]
-position = Vector2(8, 0)
+position = Vector2(16, 0)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("5")]
-position = Vector2(0, -16)
+position = Vector2(8, -16)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("5")]
-position = Vector2(16, -16)
+position = Vector2(24, -16)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="Tree14" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-263, 306)
-force_id = 13
+[node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("5")]
+position = Vector2(-8, -32)
+node_rule = SubResource("Resource_chgyn")
 
-[node name="Cable21" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-229, 348, -201, 348, -193, 340, -193, 182)
+[node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("5")]
+position = Vector2(8, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("5")]
+position = Vector2(24, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("5")]
+position = Vector2(40, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="Tree19" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
+position = Vector2(-552, 23)
+force_id = 19
+
+[node name="Cable17" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
+points = PackedVector2Array(-635, 5, -681, 5, -690, 14, -748, 14)
 width = 2.0
 default_color = Color(0.615686, 0.415686, 0.639216, 1)
 script = ExtResource("16_n1w84")
@@ -1275,29 +1281,45 @@ on_color = Color(0.952941, 0.72549, 0.980392, 1)
 off_color = Color(0.615686, 0.415686, 0.639216, 1)
 
 [node name="PuzzleGrid15" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-201, 172)
-node_arrangement = SubResource("Resource_fejsx")
+position = Vector2(-799, 14)
+node_arrangement = SubResource("Resource_3rii3")
 required_puzzle = NodePath("../PuzzleGrid14")
 puzzle_theme = ExtResource("11_id4wv")
 
 [node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("5")]
-position = Vector2(8, 0)
+position = Vector2(16, 0)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("5")]
-position = Vector2(0, -16)
+position = Vector2(8, -16)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("5")]
-position = Vector2(16, -16)
+position = Vector2(24, -16)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="Tree15" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-208, 122)
-force_id = 14
+[node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("5")]
+position = Vector2(-8, -32)
+node_rule = SubResource("Resource_chgyn")
 
-[node name="Cable13" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-193, 146, -193, 28, -199, 21, -299, 21)
+[node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("5")]
+position = Vector2(8, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("5")]
+position = Vector2(24, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("5")]
+position = Vector2(40, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="Tree20" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
+position = Vector2(-853, 48)
+force_id = 20
+
+[node name="Cable18" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
+points = PackedVector2Array(-1121, -116, -1121, -27, -1112, -18, -817, -18)
 width = 2.0
 default_color = Color(0.615686, 0.415686, 0.639216, 1)
 script = ExtResource("16_n1w84")
@@ -1305,8 +1327,8 @@ on_color = Color(0.952941, 0.72549, 0.980392, 1)
 off_color = Color(0.615686, 0.415686, 0.639216, 1)
 
 [node name="PuzzleGrid16" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-349, 37)
-node_arrangement = SubResource("Resource_utcla")
+position = Vector2(-1137, -127)
+node_arrangement = SubResource("Resource_gifh6")
 required_puzzle = NodePath("../PuzzleGrid15")
 puzzle_theme = ExtResource("11_id4wv")
 
@@ -1338,12 +1360,12 @@ node_rule = SubResource("Resource_chgyn")
 position = Vector2(40, -32)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="Tree16" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-309, -17)
-force_id = 22
+[node name="Tree21" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
+position = Vector2(-1079, -84)
+force_id = 23
 
-[node name="Cable14" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-368, 21, -377, 21, -383, 27, -383, 36, -389, 42, -501, 42, -507, 36, -507, 18)
+[node name="Cable19" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
+points = PackedVector2Array(-1121, -169, -1121, -238, -1122, -290)
 width = 2.0
 default_color = Color(0.615686, 0.415686, 0.639216, 1)
 script = ExtResource("16_n1w84")
@@ -1351,29 +1373,49 @@ on_color = Color(0.952941, 0.72549, 0.980392, 1)
 off_color = Color(0.615686, 0.415686, 0.639216, 1)
 
 [node name="PuzzleGrid17" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-515, 8)
-node_arrangement = SubResource("Resource_67n85")
+position = Vector2(-1146, -300)
+node_arrangement = SubResource("Resource_toaeb")
 required_puzzle = NodePath("../PuzzleGrid16")
 puzzle_theme = ExtResource("11_id4wv")
 
 [node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("5")]
-position = Vector2(8, 0)
+position = Vector2(24, 0)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("5")]
-position = Vector2(0, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("5")]
 position = Vector2(16, -16)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="Tree17" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-534, -22)
-force_id = 15
+[node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("5")]
+position = Vector2(32, -16)
+node_rule = SubResource("Resource_chgyn")
 
-[node name="Cable15" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-526, 1, -636, 1, -644, -7, -644, -67)
+[node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("5")]
+position = Vector2(0, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("5")]
+position = Vector2(16, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("5")]
+position = Vector2(32, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("5")]
+position = Vector2(48, -32)
+node_rule = SubResource("Resource_chgyn")
+
+[node name="Blockade" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("14_nupm0")]
+position = Vector2(24, -24)
+scale = Vector2(15, 0.5)
+
+[node name="Tree22" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
+position = Vector2(-1079, -257)
+force_id = 16
+
+[node name="Cable20" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
+points = PackedVector2Array(-1122, -343, -1122, -446)
 width = 2.0
 default_color = Color(0.615686, 0.415686, 0.639216, 1)
 script = ExtResource("16_n1w84")
@@ -1381,49 +1423,45 @@ on_color = Color(0.952941, 0.72549, 0.980392, 1)
 off_color = Color(0.615686, 0.415686, 0.639216, 1)
 
 [node name="PuzzleGrid18" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-685, -78)
-node_arrangement = SubResource("Resource_4e1g8")
+position = Vector2(-1139, -457)
+node_arrangement = SubResource("Resource_m5s11")
 required_puzzle = NodePath("../PuzzleGrid17")
 puzzle_theme = ExtResource("11_id4wv")
 
 [node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("5")]
-position = Vector2(24, 0)
+position = Vector2(16, 0)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("5")]
-position = Vector2(16, -16)
+position = Vector2(8, -16)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("5")]
-position = Vector2(32, -16)
+position = Vector2(24, -16)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("5")]
-position = Vector2(0, -32)
+position = Vector2(-8, -32)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("5")]
-position = Vector2(16, -32)
+position = Vector2(8, -32)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("5")]
-position = Vector2(32, -32)
+position = Vector2(24, -32)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("5")]
-position = Vector2(48, -32)
+position = Vector2(40, -32)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="Blockade" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("14_nupm0")]
-position = Vector2(24, -24)
-scale = Vector2(15, 0.5)
+[node name="Tree23" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
+position = Vector2(-1070, -391)
+force_id = 24
 
-[node name="Tree18" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-612, -51)
-force_id = 18
-
-[node name="Cable16" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-678, -68, -678, -44, -685, -37, -822, -37, -829, -30, -829, -2)
+[node name="Cable22" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
+points = PackedVector2Array(-1123, -498, -1123, -594)
 width = 2.0
 default_color = Color(0.615686, 0.415686, 0.639216, 1)
 script = ExtResource("16_n1w84")
@@ -1431,8 +1469,8 @@ on_color = Color(0.952941, 0.72549, 0.980392, 1)
 off_color = Color(0.615686, 0.415686, 0.639216, 1)
 
 [node name="PuzzleGrid19" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-846, 40)
-node_arrangement = SubResource("Resource_kstmk")
+position = Vector2(-1139, -604)
+node_arrangement = SubResource("Resource_id8mg")
 required_puzzle = NodePath("../PuzzleGrid18")
 puzzle_theme = ExtResource("11_id4wv")
 
@@ -1464,12 +1502,12 @@ node_rule = SubResource("Resource_chgyn")
 position = Vector2(40, -32)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="Tree19" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-781, 26)
-force_id = 19
+[node name="Tree24" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
+position = Vector2(-1062, -561)
+force_id = 22
 
-[node name="Cable17" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-864, 42, -960, 42, -969, 33, -969, 9)
+[node name="Cable23" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
+points = PackedVector2Array(-1123, -644, -1123, -686)
 width = 2.0
 default_color = Color(0.615686, 0.415686, 0.639216, 1)
 script = ExtResource("16_n1w84")
@@ -1477,286 +1515,68 @@ on_color = Color(0.952941, 0.72549, 0.980392, 1)
 off_color = Color(0.615686, 0.415686, 0.639216, 1)
 
 [node name="PuzzleGrid20" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-985, -2)
-node_arrangement = SubResource("Resource_3rii3")
+position = Vector2(-1147, -697)
+node_arrangement = SubResource("Resource_jfbqm")
 required_puzzle = NodePath("../PuzzleGrid19")
 puzzle_theme = ExtResource("11_id4wv")
 
 [node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
-position = Vector2(16, 0)
+position = Vector2(24, 0)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
-position = Vector2(8, -16)
+position = Vector2(16, -16)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
-position = Vector2(24, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
-position = Vector2(-8, -32)
+position = Vector2(0, -32)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
-position = Vector2(24, -32)
+position = Vector2(32, -32)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
-position = Vector2(40, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="Tree20" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-1039, 32)
-force_id = 20
-
-[node name="Cable18" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-1121, -116, -1121, -26, -1112, -17, -1004, -17)
-width = 2.0
-default_color = Color(0.615686, 0.415686, 0.639216, 1)
-script = ExtResource("16_n1w84")
-on_color = Color(0.952941, 0.72549, 0.980392, 1)
-off_color = Color(0.615686, 0.415686, 0.639216, 1)
-
-[node name="PuzzleGrid21" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-1137, -127)
-node_arrangement = SubResource("Resource_gifh6")
-required_puzzle = NodePath("../PuzzleGrid20")
-puzzle_theme = ExtResource("11_id4wv")
-
-[node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid21" instance=ExtResource("5")]
-position = Vector2(16, 0)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid21" instance=ExtResource("5")]
-position = Vector2(8, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid21" instance=ExtResource("5")]
-position = Vector2(24, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid21" instance=ExtResource("5")]
-position = Vector2(-8, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid21" instance=ExtResource("5")]
-position = Vector2(8, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid21" instance=ExtResource("5")]
-position = Vector2(24, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid21" instance=ExtResource("5")]
-position = Vector2(40, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="Tree21" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-1079, -84)
-force_id = 23
-
-[node name="Cable19" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-1121, -169, -1121, -238, -1122, -290)
-width = 2.0
-default_color = Color(0.615686, 0.415686, 0.639216, 1)
-script = ExtResource("16_n1w84")
-on_color = Color(0.952941, 0.72549, 0.980392, 1)
-off_color = Color(0.615686, 0.415686, 0.639216, 1)
-
-[node name="PuzzleGrid22" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-1146, -300)
-node_arrangement = SubResource("Resource_toaeb")
-required_puzzle = NodePath("../PuzzleGrid21")
-puzzle_theme = ExtResource("11_id4wv")
-
-[node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid22" instance=ExtResource("5")]
-position = Vector2(24, 0)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid22" instance=ExtResource("5")]
-position = Vector2(16, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid22" instance=ExtResource("5")]
-position = Vector2(32, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid22" instance=ExtResource("5")]
-position = Vector2(0, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid22" instance=ExtResource("5")]
-position = Vector2(16, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid22" instance=ExtResource("5")]
-position = Vector2(32, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid22" instance=ExtResource("5")]
 position = Vector2(48, -32)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="Blockade" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid22" instance=ExtResource("14_nupm0")]
-position = Vector2(24, -24)
-scale = Vector2(15, 0.5)
-
-[node name="Tree22" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-1079, -257)
-force_id = 16
-
-[node name="Cable20" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-1122, -343, -1122, -446)
-width = 2.0
-default_color = Color(0.615686, 0.415686, 0.639216, 1)
-script = ExtResource("16_n1w84")
-on_color = Color(0.952941, 0.72549, 0.980392, 1)
-off_color = Color(0.615686, 0.415686, 0.639216, 1)
-
-[node name="PuzzleGrid23" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-1139, -457)
-node_arrangement = SubResource("Resource_m5s11")
-required_puzzle = NodePath("../PuzzleGrid22")
-puzzle_theme = ExtResource("11_id4wv")
-
-[node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("5")]
-position = Vector2(16, 0)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("5")]
-position = Vector2(8, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("5")]
-position = Vector2(24, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("5")]
-position = Vector2(-8, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("5")]
-position = Vector2(8, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("5")]
-position = Vector2(24, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("5")]
-position = Vector2(40, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="Tree23" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-1070, -391)
-force_id = 24
-
-[node name="Cable22" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-1123, -498, -1123, -594)
-width = 2.0
-default_color = Color(0.615686, 0.415686, 0.639216, 1)
-script = ExtResource("16_n1w84")
-on_color = Color(0.952941, 0.72549, 0.980392, 1)
-off_color = Color(0.615686, 0.415686, 0.639216, 1)
-
-[node name="PuzzleGrid24" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-1131, -604)
-node_arrangement = SubResource("Resource_kclsk")
-required_puzzle = NodePath("../PuzzleGrid23")
-puzzle_theme = ExtResource("11_id4wv")
-
-[node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
-position = Vector2(8, 0)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
-position = Vector2(0, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
-position = Vector2(16, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="Tree24" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-1062, -561)
-force_id = 14
-
-[node name="Cable23" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
-points = PackedVector2Array(-1123, -629, -1123, -686)
-width = 2.0
-default_color = Color(0.615686, 0.415686, 0.639216, 1)
-script = ExtResource("16_n1w84")
-on_color = Color(0.952941, 0.72549, 0.980392, 1)
-off_color = Color(0.615686, 0.415686, 0.639216, 1)
-
-[node name="PuzzleGrid25" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(-1147, -697)
-node_arrangement = SubResource("Resource_jfbqm")
-required_puzzle = NodePath("../PuzzleGrid24")
-puzzle_theme = ExtResource("11_id4wv")
-
-[node name="PuzzleNode" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
-position = Vector2(24, 0)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode2" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
-position = Vector2(16, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode3" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
-position = Vector2(32, -16)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode4" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
-position = Vector2(0, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode5" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
-position = Vector2(16, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode6" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
-position = Vector2(32, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode7" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
-position = Vector2(48, -32)
-node_rule = SubResource("Resource_chgyn")
-
-[node name="PuzzleNode8" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
+[node name="PuzzleNode8" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(-32, -48)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="PuzzleNode9" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
+[node name="PuzzleNode9" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(-16, -48)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="PuzzleNode10" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
+[node name="PuzzleNode10" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(0, -48)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="PuzzleNode11" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
+[node name="PuzzleNode11" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(16, -48)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="PuzzleNode12" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
+[node name="PuzzleNode12" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(32, -48)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="PuzzleNode13" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
+[node name="PuzzleNode13" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(48, -48)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="PuzzleNode14" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
+[node name="PuzzleNode14" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(64, -48)
 node_rule = SubResource("Resource_chgyn")
 
-[node name="PuzzleNode15" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("5")]
+[node name="PuzzleNode15" parent="OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("5")]
 position = Vector2(80, -48)
 node_rule = SubResource("Resource_chgyn")
 
