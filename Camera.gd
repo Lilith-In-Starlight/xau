@@ -1,7 +1,7 @@
 extends Camera2D
 
 
-var puzzle_zoom_factor := 1.3
+var puzzle_zoom_factor := 1.1
 var puzzle_zoom_speed := 0.04
 var player_camera_speed := 0.1
 
