@@ -163,7 +163,7 @@ tree_solution = "r"
 [sub_resource type="Resource" id="Resource_chgyn"]
 resource_local_to_scene = true
 script = ExtResource("11_eeifi")
-hardcoded_connections = Array[Resource("res://puzzle_elements/puzzle_node.gd")]([])
+hardcoded_connections = Array[NodePath]([])
 color = 0
 
 [sub_resource type="Resource" id="Resource_bvini"]
