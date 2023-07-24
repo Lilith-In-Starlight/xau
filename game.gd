@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 		return
 	if get_viewport().get_mouse_position().y < 0:
 		return
-	if a > 2300:
+	if a > 2300*1.5:
 		CursorNode.change_blink(true)
 		if get_window().has_focus():
 			var playerp = PlayerNode.get_global_transform_with_canvas().get_origin()
@@ -53,7 +53,7 @@ func _process(_delta: float) -> void:
 	else:
 		last_safe_pos = PlayerNode.position
 		RenderingServer.set_default_clear_color(bg_color)
-		if b > 2300:
+		if b > 2300*1.5:
 			CursorNode.change_blink(true)
 			if get_window().has_focus():
 				var cursor_goal = CursorNode.position.normalized() * 2300
