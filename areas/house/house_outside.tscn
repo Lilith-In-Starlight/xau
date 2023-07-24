@@ -357,6 +357,14 @@ position = Vector2(16, 0)
 [node name="PuzzleNode3" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid2" instance=ExtResource("5")]
 position = Vector2(32, 0)
 
+[node name="Cable24" type="Line2D" parent="BlueTreeSection/PuzzleSequence"]
+points = PackedVector2Array(538, 1038, 583, 1038, 583, 1064, 628, 1064)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
+
 [node name="PuzzleGrid3" parent="BlueTreeSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(638, 1064)
 node_arrangement = SubResource("Resource_h6lel")
@@ -380,6 +388,14 @@ position = Vector2(16, 16)
 
 [node name="PuzzleNode6" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid3" instance=ExtResource("5")]
 position = Vector2(32, 16)
+
+[node name="Cable25" type="Line2D" parent="BlueTreeSection/PuzzleSequence"]
+points = PackedVector2Array(680, 1080, 716, 1080, 716, 1023, 750, 1023)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
 
 [node name="PuzzleGrid4" parent="BlueTreeSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(760, 1023)
@@ -472,6 +488,14 @@ position = Vector2(48, 0)
 [node name="PuzzleNode5" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("5")]
 position = Vector2(64, 0)
 
+[node name="Cable26" type="Line2D" parent="BlueTreeSection/PuzzleSequence"]
+points = PackedVector2Array(879, 1092, 918, 1092, 918, 1112, 957, 1112)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
+
 [node name="PuzzleGrid8" parent="BlueTreeSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(967, 1112)
 node_arrangement = SubResource("Resource_pq4e8")
@@ -520,6 +544,14 @@ position = Vector2(16, 16)
 [node name="PuzzleNode6" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid9" instance=ExtResource("5")]
 position = Vector2(32, 16)
 node_rule = SubResource("Resource_bucgq")
+
+[node name="Cable27" type="Line2D" parent="BlueTreeSection/PuzzleSequence"]
+points = PackedVector2Array(1064, 1145, 1116, 1145, 1116, 1183, 1169, 1183)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
 
 [node name="PuzzleGrid10" parent="BlueTreeSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(1179, 1171)
