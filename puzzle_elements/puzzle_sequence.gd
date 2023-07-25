@@ -15,6 +15,10 @@ class_name PuzzleSequence
 func _ready():
 	var n :Puzzle = null
 	for i in get_children():
+		if i is Cable:
+			if n == null:
+				continue
+			i.required_puzzle = i.get_path_to(n)
 		if i is Puzzle:
 			if not Engine.is_editor_hint():
 					i.was_solved.connect(_on_child_was_solved.bind(i))
@@ -40,7 +44,7 @@ func _process(_delta: float) -> void:
 		if i is Cable:
 			if previous == null:
 				continue
-			i.required_puzzle = previous
+			i.required_puzzle = i.get_path_to(previous)
 		if i is PuzzleGrid:
 			if previous != null:
 				i.required_puzzle = i.get_path_to(previous)

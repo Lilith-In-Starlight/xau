@@ -15,25 +15,26 @@ class_name Cable
 
 
 func _ready():
-	if required_node != null:
+	print(required_puzzle)
+	if required_node != null and required_node is Puzzle:
 		required_node.connect("was_solved", Callable(self, "_on_required_was_solved"))
+		var data_get = SaveData.save_handler.vget_value(["puzzles", str(required_node.get_path())], null)
+		if data_get == null or not data_get["solved"]:
+			default_color = off_color
+		elif data_get["solved"]:
+			default_color = on_color
+			print("defcol: ", default_color.to_html(), " oncol: ", on_color.to_html())
 		for i in get_children():
 			if i is Cable:
+				i.default_color = default_color
 				if i.required_node != null:
 					i.required_node.disconnect("was_solved", Callable(i, "_on_required_was_solved"))
 				i.required_node = required_node
 				required_node.connect("was_solved", Callable(i, "_on_required_was_solved"))
-	elif required_node is Puzzle:
-		var data_get = SaveData.save_handler.vget_value(["puzzles", required_node.id], null)
-		if data_get == null or not data_get["solved"]:
-			default_color = off_color
-			return
-		elif data_get["solved"]:
-			default_color = on_color
+
 
 ## Called when the puzzle this cable comes from is solved
 func _on_required_was_solved():
 	var tween = create_tween()
 	tween.tween_property(self, "default_color", on_color, 0.3)
-	tween.play()
 

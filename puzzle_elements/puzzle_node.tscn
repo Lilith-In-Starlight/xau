@@ -1,25 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkmy6maifarrx"]
+[gd_scene load_steps=12 format=3 uid="uid://bkmy6maifarrx"]
 
 [ext_resource type="Texture2D" uid="uid://4u80jrvtvorq" path="res://sprites/puzzles/node.png" id="1"]
 [ext_resource type="Script" path="res://puzzle_elements/puzzle_node.gd" id="2"]
 [ext_resource type="Material" uid="uid://bfmy1jvpespa6" path="res://PixelPerfectShader.tres" id="2_pqesy"]
-[ext_resource type="Texture2D" uid="uid://dad0yqrkviuun" path="res://sprites/puzzles/branch_node_3.png" id="4_olccv"]
-[ext_resource type="Texture2D" uid="uid://dbrl6bobqn0yr" path="res://sprites/puzzles/path_node_bg.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bt1fb303aj4im" path="res://sprites/puzzles/path_node.png" id="4_50g86"]
+[ext_resource type="Texture2D" uid="uid://dad0yqrkviuun" path="res://sprites/puzzles/branch_node_3.png" id="5_qk8ie"]
 [ext_resource type="BitMap" uid="uid://gfrb2crjwkjb" path="res://sprites/puzzles/node_click.png" id="7"]
 [ext_resource type="Shader" path="res://puzzle_elements/puzzle_node.gdshader" id="7_1qd2i"]
 [ext_resource type="Texture2D" uid="uid://nvby6li1wlfx" path="res://sprites/puzzles/fix_node.png" id="7_kds1c"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ceykn"]
-shader = ExtResource("7_1qd2i")
-
 [sub_resource type="CircleShape2D" id="1"]
 radius = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2gk5l"]
+shader = ExtResource("7_1qd2i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ceykn"]
+shader = ExtResource("7_1qd2i")
 
 [node name="PuzzleNode" type="StaticBody2D" groups=["PuzzleNode"]]
 texture_filter = 2
 collision_layer = 64
 collision_mask = 0
 script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("1")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(4.17233e-07, 4.17233e-07)
+scale = Vector2(0.7, 0.7)
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 material = ExtResource("2_pqesy")
@@ -28,22 +39,71 @@ texture = ExtResource("1")
 [node name="Symbol" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0, 0, 0, 1)
-material = ExtResource("2_pqesy")
-texture = ExtResource("4_olccv")
+material = SubResource("ShaderMaterial_2gk5l")
+texture = ExtResource("5_qk8ie")
 
 [node name="Frame" type="Sprite2D" parent="Symbol"]
 visible = false
+modulate = Color(1, 0.427451, 0.92549, 1)
+show_behind_parent = true
 use_parent_material = true
-texture = ExtResource("6")
+texture = ExtResource("4_50g86")
+
+[node name="Border" type="Sprite2D" parent="Symbol"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+use_parent_material = true
+texture = ExtResource("4_50g86")
+offset = Vector2(-0.5, 0)
+
+[node name="Border2" type="Sprite2D" parent="Symbol/Border"]
+show_behind_parent = true
+use_parent_material = true
+texture = ExtResource("4_50g86")
+offset = Vector2(0, 0.5)
+
+[node name="Border3" type="Sprite2D" parent="Symbol/Border"]
+show_behind_parent = true
+use_parent_material = true
+texture = ExtResource("4_50g86")
+offset = Vector2(0, -0.5)
+
+[node name="Border4" type="Sprite2D" parent="Symbol/Border"]
+show_behind_parent = true
+use_parent_material = true
+texture = ExtResource("4_50g86")
+offset = Vector2(0.5, 0)
+
+[node name="Border5" type="Sprite2D" parent="Symbol/Border"]
+show_behind_parent = true
+use_parent_material = true
+texture = ExtResource("4_50g86")
+offset = Vector2(0.5, 0.5)
+
+[node name="Border6" type="Sprite2D" parent="Symbol/Border"]
+show_behind_parent = true
+use_parent_material = true
+texture = ExtResource("4_50g86")
+offset = Vector2(-0.5, 0.5)
+
+[node name="Border7" type="Sprite2D" parent="Symbol/Border"]
+show_behind_parent = true
+use_parent_material = true
+texture = ExtResource("4_50g86")
+offset = Vector2(-0.5, -0.5)
+
+[node name="Border8" type="Sprite2D" parent="Symbol/Border"]
+show_behind_parent = true
+use_parent_material = true
+texture = ExtResource("4_50g86")
+offset = Vector2(0.5, -0.5)
 
 [node name="FixMark" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 2
 material = SubResource("ShaderMaterial_ceykn")
 texture = ExtResource("7_kds1c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("1")
 
 [node name="RayCast3D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
@@ -59,10 +119,6 @@ offset_top = -4.0
 offset_right = 4.0
 offset_bottom = 4.0
 texture_click_mask = ExtResource("7")
-
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(4.17233e-07, 4.17233e-07)
-scale = Vector2(0.7, 0.7)
 
 [connection signal="gui_input" from="Button" to="." method="_on_node_button_gui_input"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_mouse_entered"]

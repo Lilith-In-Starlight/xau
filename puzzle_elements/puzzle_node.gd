@@ -19,6 +19,15 @@ const branch_symbols := [
 		preload("res://sprites/puzzles/branch_node_6.png"),
 	]
 
+const branch_frame := [
+		null,
+		preload("res://sprites/puzzles/branch_node_1_bg.png"),
+		preload("res://sprites/puzzles/branch_node_2_bgt.png"),
+		preload("res://sprites/puzzles/branch_node_3_bgt.png"),
+		preload("res://sprites/puzzles/branch_node_4_bg.png"),
+		preload("res://sprites/puzzles/branch_node_5_bg.png"),
+		preload("res://sprites/puzzles/branch_node_6_bgt.png"),
+	]
 
 @export var node_rule :NodeRule = null
 
@@ -258,23 +267,22 @@ func _on_mouse_exited() -> void:
 func set_node_visuals() -> void:
 	$Symbol.visible = node_rule != null and not (node_rule is HardcodeNodeRule)
 	$Symbol.modulate = get_color()
+	
 	if node_rule is PathNodeRule:
 		$Symbol.texture = preload("res://sprites/puzzles/path_node.png")
-		$Symbol/Frame.texture = preload("res://sprites/puzzles/path_node_bg.png")
 	elif node_rule is IsoNodeRule:
 		$Symbol.texture = preload("res://sprites/puzzles/iso_node.png")
-		$Symbol/Frame.texture = preload("res://sprites/puzzles/iso_node_bg.png")
 	elif node_rule is FixNodeRule:
 		$Symbol.texture = preload("res://sprites/puzzles/fix_node.png")
 	elif node_rule is CycleNodeRule:
 		$Symbol.texture = preload("res://sprites/puzzles/cycle_node.png")
-		$Symbol/Frame.texture = preload("res://sprites/puzzles/cycle_node_bg.png")
 	elif node_rule is BranchLengthNodeRule:
 		$Symbol.texture = branch_symbols[node_rule.required_length]
-		$Symbol/Frame.texture = preload("res://sprites/puzzles/cycle_node_bg.png")
 	
-	if node_rule != null:
-		$Symbol/Frame.visible = node_rule.color != NodeRule.COLORS.black
+	if node_rule != null and not (node_rule.color == NodeRule.COLORS.black):
+		$Sprite2d.texture = preload("res://sprites/puzzles/node_bg.png")
+	else:
+		$Sprite2d.texture = preload("res://sprites/puzzles/node.png")
 
 
 func _draw():
@@ -337,7 +345,6 @@ func get_branch() -> Array[PuzzleNode]:
 			if not neighbor in to_check:
 				to_check.append(neighbor)
 			
-	
 	
 	return nodes_in_branch
 	
