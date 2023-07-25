@@ -3,7 +3,8 @@ extends StaticBody2D
 
 enum COLOR {
 	ORANGE,
-	BLUE
+	BLUE,
+	BONZAI,
 }
 
 const TREE_SPRITES := {
@@ -38,6 +39,9 @@ const TREE_SPRITES := {
 			preload("res://sprites/misc/trees/blue/tree_1.png"),
 			preload("res://sprites/misc/trees/blue/tree_2.png"),
 			preload("res://sprites/misc/trees/blue/tree_3.png"),
+		],
+		COLOR.BONZAI: [
+			preload("res://sprites/misc/trees/orange/bonzai_1.png"),
 		],
 	}
 

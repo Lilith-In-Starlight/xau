@@ -1061,6 +1061,14 @@ species = 1
 position = Vector2(461, 896)
 species = 1
 
+[node name="Tree34" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(350, 745)
+species = 1
+
+[node name="Tree35" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(-1, 742)
+species = 1
+
 [node name="Tree20" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
 position = Vector2(995, 840)
 species = 1
@@ -1116,6 +1124,12 @@ species = 1
 [node name="Tree27" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
 position = Vector2(259, 878)
 
+[node name="Tree36" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(-62, 871)
+
+[node name="Tree37" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(24, 587)
+
 [node name="OrangeTreeSection" type="Node2D" parent="."]
 
 [node name="PuzzleSequence" type="Node2D" parent="OrangeTreeSection"]
@@ -1139,8 +1153,9 @@ position = Vector2(16, -16)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="Tree" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-248, 657)
-force_id = 4
+position = Vector2(-254, 670)
+species = 2
+force_id = 0
 
 [node name="Cable24" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
 points = PackedVector2Array(-307, 676, -376, 676, -385, 667, -385, 592, -394, 583, -461, 583)
@@ -1201,7 +1216,7 @@ position = Vector2(16, -16)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="Tree3" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-721, 676)
+position = Vector2(-712, 610)
 force_id = 0
 
 [node name="Cable2" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
@@ -1287,7 +1302,7 @@ position = Vector2(40, -32)
 node_rule = SubResource("Resource_chgyn")
 
 [node name="Tree5" parent="OrangeTreeSection/PuzzleSequence" instance=ExtResource("29")]
-position = Vector2(-1083, 605)
+position = Vector2(-983, 604)
 force_id = 3
 
 [node name="Cable4" type="Line2D" parent="OrangeTreeSection/PuzzleSequence"]
@@ -2025,12 +2040,6 @@ force_id = 17
 
 [node name="Decoration" type="Node2D" parent="OrangeTreeSection"]
 
-[node name="Tree" parent="OrangeTreeSection/Decoration" instance=ExtResource("29")]
-position = Vector2(-63, 772)
-
-[node name="Tree2" parent="OrangeTreeSection/Decoration" instance=ExtResource("29")]
-position = Vector2(-176, 797)
-
 [node name="Tree3" parent="OrangeTreeSection/Decoration" instance=ExtResource("29")]
 position = Vector2(-636, 536)
 
@@ -2038,7 +2047,7 @@ position = Vector2(-636, 536)
 position = Vector2(-588, 769)
 
 [node name="Tree5" parent="OrangeTreeSection/Decoration" instance=ExtResource("29")]
-position = Vector2(-875, 635)
+position = Vector2(-871, 680)
 
 [node name="Tree6" parent="OrangeTreeSection/Decoration" instance=ExtResource("29")]
 position = Vector2(-948, 370)
