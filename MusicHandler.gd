@@ -2,24 +2,50 @@ extends Node
 
 const SONG_LERP := 0.01
 
+
+class MusicChannel:
+	var audio_player: AudioStreamPlayer
+	var volume: float = 0.0
+	var pitch_shift: float = 0.0
+	static var all_music_channels :Array[MusicChannel] = []
+
+	func _init(audio_player: AudioStreamPlayer, volume: float, pitch_shift: float) -> void:
+		self.audio_player = audio_player
+		self.volume = volume
+		self.pitch_shift = pitch_shift
+		MusicChannel.all_music_channels.append(self)
+
+
+	func adjust_volume() -> void:
+		audio_player.volume_db = lerp(audio_player.volume_db, volume, SONG_LERP)
+
+@onready var home_guitar := $HomeGuitar
+@onready var first_nexus_droning := MusicChannel.new($DroneBass, 0.0, 0.0)
+@onready var forest_pam_flute := MusicChannel.new($PamFlute, 0.0, 0.0)
+@onready var forest_tubular_bell := MusicChannel.new($TubularBell, 0.0, 0.0)
+@onready var forest_little_bell := MusicChannel.new($LittleBell, 0.0, 0.0)
+@onready var forest_choir_bass := MusicChannel.new($ChoirBass, 0.0, 0.0)
+
+
 func _process(_delta: float) -> void:
 	if SaveData.save_handler.get_value("first_enter", true):
 		SaveData.save_handler.save_value("first_enter", false)
 		$HomeGuitar.stream = preload("res://music/first_spawn.mp3")
 		$HomeGuitar.play()
-	
+
+
 	if get_parent().current_area == "first_nexus":
-		$TubularBell.volume_db = lerp($TubularBell.volume_db, -60.0, SONG_LERP)
+		first_nexus_droning.volume = -60
 		if $"../Character".position.x > -500:
-			$PamFlute.volume_db = lerp($PamFlute.volume_db, -60.0, SONG_LERP)
-			$LittleBell.volume_db = lerp($LittleBell.volume_db, -60.0, SONG_LERP)
+			forest_pam_flute.volume = -60
+			forest_little_bell.volume = -60
 		else:
-			$PamFlute.volume_db = lerp($PamFlute.volume_db, -10.0, SONG_LERP)
-			$LittleBell.volume_db = lerp($LittleBell.volume_db, -5.0, SONG_LERP)
+			forest_pam_flute.volume = -10
+			forest_little_bell.volume = -5
 		if $"../Character".position.x > -800:
-			$ChoirBass.volume_db = lerp($ChoirBass.volume_db, -60.0, SONG_LERP)
+			forest_choir_bass.volume = -60
 		else:
-			$ChoirBass.volume_db = lerp($ChoirBass.volume_db, -10.0, SONG_LERP)
+			forest_choir_bass.volume = -10
 		if get_parent().AreaNode.get_node("StatesDefiner").state == "outside":
 			if SaveData.save_handler.get_value("first_exit", true):
 				SaveData.save_handler.save_value("first_exit", false)
@@ -34,26 +60,27 @@ func _process(_delta: float) -> void:
 				tween.set_trans(Tween.TRANS_QUAD)
 				tween.tween_property($"../Camera2D", "zoom", Vector2(1, 1), 6.0)
 			else:
-				$DroneBass.volume_db = lerp($DroneBass.volume_db, 0.0, SONG_LERP)
+				first_nexus_droning.volume = 0.0
 		elif get_parent().AreaNode.get_node("StatesDefiner").state == "exit_hall":
 			if SaveData.save_handler.get_value("first_exit", true):
 				if $"../Character".position.y < 560:
-					$DroneBass.volume_db = lerp($DroneBass.volume_db, 0.0, SONG_LERP)
+					first_nexus_droning.volume = 0.0
 				else:
-					$DroneBass.volume_db = lerp($DroneBass.volume_db, ($"../Character".position.y - 560) / 560.0 * 11.0, SONG_LERP)
+					first_nexus_droning.volume = ($"../Character".position.y - 560) / 560.0 * 11.0
 			else:
-				$DroneBass.volume_db = lerp($DroneBass.volume_db, 0.0, SONG_LERP)
+				first_nexus_droning.volume = 0.0
 		else:
-			$DroneBass.volume_db = lerp($DroneBass.volume_db, 0.0, SONG_LERP)
+			first_nexus_droning.volume = 0.0
 	elif get_parent().current_area == "forest":
-		$DroneBass.volume_db = lerp($DroneBass.volume_db, -60.0, SONG_LERP)
 		$WeirdSound.volume_db = lerp($WeirdSound.volume_db, -60.0, SONG_LERP)
-		$ChoirBass.volume_db = lerp($ChoirBass.volume_db, 0.0, SONG_LERP)
-		$PamFlute.volume_db = lerp($PamFlute.volume_db, 0.0, SONG_LERP)
-		$TubularBell.volume_db = lerp($TubularBell.volume_db, 0.0, SONG_LERP)
-		$LittleBell.volume_db = lerp($LittleBell.volume_db, 0.0, SONG_LERP)
-	
+		first_nexus_droning.volume = -60.0
+		forest_choir_bass.volume = 0.0
+		forest_pam_flute.volume = 0.0
+		forest_tubular_bell.volume = 0.0
+		forest_little_bell.volume = 0.0
 
+	for channel in MusicChannel.all_music_channels:
+		channel.adjust_volume()
 
 func play_tutorial_guitar():
 	$HomeGuitar.stream = preload("res://music/house_guitar_once.mp3")
