@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 			existing_dist = tdist.length()
 		if tdist.length() > existing_dist + 20:
 			set_target_zoom(null)
-	
+
 
 
 func set_target_zoom(node: Puzzle):

@@ -4,7 +4,7 @@ extends StatesDefiner
 
 func set_visible_objects() -> void:
 	Player = get_tree().get_nodes_in_group("Player")[0]
-	match state:
+	match StatesDefiner.state:
 		"first_room":
 			AudioServer.set_bus_effect_enabled(1, 0, true)
 			visible_objects = [$"../House"]

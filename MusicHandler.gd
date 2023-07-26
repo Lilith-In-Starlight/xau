@@ -45,7 +45,7 @@ func _process(_delta: float) -> void:
 
 	match get_parent().current_area:
 		"first_nexus":
-			match get_parent().AreaNode.get_node("StatesDefiner").state:
+			match StatesDefiner.state:
 				"outside":
 					first_nexus_droning.volume = 0.0
 					if SaveData.save_handler.get_value("first_exit", true):
@@ -76,7 +76,7 @@ func _process(_delta: float) -> void:
 				_:
 					first_nexus_droning.volume = 0.0
 		"forest":
-			$WeirdSound.volume_db = -6.0
+			$WeirdSound.volume_db = -60.0
 			forest_choir_bass.volume = 0.0
 			forest_pam_flute.volume = 0.0
 			forest_tubular_bell.volume = 0.0

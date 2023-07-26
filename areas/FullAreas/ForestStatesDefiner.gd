@@ -4,7 +4,7 @@ extends StatesDefiner
 
 func set_visible_objects() -> void:
 	Player = get_tree().get_first_node_in_group("Player")
-	match state:
+	match StatesDefiner.state:
 		"transition_to_first_nexus":
 			visible_objects = [
 					$"../Transition",
