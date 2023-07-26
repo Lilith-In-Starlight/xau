@@ -16,7 +16,7 @@ class_name Cable
 
 func _ready():
 	print(required_puzzle)
-	if required_node != null and required_node is Puzzle:
+	if required_node != null:
 		required_node.connect("was_solved", Callable(self, "_on_required_was_solved"))
 		var data_get = SaveData.save_handler.vget_value(["puzzles", str(required_node.get_path())], null)
 		if data_get == null or not data_get["solved"]:
