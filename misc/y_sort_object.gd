@@ -10,7 +10,7 @@ func _ready() -> void:
 		for i in depth_line.points:
 			points.append(i + depth_line.global_position)
 		depth_line.free()
-	
+
 
 func _process(_delta: float) -> void:
 	var y_limit :float = global_position.y
@@ -32,10 +32,10 @@ func _process(_delta: float) -> void:
 				var dx :float = max_x - min_x
 				var slope :float = dy/dx
 				y_limit = (player_node.global_position.x - min_x) * slope + points[index].y
-				
+
 				break
-	
-	
+
+
 	if player_node.global_position.y < y_limit and z_index != 1:
 		z_index = 1
 	elif player_node.global_position.y >= y_limit and z_index != 0:

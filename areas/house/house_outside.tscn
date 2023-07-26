@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://bdchwcglbn74g"]
+[gd_scene load_steps=91 format=3 uid="uid://bdchwcglbn74g"]
 
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bs3efkw03xj00" path="res://sprites/areas/house/house_from_the_outside.png" id="3"]
@@ -292,6 +292,16 @@ color = 1
 [sub_resource type="Resource" id="Resource_wn0om"]
 script = ExtResource("37_f7g7c")
 color = 0
+
+[sub_resource type="Resource" id="Resource_1y8p2"]
+script = ExtResource("35_fdoj3")
+required_length = 2
+color = 1
+
+[sub_resource type="Resource" id="Resource_mb6wu"]
+script = ExtResource("35_fdoj3")
+required_length = 3
+color = 1
 
 [sub_resource type="Resource" id="Resource_vdq1x"]
 resource_local_to_scene = true
@@ -1192,6 +1202,65 @@ position = Vector2(16, 48)
 position = Vector2(32, 48)
 
 [node name="PuzzleNode16" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("5")]
+position = Vector2(48, 48)
+node_rule = SubResource("Resource_41gf1")
+
+[node name="PuzzleGrid24" parent="BlueTreeSection/PuzzleSequence" instance=ExtResource("4")]
+position = Vector2(667, 1412)
+node_arrangement = SubResource("Resource_qobg3")
+required_puzzle = NodePath("../PuzzleGrid23")
+puzzle_theme = ExtResource("35_jkwqk")
+
+[node name="PuzzleNode" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+node_rule = SubResource("Resource_41gf1")
+
+[node name="PuzzleNode2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(16, 0)
+
+[node name="PuzzleNode3" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(32, 0)
+
+[node name="PuzzleNode4" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(48, 0)
+node_rule = SubResource("Resource_41gf1")
+
+[node name="PuzzleNode5" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(0, 16)
+
+[node name="PuzzleNode6" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(16, 16)
+
+[node name="PuzzleNode7" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(32, 16)
+node_rule = SubResource("Resource_1y8p2")
+
+[node name="PuzzleNode8" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(48, 16)
+
+[node name="PuzzleNode9" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(0, 32)
+
+[node name="PuzzleNode10" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(16, 32)
+node_rule = SubResource("Resource_mb6wu")
+
+[node name="PuzzleNode11" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(32, 32)
+
+[node name="PuzzleNode12" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(48, 32)
+
+[node name="PuzzleNode13" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(0, 48)
+node_rule = SubResource("Resource_41gf1")
+
+[node name="PuzzleNode14" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(16, 48)
+
+[node name="PuzzleNode15" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
+position = Vector2(32, 48)
+
+[node name="PuzzleNode16" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("5")]
 position = Vector2(48, 48)
 node_rule = SubResource("Resource_41gf1")
 

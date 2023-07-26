@@ -25,7 +25,7 @@ func _ready():
 	$Camera2D.position = $Character.position
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	set_current_area(SaveData.save_handler.get_value("current_area", "first_nexus"), false)
-	
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("fullscreen"):
