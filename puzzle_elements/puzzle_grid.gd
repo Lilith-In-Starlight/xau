@@ -19,13 +19,13 @@ enum MODES {
 
 func _init():
 	base_display_connections = false
-	
+
 
 func _ready():
 	update_children_positions()
 	super._ready()
 	display_connections()
-	
+
 	if not Engine.is_editor_hint():
 		if is_on_floor:
 			var new_shape = RectangleShape2D.new()
@@ -46,7 +46,7 @@ func _process(_delta: float) -> void:
 
 func _draw():
 	super._draw()
-	
+
 	if framed:
 		$NoNode/Frame.visible = true
 		var new_rect = rect.grow(8)
@@ -74,13 +74,13 @@ func _draw():
 
 
 ## Updates the node's children positions to match the row size
-func update_children_positions(exclusions: Array[Node] = []):	
+func update_children_positions(exclusions: Array[Node] = []):
 	if Engine.is_editor_hint():
 		queue_redraw()
-		
+
 	if not node_arrangement == null:
 		node_arrangement.arrange_nodes(self, exclusions)
-	
+
 
 
 func _on_child_entered_tree(new_child: Node) -> void:
