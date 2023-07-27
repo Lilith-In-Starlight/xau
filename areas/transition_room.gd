@@ -11,28 +11,28 @@ extends Node2D
 
 var player_pos := Vector2()
 var camera_pos := Vector2()
-var on_left_side := false
+var on_top_side := false
 var previous_side := false
 
 
 func _ready() -> void:
 	player_pos = PlayerNode.position
 	camera_pos = CameraNode.position
-	on_left_side = player_pos.x < global_position.x
-	previous_side = on_left_side
+	on_top_side = player_pos.y < global_position.y
+	previous_side = on_top_side
 
 
 func _process(_delta: float) -> void:
 	player_pos = PlayerNode.position
 	camera_pos = CameraNode.position
-	on_left_side = player_pos.x < global_position.x
+	on_top_side = player_pos.y < global_position.y
 
-	if on_left_side != previous_side and player_pos.y > global_position.y-50 and player_pos.y < global_position.y + 50:
+	if on_top_side != previous_side and player_pos.x > global_position.y - 100 and player_pos.x < global_position.x + 100:
 		CameraNode.position += destination_position - global_position
 		PlayerNode.position += destination_position - global_position
 		SaveData.save_handler.vsave_value(["player", "position"], PlayerNode.position)
 		SaveData.save_handler.save_value("player_state", destination_state)
 		GameNode.set_current_area(to_area)
 
-	previous_side = on_left_side
+	previous_side = on_top_side
 
