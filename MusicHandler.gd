@@ -51,7 +51,12 @@ func _process(_delta: float) -> void:
 						forest_little_bell.volume = -5
 					if player.position.x < -800:
 						forest_choir_bass.volume = -10
-
+				"transition_to_forest":
+					first_nexus_droning.volume = 0.0
+					forest_choir_bass.volume = -10
+					forest_pam_flute.volume = -10
+					forest_tubular_bell.volume = -10
+					forest_little_bell.volume = -5
 				"exit_hall":
 					var player_has_not_exited_house :bool = SaveData.save_handler.get_value("first_exit", true)
 					if player_has_not_exited_house:
