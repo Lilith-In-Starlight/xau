@@ -2462,7 +2462,8 @@ position = Vector2(16, 24)
 [node name="Blockade4" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid8" instance=ExtResource("14_nupm0")]
 position = Vector2(48, 24)
 
-[node name="Decoration" type="Node" parent="YPuzzleSection"]
+[node name="Decoration" type="Node2D" parent="YPuzzleSection"]
+position = Vector2(1759, -617)
 
 [node name="Tree" parent="YPuzzleSection/Decoration" instance=ExtResource("29")]
 position = Vector2(-253, 580)
@@ -2478,6 +2479,9 @@ position = Vector2(-377, 882)
 
 [node name="Tree5" parent="YPuzzleSection/Decoration" instance=ExtResource("29")]
 position = Vector2(-419, 446)
+
+[node name="Tree34" parent="YPuzzleSection/Decoration" instance=ExtResource("29")]
+position = Vector2(-424, 586)
 
 [node name="Tree6" parent="YPuzzleSection/Decoration" instance=ExtResource("29")]
 position = Vector2(-572, 486)

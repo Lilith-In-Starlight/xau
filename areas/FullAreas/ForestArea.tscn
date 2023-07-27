@@ -410,7 +410,7 @@ rotation = 0.331613
 
 [node name="Outside" type="Node2D" parent="."]
 
-[node name="Decoration" type="Node" parent="Outside"]
+[node name="Decoration" type="Node2D" parent="Outside"]
 
 [node name="Tree" parent="Outside/Decoration" instance=ExtResource("1")]
 position = Vector2(572, 227)
