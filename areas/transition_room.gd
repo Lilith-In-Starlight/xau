@@ -18,16 +18,16 @@ var previous_side := false
 func _ready() -> void:
 	player_pos = PlayerNode.position
 	camera_pos = CameraNode.position
-	on_top_side = player_pos.y < global_position.y
+	on_top_side = player_pos.y < global_position.y + 40
 	previous_side = on_top_side
 
 
 func _process(_delta: float) -> void:
 	player_pos = PlayerNode.position
 	camera_pos = CameraNode.position
-	on_top_side = player_pos.y < global_position.y
+	on_top_side = player_pos.y < global_position.y + 40
 
-	if on_top_side != previous_side and player_pos.x > global_position.y - 100 and player_pos.x < global_position.x + 100:
+	if on_top_side != previous_side and player_pos.x > global_position.x - 100 and player_pos.x < global_position.x + 100:
 		CameraNode.position += destination_position - global_position
 		PlayerNode.position += destination_position - global_position
 		SaveData.save_handler.vsave_value(["player", "position"], PlayerNode.position)

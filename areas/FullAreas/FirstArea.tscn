@@ -77,20 +77,20 @@ position = Vector2(-36, 240)
 position = Vector2(155, 1276)
 
 [node name="AreaTransition8" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(-1325, 82)
+position = Vector2(-1452, 202)
 
 [node name="AreaTransition9" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(-1580, 82)
+position = Vector2(-1453, -26)
 
 [node name="transition_to_forest" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition10" parent="StatesDefiner/transition_to_forest" instance=ExtResource("2")]
-position = Vector2(-1354, 82)
-scale = Vector2(0.44, 1)
+position = Vector2(-1453, 180)
+scale = Vector2(1, 0.44)
 
 [node name="AreaTransition11" parent="StatesDefiner/transition_to_forest" instance=ExtResource("2")]
-position = Vector2(-1551, 82)
-scale = Vector2(0.44, 1)
+position = Vector2(-1453, -5)
+scale = Vector2(1, 0.44)
 
 [node name="exit_hall" type="Node" parent="StatesDefiner"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://b5fd7btpj7xwl"]
+[gd_scene load_steps=92 format=3 uid="uid://b5fd7btpj7xwl"]
 
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
@@ -364,9 +364,6 @@ holes = Array[Vector2i]([Vector2i(2, 0)])
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beg8f"]
 size = Vector2(88, 204)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uefw8"]
-size = Vector2(8, 6)
-
 [node name="Forest" type="Node2D" groups=["World"]]
 script = ExtResource("9")
 
@@ -376,39 +373,39 @@ script = ExtResource("3")
 [node name="transition_to_first_nexus" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition8" parent="StatesDefiner/transition_to_first_nexus" instance=ExtResource("2")]
-position = Vector2(381, 165)
-scale = Vector2(0.44, 1)
+position = Vector2(284, 75)
+scale = Vector2(1, 0.44)
 
 [node name="AreaTransition9" parent="StatesDefiner/transition_to_first_nexus" instance=ExtResource("2")]
-position = Vector2(187, 165)
-scale = Vector2(0.44, 1)
+position = Vector2(286, 263)
+scale = Vector2(1, 0.44)
 
 [node name="outside" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition6" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(411, 164)
+position = Vector2(286, 284)
 
 [node name="AreaTransition7" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(157, 165)
+position = Vector2(285, 54)
 
 [node name="AreaTransition8" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(1088, 764)
+position = Vector2(367, -387.5)
 rotation = -0.335142
 
 [node name="AreaTransition9" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(1428, 841)
+position = Vector2(707, -310.5)
 rotation = 0.331613
 
 [node name="in_house_1" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition7" parent="StatesDefiner/in_house_1" instance=ExtResource("2")]
-position = Vector2(1076, 736)
+position = Vector2(355, -415.5)
 rotation = -0.341515
 
 [node name="in_house_2" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition8" parent="StatesDefiner/in_house_2" instance=ExtResource("2")]
-position = Vector2(1439, 811)
+position = Vector2(718, -340.5)
 rotation = 0.331613
 
 [node name="Outside" type="Node2D" parent="."]
@@ -426,6 +423,51 @@ position = Vector2(243, 406)
 
 [node name="Tree4" parent="Outside/Decoration" instance=ExtResource("1")]
 position = Vector2(361, 418)
+
+[node name="Tree17" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-173, 164)
+
+[node name="Tree18" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-277, 65)
+
+[node name="Tree27" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-284, 215)
+
+[node name="Tree28" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-169, 595)
+
+[node name="Tree29" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(99, 317)
+
+[node name="Tree30" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(482, 375)
+
+[node name="Tree31" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-72, 245)
+
+[node name="Tree19" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-130, -125)
+
+[node name="Tree20" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-280, -85)
+
+[node name="Tree21" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(8, 225)
+
+[node name="Tree22" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(499, 134)
+
+[node name="Tree23" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(638, 46)
+
+[node name="Tree24" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(280, -149)
+
+[node name="Tree25" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(114, -213)
+
+[node name="Tree26" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(122, 505)
 
 [node name="Tree5" parent="Outside/Decoration" instance=ExtResource("1")]
 position = Vector2(26, 440)
@@ -447,69 +489,6 @@ script = ExtResource("4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Decoration/Statue/StaticBody2D"]
 position = Vector2(15, -1)
 shape = SubResource("1")
-
-[node name="Cable19" type="Line2D" parent="Outside/Decoration"]
-modulate = Color(0.901961, 0.901961, 0.901961, 1)
-position = Vector2(1767, 224)
-points = PackedVector2Array(-1060, 79, -1060, 126, -1047, 126, -1044, 129, -1044, 145, -1046, 147, -1139, 147, -1142, 150, -1142, 225, -1140, 227, -1131, 227, -1131, 215)
-width = 2.0
-script = ExtResource("15")
-on_color = Color(1, 0.611765, 0.858824, 1)
-off_color = Color(0.572549, 0.286275, 0.47451, 1)
-
-[node name="Cable20" type="Line2D" parent="Outside/Decoration"]
-modulate = Color(0.901961, 0.901961, 0.901961, 1)
-position = Vector2(2064, 324)
-points = PackedVector2Array(-1060, 80, -1060, 126, -1050, 126, -1047, 123, -1047, 47, -1050, 44, -1173, 44, -1177, 40, -1177, -54)
-width = 2.0
-script = ExtResource("15")
-on_color = Color(1, 0.611765, 0.858824, 1)
-off_color = Color(0.572549, 0.286275, 0.47451, 1)
-
-[node name="Cable21" type="Line2D" parent="Outside/Decoration"]
-modulate = Color(0.901961, 0.901961, 0.901961, 1)
-position = Vector2(2064, 324)
-points = PackedVector2Array(-1057, -135, -1173, -135, -1177, -131, -1177, -106)
-width = 2.0
-script = ExtResource("15")
-on_color = Color(1, 0.611765, 0.858824, 1)
-off_color = Color(0.572549, 0.286275, 0.47451, 1)
-
-[node name="Cable22" type="Line2D" parent="Outside/Decoration"]
-modulate = Color(0.901961, 0.901961, 0.901961, 1)
-position = Vector2(2064, 324)
-points = PackedVector2Array(-974, -135, -892, -135, -887, -130, -887, 35)
-width = 2.0
-script = ExtResource("15")
-on_color = Color(1, 0.611765, 0.858824, 1)
-off_color = Color(0.572549, 0.286275, 0.47451, 1)
-
-[node name="Cable23" type="Line2D" parent="Outside/Decoration"]
-modulate = Color(0.901961, 0.901961, 0.901961, 1)
-position = Vector2(2064, 324)
-points = PackedVector2Array(-845, 78, -814, 78, -809, 83, -809, 171, -804, 176, -792, 176)
-width = 2.0
-script = ExtResource("15")
-on_color = Color(1, 0.611765, 0.858824, 1)
-off_color = Color(0.572549, 0.286275, 0.47451, 1)
-
-[node name="Cable24" type="Line2D" parent="Outside/Decoration"]
-modulate = Color(0.901961, 0.901961, 0.901961, 1)
-position = Vector2(2064, 324)
-points = PackedVector2Array(-757, 176, -743, 176)
-width = 2.0
-script = ExtResource("15")
-on_color = Color(1, 0.611765, 0.858824, 1)
-off_color = Color(0.572549, 0.286275, 0.47451, 1)
-
-[node name="Cable25" type="Line2D" parent="Outside/Decoration"]
-modulate = Color(0.901961, 0.901961, 0.901961, 1)
-position = Vector2(2064, 324)
-points = PackedVector2Array(-707, 176, -686, 176)
-width = 2.0
-script = ExtResource("15")
-on_color = Color(1, 0.611765, 0.858824, 1)
-off_color = Color(0.572549, 0.286275, 0.47451, 1)
 
 [node name="Tree8" parent="Outside/Decoration" instance=ExtResource("1")]
 position = Vector2(1028, 338)
@@ -536,7 +515,7 @@ position = Vector2(1368, 338)
 position = Vector2(-61, 529)
 
 [node name="Tree16" parent="Outside/Decoration" instance=ExtResource("1")]
-position = Vector2(-220, 469)
+position = Vector2(-199, 418)
 
 [node name="PuzzleGrid" parent="Outside" instance=ExtResource("5")]
 position = Vector2(-119, 417)
@@ -577,7 +556,7 @@ position = Vector2(32, 32)
 node_rule = SubResource("Resource_ysmm7")
 
 [node name="PuzzleGrid9" parent="Outside" instance=ExtResource("5")]
-position = Vector2(1243, 746)
+position = Vector2(522, -58)
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/PuzzleGrid9" instance=ExtResource("6")]
@@ -605,7 +584,7 @@ points = PackedVector2Array(-2, 166, 5, 166)
 width = 1.2
 
 [node name="Table" type="Sprite2D" parent="Outside"]
-position = Vector2(1252, 889)
+position = Vector2(531, -262.5)
 texture = ExtResource("17_6n0jl")
 script = ExtResource("4")
 
@@ -736,7 +715,7 @@ position = Vector2(32, 32)
 position = Vector2(48, 32)
 
 [node name="PuzzleSequence" type="Node2D" parent="Outside"]
-position = Vector2(1148, 1041)
+position = Vector2(427, -110.5)
 script = ExtResource("11")
 
 [node name="PuzzleGrid" parent="Outside/PuzzleSequence" instance=ExtResource("5")]
@@ -925,7 +904,7 @@ position = Vector2(16, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
-position = Vector2(-254, 670)
+position = Vector2(-288, 642)
 species = 2
 force_id = 0
 
@@ -957,7 +936,7 @@ position = Vector2(16, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree2" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
-position = Vector2(-518, 555)
+position = Vector2(-480, 549)
 force_id = 2
 
 [node name="Cable" type="Line2D" parent="Outside/OrangeTreeSection/PuzzleSequence"]
@@ -988,7 +967,7 @@ position = Vector2(16, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree3" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
-position = Vector2(-712, 610)
+position = Vector2(-682, 599)
 force_id = 0
 
 [node name="Cable2" type="Line2D" parent="Outside/OrangeTreeSection/PuzzleSequence"]
@@ -1027,7 +1006,7 @@ position = Vector2(8, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree4" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
-position = Vector2(-843, 505)
+position = Vector2(-903, 423)
 force_id = 1
 
 [node name="Cable3" type="Line2D" parent="Outside/OrangeTreeSection/PuzzleSequence"]
@@ -1074,7 +1053,7 @@ position = Vector2(40, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree5" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
-position = Vector2(-983, 604)
+position = Vector2(-1064, 506)
 force_id = 3
 
 [node name="Cable4" type="Line2D" parent="Outside/OrangeTreeSection/PuzzleSequence"]
@@ -1121,7 +1100,7 @@ position = Vector2(40, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree6" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
-position = Vector2(-1162, 445)
+position = Vector2(-1206, 338)
 force_id = 7
 
 [node name="Cable5" type="Line2D" parent="Outside/OrangeTreeSection/PuzzleSequence"]
@@ -1172,7 +1151,7 @@ position = Vector2(24, -24)
 scale = Vector2(14, 0.5)
 
 [node name="Tree7" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
-position = Vector2(-1471, 312)
+position = Vector2(-1441, 288)
 force_id = 5
 
 [node name="Cable6" type="Line2D" parent="Outside/OrangeTreeSection/PuzzleSequence"]
@@ -1219,7 +1198,7 @@ position = Vector2(40, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree8" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
-position = Vector2(-1306, 173)
+position = Vector2(-1297, 176)
 force_id = 6
 
 [node name="Cable7" type="Line2D" parent="Outside/OrangeTreeSection/PuzzleSequence"]
@@ -1813,7 +1792,7 @@ force_id = 17
 [node name="Decoration" type="Node2D" parent="Outside/OrangeTreeSection"]
 
 [node name="Tree3" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
-position = Vector2(-636, 536)
+position = Vector2(-622, 473)
 
 [node name="Tree4" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
 position = Vector2(-588, 769)
@@ -1872,11 +1851,11 @@ position = Vector2(-932, -669)
 [node name="HouseVillageInside" type="Node2D" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="HouseVillageInside"]
-position = Vector2(1061, 681)
+position = Vector2(340, -470.5)
 texture = ExtResource("19")
 
 [node name="Back" type="Sprite2D" parent="HouseVillageInside"]
-position = Vector2(1061, 681)
+position = Vector2(340, -470.5)
 texture = ExtResource("16")
 script = ExtResource("4")
 
@@ -1926,7 +1905,7 @@ scale = Vector2(1, 9)
 [node name="HouseVillageOutside" type="Node2D" parent="."]
 
 [node name="Front" type="Sprite2D" parent="HouseVillageOutside"]
-position = Vector2(1061, 681)
+position = Vector2(340, -470.5)
 texture = ExtResource("17")
 script = ExtResource("4")
 
@@ -1935,7 +1914,7 @@ points = PackedVector2Array(-25, 88, -21, 89, 66, 59)
 width = 1.2
 
 [node name="Side" type="Sprite2D" parent="HouseVillageOutside"]
-position = Vector2(1061, 681)
+position = Vector2(340, -470.5)
 texture = ExtResource("18")
 script = ExtResource("4")
 
@@ -1947,12 +1926,12 @@ width = 1.2
 position = Vector2(395, 71)
 
 [node name="Floor" type="Sprite2D" parent="HouseVillageInside2"]
-position = Vector2(1061, 681)
+position = Vector2(340, -470.5)
 texture = ExtResource("19")
 flip_h = true
 
 [node name="Back" type="Sprite2D" parent="HouseVillageInside2"]
-position = Vector2(1061, 681)
+position = Vector2(340, -470.5)
 texture = ExtResource("16")
 flip_h = true
 script = ExtResource("4")
@@ -1999,7 +1978,7 @@ position = Vector2(48, 32)
 position = Vector2(395, 71)
 
 [node name="Front" type="Sprite2D" parent="HouseVillageOutside2"]
-position = Vector2(1061, 681)
+position = Vector2(340, -470.5)
 texture = ExtResource("17")
 flip_h = true
 script = ExtResource("4")
@@ -2009,7 +1988,7 @@ points = PackedVector2Array(-66, 59, 25, 88)
 width = 1.2
 
 [node name="Side" type="Sprite2D" parent="HouseVillageOutside2"]
-position = Vector2(1061, 681)
+position = Vector2(340, -470.5)
 texture = ExtResource("18")
 flip_h = true
 script = ExtResource("4")
@@ -2022,7 +2001,7 @@ width = 1.2
 position = Vector2(285, 128)
 to_area = "first_nexus"
 destination_state = "transition_to_forest"
-destination_position = Vector2(-1137, -569)
+destination_position = Vector2(-1453, 46)
 
 [node name="HouseForestTransitionOutside2" type="Node2D" parent="."]
 
@@ -2043,20 +2022,16 @@ color = Color(0.870588, 0.321569, 0.152941, 1)
 metadata/_edit_lock_ = true
 
 [node name="Collissions" type="StaticBody2D" parent="."]
-visible = false
 collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collissions"]
+position = Vector2(-722, -1151.9)
 polygon = PackedVector2Array(1036, 769, 997, 712, 1088, 683, 1127, 738, 1127, 740, 1090, 753, 1090, 748, 1122, 737, 1087, 687, 1003, 713, 1037, 763, 1040, 765, 1076, 752, 1076, 757, 1040, 770)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collissions"]
-position = Vector2(382, 48)
+position = Vector2(-340, -1103.9)
 polygon = PackedVector2Array(1008, 763, 1047, 707, 1138, 735, 1099, 792, 1060, 779, 1062, 775, 1098, 786, 1131, 737, 1048, 711, 1015, 761, 1047, 771, 1045, 775)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collissions"]
-position = Vector2(1252, 896)
+position = Vector2(530, -255.9)
 shape = SubResource("RectangleShape2D_beg8f")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collissions"]
-position = Vector2(1297, 802)
-shape = SubResource("RectangleShape2D_uefw8")
