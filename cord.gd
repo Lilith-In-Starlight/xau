@@ -15,7 +15,6 @@ class_name Cable
 
 
 func _ready():
-	print(required_puzzle)
 	if required_node != null:
 		required_node.connect("was_solved", Callable(self, "_on_required_was_solved"))
 		var data_get = SaveData.save_handler.vget_value(["puzzles", str(required_node.get_path())], null)
@@ -23,7 +22,6 @@ func _ready():
 			default_color = off_color
 		elif data_get["solved"]:
 			default_color = on_color
-			print("defcol: ", default_color.to_html(), " oncol: ", on_color.to_html())
 		for i in get_children():
 			if i is Cable:
 				i.default_color = default_color

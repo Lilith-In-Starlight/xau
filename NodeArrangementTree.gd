@@ -13,43 +13,42 @@ func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 	var x := 0
 	var y := 0
 	var node_count := 0
-	
+
 	while c > 1:
 		expected_max_x += 1
 		c /= 2.0
-		
+
 	for i in puzzle.get_children():
 		if (not i is PuzzleNode) or i in exclusions:
 			continue
-		
+
 		if not i.node_rule is HardcodeNodeRule:
-			print("a")
 			i.node_rule = HardcodeNodeRule.new()
 		elif not Engine.is_editor_hint():
 			i.node_rule = i.node_rule.duplicate(true)
-		
+
 		i.position = Vector2(expected_max_x / 2.0 - current_depth_max_x / 2.0 + x, y) * spacing
 		x += 1
 		if x >= current_depth_max_x:
 			x = 0
 			y -= 1
 			current_depth_max_x *= 2
-			
+
 		var new_name := "PuzzleNode"
 		if node_count != 0:
 			new_name += str(node_count + 1)
-		
+
 		if i.name != new_name:
 			i.set_name.call_deferred(new_name)
-		
+
 		node_count += 1
-	
+
 	if Engine.is_editor_hint():
 		return
-	
+
 	var parenthesis_depth := 0
 	var tree_positions := [1]
-	
+
 	for ch in tree_solution:
 		var current_child := puzzle.get_child(tree_positions[parenthesis_depth])
 		match ch:
@@ -77,7 +76,7 @@ func get_used_area(puzzle: Puzzle) -> Rect2:
 	var first_node_set := false
 	var highest_node_abs := 0.0
 	var lowest_node_y := 0.0
-	
+
 	for node in puzzle.get_children():
 		if node is PuzzleNode:
 			if not first_node_set:
@@ -85,7 +84,7 @@ func get_used_area(puzzle: Puzzle) -> Rect2:
 				first_node_set = true
 			highest_node_abs = max(highest_node_abs, abs(node.position.x - first_node_x))
 			lowest_node_y = min(lowest_node_y, node.position.y)
-	
+
 	var rect_beginning := first_node_x - highest_node_abs
-	
+
 	return Rect2(rect_beginning, lowest_node_y, first_node_x + highest_node_abs - rect_beginning + 1, - lowest_node_y)
