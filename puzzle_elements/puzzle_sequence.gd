@@ -10,6 +10,7 @@ class_name PuzzleSequence
 ## The distance between puzzlews
 @export var separation := 8.0
 @export var row_size := -1
+@export var invert_h := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,7 +40,7 @@ func _process(_delta: float) -> void:
 	var column := 0
 	var puzzle_id := 0
 	var previous: Puzzle = null
-	
+
 	for i in get_children():
 		if i is Cable:
 			if previous == null:
@@ -55,14 +56,18 @@ func _process(_delta: float) -> void:
 				new_name = &"PuzzleGrid"
 			if i.name != new_name:
 				i.set_name.call_deferred(new_name)
-				
+
 			if row_size <= -1:
 				continue
-				
+
 			i.position.x = x
 			i.position.y = y
 			column += 1
-			x += i.rect.size.x - i.rect.position.x + 16 + separation
+			if not invert_h:
+				x += i.rect.size.x - i.rect.position.x + 16 + separation
+			else:
+				x -= (i.rect.size.x + 16 + separation)* sign(column-1)
+				i.position.x = x
 			if column > row_size:
 				column = 0.0
 				x = 0.0
