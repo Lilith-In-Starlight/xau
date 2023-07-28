@@ -892,15 +892,15 @@ node_arrangement = SubResource("Resource_ovwo3")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid" instance=ExtResource("6")]
-position = Vector2(8, 0)
+position = Vector2(32, 0)
 node_rule = SubResource("Resource_hrswb")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid" instance=ExtResource("6")]
-position = Vector2(0, -16)
+position = Vector2(-8.34466e-07, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid" instance=ExtResource("6")]
-position = Vector2(16, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -924,15 +924,15 @@ required_puzzle = NodePath("../PuzzleGrid")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid2" instance=ExtResource("6")]
-position = Vector2(8, 0)
+position = Vector2(32, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid2" instance=ExtResource("6")]
-position = Vector2(0, -16)
+position = Vector2(-8.34466e-07, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid2" instance=ExtResource("6")]
-position = Vector2(16, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree2" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -955,15 +955,15 @@ required_puzzle = NodePath("../PuzzleGrid2")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid3" instance=ExtResource("6")]
-position = Vector2(8, 0)
+position = Vector2(32, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid3" instance=ExtResource("6")]
-position = Vector2(0, -16)
+position = Vector2(-8.34466e-07, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid3" instance=ExtResource("6")]
-position = Vector2(16, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree3" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -986,23 +986,23 @@ required_puzzle = NodePath("../PuzzleGrid3")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid4" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree4" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1025,31 +1025,31 @@ required_puzzle = NodePath("../PuzzleGrid4")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid5" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid5" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid5" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid5" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid5" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid5" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid5" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree5" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1072,31 +1072,31 @@ required_puzzle = NodePath("../PuzzleGrid5")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid6" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid6" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid6" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid6" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid6" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid6" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid6" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree6" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1119,35 +1119,35 @@ required_puzzle = NodePath("../PuzzleGrid6")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("6")]
-position = Vector2(24, 0)
+position = Vector2(384, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("6")]
-position = Vector2(16, -16)
+position = Vector2(128, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("6")]
-position = Vector2(32, -16)
+position = Vector2(256, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("6")]
-position = Vector2(0, -32)
+position = Vector2(-1.66893e-06, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("6")]
-position = Vector2(16, -32)
+position = Vector2(64, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("6")]
-position = Vector2(32, -32)
+position = Vector2(128, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("6")]
-position = Vector2(48, -32)
+position = Vector2(192, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Blockade" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("7")]
-position = Vector2(24, -24)
+position = Vector2(inf_neg, -24)
 scale = Vector2(14, 0.5)
 
 [node name="Tree7" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1170,31 +1170,31 @@ required_puzzle = NodePath("../PuzzleGrid7")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid8" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid8" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid8" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid8" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid8" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid8" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid8" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree8" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1217,15 +1217,15 @@ required_puzzle = NodePath("../PuzzleGrid8")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid9" instance=ExtResource("6")]
-position = Vector2(8, 0)
+position = Vector2(32, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid9" instance=ExtResource("6")]
-position = Vector2(0, -16)
+position = Vector2(-8.34466e-07, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid9" instance=ExtResource("6")]
-position = Vector2(16, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree9" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1248,31 +1248,31 @@ required_puzzle = NodePath("../PuzzleGrid9")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree10" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1295,31 +1295,31 @@ required_puzzle = NodePath("../PuzzleGrid10")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid11" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid11" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid11" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid11" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid11" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid11" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid11" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree11" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1342,31 +1342,31 @@ required_puzzle = NodePath("../PuzzleGrid11")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid12" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid12" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid12" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid12" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid12" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid12" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid12" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree12" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1389,35 +1389,35 @@ required_puzzle = NodePath("../PuzzleGrid12")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("6")]
-position = Vector2(24, 0)
+position = Vector2(384, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("6")]
-position = Vector2(16, -16)
+position = Vector2(128, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("6")]
-position = Vector2(32, -16)
+position = Vector2(256, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("6")]
-position = Vector2(0, -32)
+position = Vector2(-1.66893e-06, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("6")]
-position = Vector2(16, -32)
+position = Vector2(64, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("6")]
-position = Vector2(32, -32)
+position = Vector2(128, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("6")]
-position = Vector2(48, -32)
+position = Vector2(192, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Blockade" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid13" instance=ExtResource("7")]
-position = Vector2(24, -24)
+position = Vector2(inf_neg, -24)
 scale = Vector2(15, 0.5)
 
 [node name="Tree18" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1440,31 +1440,31 @@ required_puzzle = NodePath("../PuzzleGrid13")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid14" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree19" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1487,31 +1487,31 @@ required_puzzle = NodePath("../PuzzleGrid14")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid15" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree20" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1534,31 +1534,31 @@ required_puzzle = NodePath("../PuzzleGrid15")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid16" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid16" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid16" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid16" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid16" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid16" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid16" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree21" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1581,35 +1581,35 @@ required_puzzle = NodePath("../PuzzleGrid16")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("6")]
-position = Vector2(24, 0)
+position = Vector2(384, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("6")]
-position = Vector2(16, -16)
+position = Vector2(128, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("6")]
-position = Vector2(32, -16)
+position = Vector2(256, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("6")]
-position = Vector2(0, -32)
+position = Vector2(-1.66893e-06, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("6")]
-position = Vector2(16, -32)
+position = Vector2(64, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("6")]
-position = Vector2(32, -32)
+position = Vector2(128, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("6")]
-position = Vector2(48, -32)
+position = Vector2(192, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Blockade" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid17" instance=ExtResource("7")]
-position = Vector2(24, -24)
+position = Vector2(inf_neg, -24)
 scale = Vector2(15, 0.5)
 
 [node name="Tree22" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1632,31 +1632,31 @@ required_puzzle = NodePath("../PuzzleGrid17")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid18" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree23" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1679,31 +1679,31 @@ required_puzzle = NodePath("../PuzzleGrid18")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid19" instance=ExtResource("6")]
-position = Vector2(16, 0)
+position = Vector2(128, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid19" instance=ExtResource("6")]
-position = Vector2(8, -16)
+position = Vector2(32, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid19" instance=ExtResource("6")]
-position = Vector2(24, -16)
+position = Vector2(96, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid19" instance=ExtResource("6")]
-position = Vector2(-8, -32)
+position = Vector2(-16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid19" instance=ExtResource("6")]
-position = Vector2(8, -32)
+position = Vector2(16, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid19" instance=ExtResource("6")]
-position = Vector2(24, -32)
+position = Vector2(48, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid19" instance=ExtResource("6")]
-position = Vector2(40, -32)
+position = Vector2(80, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree24" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]
@@ -1726,63 +1726,63 @@ required_puzzle = NodePath("../PuzzleGrid19")
 puzzle_theme = ExtResource("11_b5eal")
 
 [node name="PuzzleNode" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(24, 0)
+position = Vector2(384, 0)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode2" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(16, -16)
+position = Vector2(128, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode3" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(32, -16)
+position = Vector2(256, -16)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode4" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(0, -32)
+position = Vector2(-1.66893e-06, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode5" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(16, -32)
+position = Vector2(64, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode6" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(32, -32)
+position = Vector2(128, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode7" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(48, -32)
+position = Vector2(192, -32)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode8" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(-32, -48)
+position = Vector2(-64, -48)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode9" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(-16, -48)
+position = Vector2(-32, -48)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode10" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(0, -48)
+position = Vector2(-8.34466e-07, -48)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="PuzzleNode11" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(16, -48)
-node_rule = SubResource("Resource_8ylfa")
-
-[node name="PuzzleNode12" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
 position = Vector2(32, -48)
 node_rule = SubResource("Resource_8ylfa")
 
-[node name="PuzzleNode13" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(48, -48)
-node_rule = SubResource("Resource_8ylfa")
-
-[node name="PuzzleNode14" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
+[node name="PuzzleNode12" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
 position = Vector2(64, -48)
 node_rule = SubResource("Resource_8ylfa")
 
+[node name="PuzzleNode13" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
+position = Vector2(96, -48)
+node_rule = SubResource("Resource_8ylfa")
+
+[node name="PuzzleNode14" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
+position = Vector2(128, -48)
+node_rule = SubResource("Resource_8ylfa")
+
 [node name="PuzzleNode15" parent="Outside/OrangeTreeSection/PuzzleSequence/PuzzleGrid20" instance=ExtResource("6")]
-position = Vector2(80, -48)
+position = Vector2(160, -48)
 node_rule = SubResource("Resource_8ylfa")
 
 [node name="Tree25" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("1")]

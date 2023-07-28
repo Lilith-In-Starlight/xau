@@ -13,11 +13,11 @@ func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 	var x := 0
 	var y := 0
 	var node_count := 0
+	var max_depth := get_depth(puzzle)
 
 	while c > 1:
 		expected_max_x += 1
 		c /= 2.0
-
 	for i in puzzle.get_children():
 		if (not i is PuzzleNode) or i in exclusions:
 			continue
@@ -26,8 +26,9 @@ func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 			i.node_rule = HardcodeNodeRule.new()
 		elif not Engine.is_editor_hint():
 			i.node_rule = i.node_rule.duplicate(true)
-
-		i.position = Vector2(expected_max_x / 2.0 - current_depth_max_x / 2.0 + x, y) * spacing
+		var extra_space :float = max_depth - y
+		var xpos :float = expected_max_x / 2.0 - (current_depth_max_x / 2.0) + x
+		i.position = Vector2(xpos, y) * spacing
 		x += 1
 		if x >= current_depth_max_x:
 			x = 0
@@ -42,6 +43,7 @@ func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 			i.set_name.call_deferred(new_name)
 
 		node_count += 1
+
 
 	if Engine.is_editor_hint():
 		return
@@ -88,3 +90,14 @@ func get_used_area(puzzle: Puzzle) -> Rect2:
 	var rect_beginning := first_node_x - highest_node_abs
 
 	return Rect2(rect_beginning, lowest_node_y, first_node_x + highest_node_abs - rect_beginning + 1, - lowest_node_y)
+
+
+func get_depth(puzzle: Puzzle) -> float:
+	var depth := 0
+	var count := 1
+	var power_of_two := 1
+	while count < puzzle.get_child_count():
+		count += power_of_two
+		power_of_two *= 2
+		depth += 1
+	return depth
