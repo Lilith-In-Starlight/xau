@@ -1367,6 +1367,18 @@ position = Vector2(32, 48)
 position = Vector2(48, 48)
 node_rule = SubResource("Resource_41gf1")
 
+[node name="Blockade" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 8)
+
+[node name="Blockade2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 8)
+
+[node name="Blockade3" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 40)
+
+[node name="Blockade4" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid23" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 40)
+
 [node name="PuzzleGrid24" parent="BlueTreeSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(667, 1412)
 node_arrangement = SubResource("Resource_qobg3")
@@ -1426,6 +1438,18 @@ position = Vector2(32, 48)
 position = Vector2(48, 48)
 node_rule = SubResource("Resource_41gf1")
 
+[node name="Blockade" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 8)
+
+[node name="Blockade2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 8)
+
+[node name="Blockade3" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 40)
+
+[node name="Blockade4" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 40)
+
 [node name="PuzzleGrid25" parent="BlueTreeSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(595, 1412)
 node_arrangement = SubResource("Resource_y6ifw")
@@ -1482,6 +1506,18 @@ forced_connections = Array[NodePath]([NodePath("../PuzzleNode12")])
 position = Vector2(48, 48)
 node_rule = SubResource("Resource_4e4wt")
 
+[node name="Blockade" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 8)
+
+[node name="Blockade2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 8)
+
+[node name="Blockade3" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 40)
+
+[node name="Blockade4" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 40)
+
 [node name="PuzzleGrid26" parent="BlueTreeSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(524, 1412)
 node_arrangement = SubResource("Resource_y6ifw")
@@ -1526,6 +1562,18 @@ position = Vector2(32, 48)
 [node name="PuzzleNode12" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid26" instance=ExtResource("5")]
 position = Vector2(48, 48)
 node_rule = SubResource("Resource_xt1ln")
+
+[node name="Blockade" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid26" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 8)
+
+[node name="Blockade2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid26" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 8)
+
+[node name="Blockade3" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid26" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 40)
+
+[node name="Blockade4" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid26" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 40)
 
 [node name="Decoration" type="Node2D" parent="BlueTreeSection"]
 

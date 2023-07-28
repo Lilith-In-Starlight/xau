@@ -60,7 +60,7 @@ func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
 		if cursor_node.connecting_from == self:
 			connect_puzzle(cursor_node.position)
-		
+
 		for i in forced_connections:
 			var node = get_node_or_null(i)
 			if node == null: continue
@@ -70,7 +70,7 @@ func _process(_delta: float) -> void:
 			if not self in node.connections:
 				node.connections.append(self)
 				node.connection_changed.emit(node, self, "connect")
-		
+
 	elif not get_parent() is Viewport:
 		set_node_visuals()
 		queue_redraw()
@@ -109,14 +109,14 @@ func _on_node_button_gui_input(_event: InputEvent) -> void:
 		solved_sound.pitch_scale = 0.5 + randf() * 1.5
 		get_parent().add_child(solved_sound)
 		correctness_unverified.emit()
-		
+
 		if cursor_node.connecting_from == null:
 			cursor_node.connecting_from = self
-	
+
 	elif Input.is_action_just_pressed("noconnect"):
 		correctness_unverified.emit()
 		delete_node_connections_request.emit(self, false)
-	
+
 	elif Input.is_action_just_pressed("puzzle_reset"):
 		correctness_unverified.emit()
 		delete_node_connections_request.emit(self, true)
@@ -130,39 +130,39 @@ func _on_node_button_gui_input(_event: InputEvent) -> void:
 ## by the cursor
 func connect_puzzle(target, disconnect := false):
 	raycast.target_position = to_local(target)
-	
+
 	raycast.force_raycast_update()
 	if not raycast.is_colliding():
 		raycast.target_position = Vector2.ZERO
 		return
-	
+
 	var raycast_collider = raycast.get_collider()
 	if not raycast_collider.is_in_group("PuzzleNode"):
 		raycast.target_position = Vector2.ZERO
 		return
-		
+
 	if raycast_collider.parent == parent or (!parent.framed and !raycast_collider.parent.framed):
 		if not raycast_collider.parent.is_enabled():
 			raycast.target_position = Vector2.ZERO
 			return
-		
+
 		raycast.target_position = to_local(raycast_collider.global_position)
 		raycast.force_raycast_update()
-		
+
 		if not raycast.is_colliding():
 			raycast.target_position = Vector2.ZERO
 			return
-		
+
 		var raycast_verification_collider := raycast.get_collider()
 		if not raycast_verification_collider == raycast_collider:
 			raycast.target_position = Vector2.ZERO
 			return
-		
+
 		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 		solved_sound.stream = preload("res://sfx/node_connect.wav")
 		solved_sound.pitch_scale = 0.5 + randf() * 1.5
 		add_child(solved_sound)
-			
+
 		if not raycast_collider in connections and not disconnect:
 			connections.append(raycast_collider)
 			raycast_collider.connections.append(self)
@@ -175,7 +175,7 @@ func connect_puzzle(target, disconnect := false):
 			cursor_node.connecting_from = raycast_collider
 			raycast_collider.connect_puzzle(target)
 			connection_changed.emit(self, raycast_collider, "disconnect")
-	
+
 	raycast.target_position = Vector2.ZERO
 
 
@@ -211,10 +211,10 @@ func get_graph_shape():
 				vertices[checking_id].append(neighbor_id)
 			if not neighbor in checked_nodes:
 				unchecked_nodes.append(neighbor)
-	
+
 	for i in vertices:
 		vertices[i].sort()
-	
+
 	return vertices
 
 func get_all_nodes_in_graph():
@@ -253,7 +253,7 @@ func get_unique_id():
 func _on_mouse_entered() -> void:
 	scale.x = 1.2
 	scale.y = 1.2
-	
+
 	if Input.is_action_pressed("noconnect"):
 		correctness_unverified.emit()
 		delete_node_connections_request.emit(self, false)
@@ -267,7 +267,7 @@ func _on_mouse_exited() -> void:
 func set_node_visuals() -> void:
 	$Symbol.visible = node_rule != null and not (node_rule is HardcodeNodeRule)
 	$Symbol.modulate = get_color()
-	
+
 	if node_rule is PathNodeRule:
 		$Symbol.texture = preload("res://sprites/puzzles/path_node.png")
 	elif node_rule is IsoNodeRule:
@@ -278,7 +278,7 @@ func set_node_visuals() -> void:
 		$Symbol.texture = preload("res://sprites/puzzles/cycle_node.png")
 	elif node_rule is BranchLengthNodeRule:
 		$Symbol.texture = branch_symbols[node_rule.required_length]
-	
+
 	if node_rule != null and not (node_rule.color == NodeRule.COLORS.black):
 		$Sprite2d.texture = preload("res://sprites/puzzles/node_bg.png")
 	else:
@@ -296,34 +296,34 @@ func get_closest_loop() -> Array:
 	if Engine.is_editor_hint():
 		return []
 	var dogs :Array[Array] = [[self]]
-	
+
 	var latest_nodes := []
 	var loop_found :bool = false
 	var loop :Array
-	
+
 	while not dogs.is_empty():
 		var dog = dogs.pop_back()
 		var latest_node :PuzzleNode = dog.back()
-		
+
 		for neighbor in latest_node.connections:
 			if dog.size() >= 2:
 				var before_latest_node = dog[dog.size() - 2]
 				if neighbor == before_latest_node:
 					continue
-			
+
 			if neighbor == self:
 				if dog.size() < loop.size() or loop.is_empty():
 					loop = dog
 				break
-			
+
 			elif neighbor in dog:
 				continue
-			
+
 			var new_dog: Array = dog.duplicate()
 			new_dog.append(neighbor)
 			dogs.append(new_dog)
-	
-	
+
+
 	return loop
 
 
@@ -331,21 +331,21 @@ func get_branch() -> Array[PuzzleNode]:
 	var already_checked :Array[PuzzleNode] = []
 	var to_check :Array[PuzzleNode] = [self]
 	var nodes_in_branch :Array[PuzzleNode] = []
-	
+
 	for checking_node in to_check:
 		already_checked.append(checking_node)
 		nodes_in_branch.append(checking_node)
-		
+
 		if checking_node.connections.size() > 2:
 			continue
-		
+
 		for neighbor in checking_node.connections:
 			if neighbor in already_checked:
 				continue
 			if not neighbor in to_check:
 				to_check.append(neighbor)
-			
-	
+
+
 	return nodes_in_branch
-	
-	
+
+
