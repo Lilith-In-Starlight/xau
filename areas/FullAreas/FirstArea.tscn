@@ -83,11 +83,11 @@ position = Vector2(-1452, 202)
 position = Vector2(-1453, -26)
 
 [node name="AreaTransition10" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(360, 1901)
+position = Vector2(299, 2285)
 scale = Vector2(1, 0.44)
 
 [node name="AreaTransition11" parent="StatesDefiner/outside" instance=ExtResource("2")]
-position = Vector2(360, 1687)
+position = Vector2(299, 2071)
 scale = Vector2(1, 0.44)
 
 [node name="transition_to_forest" type="Node" parent="StatesDefiner"]
@@ -111,11 +111,11 @@ position = Vector2(155, 1243)
 [node name="transition_to_cycles" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition10" parent="StatesDefiner/transition_to_cycles" instance=ExtResource("2")]
-position = Vector2(360, 1888)
+position = Vector2(299, 2272)
 scale = Vector2(1, 0.44)
 
 [node name="AreaTransition11" parent="StatesDefiner/transition_to_cycles" instance=ExtResource("2")]
-position = Vector2(360, 1701)
+position = Vector2(299, 2085)
 scale = Vector2(1, 0.44)
 
 [node name="House" parent="." instance=ExtResource("1")]
@@ -144,7 +144,7 @@ destination_state = "transition_to_first_nexus"
 destination_position = Vector2(285, 128)
 
 [node name="TransitionToCycles" parent="." instance=ExtResource("12_gbsbi")]
-position = Vector2(361, 1752)
+position = Vector2(300, 2136)
 to_area = "cycles"
 destination_state = "transition_to_first_nexus"
 destination_position = Vector2(155, 166)
@@ -156,7 +156,7 @@ offset = Vector2(0, -145)
 script = ExtResource("12")
 
 [node name="HouseForestTransitionOutside2" type="Sprite2D" parent="."]
-position = Vector2(361, 1897)
+position = Vector2(300, 2281)
 texture = ExtResource("10")
 offset = Vector2(0, -145)
 script = ExtResource("12")

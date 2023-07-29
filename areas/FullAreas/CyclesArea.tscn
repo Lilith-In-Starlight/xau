@@ -254,7 +254,7 @@ position = Vector2(155, 123)
 position = Vector2(155, 166)
 to_area = "first_nexus"
 destination_state = "transition_to_cycles"
-destination_position = Vector2(361, 1752)
+destination_position = Vector2(300, 2136)
 
 [node name="HouseForestTransitionOutside" type="Sprite2D" parent="."]
 position = Vector2(155, 311)
@@ -721,6 +721,62 @@ position = Vector2(24, 32)
 
 [node name="Tree" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
 position = Vector2(360, 177)
+species = 1
+
+[node name="Tree9" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(448, 343)
+species = 1
+
+[node name="Tree10" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(604, 145)
+species = 1
+
+[node name="Tree11" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(730, 249)
+species = 1
+
+[node name="Tree12" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(576, 519)
+species = 1
+
+[node name="Tree13" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(922, 417)
+species = 1
+
+[node name="Tree14" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(974, 149)
+species = 1
+
+[node name="Tree15" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(824, 171)
+species = 1
+
+[node name="Tree16" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(352, 509)
+species = 1
+
+[node name="Tree17" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(734, 709)
+species = 1
+
+[node name="Tree18" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(1056, 541)
+species = 1
+
+[node name="Tree19" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(1016, 295)
+species = 1
+
+[node name="Tree20" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(978, 819)
+species = 1
+
+[node name="Tree21" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(1124, 713)
+species = 1
+
+[node name="Tree22" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
+position = Vector2(612, 847)
 species = 1
 
 [node name="Tree2" parent="Outside/Decoration" instance=ExtResource("5_lprul")]

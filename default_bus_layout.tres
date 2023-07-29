@@ -1,4 +1,7 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bhmy7h0mnyl13"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bhmy7h0mnyl13"]
+
+[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_d8luw"]
+resource_name = "StereoEnhance"
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_p8yo0"]
 resource_name = "Reverb"
@@ -7,6 +10,8 @@ damping = 0.2
 spread = 0.5
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectStereoEnhance_d8luw")
+bus/0/effect/0/enabled = true
 bus/1/name = &"WorldSounds"
 bus/1/solo = false
 bus/1/mute = false

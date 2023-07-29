@@ -1585,6 +1585,62 @@ species = 1
 position = Vector2(712, 1220)
 species = 1
 
+[node name="Tree38" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(852, 1331)
+species = 1
+
+[node name="Tree39" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(386, 1428)
+species = 1
+
+[node name="Tree40" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(540, 1320)
+species = 1
+
+[node name="Tree41" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(59, 1252)
+species = 1
+
+[node name="Tree42" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(1058, 1371)
+species = 1
+
+[node name="Tree43" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(1449, 1558)
+species = 1
+
+[node name="Tree44" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(1215, 1552)
+species = 1
+
+[node name="Tree45" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(936, 1611)
+species = 1
+
+[node name="Tree46" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(493, 1588)
+species = 1
+
+[node name="Tree47" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(700, 1366)
+species = 1
+
+[node name="Tree48" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(800, 1591)
+species = 1
+
+[node name="Tree49" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(1121, 1697)
+species = 1
+
+[node name="Tree50" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(639, 1697)
+species = 1
+
+[node name="Tree51" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
+position = Vector2(1417, 1388)
+species = 1
+
 [node name="Tree18" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
 position = Vector2(648, 988)
 species = 1
