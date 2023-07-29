@@ -492,6 +492,15 @@ func get_on_background_color() -> Color:
 		return Color("#131313")
 	return puzzle_theme.on_background_color
 
+func get_solved_cable_color() -> Color:
+	if puzzle_theme == null:
+		return Color("#72ffdf")
+	return puzzle_theme.cable_solved_color
+
+func get_unsolved_cable_color() -> Color:
+	if puzzle_theme == null:
+		return Color("#588b86")
+	return puzzle_theme.cable_unsolved_color
 
 func save_data():
 	var saving :Dictionary = save()

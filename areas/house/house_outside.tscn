@@ -2175,6 +2175,15 @@ scale = Vector2(1, 10)
 [node name="Blockade3" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid" instance=ExtResource("14_nupm0")]
 position = Vector2(24, 16)
 
+[node name="Cable" type="Line2D" parent="YPuzzleSection/PuzzleSequence"]
+points = PackedVector2Array(868, -59, 845, -59, 834, -70, 834, -122, 823, -133, 772, -133)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
+required_puzzle = NodePath("../PuzzleGrid")
+
 [node name="PuzzleGrid2" parent="YPuzzleSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(698, -165)
 node_arrangement = SubResource("Resource_hych4")
@@ -2238,6 +2247,15 @@ scale = Vector2(1, 10)
 
 [node name="Blockade3" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid2" instance=ExtResource("14_nupm0")]
 position = Vector2(24, 16)
+
+[node name="Cable2" type="Line2D" parent="YPuzzleSection/PuzzleSequence"]
+points = PackedVector2Array(688, -165, 676, -165, 667, -174, 667, -264)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
+required_puzzle = NodePath("../PuzzleGrid2")
 
 [node name="PuzzleGrid3" parent="YPuzzleSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(635, -306)
@@ -2305,6 +2323,15 @@ position = Vector2(64, 32)
 position = Vector2(40, 16)
 scale = Vector2(1, 10)
 
+[node name="Cable3" type="Line2D" parent="YPuzzleSection/PuzzleSequence"]
+points = PackedVector2Array(667, -316, 667, -329, 685, -347, 685, -360)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
+required_puzzle = NodePath("../PuzzleGrid3")
+
 [node name="PuzzleGrid4" parent="YPuzzleSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(685, -403)
 node_arrangement = SubResource("Resource_7wquw")
@@ -2368,6 +2395,15 @@ position = Vector2(64, 32)
 [node name="Blockade2" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid4" instance=ExtResource("14_nupm0")]
 position = Vector2(40, 16)
 scale = Vector2(1, 10)
+
+[node name="Cable4" type="Line2D" parent="YPuzzleSection/PuzzleSequence"]
+points = PackedVector2Array(717, -412, 717, -438, 721, -444, 721, -477)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
+required_puzzle = NodePath("../PuzzleGrid4")
 
 [node name="PuzzleGrid5" parent="YPuzzleSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(721, -520)
@@ -2442,8 +2478,17 @@ position = Vector2(80, 32)
 position = Vector2(40, 16)
 scale = Vector2(1, 10)
 
+[node name="Cable5" type="Line2D" parent="YPuzzleSection/PuzzleSequence"]
+points = PackedVector2Array(737, -531, 737, -606)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
+required_puzzle = NodePath("../PuzzleGrid5")
+
 [node name="PuzzleGrid6" parent="YPuzzleSection/PuzzleSequence" instance=ExtResource("4")]
-position = Vector2(724, -633)
+position = Vector2(721, -633)
 node_arrangement = SubResource("Resource_pebgm")
 required_puzzle = NodePath("../PuzzleGrid5")
 puzzle_theme = ExtResource("11_id4wv")
@@ -2468,6 +2513,15 @@ node_rule = SubResource("Resource_goii3")
 
 [node name="PuzzleNode6" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid6" instance=ExtResource("5")]
 position = Vector2(32, 16)
+
+[node name="Cable6" type="Line2D" parent="YPuzzleSection/PuzzleSequence"]
+points = PackedVector2Array(629, -706, 629, -680, 638, -671, 728, -671, 737, -662, 737, -643)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
+required_puzzle = NodePath("../PuzzleGrid6")
 
 [node name="PuzzleGrid7" parent="YPuzzleSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(613, -750)
@@ -2507,6 +2561,15 @@ position = Vector2(16, 32)
 [node name="PuzzleNode9" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid7" instance=ExtResource("5")]
 position = Vector2(32, 32)
 node_rule = SubResource("Resource_ciey3")
+
+[node name="Cable7" type="Line2D" parent="YPuzzleSection/PuzzleSequence"]
+points = PackedVector2Array(521, -820, 619, -820, 629, -810, 629, -760)
+width = 2.0
+default_color = Color(0.733333, 0.403922, 0, 1)
+script = ExtResource("16_n1w84")
+on_color = Color(0.956863, 0.521569, 0.364706, 1)
+off_color = Color(0.733333, 0.403922, 0, 1)
+required_puzzle = NodePath("../PuzzleGrid7")
 
 [node name="PuzzleGrid8" parent="YPuzzleSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(463, -836)

@@ -16,6 +16,9 @@ class_name Cable
 
 func _ready():
 	if required_node != null:
+		if required_node is Puzzle:
+			on_color = required_node.get_solved_cable_color()
+			off_color = required_node.get_unsolved_cable_color()
 		required_node.connect("was_solved", Callable(self, "_on_required_was_solved"))
 		var data_get = SaveData.save_handler.vget_value(["puzzles", str(required_node.get_path())], null)
 		if data_get == null or not data_get["solved"]:

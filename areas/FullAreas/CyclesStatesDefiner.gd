@@ -9,6 +9,7 @@ func set_visible_objects() -> void:
 			visible_objects = [
 					$"../Transition",
 					$"../Outside",
+					$"../HouseForestTransitionOutside",
 				]
 			Player.z_index = $"../Transition".z_index + 1
 		"outside":
