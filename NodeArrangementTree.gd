@@ -57,14 +57,14 @@ func arrange_nodes(puzzle: Puzzle, exclusions: Array[Node]):
 			"l":
 				tree_positions[parenthesis_depth] *= 2
 				var new_child = puzzle.get_child(tree_positions[parenthesis_depth])
-				new_child.node_rule.hardcoded_connections.append(current_child)
-				current_child.node_rule.hardcoded_connections.append(new_child)
+				new_child.node_rule.hardcoded_connections.append(current_child.get_path())
+				current_child.node_rule.hardcoded_connections.append(new_child.get_path())
 			"r":
 				tree_positions[parenthesis_depth] *= 2
 				tree_positions[parenthesis_depth] += 1
 				var new_child :PuzzleNode = puzzle.get_child(tree_positions[parenthesis_depth])
-				new_child.node_rule.hardcoded_connections.append(current_child)
-				current_child.node_rule.hardcoded_connections.append(new_child)
+				new_child.node_rule.hardcoded_connections.append(current_child.get_path())
+				current_child.node_rule.hardcoded_connections.append(new_child.get_path())
 			"(":
 				parenthesis_depth += 1
 				tree_positions.append(tree_positions[parenthesis_depth-1])

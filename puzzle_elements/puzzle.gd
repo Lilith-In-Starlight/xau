@@ -71,20 +71,20 @@ func _ready():
 				i.connection_changed.connect(_on_connection_changed)
 				i.correctness_unverified.connect(_on_correctness_unverified)
 				i.delete_node_connections_request.connect(_on_delete_node_connections_requested)
-		
+
 		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
 
 		solved = puzzle_data["solved"]
 		correct = puzzle_data["correct"]
-		
+
 		if solved or correct: was_solved.emit()
-		
+
 		for i in get_child_count():
 			var child = get_child(i)
-			
+
 			if not child.is_in_group("PuzzleNode"):
 				continue
-				
+
 			if puzzle_data["connections"].has(str(i)):
 				for j in puzzle_data["connections"][str(i)]:
 					if j is String:
@@ -95,7 +95,7 @@ func _ready():
 					else:
 						if j < get_child_count():
 							child.connections.append(get_child(j))
-		
+
 		if not required_node == null:
 			required_node.was_solved.connect(_on_required_was_solved)
 		if puzzle_id != "default":
@@ -107,11 +107,11 @@ func _ready():
 func _input(_event: InputEvent) -> void:
 	if not is_visible or not is_enabled():
 		return
-		
-	
+
+
 	if Input.is_action_just_pressed("connect"):
 		display_connections()
-	
+
 	if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
 		var unhappy_nodes := get_incorrect_nodes()
 		if unhappy_nodes.is_empty():
@@ -132,7 +132,7 @@ func _input(_event: InputEvent) -> void:
 			add_child(failed_sound)
 			for i in unhappy_nodes:
 				i.show_failure(get_node_color())
-		
+
 		SaveData.save_handler.vsave_value(["puzzles", id], save())
 
 
@@ -148,58 +148,58 @@ func get_incorrect_nodes() -> Array:
 	for i in get_children():
 		if not i.is_in_group("PuzzleNode"):
 			continue
-		
+
 		if i.node_rule is IsoNodeRule:
 			iso_nodes.append(i)
 			if i.node_rule.color in unhappy_graph_colors:
 				unhappy_nodes.append(i)
 				continue
-			
+
 			if not i.node_rule.color in graph_shapes:
 				graph_shapes[i.node_rule.color] = [i, []]
-				
+
 				if i.connections.is_empty():
 					unhappy_nodes.append(i)
 					unhappy_graph_colors.append(i.node_rule.color)
 					continue
-				
+
 				for node_in_graph in i.get_all_nodes_in_graph():
 					graph_shapes[i.node_rule.color][1].append(node_in_graph.get_unique_id())
-					
+
 					if node_in_graph.node_rule is IsoNodeRule and node_in_graph.node_rule.color == i.node_rule.color and not i == node_in_graph:
 						unhappy_nodes.append(i)
 						unhappy_graph_colors.append(i.node_rule.color)
 						break
-					
+
 			else:
 				var current_id := []
-				
+
 				for node_in_graph in i.get_all_nodes_in_graph():
 					current_id.append(node_in_graph.get_unique_id())
-				
+
 				if not compare_arrays_by_content(graph_shapes[i.node_rule.color][1], current_id):
 					unhappy_nodes.append(i)
 					unhappy_nodes.append(graph_shapes[i.node_rule.color][0])
 					unhappy_graph_colors.append(i.node_rule.color)
-		
+
 		elif i.node_rule is HardcodeNodeRule:
 			if hardcode_fail:
 				unhappy_nodes.append(i)
-			
-			elif !i.check(): 
+
+			elif !i.check():
 				hardcode_fail = true
 				unhappy_nodes.append(i)
 				unhappy_nodes.append_array(correct_hardcodes)
 				correct_hardcodes = []
 			else:
 				correct_hardcodes.append(i)
-		
+
 		elif i.node_rule is FixNodeRule:
 			fix_nodes.append(i)
-		
+
 		elif !i.check():
 			unhappy_nodes.append(i)
-	
+
 	if graph_shapes.size() > 1:
 		var black_iso_with :NodeRule.COLORS = NodeRule.COLORS.black
 		var comparisons := []
@@ -207,12 +207,12 @@ func get_incorrect_nodes() -> Array:
 			for color2 in graph_shapes:
 				if color1 == color2:
 					continue
-				
+
 				if [color2, color1] in comparisons:
 					continue
-				
+
 				comparisons.append([color1, color2])
-				
+
 				if compare_arrays_by_content(graph_shapes[color1][1], graph_shapes[color2][1]):
 					if black_iso_with == NodeRule.COLORS.black and (color1 == NodeRule.COLORS.black or color2 == NodeRule.COLORS.black):
 						continue
@@ -222,12 +222,12 @@ func get_incorrect_nodes() -> Array:
 						unhappy_graph_colors.append(color1)
 						unhappy_graph_colors.append(color2)
 						break
-	
+
 	for i in iso_nodes:
 		if i.node_rule.color in unhappy_graph_colors:
 			if not i in unhappy_nodes:
 				unhappy_nodes.append(i)
-	
+
 	for i in fix_nodes:
 		var found_unhappy := false
 		for j in i.get_all_nodes_in_graph():
@@ -237,7 +237,7 @@ func get_incorrect_nodes() -> Array:
 				break
 		if not found_unhappy:
 			unhappy_nodes.append(i)
-	
+
 	return unhappy_nodes
 
 
@@ -367,7 +367,7 @@ func display_connections():
 				for connection in child.connections:
 					if not known_connections.has([connection, child]):
 						known_connections.append([child, connection])
-		
+
 		if known_connections.size() > connection_display.get_child_count():
 			for i in abs(connection_display.get_child_count() - known_connections.size()):
 				var new_line := Line2D.new()
@@ -377,7 +377,7 @@ func display_connections():
 		elif known_connections.size() < connection_display.get_child_count():
 			for i in abs(connection_display.get_child_count() - known_connections.size()):
 				connection_display.remove_child(connection_display.get_child(0))
-		
+
 		for i in known_connections.size():
 			var connection: Array = known_connections[i]
 			var line: Line2D = connection_display.get_child(i)
@@ -397,12 +397,12 @@ func display_connections():
 					line.default_color = get_correct_node_color().lightened(0.7)
 					if !is_enabled():
 						line.default_color = get_off_background_color()
-						
+
 				else:
 					line.width = 1.8
 					line.default_color = Color.WHITE
 				line.points = [connection[0].position, to_local(connection[1].global_position)]
-				
+
 
 
 func _on_correctness_unverified():
@@ -450,23 +450,23 @@ func apply_matrix_transform(vec: Vector2) -> Vector2:
 
 func compare_arrays_by_content(array1: Array, array2: Array) -> bool:
 	var test_array_1 :Array = array1.duplicate()
-			
+
 	var identical := true
 	var test_array_2 = array2.duplicate()
-	
+
 	if test_array_2.size() != test_array_1.size():
 		identical = false
-	
+
 	while not test_array_2.is_empty() and identical == true:
 		var match_find := test_array_1.find(test_array_2[test_array_2.size() - 1])
-		
+
 		if match_find == -1:
 			identical = false
 			break
-		
+
 		test_array_2.pop_back()
 		test_array_1.pop_at(match_find)
-	
+
 	return identical
 
 
