@@ -82,6 +82,14 @@ position = Vector2(-1452, 202)
 [node name="AreaTransition9" parent="StatesDefiner/outside" instance=ExtResource("2")]
 position = Vector2(-1453, -26)
 
+[node name="AreaTransition10" parent="StatesDefiner/outside" instance=ExtResource("2")]
+position = Vector2(360, 1901)
+scale = Vector2(1, 0.44)
+
+[node name="AreaTransition11" parent="StatesDefiner/outside" instance=ExtResource("2")]
+position = Vector2(360, 1687)
+scale = Vector2(1, 0.44)
+
 [node name="transition_to_forest" type="Node" parent="StatesDefiner"]
 
 [node name="AreaTransition10" parent="StatesDefiner/transition_to_forest" instance=ExtResource("2")]
@@ -99,6 +107,16 @@ position = Vector2(154, 553)
 
 [node name="AreaTransition13" parent="StatesDefiner/exit_hall" instance=ExtResource("2")]
 position = Vector2(155, 1243)
+
+[node name="transition_to_cycles" type="Node" parent="StatesDefiner"]
+
+[node name="AreaTransition10" parent="StatesDefiner/transition_to_cycles" instance=ExtResource("2")]
+position = Vector2(360, 1888)
+scale = Vector2(1, 0.44)
+
+[node name="AreaTransition11" parent="StatesDefiner/transition_to_cycles" instance=ExtResource("2")]
+position = Vector2(360, 1701)
+scale = Vector2(1, 0.44)
 
 [node name="House" parent="." instance=ExtResource("1")]
 
@@ -126,11 +144,23 @@ texture = ExtResource("10")
 offset = Vector2(0, -145)
 script = ExtResource("12")
 
+[node name="HouseForestTransitionOutside2" type="Sprite2D" parent="HouseOutside"]
+position = Vector2(379, 1393)
+texture = ExtResource("10")
+offset = Vector2(0, -145)
+script = ExtResource("12")
+
 [node name="Transition" parent="." instance=ExtResource("12_gbsbi")]
 position = Vector2(-1453, 46)
 to_area = "forest"
 destination_state = "transition_to_first_nexus"
 destination_position = Vector2(285, 128)
+
+[node name="TransitionToCycles" parent="." instance=ExtResource("12_gbsbi")]
+position = Vector2(361, 1752)
+to_area = "cycles"
+destination_state = "transition_to_first_nexus"
+destination_position = Vector2(155, 166)
 
 [node name="Materials" type="Node" parent="."]
 

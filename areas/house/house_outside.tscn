@@ -1578,7 +1578,7 @@ position = Vector2(8, 40)
 [node name="Decoration" type="Node2D" parent="BlueTreeSection"]
 
 [node name="Tree16" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
-position = Vector2(435, 1125)
+position = Vector2(419, 1097)
 species = 1
 
 [node name="Tree17" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
@@ -1630,7 +1630,7 @@ position = Vector2(-41, 1088)
 species = 1
 
 [node name="Tree29" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
-position = Vector2(303, 1165)
+position = Vector2(234, 1164)
 species = 1
 
 [node name="Tree30" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]

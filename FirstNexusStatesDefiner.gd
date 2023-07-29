@@ -27,9 +27,15 @@ func set_visible_objects() -> void:
 			Player.z_index = $"../HouseExit".z_index + 1
 		"outside":
 			AudioServer.set_bus_effect_enabled(1, 0, false)
-			visible_objects = [$"../HouseOutside", $"../Transition"]
+			visible_objects = [$"../HouseOutside",
+				$"../Transition",
+				$"../TransitionToCycles"]
 			Player.z_index = $"../HouseOutside".z_index + 1
 		"transition_to_forest":
 			AudioServer.set_bus_effect_enabled(1, 0, false)
 			visible_objects = [$"../Transition"]
 			Player.z_index = $"../Transition".z_index + 1
+		"transition_to_cycles":
+			AudioServer.set_bus_effect_enabled(1, 0, false)
+			visible_objects = [$"../TransitionToCycles"]
+			Player.z_index = $"../TransitionToCycles".z_index + 1

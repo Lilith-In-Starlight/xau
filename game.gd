@@ -8,7 +8,8 @@ const bg_color := Color("#040404")
 
 const areas := {
 		"first_nexus" : preload("res://areas/FullAreas/FirstArea.tscn"),
-		"forest" : preload("res://areas/FullAreas/ForestArea.tscn")
+		"forest" : preload("res://areas/FullAreas/ForestArea.tscn"),
+		"cycles" : preload("res://areas/FullAreas/CyclesArea.tscn"),
 	}
 
 ## The node that represents the cursor
