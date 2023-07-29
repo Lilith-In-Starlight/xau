@@ -19,7 +19,7 @@ script = ExtResource("1_3j3l8")
 metadata/_edit_vertical_guides_ = [13.0]
 
 [node name="HouseForestTransition" type="Sprite2D" parent="."]
-z_index = -2
+z_as_relative = false
 position = Vector2(0, -55)
 texture = ExtResource("2_a1fcd")
 offset = Vector2(0, 55)

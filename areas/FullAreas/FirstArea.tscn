@@ -135,20 +135,7 @@ z_index = 3
 position = Vector2(126, 539)
 
 [node name="HouseOutside" parent="." instance=ExtResource("3")]
-z_index = 3
 position = Vector2(-18, 504)
-
-[node name="HouseForestTransitionOutside" type="Sprite2D" parent="HouseOutside"]
-position = Vector2(-1435, -313)
-texture = ExtResource("10")
-offset = Vector2(0, -145)
-script = ExtResource("12")
-
-[node name="HouseForestTransitionOutside2" type="Sprite2D" parent="HouseOutside"]
-position = Vector2(379, 1393)
-texture = ExtResource("10")
-offset = Vector2(0, -145)
-script = ExtResource("12")
 
 [node name="Transition" parent="." instance=ExtResource("12_gbsbi")]
 position = Vector2(-1453, 46)
@@ -161,6 +148,18 @@ position = Vector2(361, 1752)
 to_area = "cycles"
 destination_state = "transition_to_first_nexus"
 destination_position = Vector2(155, 166)
+
+[node name="HouseForestTransitionOutside" type="Sprite2D" parent="."]
+position = Vector2(-1453, 191)
+texture = ExtResource("10")
+offset = Vector2(0, -145)
+script = ExtResource("12")
+
+[node name="HouseForestTransitionOutside2" type="Sprite2D" parent="."]
+position = Vector2(361, 1897)
+texture = ExtResource("10")
+offset = Vector2(0, -145)
+script = ExtResource("12")
 
 [node name="Materials" type="Node" parent="."]
 

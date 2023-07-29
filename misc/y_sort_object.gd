@@ -35,7 +35,6 @@ func _process(_delta: float) -> void:
 
 				break
 
-
 	if player_node.global_position.y < y_limit and z_index != 1:
 		z_index = 1
 	elif player_node.global_position.y >= y_limit and z_index != 0:
