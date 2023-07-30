@@ -6,6 +6,12 @@ static var state :String
 var visible_objects :Array
 @onready var tween: Tween = null
 
+
+func _ready():
+	var s :String = SaveData.save_handler.get_value("player_state", "first_room")
+	update_state(s, false)
+
+
 func set_visible_objects():
 	pass
 
@@ -44,3 +50,6 @@ func update_state(set_to: String, transition := true):
 		if not tweened:
 			tween.kill()
 
+
+func _on_area_transitioned(to: String) -> void:
+	update_state(to)

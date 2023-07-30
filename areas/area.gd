@@ -10,5 +10,3 @@ func _ready() -> void:
 	get_tree().call_group("Puzzle", "update_enabled_visuals")
 	get_tree().call_group("AreaLoaders", "connect", "area_switched", self, "_on_area_switched")
 	get_tree().call_group("MaterialAreas", "connect_to", player_node)
-	var s :String = SaveData.save_handler.get_value("player_state", "first_room")
-	$StatesDefiner.update_state(s, false)
