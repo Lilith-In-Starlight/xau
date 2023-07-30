@@ -911,6 +911,10 @@ position = Vector2(64, 16)
 position = Vector2(8, 0)
 scale = Vector2(0.5, 4)
 
+[node name="Blockade2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid11" instance=ExtResource("14_nupm0")]
+position = Vector2(24, 0)
+scale = Vector2(0.5, 4)
+
 [node name="PuzzleGrid12" parent="BlueTreeSection/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(1147, 1280)
 node_arrangement = SubResource("Resource_qnw61")
