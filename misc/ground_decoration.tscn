@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwroepr7rt2ft"]
+
+[ext_resource type="Texture2D" uid="uid://cvgl5bgc6fui0" path="res://sprites/misc/floor_elements/blue_section/grass1.png" id="1_gpntf"]
+[ext_resource type="Script" path="res://misc/floor_decoration.gd" id="2_xo4io"]
+
+[node name="GroundDecor" type="Sprite2D"]
+z_index = -1
+texture = ExtResource("1_gpntf")
+script = ExtResource("2_xo4io")

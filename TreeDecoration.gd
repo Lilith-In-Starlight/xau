@@ -40,6 +40,7 @@ const TREE_SPRITES := {
 			preload("res://sprites/misc/trees/blue/tree_1.png"),
 			preload("res://sprites/misc/trees/blue/tree_2.png"),
 			preload("res://sprites/misc/trees/blue/tree_3.png"),
+			preload("res://sprites/misc/trees/blue/tree_4.png"),
 		],
 		COLOR.BONZAI: [
 			preload("res://sprites/misc/trees/orange/bonzai_1.png"),
@@ -68,7 +69,10 @@ func set_style():
 	var flip_to_use := flip
 	if id_to_use <= -1:
 		id_to_use = hash(global_position)%TREE_SPRITES[species].size()
-		flip_to_use = bool(hash(global_position)%2)
+		if hash(global_position)%2 == 0:
+			flip_to_use = true
+		else:
+			flip_to_use = false
 	$Sprite2D.texture = TREE_SPRITES[species][id_to_use]
 	$Sprite2D.offset.y = - $Sprite2D.texture.get_height() / 2.0 + 5.0
 	$Sprite2D/VisibleOnScreenEnabler2D.rect.position.y = - $Sprite2D.texture.get_height()

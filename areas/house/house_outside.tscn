@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://bdchwcglbn74g"]
+[gd_scene load_steps=134 format=3 uid="uid://bdchwcglbn74g"]
 
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bs3efkw03xj00" path="res://sprites/areas/house/house_from_the_outside.png" id="3"]
@@ -7,11 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://diavry2op3hsg" path="res://sprites/misc/area1_path.png" id="11"]
 [ext_resource type="Resource" uid="uid://bfithiiky253y" path="res://puzzle_elements/puzzle_style/PuzzleThemeTreePuzzles.tres" id="11_id4wv"]
 [ext_resource type="Script" path="res://puzzle_elements/puzzle_sequence.gd" id="12_vsbvp"]
+[ext_resource type="PackedScene" uid="uid://cwroepr7rt2ft" path="res://misc/ground_decoration.tscn" id="14_h2tmx"]
 [ext_resource type="PackedScene" uid="uid://doitx77x0wy2l" path="res://puzzle_elements/blockade.tscn" id="14_nupm0"]
 [ext_resource type="Script" path="res://IsomorphNodeRule.gd" id="15_ovqdj"]
+[ext_resource type="Texture2D" uid="uid://7nmrycvutgbt" path="res://sprites/misc/floor_elements/blue_section/grass3.png" id="15_rm5a4"]
 [ext_resource type="Texture2D" uid="uid://cuonaw1hmfk3e" path="res://sprites/misc/wall.png" id="16_8vi3r"]
+[ext_resource type="Texture2D" uid="uid://1hu3g6mp3i3v" path="res://sprites/misc/floor_elements/blue_section/grass2.png" id="16_hdef1"]
 [ext_resource type="Script" path="res://cord.gd" id="16_n1w84"]
 [ext_resource type="Texture2D" uid="uid://cndhnrlesrkfg" path="res://sprites/misc/wall2.png" id="17_ashyq"]
+[ext_resource type="Texture2D" uid="uid://cmr0to5a66yn1" path="res://sprites/misc/floor_elements/blue_section/grass4.png" id="17_qe0bg"]
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="29"]
 [ext_resource type="Script" path="res://NodeArrangementGrid.gd" id="34_1boqa"]
 [ext_resource type="Script" path="res://BranchLenghtNodeRule.gd" id="35_fdoj3"]
@@ -1774,6 +1778,47 @@ position = Vector2(-62, 871)
 
 [node name="Tree37" parent="BlueTreeSection/Decoration" instance=ExtResource("29")]
 position = Vector2(24, 587)
+
+[node name="GroundDecor" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(380, 1429)
+texture = ExtResource("15_rm5a4")
+
+[node name="GroundDecor2" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(514, 1373)
+texture = ExtResource("16_hdef1")
+
+[node name="GroundDecor3" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(305, 1292)
+
+[node name="GroundDecor4" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(906, 1349)
+texture = ExtResource("15_rm5a4")
+
+[node name="GroundDecor5" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(847, 1190)
+texture = ExtResource("15_rm5a4")
+
+[node name="GroundDecor6" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(1307, 1523)
+texture = ExtResource("15_rm5a4")
+
+[node name="GroundDecor7" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(1314, 1110)
+texture = ExtResource("17_qe0bg")
+
+[node name="GroundDecor8" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(850, 982)
+texture = ExtResource("16_hdef1")
+
+[node name="GroundDecor9" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(53, 976)
+texture = ExtResource("16_hdef1")
+
+[node name="GroundDecor10" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(491, 1152)
+
+[node name="GroundDecor11" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
+position = Vector2(1023, 1607)
 
 [node name="YPuzzleSection" type="Node2D" parent="."]
 position = Vector2(-1759, 617)

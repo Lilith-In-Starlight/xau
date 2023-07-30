@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dykith4btuwii"]
+[gd_scene load_steps=73 format=3 uid="uid://dykith4btuwii"]
 
 [ext_resource type="Script" path="res://areas/FullAreas/CyclesStatesDefiner.gd" id="1_vijbp"]
 [ext_resource type="Script" path="res://areas/area.gd" id="1_vkcdo"]
@@ -17,6 +17,10 @@
 [ext_resource type="Script" path="res://cord.gd" id="13_bb04g"]
 [ext_resource type="Script" path="res://PathNodeRule.gd" id="14_j5yj5"]
 [ext_resource type="Script" path="res://BranchLenghtNodeRule.gd" id="15_dir17"]
+[ext_resource type="PackedScene" uid="uid://cwroepr7rt2ft" path="res://misc/ground_decoration.tscn" id="18_2xud6"]
+[ext_resource type="Texture2D" uid="uid://1hu3g6mp3i3v" path="res://sprites/misc/floor_elements/blue_section/grass2.png" id="19_kxrpq"]
+[ext_resource type="Texture2D" uid="uid://7nmrycvutgbt" path="res://sprites/misc/floor_elements/blue_section/grass3.png" id="20_g2fea"]
+[ext_resource type="Texture2D" uid="uid://cmr0to5a66yn1" path="res://sprites/misc/floor_elements/blue_section/grass4.png" id="21_hf2ak"]
 
 [sub_resource type="Resource" id="Resource_vjfwx"]
 resource_local_to_scene = true
@@ -1137,3 +1141,58 @@ species = 1
 [node name="Tree8" parent="Outside/Decoration" instance=ExtResource("5_lprul")]
 position = Vector2(183, -93)
 species = 1
+
+[node name="GroundDecor" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(361, 259)
+texture = ExtResource("19_kxrpq")
+
+[node name="GroundDecor2" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(870, 245)
+texture = ExtResource("20_g2fea")
+
+[node name="GroundDecor3" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(1056, 364)
+texture = ExtResource("21_hf2ak")
+
+[node name="GroundDecor4" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(596, 347)
+texture = ExtResource("21_hf2ak")
+
+[node name="GroundDecor5" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(672, 127)
+texture = ExtResource("19_kxrpq")
+
+[node name="GroundDecor6" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(500, 45)
+
+[node name="GroundDecor7" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(39, 430)
+texture = ExtResource("20_g2fea")
+
+[node name="GroundDecor8" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(752, 547)
+texture = ExtResource("19_kxrpq")
+
+[node name="GroundDecor9" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(1019, 656)
+
+[node name="GroundDecor10" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(711, 783)
+
+[node name="GroundDecor11" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(942, 896)
+texture = ExtResource("21_hf2ak")
+
+[node name="GroundDecor12" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(1140, 463)
+texture = ExtResource("21_hf2ak")
+
+[node name="GroundDecor13" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(650, 490)
+
+[node name="GroundDecor14" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(666, 242)
+
+[node name="GroundDecor15" parent="Outside/Decoration" instance=ExtResource("18_2xud6")]
+position = Vector2(785, 12)
+texture = ExtResource("19_kxrpq")
