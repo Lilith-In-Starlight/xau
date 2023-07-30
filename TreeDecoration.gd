@@ -5,6 +5,7 @@ enum COLOR {
 	ORANGE,
 	BLUE,
 	BONZAI,
+	STATUE
 }
 
 const TREE_SPRITES := {
@@ -43,6 +44,9 @@ const TREE_SPRITES := {
 		COLOR.BONZAI: [
 			preload("res://sprites/misc/trees/orange/bonzai_1.png"),
 		],
+		COLOR.STATUE: [
+			preload("res://sprites/misc/statue2.png"),
+		]
 	}
 
 @export var species: COLOR = COLOR.ORANGE
@@ -69,4 +73,4 @@ func set_style():
 	$Sprite2D.offset.y = - $Sprite2D.texture.get_height() / 2.0 + 5.0
 	$Sprite2D/VisibleOnScreenEnabler2D.rect.position.y = - $Sprite2D.texture.get_height()
 	$Sprite2D.flip_h = flip_to_use
-	
+

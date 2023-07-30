@@ -524,6 +524,11 @@ position = Vector2(-61, 529)
 [node name="Tree16" parent="Outside/Decoration" instance=ExtResource("1")]
 position = Vector2(-199, 418)
 
+[node name="Tree32" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(527, -378)
+species = 3
+force_id = 0
+
 [node name="PuzzleGrid" parent="Outside" instance=ExtResource("5")]
 position = Vector2(-119, 417)
 node_arrangement = SubResource("Resource_25q8t")

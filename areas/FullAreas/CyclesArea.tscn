@@ -298,7 +298,7 @@ position = Vector2(155, 123)
 position = Vector2(155, 166)
 to_area = "first_nexus"
 destination_state = "transition_to_cycles"
-destination_position = Vector2(300, 2136)
+destination_position = Vector2(348, 1898)
 
 [node name="HouseForestTransitionOutside" type="Sprite2D" parent="."]
 position = Vector2(155, 311)
