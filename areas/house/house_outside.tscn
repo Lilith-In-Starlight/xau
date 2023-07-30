@@ -1780,7 +1780,7 @@ position = Vector2(-62, 871)
 position = Vector2(24, 587)
 
 [node name="GroundDecor" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
-position = Vector2(380, 1429)
+position = Vector2(477, 1546)
 texture = ExtResource("15_rm5a4")
 
 [node name="GroundDecor2" parent="BlueTreeSection/Decoration" instance=ExtResource("14_h2tmx")]
