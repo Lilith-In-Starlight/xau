@@ -178,7 +178,7 @@ color = 0
 [sub_resource type="Resource" id="Resource_oyycp"]
 script = ExtResource("15_dir17")
 required_length = 4
-color = 0
+color = 4
 
 [sub_resource type="Resource" id="Resource_ifp14"]
 script = ExtResource("15_dir17")
@@ -188,7 +188,7 @@ color = 2
 [sub_resource type="Resource" id="Resource_a6ns0"]
 script = ExtResource("15_dir17")
 required_length = 4
-color = 0
+color = 4
 
 [sub_resource type="Resource" id="Resource_teo53"]
 script = ExtResource("12_4mv32")
@@ -959,7 +959,7 @@ position = Vector2(46, 16)
 scale = Vector2(4, 1)
 
 [node name="Cable15" type="Line2D" parent="Outside/PuzzleSequence"]
-points = PackedVector2Array(871, 735, 851, 735, 851, 804, 871, 804)
+points = PackedVector2Array(871, 735, 855, 735, 855, 804, 871, 804)
 width = 2.0
 default_color = Color(0.733333, 0.403922, 0, 1)
 script = ExtResource("13_bb04g")
@@ -968,7 +968,7 @@ off_color = Color(0.733333, 0.403922, 0, 1)
 required_puzzle = NodePath("../PuzzleGrid15")
 
 [node name="Cable16" type="Line2D" parent="Outside/PuzzleSequence"]
-points = PackedVector2Array(939, 735, 958, 735, 958, 804, 938, 804)
+points = PackedVector2Array(939, 735, 955, 735, 955, 804, 938, 804)
 width = 2.0
 default_color = Color(0.733333, 0.403922, 0, 1)
 script = ExtResource("13_bb04g")
