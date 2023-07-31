@@ -9,7 +9,7 @@ func _ready() -> void:
 	if depth_line != null:
 		for i in depth_line.points:
 			points.append(i + depth_line.global_position)
-		depth_line.free()
+		depth_line.queue_free()
 
 
 func _process(_delta: float) -> void:
