@@ -862,16 +862,24 @@ position = Vector2(48, 48)
 node_rule = SubResource("Resource_dtqxq")
 
 [node name="Blockade" parent="Outside/PuzzleSequence/PuzzleGrid14" instance=ExtResource("13_63yai")]
-position = Vector2(8, 8)
+position = Vector2(8, 12)
+scale = Vector2(1, 3)
 
 [node name="Blockade2" parent="Outside/PuzzleSequence/PuzzleGrid14" instance=ExtResource("13_63yai")]
-position = Vector2(8, 40)
+position = Vector2(13, 40)
+scale = Vector2(3, 1)
+
+[node name="Blockade8" parent="Outside/PuzzleSequence/PuzzleGrid14" instance=ExtResource("13_63yai")]
+position = Vector2(13, 40)
+scale = Vector2(3, 1)
 
 [node name="Blockade3" parent="Outside/PuzzleSequence/PuzzleGrid14" instance=ExtResource("13_63yai")]
-position = Vector2(40, 40)
+position = Vector2(40, 36)
+scale = Vector2(1, 3)
 
 [node name="Blockade4" parent="Outside/PuzzleSequence/PuzzleGrid14" instance=ExtResource("13_63yai")]
-position = Vector2(40, 8)
+position = Vector2(35, 8)
+scale = Vector2(3, 1)
 
 [node name="Blockade5" parent="Outside/PuzzleSequence/PuzzleGrid14" instance=ExtResource("13_63yai")]
 position = Vector2(24, 24)
@@ -947,6 +955,12 @@ position = Vector2(48, 48)
 
 [node name="Blockade" parent="Outside/PuzzleSequence/PuzzleGrid15" instance=ExtResource("13_63yai")]
 position = Vector2(16, 24)
+
+[node name="Blockade6" parent="Outside/PuzzleSequence/PuzzleGrid15" instance=ExtResource("13_63yai")]
+position = Vector2(16, 8)
+
+[node name="Blockade7" parent="Outside/PuzzleSequence/PuzzleGrid15" instance=ExtResource("13_63yai")]
+position = Vector2(8, 16)
 
 [node name="Blockade2" parent="Outside/PuzzleSequence/PuzzleGrid15" instance=ExtResource("13_63yai")]
 position = Vector2(32, 8)
