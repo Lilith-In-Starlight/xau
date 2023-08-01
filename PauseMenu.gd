@@ -51,6 +51,7 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
+		SaveData.save_handler.save_profile_data()
 		$Background/Paused/ProfilePanel.set_profile(SaveData.save_handler.profile)
 		get_tree().paused = !get_tree().paused
 		set_gui_state(&"pause")
