@@ -22,7 +22,9 @@ var was_safe := true
 
 var current_area := "first_nexus"
 
+
 func _ready():
+	get_tree().create_timer(1).timeout.connect(add_one_second)
 	$Camera2D.position = $Character.position
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	set_current_area(SaveData.save_handler.get_value("current_area", "first_nexus"), false)
@@ -83,3 +85,8 @@ func set_current_area(to: String, save := true):
 		AreaNode.add_to_group("World")
 		add_child(AreaNode)
 		AreaNode.z_as_relative = false
+
+
+func add_one_second():
+	SaveData.save_handler.profile_data["seconds"] += 1
+	get_tree().create_timer(1).timeout.connect(add_one_second)

@@ -117,6 +117,7 @@ func _input(_event: InputEvent) -> void:
 		if unhappy_nodes.is_empty():
 			show_correct()
 			if not correct:
+				SaveData.save_handler.profile_data["puzzles"] += 1
 				SaveData.save_handler.screenshot = await SaveData.take_screenshot()
 				SaveData.save_handler.store_screenshot()
 				correct = true
