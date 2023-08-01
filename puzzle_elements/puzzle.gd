@@ -262,7 +262,10 @@ func show_correct():
 		if not i.name == "NoNode":
 			var tween = i.create_tween()
 			if i.is_in_group("PuzzleNode"):
+				var tween2 = i.create_tween()
 				tween.tween_property(i.circle, "modulate", get_correct_node_color(), 0.2)
+				tween2.tween_property(i.circle, "scale", Vector2(1.2, 1.1), 0.1)
+				tween2.tween_property(i.circle, "scale", Vector2(1, 1), 0.1)
 			else:
 				tween.tween_property(i, "modulate", get_correct_node_color(), 0.2)
 			tween.play()

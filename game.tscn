@@ -291,6 +291,10 @@ alignment = 1
 layout_mode = 2
 text = "Fullscreen"
 
+[node name="ConnectNodesWithoutHolding" type="CheckButton" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
+layout_mode = 2
+text = "Require Holding Buttons"
+
 [node name="NodeColorsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
 layout_mode = 2
 text = "Change Symbol Colors"
@@ -756,6 +760,7 @@ autoplay = true
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Profiles/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Profiles/ProfilesScroll/ProfileUI/CreateNewProfile" to="Camera2D/CanvasLayer/Control" method="_on_create_new_profile_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/FullscreenButton" to="Camera2D/CanvasLayer/Control" method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/ConnectNodesWithoutHolding" to="Camera2D/CanvasLayer/Control" method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/NodeColorsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Credits/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
