@@ -293,7 +293,7 @@ text = "Fullscreen"
 
 [node name="NodeColorsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
 layout_mode = 2
-text = "Change Node Colors"
+text = "Change Symbol Colors"
 
 [node name="Back" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
 layout_mode = 2
