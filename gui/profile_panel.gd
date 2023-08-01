@@ -59,8 +59,10 @@ func set_profile(profile: int):
 		return
 	var hours = handler.profile_data["seconds"] / 3600.0
 	var int_hours = int(hours)
-	var minutes = int((hours - int_hours) * 60)
-	$HBoxContainer/Info/Data/Info.text = "%02d:%02d\n%d/%s" % [int_hours, minutes, handler.profile_data["puzzles"], "WIP"]
+	var minutes = (hours - int_hours) * 60
+	var int_minutes = int(minutes)
+	var seconds = (minutes - int_minutes) * 60
+	$HBoxContainer/Info/Data/Info.text = "%02d:%02d:%02d\n%d/%s" % [int_hours, int_minutes, seconds, handler.profile_data["puzzles"], "93"]
 	$HBoxContainer/Info/Data/Name.text = handler.profile_data["name"]
 	handler.load_screenshot()
 	var img := ImageTexture.create_from_image(handler.screenshot)

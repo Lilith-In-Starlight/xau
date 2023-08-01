@@ -223,6 +223,9 @@ func _on_delete_profile_pressed() -> void:
 	for index in ProfileList.get_child_count():
 		if index == SaveData.save_handler.profile and index >= handling_profile:
 			SaveData.save_handler.profile -= 1
+			var file := FileAccess.open("user://.currentprofile", FileAccess.WRITE)
+			file.store_string(str(SaveData.save_handler.profile))
+			file.close()
 
 		if index > handling_profile:
 			var true_index = index - 1

@@ -67,7 +67,6 @@ position_smoothing_speed = 8.0
 script = ExtResource("12")
 
 [node name="Tutorial" parent="Camera2D" instance=ExtResource("11")]
-visible = false
 position = Vector2(-0.5, 9)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
@@ -496,10 +495,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 47.0
-offset_top = -50.0
-offset_right = 241.0
-offset_bottom = 242.0
+offset_left = 55.0
+offset_top = -46.0
+offset_right = 245.0
+offset_bottom = 246.0
 grow_horizontal = 2
 grow_vertical = 2
 edit_alpha = false
