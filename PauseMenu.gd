@@ -221,6 +221,9 @@ func add_profile_panel(p) -> void:
 
 func _on_delete_profile_pressed() -> void:
 	for index in ProfileList.get_child_count():
+		if index == SaveData.save_handler.profile and index >= handling_profile:
+			SaveData.save_handler.profile -= 1
+
 		if index > handling_profile:
 			var true_index = index - 1
 			DirAccess.rename_absolute("user://profiles/%d" % index, "user://profiles/%d" % true_index)
