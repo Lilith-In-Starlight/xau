@@ -105,7 +105,8 @@ offset_right = 35.5
 offset_bottom = -107.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "OPTIONS"
+text = "PAUSE"
+horizontal_alignment = 1
 
 [node name="Paused" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
 visible = false
@@ -265,7 +266,6 @@ layout_mode = 2
 text = "New Profile"
 
 [node name="Options" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -492,10 +492,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 7.0
-offset_top = -70.0
-offset_right = 221.0
-offset_bottom = 222.0
+offset_left = 31.0
+offset_top = -58.0
+offset_right = 233.0
+offset_bottom = 234.0
 grow_horizontal = 2
 grow_vertical = 2
 edit_alpha = false

@@ -31,7 +31,6 @@ ResolutionHandler="*res://resolution_handler.gd"
 
 window/size/viewport_width=576
 window/size/viewport_height=324
-window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

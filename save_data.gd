@@ -29,6 +29,11 @@ func _ready():
 
 	save_handler.load_data()
 
+	if save_handler.vget_value(["options", "fullscreen"], true):
+		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+	else:
+		get_window().mode = Window.MODE_WINDOWED
+
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("confirm"):

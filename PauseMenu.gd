@@ -172,6 +172,7 @@ func set_gui_state(state: StringName):
 
 func _on_fullscreen_button_pressed() -> void:
 	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
+	SaveData.save_handler.vsave_value(["options", "fullscreen"], get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN)
 
 
 
