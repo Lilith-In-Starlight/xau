@@ -2,6 +2,7 @@ extends Control
 
 signal color_settings_changed
 
+const PROFILE_PANEL = preload("res://gui/profile_panel.tscn")
 
 @onready var BlueColorButton := $Background/ColorSelect/ColorButtons/BlueButton
 @onready var YellowColorButton := $Background/ColorSelect/ColorButtons/YellowButton
@@ -23,20 +24,36 @@ signal color_settings_changed
 @onready var CreditsMenu := $Background/Credits
 @onready var ColorSelectMenu := $Background/ColorSelect
 @onready var ColorSelectPicker := $Background/ColorSelectPicker
+@onready var ProfileList := $Background/Profiles/ProfilesScroll/ProfileUI/ProfileList
 
 var editing_color :int = -1
 
+var handling_profile := -1
+var previous_state := &"pause"
 
 func _ready():
 	BlueColorButton.pressed.connect(open_color_picker.bind(NodeRule.COLORS.blue))
 	YellowColorButton.pressed.connect(open_color_picker.bind(NodeRule.COLORS.yellow))
 	GreenColorButton.pressed.connect(open_color_picker.bind(NodeRule.COLORS.green))
 	PurpleColorButton.pressed.connect(open_color_picker.bind(NodeRule.COLORS.purple))
+	set_gui_state(&"pause")
+
+	if not DirAccess.dir_exists_absolute("user://profiles"):
+		DirAccess.make_dir_absolute("user://profiles")
+
+	var profiles := DirAccess.get_directories_at("user://profiles")
+
+	if not profiles.is_empty():
+		for path in profiles:
+			var last := path.rsplit("/", false, 1)[0] as int
+			add_profile_panel(last)
 
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
+		$Background/Paused/ProfilePanel.set_profile(SaveData.save_handler.profile)
 		get_tree().paused = !get_tree().paused
+		set_gui_state(&"pause")
 
 		if get_tree().paused:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -50,6 +67,7 @@ func _process(_delta: float) -> void:
 	YellowColorButtonIcon.modulate = SaveData.get_node_color(NodeRule.COLORS.yellow)
 	GreenColorButtonIcon.modulate = SaveData.get_node_color(NodeRule.COLORS.green)
 	PurpleColorButtonIcon.modulate = SaveData.get_node_color(NodeRule.COLORS.purple)
+
 
 
 func open_color_picker(color: NodeRule.COLORS):
@@ -74,12 +92,15 @@ func _on_quit_pressed():
 func set_gui_state(state: StringName):
 	match state:
 		&"pause":
+			previous_state = state
 			PauseMenu.visible = true
 			ProfilesMenu.visible = false
 			OptionsMenu.visible = false
 			CreditsMenu.visible = false
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
+			$Background/ProfileRenaming.visible = false
+			$Background/Paused/ProfilePanel.set_profile(SaveData.save_handler.profile)
 		&"options":
 			PauseMenu.visible = false
 			ProfilesMenu.visible = false
@@ -89,12 +110,20 @@ func set_gui_state(state: StringName):
 			ColorSelectPicker.visible = false
 			$Background/Options/Buttons/FullscreenButton.button_pressed = get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN
 		&"profiles":
+			previous_state = state
 			PauseMenu.visible = false
 			ProfilesMenu.visible = true
 			OptionsMenu.visible = false
 			CreditsMenu.visible = false
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
+			$Background/ProfileRenaming.visible = false
+			$Background/ProfileDeleting.visible = false
+			$Background/ProfileSwitching.visible = false
+			var index := 0
+			for i in ProfileList.get_children():
+				i.set_profile(index)
+				index += 1
 		&"credits":
 			PauseMenu.visible = false
 			ProfilesMenu.visible = false
@@ -116,7 +145,114 @@ func set_gui_state(state: StringName):
 			CreditsMenu.visible = false
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = true
+		&"profile_renaming":
+			OptionsMenu.visible = false
+			CreditsMenu.visible = false
+			ColorSelectMenu.visible = false
+			ColorSelectPicker.visible = false
+			$Background/ProfileRenaming.visible = true
+		&"profile_deleting":
+			PauseMenu.visible = false
+			ProfilesMenu.visible = true
+			OptionsMenu.visible = false
+			CreditsMenu.visible = false
+			ColorSelectMenu.visible = false
+			ColorSelectPicker.visible = false
+			$Background/ProfileDeleting.visible = true
+		&"profile_switching":
+			PauseMenu.visible = false
+			ProfilesMenu.visible = true
+			OptionsMenu.visible = false
+			CreditsMenu.visible = false
+			ColorSelectMenu.visible = false
+			ColorSelectPicker.visible = false
+			$Background/ProfileSwitching.visible = true
+
 
 
 func _on_fullscreen_button_pressed() -> void:
 	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
+
+
+
+func _on_profile_panel_rename_request(profile: int) -> void:
+	set_gui_state(&"profile_renaming")
+	handling_profile = profile
+
+
+func _on_profile_panel_delete_request(profile: int) -> void:
+	set_gui_state(&"profile_deleting")
+	handling_profile = profile
+
+
+func _on_save_name_pressed() -> void:
+	var handler := SaveHandler.new()
+	handler.profile = handling_profile
+	handler.load_profile_data()
+	handler.profile_data["name"] = $Background/ProfileRenaming/PanelContainer/VBoxContainer/NameInput.text
+	handler.save_profile_data()
+	handler.free()
+	set_gui_state(previous_state)
+
+
+func _on_discard_name_pressed() -> void:
+	set_gui_state(previous_state)
+
+
+func _on_create_new_profile_pressed() -> void:
+	var new_profile_handler := SaveHandler.new()
+	new_profile_handler.profile = ProfileList.get_child_count()
+	new_profile_handler.save_profile_data()
+	add_profile_panel(ProfileList.get_child_count())
+
+
+func add_profile_panel(p) -> void:
+	var new_panel := PROFILE_PANEL.instantiate()
+	new_panel.set_profile(p)
+	new_panel.rename_request.connect(_on_profile_panel_rename_request)
+	new_panel.delete_request.connect(_on_profile_panel_delete_request)
+	new_panel.switch_to_request.connect(_on_profile_panel_switch_to_request)
+	if p == SaveData.save_handler.profile:
+		new_panel.deletable = false
+		new_panel.switchable = false
+	ProfileList.add_child(new_panel)
+
+
+func _on_delete_profile_pressed() -> void:
+	for index in ProfileList.get_child_count():
+		if index > handling_profile:
+			var true_index = index - 1
+			DirAccess.rename_absolute("user://profiles/%d" % index, "user://profiles/%d" % true_index)
+		elif index == handling_profile:
+			DirAccess.rename_absolute("user://profiles/%d" % index, "user://profiles/-1")
+
+	ProfileList.get_child(handling_profile).free()
+
+
+	var handler := SaveHandler.new()
+	handler.profile = -1
+	handler.delete_profile()
+	handler.free()
+	set_gui_state(&"profiles")
+
+
+func _on_cancel_deletion_pressed() -> void:
+	set_gui_state(&"profiles")
+
+
+func _on_profile_panel_switch_to_request(profile: int) -> void:
+	handling_profile = profile
+	set_gui_state(&"profile_switching")
+
+
+func _on_cancel_switch_pressed() -> void:
+	set_gui_state(&"profiles")
+
+
+func _on_switch_close_pressed() -> void:
+	var file := FileAccess.open("user://.currentprofile", FileAccess.WRITE)
+	file.store_string(str(handling_profile))
+	file.close()
+	get_tree().call_group("Puzzle", "save_data")
+	SaveData.save()
+	get_tree().quit()

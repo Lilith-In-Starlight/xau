@@ -117,6 +117,8 @@ func _input(_event: InputEvent) -> void:
 		if unhappy_nodes.is_empty():
 			show_correct()
 			if not correct:
+				SaveData.save_handler.screenshot = await SaveData.take_screenshot()
+				SaveData.save_handler.store_screenshot()
 				correct = true
 				var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 				solved_sound.stream = preload("res://sfx/xau_puzzle_solve.wav")

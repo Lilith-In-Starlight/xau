@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dcjdjvvoka0jm"]
+[gd_scene load_steps=28 format=3 uid="uid://dcjdjvvoka0jm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://bsbkgyavcb4w0" path="res://music/droning_bass.ogg" id="2"]
@@ -7,8 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://du6gynp5wjdq8" path="res://music/pam_flute_forest.wav" id="5"]
 [ext_resource type="AudioStream" uid="uid://dnxi8tbwk74yk" path="res://music/droning_bass.mp3" id="6"]
 [ext_resource type="Script" path="res://MusicHandler.gd" id="7"]
-[ext_resource type="PackedScene" uid="uid://c3tjbvb0oohyd" path="res://gui/profile_panel.tscn" id="7_wqyaa"]
+[ext_resource type="Script" path="res://gui/profile_panel.gd" id="7_03hrp"]
 [ext_resource type="AudioStream" uid="uid://erg3rqoqa8db" path="res://music/tubular_bell_forest.wav" id="8"]
+[ext_resource type="Texture2D" uid="uid://7nmrycvutgbt" path="res://sprites/misc/floor_elements/blue_section/grass3.png" id="8_01l3m"]
 [ext_resource type="AudioStream" uid="uid://dghj1gbusoejl" path="res://music/little_bells_forest.wav" id="9"]
 [ext_resource type="AudioStream" uid="uid://b0up3wnrcytsj" path="res://music/choir_bass_forest.wav" id="10"]
 [ext_resource type="PackedScene" uid="uid://jt5sc2xuw6dk" path="res://gui/tutorial.tscn" id="11"]
@@ -23,6 +24,30 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk8x4"]
 bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="Gradient" id="Gradient_g51yw"]
+colors = PackedColorArray(1, 1, 1, 0, 0.321728, 0.321728, 0.321728, 0.580392)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ccs0c"]
+gradient = SubResource("Gradient_g51yw")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afck5"]
+texture = SubResource("GradientTexture2D_ccs0c")
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j470r"]
+bg_color = Color(0, 0, 0, 0.909804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a32nv"]
+bg_color = Color(1, 1, 1, 0.301961)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="Game" type="Node2D" groups=["GameNode"]]
 script = ExtResource("1")
@@ -42,6 +67,7 @@ position_smoothing_speed = 8.0
 script = ExtResource("12")
 
 [node name="Tutorial" parent="Camera2D" instance=ExtResource("11")]
+visible = false
 position = Vector2(-0.5, 9)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
@@ -82,6 +108,7 @@ grow_vertical = 2
 text = "OPTIONS"
 
 [node name="Paused" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,45 +117,107 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Paused"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -283.0
-offset_right = -155.0
-grow_horizontal = 0
-grow_vertical = 2
+layout_mode = 0
+offset_left = 299.0
+offset_top = 85.0
+offset_right = 470.0
+offset_bottom = 256.0
 alignment = 1
 
 [node name="ResumeButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
 text = "Resume"
+alignment = 0
 
 [node name="ProfilesButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
 text = "Profiles"
+alignment = 0
 
 [node name="OptionsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
 text = "Options"
+alignment = 0
 
 [node name="CreditsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
 text = "Credits"
+alignment = 0
 
 [node name="QuitButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
 text = "Quit"
+alignment = 0
 
-[node name="ProfilePanel" parent="Camera2D/CanvasLayer/Control/Background/Paused" instance=ExtResource("7_wqyaa")]
+[node name="HSeparator" type="VSeparator" parent="Camera2D/CanvasLayer/Control/Background/Paused"]
 layout_mode = 0
-offset_left = 117.0
-offset_top = 70.0
+offset_left = 288.0
+offset_top = 76.0
+offset_right = 292.0
+offset_bottom = 279.0
+
+[node name="ProfilePanel" type="PanelContainer" parent="Camera2D/CanvasLayer/Control/Background/Paused"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 76.0
 offset_right = 277.0
-offset_bottom = 269.0
+offset_bottom = 253.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_afck5")
+script = ExtResource("7_03hrp")
+vertical = true
 deletable = false
 switchable = false
+
+[node name="HBoxContainer" type="BoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+vertical = true
+
+[node name="Screenshot" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_01l3m")
+expand_mode = 5
+
+[node name="Info" type="BoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Data" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info/Data"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Katie"
+
+[node name="Info" type="Label" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info/Data"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "01:15h 
+15/32"
+
+[node name="Actions" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info"]
+layout_mode = 2
+
+[node name="SwitchButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info/Actions"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "Switch To"
+
+[node name="RenameButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info/Actions"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "Rename"
+
+[node name="DeleteButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info/Actions"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "Delete"
 
 [node name="Profiles" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
 visible = false
@@ -148,19 +237,32 @@ offset_bottom = 305.0
 text = "Back
 "
 
-[node name="Profiles" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Profiles"]
+[node name="ProfilesScroll" type="ScrollContainer" parent="Camera2D/CanvasLayer/Control/Background/Profiles"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -166.0
+offset_left = -269.0
 offset_top = 73.0
-offset_right = 166.0
+offset_right = 269.0
 offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+
+[node name="ProfileUI" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Profiles/ProfilesScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="ProfileList" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Profiles/ProfilesScroll/ProfileUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="CreateNewProfile" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Profiles/ProfilesScroll/ProfileUI"]
+layout_mode = 2
+text = "New Profile"
 
 [node name="Options" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
 visible = false
@@ -390,10 +492,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -126.0
-offset_right = 165.0
-offset_bottom = 166.0
+offset_left = 7.0
+offset_top = -70.0
+offset_right = 221.0
+offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
 edit_alpha = false
@@ -419,6 +521,176 @@ text = "Done"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Undo"
+
+[node name="ProfileRenaming" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Camera2D/CanvasLayer/Control/Background/ProfileRenaming"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j470r")
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera2D/CanvasLayer/Control/Background/ProfileRenaming"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -46.0
+offset_right = 189.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a32nv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer"]
+layout_mode = 2
+
+[node name="NamePrompt" type="Label" parent="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Enter new profile name"
+
+[node name="NameInput" type="LineEdit" parent="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Profile name"
+middle_mouse_paste_enabled = false
+caret_blink = true
+
+[node name="Buttons" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="SaveName" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Save"
+
+[node name="DiscardName" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Discard"
+
+[node name="ProfileDeleting" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Camera2D/CanvasLayer/Control/Background/ProfileDeleting"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j470r")
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera2D/CanvasLayer/Control/Background/ProfileDeleting"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -46.0
+offset_right = 189.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a32nv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ProfileDeleting/PanelContainer"]
+layout_mode = 2
+
+[node name="NamePrompt" type="Label" parent="Camera2D/CanvasLayer/Control/Background/ProfileDeleting/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Are you sure you wish to delete this profile?
+This action cannot be undone"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ProfileDeleting/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="DeleteProfile" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ProfileDeleting/PanelContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete"
+
+[node name="CancelDeletion" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ProfileDeleting/PanelContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="ProfileSwitching" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Camera2D/CanvasLayer/Control/Background/ProfileSwitching"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j470r")
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera2D/CanvasLayer/Control/Background/ProfileSwitching"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -46.0
+offset_right = 113.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a32nv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ProfileSwitching/PanelContainer"]
+layout_mode = 2
+
+[node name="NamePrompt" type="Label" parent="Camera2D/CanvasLayer/Control/Background/ProfileSwitching/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Switching profiles requires re-opening the game"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ProfileSwitching/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="SwitchClose" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ProfileSwitching/PanelContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Switch Profile & Close"
+
+[node name="CancelSwitch" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ProfileSwitching/PanelContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
 
 [node name="Music" type="Node" parent="." groups=["MusicHandler"]]
 script = ExtResource("7")
@@ -477,7 +749,12 @@ autoplay = true
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/OptionsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/CreditsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"credits"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/QuitButton" to="Camera2D/CanvasLayer/Control" method="_on_quit_pressed"]
+[connection signal="rename_request" from="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel" to="Camera2D/CanvasLayer/Control" method="_on_profile_panel_rename_request"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info/Actions/SwitchButton" to="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel" method="_on_switch_button_pressed" flags=18]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info/Actions/RenameButton" to="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel" method="_on_rename_button_pressed" flags=18]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info/Actions/DeleteButton" to="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel" method="_on_delete_button_pressed" flags=18]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Profiles/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Profiles/ProfilesScroll/ProfileUI/CreateNewProfile" to="Camera2D/CanvasLayer/Control" method="_on_create_new_profile_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/FullscreenButton" to="Camera2D/CanvasLayer/Control" method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/NodeColorsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
@@ -485,3 +762,9 @@ autoplay = true
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons/DoneButton" to="Camera2D/CanvasLayer/Control" method="_on_done_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons/RegretButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer/VBoxContainer/Buttons/SaveName" to="Camera2D/CanvasLayer/Control" method="_on_save_name_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer/VBoxContainer/Buttons/DiscardName" to="Camera2D/CanvasLayer/Control" method="_on_discard_name_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileDeleting/PanelContainer/VBoxContainer/Buttons/DeleteProfile" to="Camera2D/CanvasLayer/Control" method="_on_delete_profile_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileDeleting/PanelContainer/VBoxContainer/Buttons/CancelDeletion" to="Camera2D/CanvasLayer/Control" method="_on_cancel_deletion_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileSwitching/PanelContainer/VBoxContainer/Buttons/SwitchClose" to="Camera2D/CanvasLayer/Control" method="_on_switch_close_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileSwitching/PanelContainer/VBoxContainer/Buttons/CancelSwitch" to="Camera2D/CanvasLayer/Control" method="_on_cancel_switch_pressed"]

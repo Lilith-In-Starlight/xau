@@ -18,37 +18,40 @@ expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
 [node name="ProfilePanel" type="PanelContainer"]
-offset_right = 272.0
-offset_bottom = 276.0
+anchors_preset = -1
+anchor_right = 0.76
+anchor_bottom = 0.293
+offset_right = 0.23996
+offset_bottom = 0.0679932
 theme_override_styles/panel = SubResource("StyleBoxTexture_afck5")
 script = ExtResource("1_oymxv")
-vertical = true
 
 [node name="HBoxContainer" type="BoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 20
-vertical = true
 
 [node name="Screenshot" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 texture = ExtResource("1_utmnm")
-expand_mode = 5
+expand_mode = 3
 
 [node name="Info" type="BoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+vertical = true
 
 [node name="Data" type="VBoxContainer" parent="HBoxContainer/Info"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
 [node name="Name" type="Label" parent="HBoxContainer/Info/Data"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 17
 text = "Katie"
 
 [node name="Info" type="Label" parent="HBoxContainer/Info/Data"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 12
 text = "01:15h 
 15/32"
 
