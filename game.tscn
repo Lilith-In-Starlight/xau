@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dcjdjvvoka0jm"]
+[gd_scene load_steps=22 format=3 uid="uid://dcjdjvvoka0jm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://bsbkgyavcb4w0" path="res://music/droning_bass.ogg" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://du6gynp5wjdq8" path="res://music/pam_flute_forest.wav" id="5"]
 [ext_resource type="AudioStream" uid="uid://dnxi8tbwk74yk" path="res://music/droning_bass.mp3" id="6"]
 [ext_resource type="Script" path="res://MusicHandler.gd" id="7"]
+[ext_resource type="PackedScene" uid="uid://c3tjbvb0oohyd" path="res://gui/profile_panel.tscn" id="7_wqyaa"]
 [ext_resource type="AudioStream" uid="uid://erg3rqoqa8db" path="res://music/tubular_bell_forest.wav" id="8"]
 [ext_resource type="AudioStream" uid="uid://dghj1gbusoejl" path="res://music/little_bells_forest.wav" id="9"]
 [ext_resource type="AudioStream" uid="uid://b0up3wnrcytsj" path="res://music/choir_bass_forest.wav" id="10"]
@@ -90,15 +91,13 @@ grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Paused"]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -90.0
-offset_top = 73.0
-offset_right = 90.0
-offset_bottom = -18.0
-grow_horizontal = 2
+offset_left = -283.0
+offset_right = -155.0
+grow_horizontal = 0
 grow_vertical = 2
 alignment = 1
 
@@ -121,6 +120,15 @@ text = "Credits"
 [node name="QuitButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
 text = "Quit"
+
+[node name="ProfilePanel" parent="Camera2D/CanvasLayer/Control/Background/Paused" instance=ExtResource("7_wqyaa")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 70.0
+offset_right = 277.0
+offset_bottom = 269.0
+deletable = false
+switchable = false
 
 [node name="Profiles" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
 visible = false
@@ -180,10 +188,6 @@ alignment = 1
 [node name="FullscreenButton" type="CheckButton" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
 layout_mode = 2
 text = "Fullscreen"
-
-[node name="PatternsButton" type="CheckButton" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
-layout_mode = 2
-text = "Distinguish Color Using Patterns"
 
 [node name="NodeColorsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
 layout_mode = 2
@@ -386,10 +390,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -146.0
-offset_right = 145.0
-offset_bottom = 146.0
+offset_left = -105.0
+offset_top = -126.0
+offset_right = 165.0
+offset_bottom = 166.0
 grow_horizontal = 2
 grow_vertical = 2
 edit_alpha = false

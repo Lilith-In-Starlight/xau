@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3tjbvb0oohyd"]
+
+[ext_resource type="Script" path="res://gui/profile_panel.gd" id="1_oymxv"]
+[ext_resource type="Texture2D" uid="uid://7nmrycvutgbt" path="res://sprites/misc/floor_elements/blue_section/grass3.png" id="1_utmnm"]
+
+[sub_resource type="Gradient" id="Gradient_g51yw"]
+colors = PackedColorArray(1, 1, 1, 0, 0.321728, 0.321728, 0.321728, 0.580392)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ccs0c"]
+gradient = SubResource("Gradient_g51yw")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afck5"]
+texture = SubResource("GradientTexture2D_ccs0c")
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="ProfilePanel" type="PanelContainer"]
+offset_right = 272.0
+offset_bottom = 276.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_afck5")
+script = ExtResource("1_oymxv")
+vertical = true
+
+[node name="HBoxContainer" type="BoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+vertical = true
+
+[node name="Screenshot" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_utmnm")
+expand_mode = 5
+
+[node name="Info" type="BoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Data" type="VBoxContainer" parent="HBoxContainer/Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="HBoxContainer/Info/Data"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Katie"
+
+[node name="Info" type="Label" parent="HBoxContainer/Info/Data"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "01:15h 
+15/32"
+
+[node name="Actions" type="HBoxContainer" parent="HBoxContainer/Info"]
+layout_mode = 2
+
+[node name="SwitchButton" type="Button" parent="HBoxContainer/Info/Actions"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "Switch To"
+
+[node name="RenameButton" type="Button" parent="HBoxContainer/Info/Actions"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "Rename"
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer/Info/Actions"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "Delete"
+
+[connection signal="pressed" from="HBoxContainer/Info/Actions/SwitchButton" to="." method="_on_switch_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Info/Actions/RenameButton" to="." method="_on_rename_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Info/Actions/DeleteButton" to="." method="_on_delete_button_pressed"]
