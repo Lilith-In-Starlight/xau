@@ -80,55 +80,212 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "OPTIONS"
 
-[node name="ColorPicker" type="ColorPicker" parent="Camera2D/CanvasLayer/Control/Background"]
-visible = false
+[node name="Paused" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -121.0
-offset_top = -130.0
-offset_right = 157.0
-offset_bottom = 232.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 0.8)
-edit_alpha = false
-can_add_swatches = false
-color_modes_visible = false
-sliders_visible = false
-hex_visible = false
-presets_visible = false
 
-[node name="Buttons" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ColorPicker"]
+[node name="Buttons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Paused"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = 73.0
+offset_right = 90.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
+text = "Resume"
 
-[node name="DoneButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorPicker/Buttons"]
+[node name="ProfilesButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Done"
+text = "Profiles"
 
-[node name="RegretButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorPicker/Buttons"]
+[node name="OptionsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Undo"
+text = "Options"
 
-[node name="ColorButtons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background"]
+[node name="CreditsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Profiles" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Profiles"]
+layout_mode = 2
+offset_left = 198.0
+offset_top = 274.0
+offset_right = 378.0
+offset_bottom = 305.0
+text = "Back
+"
+
+[node name="Profiles" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Profiles"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_top = 73.0
+offset_right = 166.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Options" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/Options"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = 73.0
+offset_right = 90.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="FullscreenButton" type="CheckButton" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="PatternsButton" type="CheckButton" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
+layout_mode = 2
+text = "Distinguish Color Using Patterns"
+
+[node name="NodeColorsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
+layout_mode = 2
+text = "Change Node Colors"
+
+[node name="Back" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="Credits" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits" type="RichTextLabel" parent="Camera2D/CanvasLayer/Control/Background/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 67.0
+offset_right = -40.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "[b]FreeType[/b]
+    Portions of this software are copyright © 2000 The FreeType Project (www.freetype.org). All rights reserved.
+
+[b]ENet[/b]
+    Copyright (c) 2002-2020 Lee Salzman
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[b]mbed TLS[/b]
+
+
+    Copyright The Mbed TLS Contributors
+
+    Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+[b]Godot Engine[/b]
+
+
+    This game uses Godot Engine, available under the following license:
+
+    Copyright (c) 2014-present Godot Engine contributors. Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+"
+
+[node name="Back" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Credits"]
+layout_mode = 2
+offset_left = 264.0
+offset_top = 275.0
+offset_right = 309.0
+offset_bottom = 306.0
+text = "Back
+"
+
+[node name="ColorSelect" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorButtons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect"]
 layout_direction = 2
 layout_mode = 0
 offset_left = 227.0
 offset_top = 98.0
 offset_right = 362.0
-offset_bottom = 138.0
+offset_bottom = 234.0
 alignment = 1
 
-[node name="BlueButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons"]
+[node name="BlueButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons"]
 layout_mode = 2
 text = "Change Color 1"
 
-[node name="Icon2" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/BlueButton"]
+[node name="Icon2" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/BlueButton"]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 13.0
@@ -136,7 +293,7 @@ offset_right = 5.0
 offset_bottom = 22.0
 texture = ExtResource("14_gj6lc")
 
-[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/BlueButton"]
+[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/BlueButton"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -4.0
@@ -145,11 +302,11 @@ offset_right = 4.0
 offset_bottom = 21.0
 texture = ExtResource("15_6cith")
 
-[node name="YellowButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons"]
+[node name="YellowButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons"]
 layout_mode = 2
 text = "Change Color 2"
 
-[node name="Icon3" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/YellowButton"]
+[node name="Icon3" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/YellowButton"]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 11.0
@@ -157,7 +314,7 @@ offset_right = 5.0
 offset_bottom = 20.0
 texture = ExtResource("14_gj6lc")
 
-[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/YellowButton"]
+[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/YellowButton"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -4.0
@@ -166,11 +323,11 @@ offset_right = 5.0
 offset_bottom = 20.0
 texture = ExtResource("15_6cith")
 
-[node name="GreenButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons"]
+[node name="GreenButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons"]
 layout_mode = 2
 text = "Change Color 3"
 
-[node name="Icon4" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/GreenButton"]
+[node name="Icon4" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/GreenButton"]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 12.0
@@ -178,7 +335,7 @@ offset_right = 5.0
 offset_bottom = 21.0
 texture = ExtResource("14_gj6lc")
 
-[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/GreenButton"]
+[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/GreenButton"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -4.0
@@ -187,11 +344,11 @@ offset_right = 5.0
 offset_bottom = 21.0
 texture = ExtResource("15_6cith")
 
-[node name="PurpleButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons"]
+[node name="PurpleButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons"]
 layout_mode = 2
 text = "Change Color 4"
 
-[node name="Icon5" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/PurpleButton"]
+[node name="Icon5" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/PurpleButton"]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 12.0
@@ -199,7 +356,7 @@ offset_right = 5.0
 offset_bottom = 21.0
 texture = ExtResource("14_gj6lc")
 
-[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorButtons/PurpleButton"]
+[node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/PurpleButton"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -4.0
@@ -208,20 +365,56 @@ offset_right = 5.0
 offset_bottom = 21.0
 texture = ExtResource("15_6cith")
 
-[node name="QuitButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background"]
+[node name="Back" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="ColorSelectPicker" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -265.0
-offset_top = -51.0
-offset_right = -223.0
-offset_bottom = -20.0
 grow_horizontal = 2
-grow_vertical = 0
-text = "Quit"
+grow_vertical = 2
+
+[node name="ColorPicker" type="ColorPicker" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -146.0
+offset_right = 145.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+edit_alpha = false
+can_add_swatches = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="Buttons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker"]
+layout_mode = 2
+offset_left = 441.0
+offset_top = 17.0
+offset_right = 533.0
+offset_bottom = 83.0
+
+[node name="DoneButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Done"
+
+[node name="RegretButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Undo"
 
 [node name="Music" type="Node" parent="." groups=["MusicHandler"]]
 script = ExtResource("7")
@@ -276,6 +469,15 @@ stream = ExtResource("14_m5ppm")
 volume_db = -80.0
 autoplay = true
 
-[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorPicker/Buttons/DoneButton" to="Camera2D/CanvasLayer/Control" method="_on_done_pressed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorPicker/Buttons/RegretButton" to="Camera2D/CanvasLayer/Control" method="_on_regret_pressed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/QuitButton" to="Camera2D/CanvasLayer/Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/ProfilesButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"profiles"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/OptionsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/CreditsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"credits"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/QuitButton" to="Camera2D/CanvasLayer/Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Profiles/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/FullscreenButton" to="Camera2D/CanvasLayer/Control" method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/NodeColorsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Credits/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons/DoneButton" to="Camera2D/CanvasLayer/Control" method="_on_done_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons/RegretButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]
