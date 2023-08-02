@@ -22,6 +22,8 @@ var was_safe := true
 
 var current_area := "first_nexus"
 
+var fullscreen_workaround := false
+
 
 func _ready():
 	get_tree().paused = false
@@ -31,9 +33,12 @@ func _ready():
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("fullscreen"):
-		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
-		get_window().borderless = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
+	if not fullscreen_workaround:
+		fullscreen_workaround = true
+		if SaveData.save_handler.vget_value(["options", "fullscreen"], true):
+			get_window().mode = Window.MODE_FULLSCREEN
+		else:
+			get_window().mode = Window.MODE_WINDOWED
 	var a = PlayerNode.position.length()
 	var b = CursorNode.position.length()
 	if get_viewport().get_mouse_position().x > DisplayServer.get_display_safe_area().size.x:
@@ -83,7 +88,7 @@ func set_current_area(to: String, save := true):
 			AreaNode.queue_free()
 		AreaNode = areas[to].instantiate()
 		AreaNode.add_to_group("World")
-		add_child(AreaNode)
+		add_child.call_deferred(AreaNode)
 		AreaNode.z_as_relative = false
 
 
