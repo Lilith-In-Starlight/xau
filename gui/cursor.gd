@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Cursor
 
-## The cursor used in the game. 
+## The cursor used in the game.
 ##
 ## It is supposed to be a physical entity in the game
 ## And it is animated, so the software's way of using a custom cursor should not be
@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 	var pos_delta :Vector2 = position - past_pos
 	sprite.speed_scale = 1 + pos_delta.length() / 20.0
 	past_pos = position
-	
+
 	var abs_delta_x = abs(pos_delta.x * pos_delta.x)
 	var angle_mult = min(abs_delta_x / 20.0, 0.8)
 
@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 		sprite.rotation = lerp_angle(sprite.rotation, deg_to_rad(45 * angle_mult), 0.2)
 	else:
 		sprite.rotation = lerp_angle(sprite.rotation, 0.0, 0.2)
-	
+
 	if connecting_from != null:
 		connection_line.visible = true
 		connection_raycast.position = connecting_from.global_position - global_position
@@ -59,13 +59,15 @@ func _process(_delta: float) -> void:
 
 
 func _input(_event: InputEvent) -> void:
+	var hold_mode :bool = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
 	if Input.is_action_just_pressed("noconnect"):
 		if connecting_from:
 			connecting_from.queue_redraw()
 			connecting_from = null
-	if Input.is_action_just_released("connect") or Input.is_action_just_released("noconnect"):
+
+	if (Input.is_action_just_released("connect") or Input.is_action_just_released("noconnect")) and hold_mode:
 		connecting_from = null
-			
+
 	if Input.is_action_just_pressed("confirm"):
 		connecting_from = null
 
@@ -73,7 +75,7 @@ func _input(_event: InputEvent) -> void:
 func change_blink(to: bool) -> void:
 	if not to:
 		return
-		
+
 	$Blinker.play("Blink")
 	if not $Alarm.playing:
 		$Alarm.play()

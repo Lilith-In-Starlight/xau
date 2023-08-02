@@ -109,7 +109,10 @@ func set_gui_state(state: StringName):
 			CreditsMenu.visible = false
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
+
+			$Background/Options/Buttons/HoldMode.button_pressed = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
 			$Background/Options/Buttons/FullscreenButton.button_pressed = get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN
+
 		&"profiles":
 			previous_state = state
 			PauseMenu.visible = false
@@ -264,3 +267,9 @@ func _on_switch_close_pressed() -> void:
 	get_tree().call_group("Puzzle", "save_data")
 	SaveData.save()
 	get_tree().quit()
+
+
+func _on_hold_mode_pressed() -> void:
+	var get_hold_mode :bool = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
+	SaveData.save_handler.vsave_value(["accessibility", "hold"], !get_hold_mode)
+

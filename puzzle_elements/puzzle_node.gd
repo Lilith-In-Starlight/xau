@@ -58,7 +58,8 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
-		if cursor_node.connecting_from == self:
+		var hold_mode :bool = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
+		if cursor_node.connecting_from == self and (hold_mode or Input.is_action_just_pressed("connect")):
 			connect_puzzle(cursor_node.position)
 
 		for i in forced_connections:
