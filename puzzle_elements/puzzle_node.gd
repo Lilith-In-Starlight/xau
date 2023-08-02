@@ -121,6 +121,7 @@ func _on_node_button_gui_input(_event: InputEvent) -> void:
 			correctness_unverified.emit()
 			delete_node_connections_request.emit(self, false)
 		else:
+			emit_ephemeral_sound(preload("res://sfx/node_connect.wav"), 0.5 + randf() * 1.5)
 			cursor_node.disconnected_from = null
 
 	elif Input.is_action_just_pressed("puzzle_reset"):
