@@ -89,5 +89,6 @@ func set_current_area(to: String, save := true):
 
 func add_one_second():
 	SaveData.save_handler.profile_data["seconds"] += 1
-	print(SaveData.save_handler.profile_data["seconds"])
 	get_tree().create_timer(1).timeout.connect(add_one_second)
+
+
