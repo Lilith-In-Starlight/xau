@@ -59,7 +59,7 @@ func _ready():
 func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
 		var hold_mode :bool = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
-		if cursor_node.connecting_from == self and (hold_mode or Input.is_action_just_pressed("connect")):
+		if cursor_node.connecting_from == self:
 			connect_puzzle(cursor_node.position)
 
 		for i in forced_connections:
@@ -101,6 +101,7 @@ func show_failure(default_color: Color):
 
 
 func _on_node_button_gui_input(_event: InputEvent) -> void:
+	var hold_mode :bool = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
 	if to_local(cursor_node.position).length() >= 7:
 		return
 	get_parent().was_interacted_with.emit()
@@ -111,12 +112,18 @@ func _on_node_button_gui_input(_event: InputEvent) -> void:
 		get_parent().add_child(solved_sound)
 		correctness_unverified.emit()
 
-		if cursor_node.connecting_from == null:
+		if cursor_node.disconnected_from == self and not hold_mode:
+			cursor_node.connecting_from = null
+			cursor_node.disconnected_from = null
+		elif cursor_node.connecting_from == null:
 			cursor_node.connecting_from = self
 
 	elif Input.is_action_just_pressed("noconnect"):
-		correctness_unverified.emit()
-		delete_node_connections_request.emit(self, false)
+		if cursor_node.disconnected_from != self:
+			correctness_unverified.emit()
+			delete_node_connections_request.emit(self, false)
+		else:
+			cursor_node.disconnected_from = null
 
 	elif Input.is_action_just_pressed("puzzle_reset"):
 		correctness_unverified.emit()

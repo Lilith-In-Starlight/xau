@@ -181,15 +181,26 @@ text = "HOLD"
 
 [node name="RightClick" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(-197, 80)
+position = Vector2(-222, 80)
 sprite_frames = SubResource("SpriteFrames_ioitr")
 
 [node name="Label3" type="Label" parent="RightClick"]
-offset_left = -30.0
+offset_left = -5.0
 offset_top = 34.0
-offset_right = 36.0
+offset_right = 61.0
 offset_bottom = 57.0
 text = "RELEASE"
+
+[node name="Label4" type="Label" parent="RightClick"]
+offset_left = 20.0
+offset_top = -10.0
+offset_right = 37.0
+offset_bottom = 13.0
+text = "or"
+
+[node name="LeftClick" type="AnimatedSprite2D" parent="RightClick"]
+position = Vector2(57, 0)
+sprite_frames = SubResource("SpriteFrames_w5g8p")
 
 [node name="LeftClick" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)

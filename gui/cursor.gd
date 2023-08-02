@@ -22,6 +22,8 @@ var past_pos = Vector2(0, 0)
 ## The node that the cursor is currently connecting
 var connecting_from = null
 
+var disconnected_from = null
+
 
 func _ready():
 	$Cursor.play("default")
@@ -59,9 +61,17 @@ func _process(_delta: float) -> void:
 
 
 func _input(_event: InputEvent) -> void:
+	disconnected_from = null
 	var hold_mode :bool = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
 	if Input.is_action_just_pressed("noconnect"):
 		if connecting_from:
+			disconnected_from = connecting_from
+			connecting_from.queue_redraw()
+			connecting_from = null
+
+	if Input.is_action_just_pressed("connect") and not hold_mode:
+		if connecting_from:
+			disconnected_from = connecting_from
 			connecting_from.queue_redraw()
 			connecting_from = null
 

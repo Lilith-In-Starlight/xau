@@ -62,8 +62,6 @@ func set_profile(profile: int):
 	var minutes = (hours - int_hours) * 60
 	var int_minutes = int(minutes)
 	var seconds = (minutes - int_minutes) * 60
-	print(handler.profile_data["seconds"])
-	print(SaveData.save_handler.profile_data["seconds"])
 	$HBoxContainer/Info/Data/Info.text = "%02d:%02d:%02d\n%d/%s" % [int_hours, int_minutes, seconds, handler.profile_data["puzzles"], "114"]
 	$HBoxContainer/Info/Data/Name.text = handler.profile_data["name"]
 	handler.load_screenshot()

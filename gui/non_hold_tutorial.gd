@@ -22,6 +22,7 @@ func _ready():
 	$Wasd.play()
 	$ClickHold.play()
 	$RightClick.play()
+	$RightClick/LeftClick.play()
 	$LeftClick.play()
 
 
@@ -65,7 +66,7 @@ func _input(_event: InputEvent) -> void:
 				tween.play()
 				stage = 4
 		2:
-			if Input.is_action_just_pressed("noconnect"):
+			if Input.is_action_just_pressed("noconnect") or Input.is_action_just_pressed("connect"):
 				var tween := create_tween()
 				tween.tween_property($Space, "modulate:a", 1.0, 0.2)
 				tween.tween_property($RightClick, "modulate:a", 0.0, 0.2)
