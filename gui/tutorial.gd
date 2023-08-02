@@ -13,18 +13,26 @@ var stage := 0
 @onready var cursor_node = get_tree().get_nodes_in_group("Cursor")[0]
 @onready var MusicHandler: Node = get_tree().get_nodes_in_group("MusicHandler")[0]
 
+
 func _ready():
 	if SaveData.save_handler.vget_value(["player", "completed_tutorial"], false):
-		var tween := create_tween()
-		tween.tween_property($Space, "modulate:a", 0.0, 0.2)
-		tween.play()
+		visible = false
 		stage = 4
 	$Space.play()
 	$Wasd.play()
 	$ClickHold.play()
+	$RightClick.play()
+	$LeftClick.play()
 
 
 func _input(_event: InputEvent) -> void:
+	var hold_mode :bool = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
+	if not hold_mode or SaveData.save_handler.vget_value(["player", "completed_tutorial"], false):
+		visible = false
+		stage = 0
+		return
+	else:
+		visible = true
 	match stage:
 		0:
 			if Input.is_action_just_pressed("confirm"):
@@ -33,16 +41,14 @@ func _input(_event: InputEvent) -> void:
 				tween.tween_property($ClickHold, "modulate:a", 1.0, 0.2)
 				tween.play()
 				stage = 1
-			
-			if SaveData.upid.has("tutorial_puzzle"):
-				if SaveData.upid["tutorial_puzzle"].check_correct():
+
+			if SaveData.upid.has("tutorial_puzzle") and SaveData.upid["tutorial_puzzle"].check_correct():
 					var tween := create_tween()
 					tween.tween_property($Space, "modulate:a", 1.0, 0.2)
 					tween.play()
 					stage = 2
 		1:
-			if SaveData.upid.has("tutorial_puzzle"):
-				if SaveData.upid["tutorial_puzzle"].check_correct():
+			if SaveData.upid.has("tutorial_puzzle") and SaveData.upid["tutorial_puzzle"].check_correct():
 					var tween := create_tween()
 					tween.tween_property($Space, "modulate:a", 1.0, 0.2)
 					tween.tween_property($ClickHold, "modulate:a", 0.0, 0.2)

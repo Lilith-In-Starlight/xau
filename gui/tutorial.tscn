@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://jt5sc2xuw6dk"]
+[gd_scene load_steps=24 format=3 uid="uid://jt5sc2xuw6dk"]
 
-[ext_resource type="Script" path="res://gui/tutorial.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cllmcaxt8gg1p" path="res://sprites/gui/wasd_keys.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://gc82ib130ijt" path="res://sprites/gui/click_hold.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://nlfps71ippii" path="res://sprites/gui/space_key.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b036plp2x2dnp" path="res://sprites/gui/right_click.png" id="5_b3bfo"]
+[ext_resource type="Texture2D" uid="uid://ukn1ewvp1ph3" path="res://sprites/gui/left_click.png" id="6_1sn5c"]
 
 [sub_resource type="AtlasTexture" id="1"]
 atlas = ExtResource("4")
@@ -95,8 +96,51 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tomaf"]
+atlas = ExtResource("5_b3bfo")
+region = Rect2(0, 0, 45, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvk04"]
+atlas = ExtResource("5_b3bfo")
+region = Rect2(45, 0, 45, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ioitr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tomaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvk04")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhusc"]
+atlas = ExtResource("6_1sn5c")
+region = Rect2(0, 0, 45, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b75om"]
+atlas = ExtResource("6_1sn5c")
+region = Rect2(45, 0, 45, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5g8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhusc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b75om")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="Tutorial" type="Node2D"]
-script = ExtResource("1")
 
 [node name="Space" type="AnimatedSprite2D" parent="."]
 position = Vector2(-196, 98)
@@ -134,3 +178,28 @@ offset_top = 34.0
 offset_right = 20.0
 offset_bottom = 48.0
 text = "HOLD"
+
+[node name="RightClick" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-197, 80)
+sprite_frames = SubResource("SpriteFrames_ioitr")
+
+[node name="Label3" type="Label" parent="RightClick"]
+offset_left = -30.0
+offset_top = 34.0
+offset_right = 36.0
+offset_bottom = 57.0
+text = "RELEASE"
+
+[node name="LeftClick" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-197, 80)
+sprite_frames = SubResource("SpriteFrames_w5g8p")
+
+[node name="Label3" type="Label" parent="LeftClick"]
+offset_left = -35.0
+offset_top = 34.0
+offset_right = 41.0
+offset_bottom = 57.0
+text = "CONNECT"
+horizontal_alignment = 1

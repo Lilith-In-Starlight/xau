@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dcjdjvvoka0jm"]
+[gd_scene load_steps=30 format=3 uid="uid://dcjdjvvoka0jm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://bsbkgyavcb4w0" path="res://music/droning_bass.ogg" id="2"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://26uy8sdjdgrr" path="res://gui/Cursor.tscn" id="4"]
 [ext_resource type="AudioStream" uid="uid://du6gynp5wjdq8" path="res://music/pam_flute_forest.wav" id="5"]
 [ext_resource type="AudioStream" uid="uid://dnxi8tbwk74yk" path="res://music/droning_bass.mp3" id="6"]
+[ext_resource type="Script" path="res://gui/tutorial.gd" id="6_oaxuy"]
+[ext_resource type="Script" path="res://gui/non_hold_tutorial.gd" id="6_sd854"]
 [ext_resource type="Script" path="res://MusicHandler.gd" id="7"]
 [ext_resource type="Script" path="res://gui/profile_panel.gd" id="7_03hrp"]
 [ext_resource type="AudioStream" uid="uid://erg3rqoqa8db" path="res://music/tubular_bell_forest.wav" id="8"]
@@ -67,7 +69,14 @@ position_smoothing_speed = 8.0
 script = ExtResource("12")
 
 [node name="Tutorial" parent="Camera2D" instance=ExtResource("11")]
+z_index = 98
 position = Vector2(-0.5, 9)
+script = ExtResource("6_oaxuy")
+
+[node name="NonHoldTutorial" parent="Camera2D" instance=ExtResource("11")]
+z_index = 98
+position = Vector2(-0.5, 9)
+script = ExtResource("6_sd854")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
@@ -495,10 +504,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 63.0
-offset_top = -42.0
-offset_right = 249.0
-offset_bottom = 250.0
+offset_left = 95.0
+offset_top = -26.0
+offset_right = 265.0
+offset_bottom = 266.0
 grow_horizontal = 2
 grow_vertical = 2
 edit_alpha = false
