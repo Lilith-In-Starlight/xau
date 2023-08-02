@@ -60,3 +60,11 @@ func take_screenshot() -> Image:
 	await RenderingServer.frame_post_draw
 	var img := get_viewport().get_texture().get_image()
 	return img
+
+
+func reset_all_globals() -> void:
+	save_handler = SaveHandler.new()
+	upid = {}
+	current_area = "first_nexus"
+	StatesDefiner.state = ""
+	MusicChannel.all_music_channels.clear()

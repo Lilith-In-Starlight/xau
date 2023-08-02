@@ -32,6 +32,9 @@ var handling_profile := -1
 var previous_state := &"pause"
 
 func _ready():
+	var tween := create_tween()
+	tween.tween_property($"../Panel", "modulate:a", 0.0, 0.2)
+	tween.tween_property($"../Panel", "visible", false, 0.0)
 	BlueColorButton.pressed.connect(open_color_picker.bind(NodeRule.COLORS.blue))
 	YellowColorButton.pressed.connect(open_color_picker.bind(NodeRule.COLORS.yellow))
 	GreenColorButton.pressed.connect(open_color_picker.bind(NodeRule.COLORS.green))
@@ -50,7 +53,7 @@ func _ready():
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and $"../Panel".visible == false:
 		SaveData.save_handler.save_profile_data()
 		$Background/Paused/ProfilePanel.set_profile(SaveData.save_handler.profile)
 		get_tree().paused = !get_tree().paused
@@ -252,8 +255,22 @@ func _on_cancel_deletion_pressed() -> void:
 
 
 func _on_profile_panel_switch_to_request(profile: int) -> void:
-	handling_profile = profile
-	set_gui_state(&"profile_switching")
+	$"../Panel".visible = true
+	get_tree().call_group("Puzzle", "save_data")
+	SaveData.save()
+	var tween = create_tween()
+	tween.tween_property($"../Panel", "modulate:a", 1.0, 1.0)
+	tween.finished.connect(do_the_switch.bind(profile))
+
+
+func do_the_switch(profile: int) -> void:
+	var file := FileAccess.open("user://.currentprofile", FileAccess.WRITE)
+	file.store_string(str(profile))
+	file.close()
+	get_tree().reload_current_scene()
+	SaveData.reset_all_globals()
+	SaveData.save_handler.profile = profile
+	SaveData._ready()
 
 
 func _on_cancel_switch_pressed() -> void:

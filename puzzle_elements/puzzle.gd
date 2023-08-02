@@ -71,7 +71,6 @@ func _ready():
 				i.connection_changed.connect(_on_connection_changed)
 				i.correctness_unverified.connect(_on_correctness_unverified)
 				i.delete_node_connections_request.connect(_on_delete_node_connections_requested)
-
 		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
 
 		solved = puzzle_data["solved"]

@@ -47,20 +47,20 @@ func _process(delta):
 		velocity.y = lerp(velocity.y, MAX_VEL, GO_MULT* delta*60.0)
 	else:
 		velocity.y = lerp(velocity.y, 0.0, STOP_MULT* delta*60.0)
-	
+
 	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
 		velocity.x = lerp(velocity.x, -MAX_VEL, GO_MULT* delta*60.0)
 	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 		velocity.x = lerp(velocity.x, MAX_VEL, GO_MULT* delta*60.0)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, STOP_MULT* delta*60.0)
-	
+
 	if velocity.length() < 1.0:
 		$Animations.play("standing_%s" % direction_from_velocity())
 	else:
 		$Animations.play("walking_%s" % direction_from_velocity())
 
-	
+
 	if Input.is_action_just_pressed("undo"):
 		if !undo_history.is_empty():
 			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
@@ -77,7 +77,7 @@ func _process(delta):
 					i[2].connections.erase(i[1])
 				i[3].display_connections()
 				i[3]._on_correctness_unverified()
-	
+
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
@@ -99,7 +99,7 @@ func direction_from_velocity() -> String:
 
 func _on_material_entered(_body: Node2D, n := "void"):
 	stepping_on.append(n)
-	
+
 func _on_material_exited(_body: Node2D, n := "void"):
 	stepping_on.erase(n)
 
@@ -110,7 +110,7 @@ func _on_frame_changed():
 		if not footsteps[stepping_on.back()].is_empty() and $Animations.frame % 2 == 0:
 			var new_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 			new_sound.stream = footsteps[stepping_on.back()][randi() % footsteps[stepping_on.back()].size()]
-			
+
 			new_sound.pitch_scale = 0.8 + randf() * 0.3
 			new_sound.position = position
 			new_sound.volume_db = -10.0
