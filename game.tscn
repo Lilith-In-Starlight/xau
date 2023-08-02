@@ -510,10 +510,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 111.0
-offset_top = -18.0
-offset_right = 273.0
-offset_bottom = 274.0
+offset_left = 119.0
+offset_top = -14.0
+offset_right = 277.0
+offset_bottom = 278.0
 grow_horizontal = 2
 grow_vertical = 2
 edit_alpha = false
@@ -772,6 +772,7 @@ volume_db = -80.0
 autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="add_one_second"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/ResumeButton" to="Camera2D/CanvasLayer/Control" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/ProfilesButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"profiles"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/OptionsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/CreditsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"credits"]]

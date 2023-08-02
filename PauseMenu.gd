@@ -290,3 +290,8 @@ func _on_hold_mode_pressed() -> void:
 	var get_hold_mode :bool = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
 	SaveData.save_handler.vsave_value(["accessibility", "hold"], !get_hold_mode)
 
+
+
+func _on_resume_button_pressed() -> void:
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
