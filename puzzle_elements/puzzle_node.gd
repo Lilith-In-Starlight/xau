@@ -106,10 +106,7 @@ func _on_node_button_gui_input(_event: InputEvent) -> void:
 		return
 	get_parent().was_interacted_with.emit()
 	if Input.is_action_just_pressed("connect"):
-		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
-		solved_sound.stream = preload("res://sfx/node_connect.wav")
-		solved_sound.pitch_scale = 0.5 + randf() * 1.5
-		get_parent().add_child(solved_sound)
+		emit_ephemeral_sound(preload("res://sfx/node_connect.wav"), 0.5 + randf() * 1.5)
 		correctness_unverified.emit()
 
 		if cursor_node.disconnected_from == self and not hold_mode:
@@ -120,6 +117,7 @@ func _on_node_button_gui_input(_event: InputEvent) -> void:
 
 	elif Input.is_action_just_pressed("noconnect"):
 		if cursor_node.disconnected_from != self:
+			emit_ephemeral_sound(preload("res://sfx/node_connect.wav"), 1.0 + randf() * 0.5, -5.0)
 			correctness_unverified.emit()
 			delete_node_connections_request.emit(self, false)
 		else:
@@ -128,10 +126,8 @@ func _on_node_button_gui_input(_event: InputEvent) -> void:
 	elif Input.is_action_just_pressed("puzzle_reset"):
 		correctness_unverified.emit()
 		delete_node_connections_request.emit(self, true)
-		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
-		solved_sound.stream = preload("res://sfx/xau_reset.wav")
-		solved_sound.pitch_scale = 0.8 + randf()*0.2
-		add_child(solved_sound)
+
+		emit_ephemeral_sound(preload("res://sfx/xau_reset.wav"), 0.8 + randf()*0.2)
 
 
 ## Try to connect to a node towards a particular direction, usually directed
@@ -166,10 +162,7 @@ func connect_puzzle(target, disconnect := false):
 			raycast.target_position = Vector2.ZERO
 			return
 
-		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
-		solved_sound.stream = preload("res://sfx/node_connect.wav")
-		solved_sound.pitch_scale = 0.5 + randf() * 1.5
-		add_child(solved_sound)
+		emit_ephemeral_sound(preload("res://sfx/node_connect.wav"), 0.5 + randf() * 1.5)
 
 		if not raycast_collider in connections and not disconnect:
 			connections.append(raycast_collider)
@@ -263,6 +256,7 @@ func _on_mouse_entered() -> void:
 	scale.y = 1.2
 
 	if Input.is_action_pressed("noconnect"):
+		emit_ephemeral_sound(preload("res://sfx/node_connect.wav"), 1.0 + randf() * 0.5, -5.0)
 		correctness_unverified.emit()
 		delete_node_connections_request.emit(self, false)
 
@@ -357,3 +351,9 @@ func get_branch() -> Array[PuzzleNode]:
 	return nodes_in_branch
 
 
+func emit_ephemeral_sound(resource: AudioStream, pitch: float = 1.0, volume: float = 1.0) -> void:
+		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
+		solved_sound.stream = resource
+		solved_sound.pitch_scale = pitch
+		solved_sound.volume_db = volume
+		add_child(solved_sound)
