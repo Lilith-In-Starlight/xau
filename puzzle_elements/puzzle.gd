@@ -45,7 +45,7 @@ var solved := false
 var rect := Rect2()
 
 ## Whether the puzzle is currently verified as correct
-var correct := false: set = set_correct
+var correct := false
 
 var base_display_connections := true
 
@@ -101,6 +101,8 @@ func _ready():
 			SaveData.upid[puzzle_id] = self
 		if base_display_connections:
 			display_connections()
+	if correct:
+		show_correct(false)
 
 
 func _input(_event: InputEvent) -> void:
@@ -114,13 +116,15 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
 		var unhappy_nodes := get_incorrect_nodes()
 		if unhappy_nodes.is_empty():
-			show_correct()
 			if not correct:
+				show_correct()
 				correct = true
 				var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 				solved_sound.stream = preload("res://sfx/xau_puzzle_solve.wav")
 				solved_sound.pitch_scale = 0.8 + randf()*0.2
 				add_child(solved_sound)
+			else:
+				show_correct(true, false)
 			if not solved:
 				SaveData.save_handler.profile_data["puzzles"] += 1
 				SaveData.save_handler.screenshot = await SaveData.take_screenshot()
@@ -243,10 +247,6 @@ func get_incorrect_nodes() -> Array:
 	return unhappy_nodes
 
 
-func set_correct(value):
-	correct = value
-	update_correctness_visuals()
-
 func set_required_puzzle(value):
 	required_puzzle = value
 	required_node = get_node_or_null(value)
@@ -257,18 +257,26 @@ func check_correct():
 	return unhappy_nodes.is_empty()
 
 ## Makes the puzzle look green to indicate that it is correct
-func show_correct():
+func show_correct(animate: bool = true, jump: bool = true):
 	for i in get_children():
-		if not i.name == "NoNode":
-			var tween = i.create_tween()
-			if i.is_in_group("PuzzleNode"):
-				var tween2 = i.create_tween()
+		if i.name == "NoNode":
+			continue
+
+		if animate:
+			var tween = create_tween()
+			if i is PuzzleNode:
 				tween.tween_property(i.circle, "modulate", get_correct_node_color(), 0.2)
-				tween2.tween_property(i.circle, "scale", Vector2(1.2, 1.1), 0.1)
-				tween2.tween_property(i.circle, "scale", Vector2(1, 1), 0.1)
+				if jump:
+					var tween2 = create_tween()
+					tween2.tween_property(i.circle, "scale", Vector2(1.1, 1.1), 0.1)
+					tween2.tween_property(i.circle, "scale", Vector2(1, 1), 0.1)
 			else:
 				tween.tween_property(i, "modulate", get_correct_node_color(), 0.2)
-			tween.play()
+		else:
+			if i is PuzzleNode:
+				i.circle.modulate = get_correct_node_color()
+			else:
+				i.modulate = get_correct_node_color()
 
 ## Makes the puzzle look white to show that it is not correct
 func unshow_correct():
@@ -295,12 +303,11 @@ func is_enabled() -> bool:
 	return required_node.solved
 
 ## Display the correctness of the puzzle
-func update_correctness_visuals(queue_redraw: bool = false) -> void:
+func update_correctness_visuals(anim: bool = true, jump: bool = true) -> void:
 	if not Engine.is_editor_hint():
 		if is_enabled():
-			if correct: show_correct()
+			if correct: show_correct(anim, jump)
 			else: unshow_correct()
-		if queue_redraw: queue_redraw()
 
 ## Display whether the puzzle is enabled
 func update_enabled_visuals() -> void:
@@ -412,6 +419,7 @@ func display_connections():
 
 func _on_correctness_unverified():
 	self.correct = false
+	unshow_correct()
 
 
 func _on_delete_node_connections_requested(requester, full_reset):

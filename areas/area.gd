@@ -6,7 +6,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	get_tree().call_group("Puzzle", "update_correctness_visuals")
+	get_tree().call_group("Puzzle", "update_correctness_visuals", false)
 	get_tree().call_group("Puzzle", "update_enabled_visuals")
 	get_tree().call_group("AreaLoaders", "connect", "area_switched", self, "_on_area_switched")
 	get_tree().call_group("MaterialAreas", "connect_to", player_node)
