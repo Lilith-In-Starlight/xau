@@ -53,6 +53,8 @@ var base_display_connections := true
 
 var is_visible := false
 
+var fixed_nodes := []
+
 func _draw():
 	get_rect()
 
@@ -136,10 +138,21 @@ func _input(_event: InputEvent) -> void:
 			failed_sound.stream = preload("res://sfx/xau_puzzle_fail.wav")
 			failed_sound.attenuation = 40
 			add_child(failed_sound)
+
 			for i in unhappy_nodes:
-				i.show_failure(get_node_color())
+				show_failure(unhappy_nodes)
 
 		SaveData.save_handler.vsave_value(["puzzles", id], save())
+
+
+func show_failure(unhappy_nodes: Array):
+	var tween = create_tween()
+	for i in unhappy_nodes:
+		tween.tween_property(i.circle, "modulate", Color.RED, 0.3)
+		tween.tween_property(i.circle, "modulate", get_node_color(), 0.3)
+		tween.tween_property(i.circle, "modulate", Color.RED, 0.3)
+		tween.tween_property(i.circle, "modulate", get_node_color(), 0.3)
+		tween.play()
 
 
 func get_incorrect_nodes() -> Array:
@@ -150,6 +163,7 @@ func get_incorrect_nodes() -> Array:
 	var correct_hardcodes := []
 	var iso_nodes := []
 	var fix_nodes := []
+	fixed_nodes = []
 
 	for i in get_children():
 		if not i.is_in_group("PuzzleNode"):
@@ -240,6 +254,7 @@ func get_incorrect_nodes() -> Array:
 			if j in unhappy_nodes:
 				unhappy_nodes.erase(j)
 				found_unhappy = true
+				fixed_nodes.append(j)
 				break
 		if not found_unhappy:
 			unhappy_nodes.append(i)
