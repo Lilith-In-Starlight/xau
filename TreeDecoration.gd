@@ -47,6 +47,9 @@ const TREE_SPRITES := {
 		],
 		COLOR.STATUE: [
 			preload("res://sprites/misc/statue2.png"),
+			preload("res://sprites/misc/first.png"),
+			preload("res://sprites/misc/second.png"),
+			preload("res://sprites/misc/latter.png"),
 		]
 	}
 

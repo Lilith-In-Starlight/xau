@@ -492,6 +492,7 @@ offset = Vector2(0, -49)
 script = ExtResource("4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Outside/Decoration/Statue"]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Decoration/Statue/StaticBody2D"]
 position = Vector2(15, -1)
@@ -528,6 +529,123 @@ position = Vector2(-199, 418)
 position = Vector2(527, -378)
 species = 3
 force_id = 0
+
+[node name="Tree34" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-302, -661)
+species = 3
+force_id = 2
+
+[node name="Tree35" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-430, -661)
+species = 3
+force_id = 3
+
+[node name="Tree33" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-363, -567)
+species = 3
+force_id = 1
+
+[node name="Tree36" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-492, -566)
+
+[node name="Tree38" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-618, -419)
+
+[node name="Tree39" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-462, -326)
+
+[node name="Tree40" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-265, -533)
+
+[node name="Tree41" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-216, -714)
+
+[node name="Tree42" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-311, -762)
+
+[node name="Tree44" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-411, -788)
+
+[node name="Tree45" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-510, -753)
+
+[node name="Tree47" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-656, -737)
+
+[node name="Tree48" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-227, -823)
+
+[node name="Tree49" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-394, -912)
+
+[node name="Tree50" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-204, -479)
+
+[node name="Tree51" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-275, -346)
+
+[node name="Tree52" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-642, -302)
+
+[node name="Tree53" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-515, -410)
+
+[node name="Tree55" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-574, -684)
+
+[node name="Tree56" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-731, -527)
+
+[node name="Tree57" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-840, -457)
+
+[node name="Tree58" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-386, -439)
+
+[node name="Tree59" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-166, -321)
+
+[node name="Tree60" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-28, -425)
+
+[node name="Tree61" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-140, -605)
+
+[node name="Tree62" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(-34, -769)
+
+[node name="Tree63" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(6, -611)
+
+[node name="Tree64" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(118, -481)
+
+[node name="Tree65" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(202, -609)
+
+[node name="Tree66" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(562, -501)
+
+[node name="Tree67" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(372, -673)
+
+[node name="Tree68" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(678, -563)
+
+[node name="Tree69" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(422, -223)
+
+[node name="Tree70" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(790, -165)
+
+[node name="Tree71" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(930, 17)
+
+[node name="Tree72" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(164, -367)
+
+[node name="Tree73" parent="Outside/Decoration" instance=ExtResource("1")]
+position = Vector2(880, -427)
 
 [node name="PuzzleGrid" parent="Outside" instance=ExtResource("5")]
 position = Vector2(-119, 417)
@@ -855,7 +973,7 @@ position = Vector2(48, 16)
 position = Vector2(64, 16)
 
 [node name="PuzzleGrid6" parent="Outside" instance=ExtResource("5")]
-position = Vector2(1226, 26)
+position = Vector2(-1828, 445)
 node_arrangement = SubResource("Resource_0dpo3")
 puzzle_theme = ExtResource("19_0awcd")
 
