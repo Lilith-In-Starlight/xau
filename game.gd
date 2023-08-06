@@ -73,6 +73,7 @@ func _process(_delta: float) -> void:
 
 func set_current_area(to: String, save := true):
 	if areas.has(to):
+		var next_area :PackedScene = areas[to]
 		if to == "forest":
 			PlayerNode.stepping_on[0] = "grass"
 		else:
@@ -85,12 +86,18 @@ func set_current_area(to: String, save := true):
 		if AreaNode != null:
 			AreaNode.remove_from_group("World")
 			AreaNode.name = "leaving"
+			AreaNode.tree_exited.connect(instantiate_area.bind(next_area))
 			AreaNode.queue_free()
-		AreaNode = areas[to].instantiate()
-		AreaNode.add_to_group("World")
-		add_child.call_deferred(AreaNode)
-		AreaNode.z_as_relative = false
+		else:
+			instantiate_area(next_area)
 
 
 func add_one_second():
 	SaveData.save_handler.profile_data["seconds"] += 1
+
+
+func instantiate_area(area: PackedScene) -> void:
+	AreaNode = area.instantiate()
+	AreaNode.add_to_group("World")
+	add_child.call_deferred(AreaNode)
+	AreaNode.z_as_relative = false
