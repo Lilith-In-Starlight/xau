@@ -123,7 +123,6 @@ text = "PAUSE"
 horizontal_alignment = 1
 
 [node name="Paused" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -168,15 +167,20 @@ alignment = 0
 layout_mode = 0
 offset_left = 288.0
 offset_top = 76.0
-offset_right = 292.0
+offset_right = 293.0
 offset_bottom = 279.0
 
 [node name="ProfilePanel" type="PanelContainer" parent="Camera2D/CanvasLayer/Control/Background/Paused"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.235
+anchor_right = 0.5
+anchor_bottom = 0.781
 offset_left = 149.0
-offset_top = 76.0
-offset_right = 277.0
-offset_bottom = 253.0
+offset_top = -0.140007
+offset_right = -11.0
+offset_bottom = -0.0440063
+grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_afck5")
 script = ExtResource("7_03hrp")
 vertical = true
@@ -280,6 +284,7 @@ layout_mode = 2
 text = "New Profile"
 
 [node name="Options" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -510,10 +515,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 159.0
-offset_top = 6.0
-offset_right = 297.0
-offset_bottom = 298.0
+offset_left = 167.0
+offset_top = 10.0
+offset_right = 301.0
+offset_bottom = 302.0
 grow_horizontal = 2
 grow_vertical = 2
 edit_alpha = false
@@ -711,6 +716,7 @@ size_flags_horizontal = 3
 text = "Cancel"
 
 [node name="Panel" type="Panel" parent="Camera2D/CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
