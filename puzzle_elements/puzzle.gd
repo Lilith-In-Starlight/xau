@@ -146,8 +146,8 @@ func _input(_event: InputEvent) -> void:
 
 
 func show_failure(unhappy_nodes: Array):
-	var tween = create_tween()
 	for i in unhappy_nodes:
+		var tween = create_tween()
 		tween.tween_property(i.circle, "modulate", Color.RED, 0.3)
 		tween.tween_property(i.circle, "modulate", get_node_color(), 0.3)
 		tween.tween_property(i.circle, "modulate", Color.RED, 0.3)
