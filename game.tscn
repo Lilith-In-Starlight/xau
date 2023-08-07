@@ -515,10 +515,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 167.0
-offset_top = 10.0
-offset_right = 301.0
-offset_bottom = 302.0
+offset_left = 199.0
+offset_top = 26.0
+offset_right = 317.0
+offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
 edit_alpha = false
@@ -776,6 +776,8 @@ autoplay = true
 stream = ExtResource("14_m5ppm")
 volume_db = -80.0
 autoplay = true
+
+[node name="BlueTrees" type="Node" parent="Music"]
 
 [connection signal="timeout" from="Timer" to="." method="add_one_second"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/ResumeButton" to="Camera2D/CanvasLayer/Control" method="_on_resume_button_pressed"]
