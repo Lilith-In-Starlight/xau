@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdy3cojcr8brs"]
+
+[ext_resource type="Script" path="res://camera_focus_object.gd" id="1_m54po"]
+
+[node name="CameraFocusObject" type="Marker2D"]
+script = ExtResource("1_m54po")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

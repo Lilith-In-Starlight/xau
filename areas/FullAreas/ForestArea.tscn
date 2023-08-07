@@ -1,9 +1,10 @@
-[gd_scene load_steps=93 format=3 uid="uid://b5fd7btpj7xwl"]
+[gd_scene load_steps=94 format=3 uid="uid://b5fd7btpj7xwl"]
 
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
 [ext_resource type="Script" path="res://areas/FullAreas/ForestStatesDefiner.gd" id="3"]
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://bdy3cojcr8brs" path="res://camera_focus_object.tscn" id="4_57dmq"]
 [ext_resource type="PackedScene" uid="uid://rhicuqvd5uu4" path="res://puzzle_elements/puzzle_grid.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://bkmy6maifarrx" path="res://puzzle_elements/puzzle_node.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://doitx77x0wy2l" path="res://puzzle_elements/blockade.tscn" id="7"]
@@ -416,6 +417,15 @@ position = Vector2(718, -340.5)
 rotation = 0.331613
 
 [node name="Outside" type="Node2D" parent="."]
+
+[node name="CameraFocusObject" parent="Outside" instance=ExtResource("4_57dmq")]
+position = Vector2(-362, -632)
+
+[node name="CameraFocusObject2" parent="Outside" instance=ExtResource("4_57dmq")]
+position = Vector2(-1140, -917)
+
+[node name="CameraFocusObject3" parent="Outside" instance=ExtResource("4_57dmq")]
+position = Vector2(-106, 330)
 
 [node name="Decoration" type="Node2D" parent="Outside"]
 
