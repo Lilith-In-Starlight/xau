@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dcjdjvvoka0jm"]
+[gd_scene load_steps=35 format=3 uid="uid://dcjdjvvoka0jm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://bsbkgyavcb4w0" path="res://music/droning_bass.ogg" id="2"]
@@ -15,11 +15,15 @@
 [ext_resource type="AudioStream" uid="uid://dghj1gbusoejl" path="res://music/little_bells_forest.wav" id="9"]
 [ext_resource type="AudioStream" uid="uid://b0up3wnrcytsj" path="res://music/choir_bass_forest.wav" id="10"]
 [ext_resource type="PackedScene" uid="uid://jt5sc2xuw6dk" path="res://gui/tutorial.tscn" id="11"]
+[ext_resource type="Texture2D" uid="uid://cllmcaxt8gg1p" path="res://sprites/gui/wasd_keys.png" id="11_m60lf"]
 [ext_resource type="AudioStream" uid="uid://b0vphyht1ft5b" path="res://music/skipped_breakfast/squarewave.wav" id="11_r4h5u"]
 [ext_resource type="Script" path="res://Camera.gd" id="12"]
+[ext_resource type="Texture2D" uid="uid://bqcrf8cwhnscb" path="res://sprites/gui/left_click_noanim.png" id="12_su2ua"]
 [ext_resource type="AudioStream" uid="uid://de2fe47g7elxa" path="res://music/skipped_breakfast/chorus.wav" id="12_vrxax"]
 [ext_resource type="AudioStream" uid="uid://gugnpuumvj6o" path="res://music/skipped_breakfast/cute_thingy.wav" id="13_0e4s7"]
+[ext_resource type="Texture2D" uid="uid://c5oy140hp3igv" path="res://sprites/gui/right_click_noanim.png" id="13_bg0cd"]
 [ext_resource type="Script" path="res://PauseMenu.gd" id="13_hle2u"]
+[ext_resource type="Texture2D" uid="uid://5oi86xu8ba0b" path="res://sprites/gui/middle_click.png" id="14_52hno"]
 [ext_resource type="Texture2D" uid="uid://b2wpxcnayp5vv" path="res://sprites/puzzles/node_bg.png" id="14_gj6lc"]
 [ext_resource type="AudioStream" uid="uid://dpqbckcuas7oh" path="res://music/skipped_breakfast/raindrop.wav" id="14_m5ppm"]
 [ext_resource type="Texture2D" uid="uid://3x0uyofcyjrm" path="res://sprites/puzzles/iso_node.png" id="15_6cith"]
@@ -154,9 +158,9 @@ layout_mode = 2
 text = "Options"
 alignment = 0
 
-[node name="CreditsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
+[node name="ViewControlsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
 layout_mode = 2
-text = "Credits"
+text = "View Controls"
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Paused/Buttons"]
@@ -319,6 +323,10 @@ text = "Hold To Connect"
 layout_mode = 2
 text = "Change Symbol Colors"
 
+[node name="CreditsButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
+layout_mode = 2
+text = "Credits"
+
 [node name="Back" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Options/Buttons"]
 layout_mode = 2
 text = "Back
@@ -385,6 +393,139 @@ text = "[b]FreeType[/b]
 "
 
 [node name="Back" type="Button" parent="Camera2D/CanvasLayer/Control/Background/Credits"]
+layout_mode = 2
+offset_left = 264.0
+offset_top = 275.0
+offset_right = 309.0
+offset_bottom = 306.0
+text = "Back
+"
+
+[node name="ViewControls" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Controls" type="Control" parent="Camera2D/CanvasLayer/Control/Background/ViewControls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 67.0
+offset_right = -40.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Move" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -94.0
+offset_right = 30.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="TextEdit" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls/Move"]
+layout_mode = 2
+texture = ExtResource("11_m60lf")
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls/Move"]
+layout_mode = 2
+text = "Move"
+horizontal_alignment = 1
+
+[node name="Connect" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -41.0
+offset_right = -111.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="TextEdit" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls/Connect"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("12_su2ua")
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls/Connect"]
+layout_mode = 2
+text = "Connect"
+horizontal_alignment = 1
+
+[node name="Disconnect" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 83.0
+offset_top = -41.0
+offset_right = 169.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="TextEdit" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls/Disconnect"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("13_bg0cd")
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls/Disconnect"]
+layout_mode = 2
+text = "Disconnect"
+horizontal_alignment = 1
+
+[node name="Reset" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = 2.0
+offset_right = 43.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="TextEdit" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls/Reset"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("14_52hno")
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Control/Background/ViewControls/Controls/Reset"]
+layout_mode = 2
+text = "Reset Graph"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ViewControls"]
 layout_mode = 2
 offset_left = 264.0
 offset_top = 275.0
@@ -501,6 +642,7 @@ text = "Back
 "
 
 [node name="ColorSelectPicker" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -716,7 +858,6 @@ size_flags_horizontal = 3
 text = "Cancel"
 
 [node name="Panel" type="Panel" parent="Camera2D/CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -783,7 +924,7 @@ autoplay = true
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/ResumeButton" to="Camera2D/CanvasLayer/Control" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/ProfilesButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"profiles"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/OptionsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
-[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/CreditsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"credits"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/ViewControlsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"viewcontrols"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/Buttons/QuitButton" to="Camera2D/CanvasLayer/Control" method="_on_quit_pressed"]
 [connection signal="rename_request" from="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel" to="Camera2D/CanvasLayer/Control" method="_on_profile_panel_rename_request"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel/HBoxContainer/Info/Actions/SwitchButton" to="Camera2D/CanvasLayer/Control/Background/Paused/ProfilePanel" method="_on_switch_button_pressed" flags=18]
@@ -794,8 +935,10 @@ autoplay = true
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/FullscreenButton" to="Camera2D/CanvasLayer/Control" method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/HoldMode" to="Camera2D/CanvasLayer/Control" method="_on_hold_mode_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/NodeColorsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/CreditsButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"credits"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Options/Buttons/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
-[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Credits/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Credits/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ViewControls/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons/DoneButton" to="Camera2D/CanvasLayer/Control" method="_on_done_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons/RegretButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]

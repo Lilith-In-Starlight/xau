@@ -104,6 +104,7 @@ func set_gui_state(state: StringName):
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
 			$Background/ProfileRenaming.visible = false
+			$Background/ViewControls.visible = false
 			$Background/Paused/ProfilePanel.set_profile(SaveData.save_handler.profile)
 		&"options":
 			PauseMenu.visible = false
@@ -112,6 +113,7 @@ func set_gui_state(state: StringName):
 			CreditsMenu.visible = false
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
+			$Background/ViewControls.visible = false
 
 			$Background/Options/Buttons/HoldMode.button_pressed = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
 			$Background/Options/Buttons/FullscreenButton.button_pressed = get_window().mode == Window.MODE_FULLSCREEN
@@ -127,6 +129,7 @@ func set_gui_state(state: StringName):
 			$Background/ProfileRenaming.visible = false
 			$Background/ProfileDeleting.visible = false
 			$Background/ProfileSwitching.visible = false
+			$Background/ViewControls.visible = false
 			var index := 0
 			for i in ProfileList.get_children():
 				i.set_profile(index)
@@ -138,6 +141,7 @@ func set_gui_state(state: StringName):
 			CreditsMenu.visible = true
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
+			$Background/ViewControls.visible = false
 		&"color_setting":
 			PauseMenu.visible = false
 			ProfilesMenu.visible = false
@@ -145,6 +149,7 @@ func set_gui_state(state: StringName):
 			CreditsMenu.visible = false
 			ColorSelectMenu.visible = true
 			ColorSelectPicker.visible = false
+			$Background/ViewControls.visible = false
 		&"color_picker":
 			PauseMenu.visible = false
 			ProfilesMenu.visible = false
@@ -152,12 +157,14 @@ func set_gui_state(state: StringName):
 			CreditsMenu.visible = false
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = true
+			$Background/ViewControls.visible = false
 		&"profile_renaming":
 			OptionsMenu.visible = false
 			CreditsMenu.visible = false
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
 			$Background/ProfileRenaming.visible = true
+			$Background/ViewControls.visible = false
 		&"profile_deleting":
 			PauseMenu.visible = false
 			ProfilesMenu.visible = true
@@ -166,6 +173,7 @@ func set_gui_state(state: StringName):
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
 			$Background/ProfileDeleting.visible = true
+			$Background/ViewControls.visible = false
 		&"profile_switching":
 			PauseMenu.visible = false
 			ProfilesMenu.visible = true
@@ -174,6 +182,16 @@ func set_gui_state(state: StringName):
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
 			$Background/ProfileSwitching.visible = true
+			$Background/ViewControls.visible = false
+		&"viewcontrols":
+			PauseMenu.visible = false
+			ProfilesMenu.visible = false
+			OptionsMenu.visible = false
+			CreditsMenu.visible = false
+			ColorSelectMenu.visible = false
+			ColorSelectPicker.visible = false
+			$Background/ProfileSwitching.visible = false
+			$Background/ViewControls.visible = true
 
 
 
