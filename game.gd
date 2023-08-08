@@ -81,6 +81,8 @@ func set_current_area(to: String, save := true):
 		SaveData.current_area = to
 		current_area = to
 		SaveData.save_handler.save_value("current_area", to)
+		RenderingServer.viewport_set_update_mode(get_viewport().get_viewport_rid(), RenderingServer.VIEWPORT_UPDATE_DISABLED)
+		RenderingServer.viewport_set_clear_mode(get_viewport().get_viewport_rid(), RenderingServer.VIEWPORT_CLEAR_NEVER)
 		if save:
 			SaveData.save()
 		if AreaNode != null:
