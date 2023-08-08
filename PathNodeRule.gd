@@ -2,15 +2,17 @@ extends NodeRule
 
 class_name PathNodeRule
 
-func check_correctness(local_node: PuzzleNode):
+func check_correctness(local_node: PuzzleNode) -> bool:
 	if local_node.connections.size() > 1:
 		return false
-		
+
 	if local_node.connections.is_empty():
 		return false
-	
+
+	var found_good_node := false
 	var next_checks: Array = [local_node]
 	var already_checked: Array = []
+
 	while next_checks.size() > 0:
 		var currently_checking = next_checks.pop_back()
 		already_checked.append(currently_checking)
@@ -18,7 +20,11 @@ func check_correctness(local_node: PuzzleNode):
 			if neighbor in already_checked or neighbor == local_node:
 				continue
 			if neighbor.node_rule is PathNodeRule:
-				return neighbor.node_rule.color == color or neighbor.node_rule.color == COLORS.black or color == COLORS.black
-				
+				var good_node :bool = neighbor.node_rule.color == color or neighbor.node_rule.color == COLORS.black or color == COLORS.black
+				if not good_node:
+					return false
+				else:
+					found_good_node = true
 			next_checks.append(neighbor)
-	return false
+
+	return found_good_node
