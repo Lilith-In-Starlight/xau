@@ -11,12 +11,6 @@ extends Node
 @onready var forest_little_bell := MusicChannel.new($LittleBell, 0.0, 0.0)
 @onready var forest_choir_bass := MusicChannel.new($ChoirBass, 0.0, 0.0)
 
-@onready var cycles_random := MusicChannel.new($BlueTrees/Random, 0.0, 0.0)
-@onready var cycles_string := MusicChannel.new($BlueTrees/String, 0.0, 0.0)
-@onready var cycles_musicbox := MusicChannel.new($BlueTrees/MusicBox, 0.0, 0.0)
-@onready var cycles_chip := MusicChannel.new($BlueTrees/Chip, 0.0, 0.0)
-@onready var cycles_bandoneon := MusicChannel.new($BlueTrees/Bandoneon, 0.0, 0.0)
-
 
 func _process(_delta: float) -> void:
 	if SaveData.save_handler.get_value("first_enter", true):
@@ -59,12 +53,6 @@ func _process(_delta: float) -> void:
 			forest_pam_flute.volume = 0.0
 			forest_tubular_bell.volume = 0.0
 			forest_little_bell.volume = 0.0
-		"cycles":
-			cycles_random.volume = 0.0
-			cycles_string.volume = 0.0
-			cycles_musicbox.volume = 0.0
-			cycles_chip.volume = 0.0
-			cycles_bandoneon.volume = 0.0
 
 	for channel in MusicChannel.all_music_channels:
 		channel.adjust_volume()
