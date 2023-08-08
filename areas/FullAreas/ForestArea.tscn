@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://b5fd7btpj7xwl"]
+[gd_scene load_steps=96 format=3 uid="uid://b5fd7btpj7xwl"]
 
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
@@ -27,6 +27,12 @@
 [ext_resource type="Resource" uid="uid://bji2lwd20ly74" path="res://puzzle_elements/puzzle_style/PuzzleThemeForestForest.tres" id="19_0awcd"]
 [ext_resource type="Script" path="res://NodeArrangementTree.gd" id="20_kiwgr"]
 [ext_resource type="Script" path="res://CycleNodeRule.gd" id="22_ywgxp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1hr3"]
+size = Vector2(3729, 2021)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6pkd"]
+size = Vector2(4831, 3049)
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(86, 10)
@@ -415,6 +421,22 @@ rotation = -0.341515
 [node name="AreaTransition8" parent="StatesDefiner/in_house_2" instance=ExtResource("2")]
 position = Vector2(718, -340.5)
 rotation = 0.331613
+
+[node name="AreaBoundaries" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBoundaries"]
+position = Vector2(-229.5, -191.5)
+shape = SubResource("RectangleShape2D_v1hr3")
+
+[node name="AreaEdges" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaEdges"]
+position = Vector2(-229.5, -191.5)
+shape = SubResource("RectangleShape2D_n6pkd")
 
 [node name="Outside" type="Node2D" parent="."]
 
@@ -2173,3 +2195,8 @@ polygon = PackedVector2Array(1008, 763, 1047, 707, 1138, 735, 1099, 792, 1060, 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collissions"]
 position = Vector2(530, -255.9)
 shape = SubResource("RectangleShape2D_beg8f")
+
+[connection signal="body_entered" from="AreaBoundaries" to="." method="_on_area_boundaries_entered"]
+[connection signal="body_exited" from="AreaBoundaries" to="." method="_on_area_boundaries_exited"]
+[connection signal="body_entered" from="AreaEdges" to="." method="_on_area_edges_entered"]
+[connection signal="body_exited" from="AreaEdges" to="." method="_on_area_edges_exited"]

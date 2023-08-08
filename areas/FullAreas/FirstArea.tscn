@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dg68j85qrm23c"]
+[gd_scene load_steps=22 format=3 uid="uid://dg68j85qrm23c"]
 
 [ext_resource type="PackedScene" uid="uid://c7770wy0yqkuu" path="res://areas/house/house_room_1.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
@@ -13,6 +13,12 @@
 [ext_resource type="Script" path="res://misc/y_sort_object.gd" id="12"]
 [ext_resource type="PackedScene" uid="uid://cqrpufcp7vmvo" path="res://areas/forest/transition_room.tscn" id="12_gbsbi"]
 [ext_resource type="Script" path="res://material_area.gd" id="13_djs83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okeg4"]
+size = Vector2(4192, 2944)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24fq4"]
+size = Vector2(5074, 3848)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3l1sb"]
 size = Vector2(368, 207)
@@ -117,6 +123,22 @@ scale = Vector2(1, 0.44)
 [node name="AreaTransition11" parent="StatesDefiner/transition_to_cycles" instance=ExtResource("2")]
 position = Vector2(347, 1847)
 scale = Vector2(1, 0.44)
+
+[node name="AreaBoundaries" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBoundaries"]
+position = Vector2(-198, 1093)
+shape = SubResource("RectangleShape2D_okeg4")
+
+[node name="AreaEdges" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaEdges"]
+position = Vector2(-197, 1097)
+shape = SubResource("RectangleShape2D_24fq4")
 
 [node name="House" parent="." instance=ExtResource("1")]
 

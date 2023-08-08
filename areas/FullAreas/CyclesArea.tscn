@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dykith4btuwii"]
+[gd_scene load_steps=75 format=3 uid="uid://dykith4btuwii"]
 
 [ext_resource type="Script" path="res://areas/FullAreas/CyclesStatesDefiner.gd" id="1_vijbp"]
 [ext_resource type="Script" path="res://areas/area.gd" id="1_vkcdo"]
@@ -21,6 +21,12 @@
 [ext_resource type="Texture2D" uid="uid://1hu3g6mp3i3v" path="res://sprites/misc/floor_elements/blue_section/grass2.png" id="19_kxrpq"]
 [ext_resource type="Texture2D" uid="uid://7nmrycvutgbt" path="res://sprites/misc/floor_elements/blue_section/grass3.png" id="20_g2fea"]
 [ext_resource type="Texture2D" uid="uid://cmr0to5a66yn1" path="res://sprites/misc/floor_elements/blue_section/grass4.png" id="21_hf2ak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc4fx"]
+size = Vector2(2330.5, 2094.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iirt5"]
+size = Vector2(3931, 3649)
 
 [sub_resource type="Resource" id="Resource_vjfwx"]
 resource_local_to_scene = true
@@ -297,6 +303,22 @@ position = Vector2(155, 294)
 
 [node name="AreaTransition2" parent="StatesDefiner/transition_to_first_nexus" instance=ExtResource("2_6ehx5")]
 position = Vector2(155, 123)
+
+[node name="AreaBoundaries" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBoundaries"]
+position = Vector2(482.75, 393.75)
+shape = SubResource("RectangleShape2D_dc4fx")
+
+[node name="AreaEdges" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaEdges"]
+position = Vector2(477.5, 433.5)
+shape = SubResource("RectangleShape2D_iirt5")
 
 [node name="Transition" parent="." instance=ExtResource("2_xf6rp")]
 position = Vector2(155, 166)
