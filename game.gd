@@ -49,26 +49,6 @@ func _process(_delta: float) -> void:
 		return
 	if get_viewport().get_mouse_position().y < 0:
 		return
-	if a > 2300*1.5:
-		CursorNode.change_blink(true)
-		if get_window().has_focus():
-			var playerp = PlayerNode.get_global_transform_with_canvas().get_origin()
-			var mouse_goal = playerp - PlayerNode.position.normalized() * 100
-			get_viewport().warp_mouse(get_viewport().get_mouse_position() + (mouse_goal - get_viewport().get_mouse_position()) / 20.0)
-		RenderingServer.set_default_clear_color(bg_color.darkened((a - 2300)/600))
-		if bg_color.darkened((a - 2300)/600).b <= Color.BLACK.b:
-			get_tree().quit()
-	else:
-		last_safe_pos = PlayerNode.position
-		RenderingServer.set_default_clear_color(bg_color)
-		if b > 2300*1.5:
-			CursorNode.change_blink(true)
-			if get_window().has_focus():
-				var cursor_goal = CursorNode.position.normalized() * 2300
-				var pos_delta = CursorNode.position - cursor_goal
-				get_viewport().warp_mouse(get_viewport().get_mouse_position() - pos_delta)
-		else:
-			CursorNode.change_blink(false)
 
 
 func set_current_area(to: String, save := true):
