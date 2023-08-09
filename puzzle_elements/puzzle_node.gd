@@ -268,8 +268,15 @@ func _on_mouse_exited() -> void:
 
 
 func set_node_visuals() -> void:
-	$Symbol.visible = node_rule != null and not (node_rule is HardcodeNodeRule)
-	$Symbol.modulate = get_color()
+	var is_rule_unset := node_rule == null
+	var is_rule_hardcore := node_rule is HardcodeNodeRule
+
+	$Symbol.visible = not is_rule_unset and not is_rule_hardcore
+	$Background.visible = not is_rule_unset and not is_rule_hardcore and not node_rule.color == NodeRule.COLORS.black
+	$Background.modulate = get_color()
+	var col := get_color()
+	var luminance := col.r * 0.2126 + col.g * 0.7152 + col.b * 0.722
+	$Symbol.modulate = get_color().darkened(0.6)
 
 	if node_rule is PathNodeRule:
 		$Symbol.texture = preload("res://sprites/puzzles/path_node.png")
@@ -281,11 +288,6 @@ func set_node_visuals() -> void:
 		$Symbol.texture = preload("res://sprites/puzzles/cycle_node.png")
 	elif node_rule is BranchLengthNodeRule:
 		$Symbol.texture = branch_symbols[node_rule.required_length]
-
-	if node_rule != null and not (node_rule.color == NodeRule.COLORS.black):
-		$Sprite2d.texture = preload("res://sprites/puzzles/node_bg.png")
-	else:
-		$Sprite2d.texture = preload("res://sprites/puzzles/node.png")
 
 
 func _draw():
@@ -325,7 +327,6 @@ func get_closest_loop() -> Array:
 			var new_dog: Array = dog.duplicate()
 			new_dog.append(neighbor)
 			dogs.append(new_dog)
-
 
 	return loop
 

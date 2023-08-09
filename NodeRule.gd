@@ -23,11 +23,11 @@ static func get_default_color(c: COLORS) -> Color:
 		NodeRule.COLORS.black:
 			return Color(0, 0, 0)
 		NodeRule.COLORS.blue:
-			return Color("#4c70ff")
+			return Color("#71b1ff")
 		NodeRule.COLORS.yellow:
 			return Color("ffaa46")
 		NodeRule.COLORS.green:
-			return Color("#59ff00")
+			return Color("#72c157")
 		NodeRule.COLORS.purple:
 			return Color("#ff7bb7")
 		_:
