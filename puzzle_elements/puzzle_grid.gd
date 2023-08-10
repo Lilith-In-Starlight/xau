@@ -25,8 +25,11 @@ func _ready():
 	update_children_positions()
 	super._ready()
 	display_connections()
-
+	$NoNode/VisibilityCheck.rect = get_rect()
 	if not Engine.is_editor_hint():
+		var area_node :Node2D = get_tree().get_first_node_in_group("World")
+		$NoNode/VisibilityCheck.screen_entered.connect(area_node.add_to_visible_puzzles.bind(self))
+		$NoNode/VisibilityCheck.screen_exited.connect(area_node.remove_from_visible_puzzles.bind(self))
 		if is_on_floor:
 			var new_shape = RectangleShape2D.new()
 			var rectt := get_rect()
@@ -35,6 +38,7 @@ func _ready():
 			$NoNode/metal/CollisionShape2D.position = rectt.get_center()
 		else:
 			$NoNode/metal.queue_free()
+
 
 
 func _process(_delta: float) -> void:

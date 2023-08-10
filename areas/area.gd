@@ -8,6 +8,8 @@ extends Node2D
 var player_in_boundaries := true
 var player_in_edges := true
 
+var visible_puzzles := []
+
 func _ready() -> void:
 	RenderingServer.viewport_set_update_mode(get_viewport().get_viewport_rid(), RenderingServer.VIEWPORT_UPDATE_ALWAYS)
 	RenderingServer.viewport_set_clear_mode(get_viewport().get_viewport_rid(), RenderingServer.VIEWPORT_CLEAR_ALWAYS)
@@ -46,3 +48,30 @@ func _on_area_edges_entered(body: Node2D) -> void:
 
 func _on_area_edges_exited(body: Node2D) -> void:
 	player_in_edges = false
+
+
+func add_to_visible_puzzles(puzzle: Puzzle) -> void:
+	visible_puzzles.append(puzzle)
+
+
+func remove_from_visible_puzzles(puzzle: Puzzle) -> void:
+	visible_puzzles.erase(puzzle)
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("confirm"):
+		var closest :Node2D = null
+		for i in visible_puzzles:
+			if i.correct or not i.is_enabled():
+				continue
+			if closest == null:
+				closest = i
+				continue
+
+			var i_dist_to_cursor :float = i.global_position.distance_to(cursor_node.global_position)
+			var closest_dir_to_cursor :float = closest.global_position.distance_to(cursor_node.global_position)
+			if i_dist_to_cursor < closest_dir_to_cursor:
+				closest = i
+
+		if closest != null:
+			closest.verify()

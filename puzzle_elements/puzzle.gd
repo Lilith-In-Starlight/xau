@@ -115,35 +115,6 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("connect"):
 		display_connections()
 
-	if Input.is_action_just_pressed("confirm") and cursor_node.global_position.distance_to(global_position) < 200:
-		var unhappy_nodes := get_incorrect_nodes()
-		if unhappy_nodes.is_empty():
-			if not correct:
-				show_correct()
-				correct = true
-				var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
-				solved_sound.stream = preload("res://sfx/xau_puzzle_solve.wav")
-				solved_sound.pitch_scale = 0.8 + randf()*0.2
-				add_child(solved_sound)
-			else:
-				show_correct(true, false)
-			if not solved:
-				SaveData.save_handler.profile_data["puzzles"] += 1
-				SaveData.save_handler.screenshot = await SaveData.take_screenshot()
-				SaveData.save_handler.store_screenshot()
-				solved = true
-				was_solved.emit()
-		else:
-			var failed_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
-			failed_sound.stream = preload("res://sfx/xau_puzzle_fail.wav")
-			failed_sound.attenuation = 40
-			add_child(failed_sound)
-
-			for i in unhappy_nodes:
-				show_failure(unhappy_nodes)
-
-		SaveData.save_handler.vsave_value(["puzzles", id], save())
-
 
 func show_failure(unhappy_nodes: Array):
 	for i in unhappy_nodes:
@@ -535,3 +506,31 @@ func save_data():
 	SaveData.save_handler.vsave_value(["puzzles", id], saving)
 
 
+func verify():
+	var unhappy_nodes := get_incorrect_nodes()
+	if unhappy_nodes.is_empty():
+		if not correct:
+			show_correct()
+			correct = true
+			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
+			solved_sound.stream = preload("res://sfx/xau_puzzle_solve.wav")
+			solved_sound.pitch_scale = 0.8 + randf()*0.2
+			add_child(solved_sound)
+		else:
+			show_correct(true, false)
+		if not solved:
+			SaveData.save_handler.profile_data["puzzles"] += 1
+			SaveData.save_handler.screenshot = await SaveData.take_screenshot()
+			SaveData.save_handler.store_screenshot()
+			solved = true
+			was_solved.emit()
+	else:
+		var failed_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
+		failed_sound.stream = preload("res://sfx/xau_puzzle_fail.wav")
+		failed_sound.attenuation = 40
+		add_child(failed_sound)
+
+		for i in unhappy_nodes:
+			show_failure(unhappy_nodes)
+
+	SaveData.save_handler.vsave_value(["puzzles", id], save())
