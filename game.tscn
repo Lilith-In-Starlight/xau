@@ -667,26 +667,27 @@ layout_mode = 2
 text = "Back
 "
 
-[node name="ColorSelectPicker" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+[node name="ColorSelectPicker" type="PanelContainer" parent="Camera2D/CanvasLayer/Control/Background"]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -146.0
+offset_right = 255.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorPicker" type="ColorPicker" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 143.0
-offset_top = 16.0
-offset_right = -143.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PickerContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker"]
+layout_mode = 2
+alignment = 1
+
+[node name="ColorPicker" type="ColorPicker" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer"]
+layout_mode = 2
 edit_alpha = false
 can_add_swatches = false
 color_modes_visible = false
@@ -694,22 +695,24 @@ sliders_visible = false
 hex_visible = false
 presets_visible = false
 
-[node name="Buttons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker"]
+[node name="Buttons" type="VBoxContainer" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer"]
 layout_mode = 2
-offset_left = 441.0
-offset_top = 17.0
-offset_right = 533.0
-offset_bottom = 83.0
+size_flags_horizontal = 3
 
-[node name="DoneButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons"]
+[node name="DoneButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Done"
 
-[node name="RegretButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons"]
+[node name="RegretButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Undo"
+
+[node name="ResetButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset"
 
 [node name="ProfileRenaming" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
 visible = false
@@ -964,8 +967,9 @@ autoplay = true
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Credits/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ViewControls/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
-[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons/DoneButton" to="Camera2D/CanvasLayer/Control" method="_on_done_pressed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/Buttons/RegretButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer/Buttons/DoneButton" to="Camera2D/CanvasLayer/Control" method="_on_done_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer/Buttons/RegretButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer/Buttons/ResetButton" to="Camera2D/CanvasLayer/Control" method="_on_reset_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer/VBoxContainer/Buttons/SaveName" to="Camera2D/CanvasLayer/Control" method="_on_save_name_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileRenaming/PanelContainer/VBoxContainer/Buttons/DiscardName" to="Camera2D/CanvasLayer/Control" method="_on_discard_name_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileDeleting/PanelContainer/VBoxContainer/Buttons/DeleteProfile" to="Camera2D/CanvasLayer/Control" method="_on_delete_profile_pressed"]

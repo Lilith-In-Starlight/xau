@@ -14,7 +14,7 @@ const PROFILE_PANEL = preload("res://gui/profile_panel.tscn")
 @onready var GreenColorButtonIcon := $Background/ColorSelect/ColorButtons/GreenButton/Icon
 @onready var PurpleColorButtonIcon := $Background/ColorSelect/ColorButtons/PurpleButton/Icon
 
-@onready var ColorPickerNode := $Background/ColorSelectPicker/ColorPicker
+@onready var ColorPickerNode := $Background/ColorSelectPicker/PickerContainer/ColorPicker
 
 @onready var ColorButtons := $Background/ColorSelect/ColorButtons
 
@@ -83,6 +83,13 @@ func open_color_picker(color: NodeRule.COLORS):
 func _on_done_pressed():
 	SaveData.save_handler.vsave_value(["options", "accessibility", "colors", str(editing_color)], ColorPickerNode.color)
 	set_gui_state("color_setting")
+	SaveData.save()
+	color_settings_changed.emit()
+
+
+func _on_reset_pressed():
+	SaveData.save_handler.vsave_value(["options", "accessibility", "colors", str(editing_color)], NodeRule.get_default_color(editing_color as NodeRule.COLORS))
+	ColorPickerNode.color = NodeRule.get_default_color(editing_color as NodeRule.COLORS)
 	SaveData.save()
 	color_settings_changed.emit()
 
