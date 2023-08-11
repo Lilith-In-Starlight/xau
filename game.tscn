@@ -562,6 +562,7 @@ text = "Back
 "
 
 [node name="ColorSelect" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -621,6 +622,7 @@ offset_bottom = 21.0
 texture = ExtResource("16_bg4x3")
 
 [node name="NodeBG" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/YellowButton"]
+layout_mode = 0
 offset_left = -4.0
 offset_top = 12.0
 offset_right = 5.0
@@ -649,6 +651,7 @@ offset_bottom = 21.0
 texture = ExtResource("16_bg4x3")
 
 [node name="NodeBG" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/GreenButton"]
+layout_mode = 0
 offset_left = -4.0
 offset_top = 12.0
 offset_right = 5.0
@@ -677,6 +680,7 @@ offset_bottom = 21.0
 texture = ExtResource("16_bg4x3")
 
 [node name="NodeBG" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/PurpleButton"]
+layout_mode = 0
 offset_left = -4.0
 offset_top = 12.0
 offset_right = 5.0
@@ -935,7 +939,6 @@ size_flags_horizontal = 3
 text = "Cancel"
 
 [node name="Panel" type="Panel" parent="Camera2D/CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
