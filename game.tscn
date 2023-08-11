@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dcjdjvvoka0jm"]
+[gd_scene load_steps=37 format=3 uid="uid://dcjdjvvoka0jm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://bsbkgyavcb4w0" path="res://music/droning_bass.ogg" id="2"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://b2wpxcnayp5vv" path="res://sprites/puzzles/node_bg.png" id="14_gj6lc"]
 [ext_resource type="AudioStream" uid="uid://dpqbckcuas7oh" path="res://music/skipped_breakfast/raindrop.wav" id="14_m5ppm"]
 [ext_resource type="Texture2D" uid="uid://3x0uyofcyjrm" path="res://sprites/puzzles/iso_node.png" id="15_6cith"]
+[ext_resource type="Texture2D" uid="uid://4u80jrvtvorq" path="res://sprites/puzzles/node.png" id="16_bg4x3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk8x4"]
 bg_color = Color(0, 0, 0, 0.6)
@@ -561,7 +562,6 @@ text = "Back
 "
 
 [node name="ColorSelect" type="Control" parent="Camera2D/CanvasLayer/Control/Background"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -585,17 +585,26 @@ text = "Change Color 1"
 [node name="Icon2" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/BlueButton"]
 layout_mode = 0
 offset_left = -4.0
-offset_top = 13.0
+offset_top = 12.0
 offset_right = 5.0
-offset_bottom = 22.0
+offset_bottom = 21.0
+texture = ExtResource("16_bg4x3")
+
+[node name="NodeBG" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/BlueButton"]
+modulate = Color(0.917647, 0, 0.8, 1)
+layout_mode = 0
+offset_left = -4.0
+offset_top = 12.0
+offset_right = 5.0
+offset_bottom = 21.0
 texture = ExtResource("14_gj6lc")
 
 [node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/BlueButton"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -4.0
-offset_top = 13.0
-offset_right = 4.0
+offset_top = 12.0
+offset_right = 5.0
 offset_bottom = 21.0
 texture = ExtResource("15_6cith")
 
@@ -606,18 +615,25 @@ text = "Change Color 2"
 [node name="Icon3" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/YellowButton"]
 layout_mode = 0
 offset_left = -4.0
-offset_top = 11.0
+offset_top = 12.0
 offset_right = 5.0
-offset_bottom = 20.0
+offset_bottom = 21.0
+texture = ExtResource("16_bg4x3")
+
+[node name="NodeBG" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/YellowButton"]
+offset_left = -4.0
+offset_top = 12.0
+offset_right = 5.0
+offset_bottom = 21.0
 texture = ExtResource("14_gj6lc")
 
 [node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/YellowButton"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -4.0
-offset_top = 11.0
+offset_top = 12.0
 offset_right = 5.0
-offset_bottom = 20.0
+offset_bottom = 21.0
 texture = ExtResource("15_6cith")
 
 [node name="GreenButton" type="Button" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons"]
@@ -626,6 +642,13 @@ text = "Change Color 3"
 
 [node name="Icon4" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/GreenButton"]
 layout_mode = 0
+offset_left = -4.0
+offset_top = 12.0
+offset_right = 5.0
+offset_bottom = 21.0
+texture = ExtResource("16_bg4x3")
+
+[node name="NodeBG" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/GreenButton"]
 offset_left = -4.0
 offset_top = 12.0
 offset_right = 5.0
@@ -651,6 +674,13 @@ offset_left = -4.0
 offset_top = 12.0
 offset_right = 5.0
 offset_bottom = 21.0
+texture = ExtResource("16_bg4x3")
+
+[node name="NodeBG" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/PurpleButton"]
+offset_left = -4.0
+offset_top = 12.0
+offset_right = 5.0
+offset_bottom = 21.0
 texture = ExtResource("14_gj6lc")
 
 [node name="Icon" type="TextureRect" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/PurpleButton"]
@@ -666,6 +696,26 @@ texture = ExtResource("15_6cith")
 layout_mode = 2
 text = "Back
 "
+
+[node name="Preset" type="MenuBar" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect"]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 57.0
+offset_right = 342.0
+offset_bottom = 97.0
+
+[node name="Color Presets" type="PopupMenu" parent="Camera2D/CanvasLayer/Control/Background/ColorSelect/Preset"]
+title = "Color Presets"
+size = Vector2i(136, 116)
+item_count = 4
+item_0/text = "Default"
+item_0/id = 0
+item_1/text = "Protanopia"
+item_1/id = 1
+item_2/text = "Deuteraopia"
+item_2/id = 2
+item_3/text = "Tritanopia"
+item_3/id = 3
 
 [node name="ColorSelectPicker" type="PanelContainer" parent="Camera2D/CanvasLayer/Control/Background"]
 visible = false
@@ -885,6 +935,7 @@ size_flags_horizontal = 3
 text = "Cancel"
 
 [node name="Panel" type="Panel" parent="Camera2D/CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -967,6 +1018,7 @@ autoplay = true
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/Credits/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ViewControls/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"pause"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelect/ColorButtons/Back" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"options"]]
+[connection signal="index_pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelect/Preset/Color Presets" to="Camera2D/CanvasLayer/Control" method="_on_color_presets_index_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer/Buttons/DoneButton" to="Camera2D/CanvasLayer/Control" method="_on_done_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer/Buttons/RegretButton" to="Camera2D/CanvasLayer/Control" method="set_gui_state" binds= [&"color_setting"]]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ColorSelectPicker/PickerContainer/Buttons/ResetButton" to="Camera2D/CanvasLayer/Control" method="_on_reset_pressed"]

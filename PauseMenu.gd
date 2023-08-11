@@ -14,6 +14,11 @@ const PROFILE_PANEL = preload("res://gui/profile_panel.tscn")
 @onready var GreenColorButtonIcon := $Background/ColorSelect/ColorButtons/GreenButton/Icon
 @onready var PurpleColorButtonIcon := $Background/ColorSelect/ColorButtons/PurpleButton/Icon
 
+@onready var BlueColorButtonBG := $Background/ColorSelect/ColorButtons/BlueButton/NodeBG
+@onready var YellowColorButtonBG := $Background/ColorSelect/ColorButtons/YellowButton/NodeBG
+@onready var GreenColorButtonBG := $Background/ColorSelect/ColorButtons/GreenButton/NodeBG
+@onready var PurpleColorButtonBG := $Background/ColorSelect/ColorButtons/PurpleButton/NodeBG
+
 @onready var ColorPickerNode := $Background/ColorSelectPicker/PickerContainer/ColorPicker
 
 @onready var ColorButtons := $Background/ColorSelect/ColorButtons
@@ -66,12 +71,19 @@ func _process(_delta: float) -> void:
 
 	visible = get_tree().paused
 
+	set_preview_color(BlueColorButtonIcon, BlueColorButtonBG, NodeRule.COLORS.blue)
+	set_preview_color(YellowColorButtonIcon, YellowColorButtonBG, NodeRule.COLORS.yellow)
+	set_preview_color(GreenColorButtonIcon, GreenColorButtonBG, NodeRule.COLORS.green)
+	set_preview_color(PurpleColorButtonIcon, PurpleColorButtonBG, NodeRule.COLORS.purple)
 
-	BlueColorButtonIcon.modulate = SaveData.get_node_color(NodeRule.COLORS.blue)
-	YellowColorButtonIcon.modulate = SaveData.get_node_color(NodeRule.COLORS.yellow)
-	GreenColorButtonIcon.modulate = SaveData.get_node_color(NodeRule.COLORS.green)
-	PurpleColorButtonIcon.modulate = SaveData.get_node_color(NodeRule.COLORS.purple)
 
+func set_preview_color(preview: Control, preview_bg: Control, color: NodeRule.COLORS):
+	var col := SaveData.get_node_color(color)
+	preview_bg.modulate = col
+	if col.get_luminance() > 0.5:
+		preview.modulate = col.darkened(0.6)
+	else:
+		preview.modulate = col.lightened(0.6)
 
 
 func open_color_picker(color: NodeRule.COLORS):
@@ -320,3 +332,20 @@ func _on_hold_mode_pressed() -> void:
 func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+
+func _on_color_presets_index_pressed(index: int) -> void:
+	print(index)
+	var new_preset := "default"
+	match index:
+		1: new_preset = "protanopia"
+		2: new_preset =  "deuteranopia"
+		3: new_preset =  "tritanopia"
+		_: new_preset = "default"
+
+	SaveData.save_handler.vsave_value(["options", "accessibility", "preset"], new_preset)
+	SaveData.save_handler.vsave_value(["options", "accessibility", "colors", str(NodeRule.COLORS.blue)], NodeRule.get_default_color(NodeRule.COLORS.blue))
+	SaveData.save_handler.vsave_value(["options", "accessibility", "colors", str(NodeRule.COLORS.yellow)], NodeRule.get_default_color(NodeRule.COLORS.yellow))
+	SaveData.save_handler.vsave_value(["options", "accessibility", "colors", str(NodeRule.COLORS.green)], NodeRule.get_default_color(NodeRule.COLORS.green))
+	SaveData.save_handler.vsave_value(["options", "accessibility", "colors", str(NodeRule.COLORS.purple)], NodeRule.get_default_color(NodeRule.COLORS.purple))
+	color_settings_changed.emit()
