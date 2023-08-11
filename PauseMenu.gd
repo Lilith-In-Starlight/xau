@@ -37,6 +37,9 @@ var handling_profile := -1
 var previous_state := &"pause"
 
 func _ready():
+	$Background/AudioSettings/Buttons/MasterVolume/Slider.value = SaveData.save_handler.vget_value(["options", "mastervol"], 1.0)
+	$Background/AudioSettings/Buttons/SFXVolume/Slider.value = SaveData.save_handler.vget_value(["options", "sfxvol"], 1.0)
+	$Background/AudioSettings/Buttons/MusicVolume/Slider.value = SaveData.save_handler.vget_value(["options", "musicvol"], 0.8)
 	var tween := create_tween()
 	tween.tween_property($"../Panel", "modulate:a", 0.0, 0.2)
 	tween.tween_property($"../Panel", "visible", false, 0.0)
@@ -125,6 +128,7 @@ func set_gui_state(state: StringName):
 			$Background/ProfileRenaming.visible = false
 			$Background/ViewControls.visible = false
 			$Background/Paused/ProfilePanel.set_profile(SaveData.save_handler.profile)
+			$Background/AudioSettings.visible = false
 		&"options":
 			PauseMenu.visible = false
 			ProfilesMenu.visible = false
@@ -133,6 +137,7 @@ func set_gui_state(state: StringName):
 			ColorSelectMenu.visible = false
 			ColorSelectPicker.visible = false
 			$Background/ViewControls.visible = false
+			$Background/AudioSettings.visible = false
 
 			$Background/Options/Buttons/HoldMode.button_pressed = SaveData.save_handler.vget_value(["accessibility", "hold"], true)
 			$Background/Options/Buttons/FullscreenButton.button_pressed = get_window().mode == Window.MODE_FULLSCREEN
@@ -149,6 +154,7 @@ func set_gui_state(state: StringName):
 			$Background/ProfileDeleting.visible = false
 			$Background/ProfileSwitching.visible = false
 			$Background/ViewControls.visible = false
+			$Background/AudioSettings.visible = false
 			var index := 0
 			for i in ProfileList.get_children():
 				i.set_profile(index)
@@ -211,6 +217,16 @@ func set_gui_state(state: StringName):
 			ColorSelectPicker.visible = false
 			$Background/ProfileSwitching.visible = false
 			$Background/ViewControls.visible = true
+		&"audio_controls":
+			PauseMenu.visible = false
+			ProfilesMenu.visible = false
+			OptionsMenu.visible = false
+			CreditsMenu.visible = false
+			ColorSelectMenu.visible = false
+			ColorSelectPicker.visible = false
+			$Background/ProfileSwitching.visible = false
+			$Background/ViewControls.visible = false
+			$Background/AudioSettings.visible = true
 
 
 
@@ -349,3 +365,18 @@ func _on_color_presets_index_pressed(index: int) -> void:
 	SaveData.save_handler.vsave_value(["options", "accessibility", "colors", str(NodeRule.COLORS.green)], NodeRule.get_default_color(NodeRule.COLORS.green))
 	SaveData.save_handler.vsave_value(["options", "accessibility", "colors", str(NodeRule.COLORS.purple)], NodeRule.get_default_color(NodeRule.COLORS.purple))
 	color_settings_changed.emit()
+
+
+func _on_master_volume_value_changed(value: float) -> void:
+	SaveData.save_handler.vsave_value(["options", "mastervol"], value)
+	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+
+
+func _on_sfx_volume_value_changed(value: float) -> void:
+	SaveData.save_handler.vsave_value(["options", "sfxvol"], value)
+	AudioServer.set_bus_volume_db(1, linear_to_db(value))
+
+
+func _on_music_volume_value_changed(value: float) -> void:
+	SaveData.save_handler.vsave_value(["options", "musicvol"], value)
+	AudioServer.set_bus_volume_db(2, linear_to_db(value))
