@@ -5,6 +5,8 @@ signal switch_to_request(profile: int)
 signal rename_request(profile: int)
 signal delete_request(profile: int)
 
+const MAX_PUZZLES = 109
+
 @export var vertical := false
 @export_category("Actions")
 @export var deletable := true
@@ -62,7 +64,7 @@ func set_profile(profile: int):
 	var minutes = (hours - int_hours) * 60
 	var int_minutes = int(minutes)
 	var seconds = (minutes - int_minutes) * 60
-	$HBoxContainer/Info/Data/Info.text = "%02d:%02d:%02d\n%d/%s" % [int_hours, int_minutes, seconds, handler.profile_data["puzzles"], "109"]
+	$HBoxContainer/Info/Data/Info.text = "%02d:%02d:%02d\n%d/%d" % [int_hours, int_minutes, seconds, handler.profile_data["puzzles"], MAX_PUZZLES]
 	$HBoxContainer/Info/Data/Name.text = handler.profile_data["name"]
 	handler.load_screenshot()
 	var img := ImageTexture.create_from_image(handler.screenshot)
