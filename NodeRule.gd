@@ -19,7 +19,12 @@ func check_correctness(_local_node: PuzzleNode) -> bool:
 
 
 static func get_default_color(c: COLORS) -> Color:
-	var preset :String = SaveData.save_handler.vget_value(["options", "accessibility", "preset"], "default")
+	var preset: String
+	if not Engine.is_editor_hint():
+		preset = SaveData.save_handler.vget_value(["options", "accessibility", "preset"], "default")
+	else:
+		preset = "default"
+
 
 
 	match preset:
