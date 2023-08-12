@@ -676,7 +676,8 @@ node_rule = SubResource("Resource_am0cv")
 position = Vector2(32, 32)
 
 [node name="Blockade" parent="Outside/PuzzleSequence/PuzzleGrid10" instance=ExtResource("13_63yai")]
-position = Vector2(8, 16)
+position = Vector2(8, 12)
+scale = Vector2(1, 3)
 
 [node name="Blockade2" parent="Outside/PuzzleSequence/PuzzleGrid10" instance=ExtResource("13_63yai")]
 position = Vector2(24, 16)

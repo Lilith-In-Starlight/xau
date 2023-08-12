@@ -60,18 +60,27 @@ func remove_from_visible_puzzles(puzzle: Puzzle) -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("confirm"):
-		var closest :Node2D = null
+		var all :Array[Puzzle] = []
 		for i in visible_puzzles:
 			if i.correct or not i.is_enabled():
 				continue
-			if closest == null:
-				closest = i
-				continue
+			all.append(i)
 
-			var i_dist_to_cursor :float = i.global_position.distance_to(cursor_node.global_position)
-			var closest_dir_to_cursor :float = closest.global_position.distance_to(cursor_node.global_position)
-			if i_dist_to_cursor < closest_dir_to_cursor:
-				closest = i
-
-		if closest != null:
-			closest.verify()
+		for i in all:
+			i.verify()
+#			if i.correct or not i.is_enabled():
+#				continue
+#			if closest == null:
+#				closest = i
+#				continue
+#
+#			var i_dist_to_cursor :float = i.global_position.distance_to(cursor_node.global_position)
+#			var closest_dir_to_cursor :float = closest.global_position.distance_to(cursor_node.global_position)
+#			if i_dist_to_cursor < closest_dir_to_cursor:
+#				second_closest = closest
+#				closest = i
+#
+#		if closest != null:
+#			closest.verify()
+#			if second_closest != null and second_closest.global_position.distance_to(cursor_node.global_position) <= closest.global_position.distance_to(cursor_node.global_position) * 5.0:
+#				second_closest.verify()
