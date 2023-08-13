@@ -26,7 +26,7 @@ func _ready():
 		var file := FileAccess.open("user://.currentprofile", FileAccess.WRITE)
 		file.store_string(str(save_handler.profile))
 		file.close()
-
+	print(save_handler.profile)
 	save_handler.load_data()
 
 

@@ -15,6 +15,7 @@ var screenshot :Image = preload("res://sprites/screenshot.png").get_image()
 
 
 func load_data():
+	print("according to handler: ", profile)
 	if not DirAccess.dir_exists_absolute("user://profiles/" + str(profile)):
 		DirAccess.make_dir_recursive_absolute("user://profiles/" + str(profile))
 

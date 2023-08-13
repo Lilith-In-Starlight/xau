@@ -324,6 +324,7 @@ func do_the_switch(profile: int) -> void:
 	SaveData.reset_all_globals()
 	SaveData.save_handler.profile = profile
 	SaveData._ready()
+	print("d1")
 
 
 func _on_cancel_switch_pressed() -> void:

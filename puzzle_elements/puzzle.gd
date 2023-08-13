@@ -55,6 +55,8 @@ var is_visible := false
 
 var fixed_nodes := []
 
+var initial_profile := -1
+
 @export var guid: StringName = &"" :
 	set(value):
 		if not is_inside_tree():
@@ -84,6 +86,7 @@ func _ready():
 		child_entered_tree.connect(_on_child_entered_tree)
 		child_exiting_tree.connect(_on_child_exiting_tree)
 	else:
+		initial_profile = SaveData.save_handler.profile
 		tree_exiting.connect(save_data)
 		var camera_node = get_tree().get_first_node_in_group("Camera3D")
 		was_interacted_with.connect(camera_node.set_target_zoom.bind(self))
@@ -158,7 +161,6 @@ func get_incorrect_nodes() -> Array:
 	var iso_nodes := []
 	var fix_nodes := []
 	fixed_nodes = []
-
 	for i in get_children():
 		if not i.is_in_group("PuzzleNode"):
 			continue
@@ -531,8 +533,9 @@ func get_unsolved_cable_color() -> Color:
 	return puzzle_theme.cable_unsolved_color
 
 func save_data():
-	var saving :Dictionary = save()
-	SaveData.save_handler.vsave_value(["puzzles", guid], saving)
+	if SaveData.save_handler.profile == initial_profile:
+		var saving :Dictionary = save()
+		SaveData.save_handler.vsave_value(["puzzles", guid], saving)
 
 
 func verify():
