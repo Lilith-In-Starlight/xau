@@ -163,3 +163,23 @@ func delete_profile():
 		for i in dir.get_files():
 			dir.remove(i)
 		DirAccess.remove_absolute(path)
+
+
+
+func erase_key(key: StringName):
+	data_dictionary.erase(key)
+
+
+func verase_key(keys: Array[StringName], key: Variant):
+	var c_dict :Dictionary = data_dictionary
+
+
+	for key_index in keys.size() - 1:
+		var current_key :StringName = keys[key_index]
+		if c_dict is Dictionary:
+			if current_key in c_dict:
+				c_dict = c_dict[current_key]
+			else:
+				return
+
+	c_dict.erase(key)

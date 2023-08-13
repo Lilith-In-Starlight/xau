@@ -95,6 +95,7 @@ func _ready():
 				i.delete_node_connections_request.connect(_on_delete_node_connections_requested)
 
 		var previous_id_puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
+		SaveData.save_handler.verase_key(["puzzles"], id)
 		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", guid], previous_id_puzzle_data)
 
 		solved = puzzle_data["solved"]
