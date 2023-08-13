@@ -19,7 +19,7 @@ var focus_objects : Array[Marker2D] = []
 func _process(_delta: float) -> void:
 	$Tutorial.scale = Vector2(1.0/zoom.x, 1.0/zoom.y)
 	$NonHoldTutorial.scale = Vector2(1.0/zoom.x, 1.0/zoom.y)
-	if target_zoom == null or (not focus_objects.is_empty() and focus_objects.back().global_position.distance_to($"../Character".position) > 150) or focus_objects.is_empty():
+	if target_zoom == null or focus_objects.is_empty() or focus_objects.back().global_position.distance_to($"../Character".position) > 150:
 		position = lerp(position, $"../Character".position, player_camera_speed)
 		zoom = lerp(zoom, Vector2(1, 1), player_camera_speed)
 	elif not focus_objects.is_empty():
