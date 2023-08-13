@@ -351,7 +351,6 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_color_presets_index_pressed(index: int) -> void:
-	print(index)
 	var new_preset := "default"
 	match index:
 		1: new_preset = "protanopia"

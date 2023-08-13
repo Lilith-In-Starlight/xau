@@ -180,8 +180,6 @@ func get_incorrect_nodes() -> Array:
 				for node_in_graph in i.get_all_nodes_in_graph():
 					graph_shapes[i.node_rule.color][1].append(node_in_graph.get_unique_id())
 
-					if node_in_graph.node_rule != null:
-						print(node_in_graph.node_rule.color == i.node_rule.color)
 					if node_in_graph.node_rule is IsoNodeRule and node_in_graph.node_rule.color == i.node_rule.color and not i == node_in_graph:
 						unhappy_nodes.append(i)
 						unhappy_graph_colors.append(i.node_rule.color)

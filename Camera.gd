@@ -23,7 +23,6 @@ func _process(_delta: float) -> void:
 		position = lerp(position, $"../Character".position, player_camera_speed)
 		zoom = lerp(zoom, Vector2(1, 1), player_camera_speed)
 	elif not focus_objects.is_empty():
-		print((focus_objects.is_empty() or focus_objects.back().global_position.distance_to($"../Character".position) > 150))
 		if not is_instance_valid(focus_objects.back()):
 			focus_objects.pop_back()
 			return
