@@ -80,6 +80,7 @@ centered = false
 [node name="Lines" type="Node2D" parent="NoNode"]
 
 [node name="VisibilityCheck" type="VisibleOnScreenNotifier2D" parent="NoNode"]
+rect = Rect2(0, 0, 0, 0)
 
 [node name="metal" type="Area2D" parent="NoNode" groups=["MaterialAreas"]]
 collision_layer = 4

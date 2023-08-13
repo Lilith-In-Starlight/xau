@@ -55,12 +55,30 @@ var is_visible := false
 
 var fixed_nodes := []
 
+@export var guid: StringName = &"" :
+	set(value):
+		if not is_inside_tree():
+			guid = value
+			return
+
+		seed(hash(get_path()) + Time.get_ticks_msec())
+		if Engine.is_editor_hint() and not get_parent() is Viewport:
+			var ret = value
+			if value == null or value.length() != 12:
+				ret = ""
+			while ret.length() < 12:
+				ret += "0123456789"[randi()%10]
+			guid = ret
+		else:
+			guid = &""
+
 func _draw():
 	get_rect()
 
 
 func _ready():
 	if Engine.is_editor_hint():
+		guid = guid
 		child_entered_tree.connect(_on_child_entered_tree)
 		child_exiting_tree.connect(_on_child_exiting_tree)
 	else:

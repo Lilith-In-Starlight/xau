@@ -341,6 +341,7 @@ script = ExtResource("7_jk8fr")
 position = Vector2(309, 163)
 node_arrangement = SubResource("Resource_vjfwx")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"986157261426"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid" instance=ExtResource("10_dw7n5")]
 position = Vector2(8, 0)
@@ -366,6 +367,7 @@ position = Vector2(406, 155)
 node_arrangement = SubResource("Resource_nmgw3")
 required_puzzle = NodePath("../PuzzleGrid")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"669837262271"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid2" instance=ExtResource("10_dw7n5")]
 position = Vector2(16, 0)
@@ -397,6 +399,7 @@ position = Vector2(459, 155)
 node_arrangement = SubResource("Resource_jvm1q")
 required_puzzle = NodePath("../PuzzleGrid2")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"648635002697"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid3" instance=ExtResource("10_dw7n5")]
 position = Vector2(16, 0)
@@ -433,6 +436,7 @@ position = Vector2(553, 200)
 node_arrangement = SubResource("Resource_kxprp")
 required_puzzle = NodePath("../PuzzleGrid3")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"602598892224"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid4" instance=ExtResource("10_dw7n5")]
 node_rule = SubResource("Resource_5f8lw")
@@ -477,6 +481,7 @@ position = Vector2(561, 240)
 node_arrangement = SubResource("Resource_qvd6o")
 required_puzzle = NodePath("../PuzzleGrid4")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"677084909858"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid5" instance=ExtResource("10_dw7n5")]
 node_rule = SubResource("Resource_5f8lw")
@@ -511,6 +516,7 @@ position = Vector2(659, 327)
 node_arrangement = SubResource("Resource_coeoe")
 required_puzzle = NodePath("../PuzzleGrid5")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"930131218665"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid6" instance=ExtResource("10_dw7n5")]
 position = Vector2(16, 0)
@@ -540,6 +546,7 @@ position = Vector2(713, 327)
 node_arrangement = SubResource("Resource_coeoe")
 required_puzzle = NodePath("../PuzzleGrid6")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"338713508963"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid7" instance=ExtResource("10_dw7n5")]
 position = Vector2(16, 0)
@@ -569,6 +576,7 @@ position = Vector2(793, 423)
 node_arrangement = SubResource("Resource_y5x88")
 required_puzzle = NodePath("../PuzzleGrid7")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"581308646724"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid8" instance=ExtResource("10_dw7n5")]
 
@@ -597,6 +605,7 @@ position = Vector2(809, 507)
 node_arrangement = SubResource("Resource_t6g2k")
 required_puzzle = NodePath("../PuzzleGrid8")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"329105714810"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid9" instance=ExtResource("10_dw7n5")]
 node_rule = SubResource("Resource_4kwhj")
@@ -643,6 +652,7 @@ position = Vector2(863, 507)
 node_arrangement = SubResource("Resource_07hjc")
 required_puzzle = NodePath("../PuzzleGrid9")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"175031867688"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid10" instance=ExtResource("10_dw7n5")]
 node_rule = SubResource("Resource_pqb7i")
@@ -702,6 +712,7 @@ position = Vector2(917, 507)
 node_arrangement = SubResource("Resource_t6g2k")
 required_puzzle = NodePath("../PuzzleGrid10")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"188172708928"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid11" instance=ExtResource("10_dw7n5")]
 
@@ -754,6 +765,7 @@ position = Vector2(889, 573)
 node_arrangement = SubResource("Resource_t6g2k")
 required_puzzle = NodePath("../PuzzleGrid11")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"619325377184"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid12" instance=ExtResource("10_dw7n5")]
 node_rule = SubResource("Resource_204x7")
@@ -800,6 +812,7 @@ position = Vector2(881, 638)
 node_arrangement = SubResource("Resource_dpl1o")
 required_puzzle = NodePath("../PuzzleGrid12")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"599583090900"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid13" instance=ExtResource("10_dw7n5")]
 node_rule = SubResource("Resource_sboyf")
@@ -897,6 +910,7 @@ position = Vector2(881, 710)
 node_arrangement = SubResource("Resource_ws0h2")
 required_puzzle = NodePath("../PuzzleGrid13")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"038498865158"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid14" instance=ExtResource("10_dw7n5")]
 node_rule = SubResource("Resource_gr2v0")
@@ -983,6 +997,7 @@ position = Vector2(881, 780)
 node_arrangement = SubResource("Resource_ws0h2")
 required_puzzle = NodePath("../PuzzleGrid14")
 puzzle_theme = ExtResource("10_an7p2")
+guid = &"910634348101"
 
 [node name="PuzzleNode" parent="Outside/PuzzleSequence/PuzzleGrid15" instance=ExtResource("10_dw7n5")]
 node_rule = SubResource("Resource_gr2v0")
