@@ -2163,6 +2163,10 @@ position = Vector2(0, 32)
 position = Vector2(16, 32)
 node_rule = SubResource("Resource_egdmo")
 
+[node name="Blockade" parent="YPuzzleSection/Wall/PuzzleSequence/PuzzleGrid" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 16)
+scale = Vector2(0.5, 10)
+
 [node name="PuzzleGrid2" parent="YPuzzleSection/Wall/PuzzleSequence" instance=ExtResource("4")]
 position = Vector2(-72, 0)
 node_arrangement = SubResource("Resource_ynq2j")
