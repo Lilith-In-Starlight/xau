@@ -46,7 +46,7 @@ position = Vector2(51, 267)
 position = Vector2(0, -40)
 node_arrangement = SubResource("Resource_medjc")
 is_on_floor = false
-guid = &"310595121675"
+guid = &"123320437032"
 
 [node name="PuzzleNode" parent="InterfacePuzzle/PuzzleGrid" instance=ExtResource("4")]
 node_rule = SubResource("Resource_ludk5")

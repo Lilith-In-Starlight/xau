@@ -61,7 +61,7 @@ var fixed_nodes := []
 			guid = value
 			return
 
-		seed(hash(get_path()) + Time.get_ticks_msec())
+		seed(hash(get_path()) + Time.get_ticks_usec())
 		if Engine.is_editor_hint() and not get_parent() is Viewport:
 			var ret = value
 			if value == null or value.length() != 12:
@@ -69,8 +69,10 @@ var fixed_nodes := []
 			while ret.length() < 12:
 				ret += "0123456789"[randi()%10]
 			guid = ret
-		else:
+		elif get_parent() is Viewport:
 			guid = &""
+		else:
+			guid = value
 
 func _draw():
 	get_rect()
@@ -91,7 +93,9 @@ func _ready():
 				i.connection_changed.connect(_on_connection_changed)
 				i.correctness_unverified.connect(_on_correctness_unverified)
 				i.delete_node_connections_request.connect(_on_delete_node_connections_requested)
-		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
+
+		var previous_id_puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
+		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", guid], previous_id_puzzle_data)
 
 		solved = puzzle_data["solved"]
 		correct = puzzle_data["correct"]
@@ -112,7 +116,7 @@ func _ready():
 							continue
 						child.connections.append(new_j)
 					else:
-						if j < get_child_count():
+						if j < get_child_count() and get_child(j) is PuzzleNode:
 							child.connections.append(get_child(j))
 
 		if not required_node == null:
@@ -521,7 +525,7 @@ func get_unsolved_cable_color() -> Color:
 
 func save_data():
 	var saving :Dictionary = save()
-	SaveData.save_handler.vsave_value(["puzzles", id], saving)
+	SaveData.save_handler.vsave_value(["puzzles", guid], saving)
 
 
 func verify():
@@ -551,4 +555,4 @@ func verify():
 		for i in unhappy_nodes:
 			show_failure(unhappy_nodes)
 
-	SaveData.save_handler.vsave_value(["puzzles", id], save())
+	SaveData.save_handler.vsave_value(["puzzles", guid], save())

@@ -20,7 +20,10 @@ func _ready():
 			on_color = required_node.get_solved_cable_color()
 			off_color = required_node.get_unsolved_cable_color()
 		required_node.connect("was_solved", Callable(self, "_on_required_was_solved"))
-		var data_get = SaveData.save_handler.vget_value(["puzzles", str(required_node.get_path())], null)
+		var data_get_old = SaveData.save_handler.vget_value(["puzzles", str(required_node.get_path())], null)
+		var data_get = data_get_old
+		if required_node is Puzzle:
+			data_get = SaveData.save_handler.vget_value(["puzzles", required_node.guid], data_get_old)
 		if data_get == null or not data_get["solved"]:
 			default_color = off_color
 		elif data_get["solved"]:
