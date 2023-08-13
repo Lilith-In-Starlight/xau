@@ -57,24 +57,8 @@ var fixed_nodes := []
 
 var initial_profile := -1
 
-@export var guid: StringName = &"" :
-	set(value):
-		if not is_inside_tree():
-			guid = value
-			return
+@export var guid: StringName = &""
 
-		seed(hash(get_path()) + Time.get_ticks_usec())
-		if Engine.is_editor_hint() and not get_parent() is Viewport:
-			var ret = value
-			if value == null or value.length() != 12:
-				ret = ""
-			while ret.length() < 12:
-				ret += "0123456789"[randi()%10]
-			guid = ret
-		elif get_parent() is Viewport:
-			guid = &""
-		else:
-			guid = value
 
 func _draw():
 	get_rect()
@@ -82,7 +66,7 @@ func _draw():
 
 func _ready():
 	if Engine.is_editor_hint():
-		guid = guid
+		seed(hash(get_path()) + Time.get_ticks_usec())
 		child_entered_tree.connect(_on_child_entered_tree)
 		child_exiting_tree.connect(_on_child_exiting_tree)
 	else:
@@ -97,9 +81,8 @@ func _ready():
 				i.correctness_unverified.connect(_on_correctness_unverified)
 				i.delete_node_connections_request.connect(_on_delete_node_connections_requested)
 
-		var previous_id_puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
+		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", id], {"solved": false, "correct": false, "connections": {}})
 		SaveData.save_handler.verase_key(["puzzles"], id)
-		var puzzle_data = SaveData.save_handler.vget_value(["puzzles", guid], previous_id_puzzle_data)
 
 		solved = puzzle_data["solved"]
 		correct = puzzle_data["correct"]
@@ -535,7 +518,7 @@ func get_unsolved_cable_color() -> Color:
 func save_data():
 	if SaveData.save_handler.profile == initial_profile:
 		var saving :Dictionary = save()
-		SaveData.save_handler.vsave_value(["puzzles", guid], saving)
+		SaveData.save_handler.vsave_value(["puzzles", id], saving)
 
 
 func verify():
@@ -565,4 +548,4 @@ func verify():
 		for i in unhappy_nodes:
 			show_failure(unhappy_nodes)
 
-	SaveData.save_handler.vsave_value(["puzzles", guid], save())
+	SaveData.save_handler.vsave_value(["puzzles", id], save())

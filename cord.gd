@@ -23,7 +23,7 @@ func _ready():
 		var data_get_old = SaveData.save_handler.vget_value(["puzzles", str(required_node.get_path())], null)
 		var data_get = data_get_old
 		if required_node is Puzzle:
-			data_get = SaveData.save_handler.vget_value(["puzzles", required_node.guid], data_get_old)
+			data_get = SaveData.save_handler.vget_value(["puzzles", str(required_node.get_path())], data_get_old)
 		if data_get == null or not data_get["solved"]:
 			default_color = off_color
 		elif data_get["solved"]:
