@@ -876,14 +876,15 @@ forced_connections = Array[NodePath]([NodePath("../PuzzleNode4")])
 
 [node name="Blockade" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("14_nupm0")]
 position = Vector2(48, 12)
+scale = Vector2(2, 0.5)
 
 [node name="Blockade2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("14_nupm0")]
 position = Vector2(24, 1)
-scale = Vector2(1, 4)
+scale = Vector2(0.5, 4)
 
 [node name="Blockade3" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid10" instance=ExtResource("14_nupm0")]
 position = Vector2(24, 23)
-scale = Vector2(1, 4)
+scale = Vector2(0.5, 4)
 
 [node name="Cable29" type="Line2D" parent="BlueTreeSection/PuzzleSequence"]
 points = PackedVector2Array(1202, 1206, 1202, 1234)
@@ -963,8 +964,8 @@ forced_connections = Array[NodePath]([NodePath("../PuzzleNode6")])
 position = Vector2(64, 16)
 
 [node name="Blockade" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid12" instance=ExtResource("14_nupm0")]
-position = Vector2(24, 0)
-scale = Vector2(0.5, 4)
+position = Vector2(8, 10)
+scale = Vector2(2, 0.5)
 
 [node name="Blockade2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid12" instance=ExtResource("14_nupm0")]
 position = Vector2(40, 0)
