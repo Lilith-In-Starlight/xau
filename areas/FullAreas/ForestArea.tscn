@@ -239,7 +239,7 @@ script = ExtResource("10_1ufl3")
 hardcoded_connections = Array[NodePath]([])
 color = 0
 
-[sub_resource type="Resource" id="Resource_oat1n"]
+[sub_resource type="Resource" id="Resource_isppu"]
 resource_local_to_scene = true
 script = ExtResource("20_kiwgr")
 spacing = Vector2(16, 16)
@@ -1092,7 +1092,7 @@ required_puzzle = NodePath("../PuzzleGrid")
 
 [node name="PuzzleGrid2" parent="Outside/OrangeTreeSection/PuzzleSequence" instance=ExtResource("5")]
 position = Vector2(-487, 591)
-node_arrangement = SubResource("Resource_oat1n")
+node_arrangement = SubResource("Resource_isppu")
 required_puzzle = NodePath("../PuzzleGrid")
 puzzle_theme = ExtResource("11_b5eal")
 guid = &"035322081277"
