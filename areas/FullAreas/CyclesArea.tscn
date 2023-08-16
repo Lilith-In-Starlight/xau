@@ -1044,13 +1044,6 @@ position = Vector2(0, 48)
 position = Vector2(32, 48)
 node_rule = SubResource("Resource_jkhx3")
 
-[node name="PuzzleNode14" parent="Outside/PuzzleSequence/PuzzleGrid15" instance=ExtResource("10_dw7n5")]
-position = Vector2(48, 48)
-
-[node name="Blockade" parent="Outside/PuzzleSequence/PuzzleGrid15" instance=ExtResource("13_63yai")]
-position = Vector2(20, 24)
-scale = Vector2(3, 1)
-
 [node name="Blockade2" parent="Outside/PuzzleSequence/PuzzleGrid15" instance=ExtResource("13_63yai")]
 position = Vector2(32, 8)
 
