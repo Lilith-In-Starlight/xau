@@ -518,7 +518,7 @@ position = Vector2(59, 32)
 position = Vector2(228, -33)
 
 [node name="Statue" type="Sprite2D" parent="Outside/Decoration"]
-position = Vector2(-117, 392)
+position = Vector2(-42, 366)
 texture = ExtResource("12")
 offset = Vector2(0, -49)
 script = ExtResource("4")
@@ -680,7 +680,7 @@ position = Vector2(164, -367)
 position = Vector2(880, -427)
 
 [node name="PuzzleGrid" parent="Outside" instance=ExtResource("5")]
-position = Vector2(-119, 417)
+position = Vector2(-44, 391)
 node_arrangement = SubResource("Resource_25q8t")
 guid = &"338143312878"
 
