@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bhmy7h0mnyl13"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://bhmy7h0mnyl13"]
 
 [sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_d8luw"]
 resource_name = "StereoEnhance"
@@ -8,6 +8,25 @@ resource_name = "Reverb"
 room_size = 0.48
 damping = 0.2
 spread = 0.5
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_h3gdi"]
+resource_name = "Panner"
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_q8gmk"]
+resource_name = "PitchShift"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_c1jys"]
+resource_name = "Reverb"
+room_size = 1.0
+wet = 0.67
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_p8kat"]
+resource_name = "Delay"
+tap1_delay_ms = 1000.0
+tap1_level_db = 0.0
+tap2_active = false
+tap2_delay_ms = 1500.0
+tap2_level_db = 0.0
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectStereoEnhance_d8luw")
@@ -26,3 +45,17 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/3/name = &"PauseMusic"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 1.85375
+bus/3/send = &"Music"
+bus/3/effect/0/effect = SubResource("AudioEffectPanner_h3gdi")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectPitchShift_q8gmk")
+bus/3/effect/1/enabled = true
+bus/3/effect/2/effect = SubResource("AudioEffectReverb_c1jys")
+bus/3/effect/2/enabled = true
+bus/3/effect/3/effect = SubResource("AudioEffectDelay_p8kat")
+bus/3/effect/3/enabled = true

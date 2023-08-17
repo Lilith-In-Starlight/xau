@@ -20,7 +20,6 @@
 [ext_resource type="Script" path="res://Camera.gd" id="12"]
 [ext_resource type="Texture2D" uid="uid://cc16tc1t7ucei" path="res://sprites/gui/spacebar_no_anim.png" id="12_n64jm"]
 [ext_resource type="Texture2D" uid="uid://bqcrf8cwhnscb" path="res://sprites/gui/left_click_noanim.png" id="12_su2ua"]
-[ext_resource type="AudioStream" uid="uid://de2fe47g7elxa" path="res://music/skipped_breakfast/chorus.wav" id="12_vrxax"]
 [ext_resource type="AudioStream" uid="uid://gugnpuumvj6o" path="res://music/skipped_breakfast/cute_thingy.wav" id="13_0e4s7"]
 [ext_resource type="Texture2D" uid="uid://c5oy140hp3igv" path="res://sprites/gui/right_click_noanim.png" id="13_bg0cd"]
 [ext_resource type="Script" path="res://PauseMenu.gd" id="13_hle2u"]
@@ -29,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://dpqbckcuas7oh" path="res://music/skipped_breakfast/raindrop.wav" id="14_m5ppm"]
 [ext_resource type="Texture2D" uid="uid://3x0uyofcyjrm" path="res://sprites/puzzles/iso_node.png" id="15_6cith"]
 [ext_resource type="Texture2D" uid="uid://4u80jrvtvorq" path="res://sprites/puzzles/node.png" id="16_bg4x3"]
+[ext_resource type="AudioStream" uid="uid://d2hcp3wtjqykq" path="res://music/understandable/xau_menu1.wav" id="27_gdkru"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk8x4"]
 bg_color = Color(0, 0, 0, 0.6)
@@ -1033,6 +1033,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k4uf2")
 
 [node name="Music" type="Node" parent="." groups=["MusicHandler"]]
+process_mode = 3
 script = ExtResource("7")
 
 [node name="HomeGuitar" type="AudioStreamPlayer" parent="Music"]
@@ -1078,11 +1079,11 @@ volume_db = -80.0
 autoplay = true
 bus = &"Music"
 
-[node name="BlueTreesChorus" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("12_vrxax")
+[node name="PauseMenuMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("27_gdkru")
 volume_db = -80.0
 autoplay = true
-bus = &"Music"
+bus = &"PauseMusic"
 
 [node name="BlueTreesThingy" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("13_0e4s7")
@@ -1133,3 +1134,4 @@ bus = &"Music"
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileDeleting/PanelContainer/VBoxContainer/Buttons/CancelDeletion" to="Camera2D/CanvasLayer/Control" method="_on_cancel_deletion_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileSwitching/PanelContainer/VBoxContainer/Buttons/SwitchClose" to="Camera2D/CanvasLayer/Control" method="_on_switch_close_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Control/Background/ProfileSwitching/PanelContainer/VBoxContainer/Buttons/CancelSwitch" to="Camera2D/CanvasLayer/Control" method="_on_cancel_switch_pressed"]
+[connection signal="finished" from="Music/PauseMenuMusic" to="Music" method="_on_pause_menu_music_finished"]
