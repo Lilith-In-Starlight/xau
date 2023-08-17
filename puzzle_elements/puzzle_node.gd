@@ -50,6 +50,8 @@ var connections: Array[PuzzleNode] = []
 
 @onready var player :CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
+var current_tween: Tween
+
 func _ready():
 	if not Engine.is_editor_hint():
 		get_tree().get_first_node_in_group("HUD").color_settings_changed.connect(set_node_visuals)
@@ -98,6 +100,33 @@ func show_failure(default_color: Color):
 	tween.tween_property(circle, "modulate", default_color, 0.3)
 	tween.play()
 
+
+func animate_show_correct(first_time_correct: bool, correct_node_color: Color):
+	if current_tween != null:
+		current_tween.kill()
+	current_tween = create_tween()
+	current_tween.tween_property(circle, "modulate", correct_node_color, 0.2)
+	if first_time_correct:
+		var jump_tween = create_tween()
+		jump_tween.tween_property(circle, "scale", Vector2(1.1, 1.1), 0.1)
+		jump_tween.tween_property(circle, "scale", Vector2(1, 1), 0.1)
+
+
+func animate_unshow_correct(default_color: Color):
+	if current_tween != null:
+		current_tween.kill()
+	current_tween = create_tween()
+	current_tween.tween_property(circle, "modulate", default_color, 0.2)
+
+
+func animate_show_failure(default_color: Color):
+	if current_tween != null:
+		current_tween.kill()
+	current_tween = create_tween()
+	current_tween.tween_property(circle, "modulate", Color.RED, 0.3)
+	current_tween.tween_property(circle, "modulate", default_color, 0.3)
+	current_tween.tween_property(circle, "modulate", Color.RED, 0.3)
+	current_tween.tween_property(circle, "modulate", default_color, 0.3)
 
 
 func _on_node_button_gui_input(_event: InputEvent) -> void:

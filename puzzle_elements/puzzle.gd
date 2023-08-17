@@ -127,12 +127,7 @@ func _input(_event: InputEvent) -> void:
 
 func show_failure(unhappy_nodes: Array):
 	for i in unhappy_nodes:
-		var tween = create_tween()
-		tween.tween_property(i.circle, "modulate", Color.RED, 0.3)
-		tween.tween_property(i.circle, "modulate", get_node_color(), 0.3)
-		tween.tween_property(i.circle, "modulate", Color.RED, 0.3)
-		tween.tween_property(i.circle, "modulate", get_node_color(), 0.3)
-		tween.play()
+		i.animate_show_failure(get_node_color())
 
 
 func get_incorrect_nodes() -> Array:
@@ -263,14 +258,10 @@ func show_correct(animate: bool = true, jump: bool = true):
 			continue
 
 		if animate:
-			var tween = create_tween()
 			if i is PuzzleNode:
-				tween.tween_property(i.circle, "modulate", get_correct_node_color(), 0.2)
-				if jump:
-					var tween2 = create_tween()
-					tween2.tween_property(i.circle, "scale", Vector2(1.1, 1.1), 0.1)
-					tween2.tween_property(i.circle, "scale", Vector2(1, 1), 0.1)
+				i.animate_show_correct(jump, get_correct_node_color())
 			else:
+				var tween = create_tween()
 				tween.tween_property(i, "modulate", get_correct_node_color(), 0.2)
 		else:
 			if i is PuzzleNode:
@@ -282,12 +273,11 @@ func show_correct(animate: bool = true, jump: bool = true):
 func unshow_correct():
 	for i in get_children():
 		if not i.name == "NoNode":
-			var tween = i.create_tween()
-			if i.is_in_group("PuzzleNode"):
-				tween.tween_property(i.circle, "modulate", get_node_color(), 0.2)
+			if i is PuzzleNode:
+				i.animate_unshow_correct(get_node_color())
 			else:
+				var tween = i.create_tween()
 				tween.tween_property(i, "modulate", get_node_color(), 0.2)
-			tween.play()
 
 ## Called when the puzzle required to interact with this one is solved
 func _on_required_was_solved():
