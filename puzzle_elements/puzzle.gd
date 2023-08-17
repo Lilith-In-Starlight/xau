@@ -579,6 +579,7 @@ func verify():
 	if unhappy_nodes.is_empty():
 		if not correct:
 			show_correct()
+			player.undo_history.clear()
 			correct = true
 			var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
 			solved_sound.stream = preload("res://sfx/xau_puzzle_solve.wav")
