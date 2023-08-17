@@ -19,6 +19,7 @@ class_name Puzzle
 signal was_solved
 signal was_interacted_with(puzzle)
 
+const LINE_RIGHTCLICK_DISTANCE := 3.5
 
 ## A Puzzle that is required to solve this one
 @export var required_puzzle: NodePath: set = set_required_puzzle
@@ -123,6 +124,55 @@ func _input(_event: InputEvent) -> void:
 
 	if Input.is_action_just_pressed("connect"):
 		display_connections()
+
+	elif Input.is_action_pressed("noconnect"):
+		var cursor_pos: Vector2 = to_local(cursor_node.position)
+		var checked := []
+		if rect.grow(LINE_RIGHTCLICK_DISTANCE).has_point(cursor_pos):
+			for node in get_children():
+				if node is PuzzleNode:
+					if cursor_pos.distance_to(node.position) < 4.5:
+						continue
+					for neighbor in node.connections:
+						if cursor_pos.distance_to(neighbor.position) < 4.5:
+							continue
+						if neighbor == node:
+							continue
+						for i in checked:
+							if i == [neighbor, node]:
+								continue
+						checked.append([node, neighbor])
+						var dx: float = neighbor.position.x - node.position.x
+						var dy: float = neighbor.position.y - node.position.y
+						var mouse_from_node = node.to_local(cursor_node.position)
+						if dx != 0:
+							var m: float = dy / dx
+							var mouse_on_connection = m * mouse_from_node.x
+
+							if abs(mouse_on_connection - node.to_local(cursor_node.position).y) < LINE_RIGHTCLICK_DISTANCE:
+								emit_ephemeral_sound(preload("res://sfx/node_connect.wav"), 1.0 + randf() * 0.5, -5.0)
+								node.connections.erase(neighbor)
+								neighbor.connections.erase(node)
+								display_connections()
+								_on_correctness_unverified()
+								player.undo_history.append([["disconnect", node, neighbor, self]])
+
+						elif abs(mouse_from_node.x) < LINE_RIGHTCLICK_DISTANCE:
+							var in_y_limits :bool
+							if node.position.y < neighbor.position.y:
+								if cursor_pos.y > node.position.y and cursor_pos.y < neighbor.position.y:
+									in_y_limits = true
+							else:
+								if cursor_pos.y < node.position.y and cursor_pos.y > neighbor.position.y:
+									in_y_limits = true
+
+							if in_y_limits:
+								player.undo_history.append([["disconnect", node, neighbor, self]])
+								emit_ephemeral_sound(preload("res://sfx/node_connect.wav"), 1.0 + randf() * 0.5, -5.0)
+								node.connections.erase(neighbor)
+								neighbor.connections.erase(node)
+								display_connections()
+								_on_correctness_unverified()
 
 
 func show_failure(unhappy_nodes: Array):
@@ -552,3 +602,11 @@ func verify():
 			show_failure(unhappy_nodes)
 
 	SaveData.save_handler.vsave_value(["puzzles", id], save())
+
+
+func emit_ephemeral_sound(resource: AudioStream, pitch: float = 1.0, volume: float = 1.0) -> void:
+		var solved_sound := preload("res://sfx/ephemeral_sound.tscn").instantiate()
+		solved_sound.stream = resource
+		solved_sound.pitch_scale = pitch
+		solved_sound.volume_db = volume
+		add_child(solved_sound)
