@@ -113,8 +113,8 @@ func animate_show_correct(first_time_correct: bool, correct_node_color: Color):
 
 
 func animate_unshow_correct(default_color: Color):
-	if current_tween != null:
-		current_tween.kill()
+	if current_tween != null and current_tween.is_running():
+		await current_tween.finished
 	current_tween = create_tween()
 	current_tween.tween_property(circle, "modulate", default_color, 0.2)
 

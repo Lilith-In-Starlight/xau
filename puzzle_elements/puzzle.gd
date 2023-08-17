@@ -253,6 +253,13 @@ func check_correct():
 
 ## Makes the puzzle look green to indicate that it is correct
 func show_correct(animate: bool = true, jump: bool = true):
+	var connection_display: Node2D = get_node_or_null("NoNode/Lines")
+	var lines_tween := create_tween()
+	lines_tween.tween_property(connection_display, "modulate", get_correct_node_color().lightened(0.7), 0.2)
+	for i in connection_display.get_children():
+		if i is Line2D:
+			i.width_curve = Curve.new()
+			i.width_curve.add_point(Vector2(0, 1.3))
 	for i in get_children():
 		if i.name == "NoNode":
 			continue
@@ -271,6 +278,12 @@ func show_correct(animate: bool = true, jump: bool = true):
 
 ## Makes the puzzle look white to show that it is not correct
 func unshow_correct():
+	var connection_display: Node2D = get_node_or_null("NoNode/Lines")
+	var lines_tween := create_tween()
+	lines_tween.tween_property(connection_display, "modulate", Color.WHITE, 0.2)
+	for i in connection_display.get_children():
+		if i is Line2D:
+			i.width_curve = null
 	for i in get_children():
 		if not i.name == "NoNode":
 			if i is PuzzleNode:
