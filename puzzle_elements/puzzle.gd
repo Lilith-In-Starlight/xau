@@ -146,6 +146,12 @@ func _input(_event: InputEvent) -> void:
 						var dy: float = neighbor.position.y - node.position.y
 						var mouse_from_node = node.to_local(cursor_node.position)
 						if dx != 0:
+							if node.position.x < neighbor.position.x:
+								if cursor_pos.x < node.position.x or cursor_pos.x > neighbor.position.x:
+									continue
+							else:
+								if cursor_pos.x > node.position.x or cursor_pos.x < neighbor.position.x:
+									continue
 							var m: float = dy / dx
 							var mouse_on_connection = m * mouse_from_node.x
 
@@ -158,21 +164,19 @@ func _input(_event: InputEvent) -> void:
 								player.undo_history.append([["disconnect", node, neighbor, self]])
 
 						elif abs(mouse_from_node.x) < LINE_RIGHTCLICK_DISTANCE:
-							var in_y_limits :bool
 							if node.position.y < neighbor.position.y:
-								if cursor_pos.y > node.position.y and cursor_pos.y < neighbor.position.y:
-									in_y_limits = true
+								if cursor_pos.y < node.position.y or cursor_pos.y > neighbor.position.y:
+									continue
 							else:
-								if cursor_pos.y < node.position.y and cursor_pos.y > neighbor.position.y:
-									in_y_limits = true
+								if cursor_pos.y > node.position.y or cursor_pos.y < neighbor.position.y:
+									continue
 
-							if in_y_limits:
-								player.undo_history.append([["disconnect", node, neighbor, self]])
-								emit_ephemeral_sound(preload("res://sfx/node_connect.wav"), 1.0 + randf() * 0.5, -5.0)
-								node.connections.erase(neighbor)
-								neighbor.connections.erase(node)
-								display_connections()
-								_on_correctness_unverified()
+							player.undo_history.append([["disconnect", node, neighbor, self]])
+							emit_ephemeral_sound(preload("res://sfx/node_connect.wav"), 1.0 + randf() * 0.5, -5.0)
+							node.connections.erase(neighbor)
+							neighbor.connections.erase(node)
+							display_connections()
+							_on_correctness_unverified()
 
 
 func show_failure(unhappy_nodes: Array):
