@@ -21,16 +21,20 @@ func update_state(set_to: String, transition := true):
 		return
 	StatesDefiner.state = set_to
 	set_visible_objects()
-	if not tween == null:
-		tween.stop()
+	if not tween == null and tween.is_running():
 		tween.kill()
 	tween = create_tween()
 	tween.set_parallel(true)
 	var tweened := false
-	for child in get_tree().get_nodes_in_group("World")[0].get_children():
+	var children := get_tree().get_nodes_in_group("World")[0].get_children()
+	for i in get_tree().get_nodes_in_group("SubArea"):
+		children.append_array(i.get_children())
+
+	for child in children:
 		if not child is Node2D:
 			continue
-
+		if child.is_in_group("SubArea"):
+			continue
 		if child in visible_objects:
 			child.visible = true
 			if transition:
@@ -46,6 +50,7 @@ func update_state(set_to: String, transition := true):
 			else:
 				child.modulate.a = 0.0
 				child.visible = false
+
 
 		if not tweened:
 			tween.kill()
