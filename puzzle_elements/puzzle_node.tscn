@@ -59,10 +59,10 @@ target_position = Vector2(0, 0)
 collision_mask = 192
 
 [node name="Button" type="TextureButton" parent="."]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -4.5
+offset_top = -4.5
+offset_right = 4.5
+offset_bottom = 4.5
 texture_click_mask = ExtResource("7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
