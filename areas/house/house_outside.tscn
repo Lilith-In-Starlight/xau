@@ -1458,6 +1458,18 @@ position = Vector2(8, 8)
 [node name="Blockade2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
 position = Vector2(40, 8)
 
+[node name="Blockade5" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
+position = Vector2(24, 8)
+
+[node name="Blockade6" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
+position = Vector2(24, 40)
+
+[node name="Blockade7" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 24)
+
+[node name="Blockade8" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 24)
+
 [node name="Blockade3" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid24" instance=ExtResource("14_nupm0")]
 position = Vector2(40, 40)
 
@@ -1529,6 +1541,18 @@ position = Vector2(8, 8)
 
 [node name="Blockade2" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
 position = Vector2(40, 8)
+
+[node name="Blockade5" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
+position = Vector2(24, 8)
+
+[node name="Blockade6" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
+position = Vector2(24, 40)
+
+[node name="Blockade7" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
+position = Vector2(8, 24)
+
+[node name="Blockade8" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
+position = Vector2(40, 24)
 
 [node name="Blockade3" parent="BlueTreeSection/PuzzleSequence/PuzzleGrid25" instance=ExtResource("14_nupm0")]
 position = Vector2(40, 40)
@@ -2360,9 +2384,6 @@ position = Vector2(64, 32)
 position = Vector2(40, 16)
 scale = Vector2(1, 10)
 
-[node name="Blockade3" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid" instance=ExtResource("14_nupm0")]
-position = Vector2(24, 16)
-
 [node name="Cable" type="Line2D" parent="YPuzzleSection/PuzzleSequence"]
 points = PackedVector2Array(868, -59, 845, -59, 834, -70, 834, -122, 823, -133, 772, -133)
 width = 2.0
@@ -2436,7 +2457,8 @@ position = Vector2(40, 16)
 scale = Vector2(1, 10)
 
 [node name="Blockade3" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid2" instance=ExtResource("14_nupm0")]
-position = Vector2(24, 16)
+position = Vector2(24, 20)
+scale = Vector2(1, 3)
 
 [node name="Blockade4" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid2" instance=ExtResource("14_nupm0")]
 position = Vector2(8, 9)
@@ -2457,6 +2479,7 @@ node_arrangement = SubResource("Resource_7wquw")
 required_puzzle = NodePath("../PuzzleGrid2")
 puzzle_theme = ExtResource("11_id4wv")
 guid = &"210984117351"
+node_hitbox_radius = 3
 
 [node name="PuzzleNode" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid3" instance=ExtResource("5")]
 
@@ -2674,6 +2697,9 @@ position = Vector2(80, 32)
 [node name="Blockade2" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid5" instance=ExtResource("14_nupm0")]
 position = Vector2(40, 16)
 scale = Vector2(1, 10)
+
+[node name="Blockade3" parent="YPuzzleSection/PuzzleSequence/PuzzleGrid5" instance=ExtResource("14_nupm0")]
+position = Vector2(24, 16)
 
 [node name="Cable5" type="Line2D" parent="YPuzzleSection/PuzzleSequence"]
 points = PackedVector2Array(737, -531, 737, -606)

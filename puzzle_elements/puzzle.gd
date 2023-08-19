@@ -60,6 +60,8 @@ var initial_profile := -1
 
 @export var guid: StringName = &""
 
+@export var node_hitbox_radius :int = 5
+
 
 func _draw():
 	get_rect()
@@ -71,6 +73,12 @@ func _ready():
 		child_entered_tree.connect(_on_child_entered_tree)
 		child_exiting_tree.connect(_on_child_exiting_tree)
 	else:
+		if node_hitbox_radius != 5:
+			for i in get_children():
+				if i is PuzzleNode:
+					var new_circle := CircleShape2D.new()
+					new_circle.radius = node_hitbox_radius
+					i.get_node("CollisionShape2D").shape = new_circle
 		initial_profile = SaveData.save_handler.profile
 		tree_exiting.connect(save_data)
 		var camera_node = get_tree().get_first_node_in_group("Camera3D")
