@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://b5fd7btpj7xwl"]
+[gd_scene load_steps=132 format=3 uid="uid://b5fd7btpj7xwl"]
 
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://kwicg4letih5" path="res://sprites/areas/forest_white_house/exterior.png" id="28_u27t1"]
 [ext_resource type="Texture2D" uid="uid://p0plyftheuep" path="res://sprites/areas/door_marker_perspective.png" id="29_7agwp"]
 [ext_resource type="Texture2D" uid="uid://dtqirngmy4gal" path="res://sprites/areas/forest_white_house/living_room.png" id="29_30v5e"]
+[ext_resource type="PackedScene" path="res://misc/jail.tscn" id="29_chsr5"]
 [ext_resource type="Texture2D" uid="uid://capcf2wewkr5p" path="res://sprites/areas/white_house_round_table.png" id="29_fb3be"]
 [ext_resource type="Texture2D" uid="uid://bigu046tvwolm" path="res://sprites/areas/forest_white_house/prison.png" id="29_hsr6i"]
 [ext_resource type="Texture2D" uid="uid://clc2i2ymyklin" path="res://sprites/areas/forest_white_house/kitchen.png" id="30_3maie"]
@@ -393,7 +394,22 @@ size = Vector2i(4, 2)
 spacing = Vector2(16, 32)
 holes = Array[Vector2i]([Vector2i(2, 0)])
 
-[sub_resource type="Resource" id="Resource_wcypg"]
+[sub_resource type="Resource" id="Resource_eudiq"]
+resource_local_to_scene = true
+script = ExtResource("15_pn7qs")
+size = Vector2i(2, 1)
+spacing = Vector2(16, 16)
+holes = Array[Vector2i]([])
+
+[sub_resource type="Resource" id="Resource_c33c7"]
+script = ExtResource("37_h4dif")
+color = 0
+
+[sub_resource type="Resource" id="Resource_oubt2"]
+script = ExtResource("37_h4dif")
+color = 0
+
+[sub_resource type="Resource" id="Resource_54laj"]
 resource_local_to_scene = true
 script = ExtResource("15_pn7qs")
 size = Vector2i(3, 3)
@@ -437,6 +453,41 @@ color = 0
 
 [sub_resource type="Resource" id="Resource_0ueay"]
 script = ExtResource("37_h4dif")
+color = 0
+
+[sub_resource type="Resource" id="Resource_wcypg"]
+resource_local_to_scene = true
+script = ExtResource("15_pn7qs")
+size = Vector2i(4, 4)
+spacing = Vector2(16, 16)
+holes = Array[Vector2i]([])
+
+[sub_resource type="Resource" id="Resource_eckw2"]
+script = ExtResource("13_hm00l")
+color = 0
+
+[sub_resource type="Resource" id="Resource_jcrvg"]
+script = ExtResource("37_h4dif")
+color = 2
+
+[sub_resource type="Resource" id="Resource_k888k"]
+script = ExtResource("37_h4dif")
+color = 4
+
+[sub_resource type="Resource" id="Resource_me2xc"]
+script = ExtResource("37_h4dif")
+color = 2
+
+[sub_resource type="Resource" id="Resource_vk1wy"]
+script = ExtResource("37_h4dif")
+color = 2
+
+[sub_resource type="Resource" id="Resource_lx6lo"]
+script = ExtResource("37_h4dif")
+color = 4
+
+[sub_resource type="Resource" id="Resource_osw0y"]
+script = ExtResource("13_hm00l")
 color = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beg8f"]
@@ -2293,6 +2344,9 @@ position = Vector2(-100, -89)
 collision_layer = 4
 collision_mask = 0
 
+[node name="Jail" parent="House/Prison" instance=ExtResource("29_chsr5")]
+position = Vector2(162, 244)
+
 [node name="Sprite" type="Sprite2D" parent="House/Prison"]
 position = Vector2(107, 171)
 texture = ExtResource("29_hsr6i")
@@ -2305,6 +2359,17 @@ polygon = PackedVector2Array(206, 232, 107, 232, 107, 342, 119, 342, 119, 243, 1
 position = Vector2(161, 233)
 texture = ExtResource("37_sh1uf")
 
+[node name="Tutorial" parent="House/Prison" instance=ExtResource("5")]
+position = Vector2(154, 307)
+node_arrangement = SubResource("Resource_eudiq")
+
+[node name="PuzzleNode" parent="House/Prison/Tutorial" instance=ExtResource("6")]
+node_rule = SubResource("Resource_c33c7")
+
+[node name="PuzzleNode2" parent="House/Prison/Tutorial" instance=ExtResource("6")]
+position = Vector2(16, 0)
+node_rule = SubResource("Resource_oubt2")
+
 [node name="DoorBedKitch" type="Sprite2D" parent="House"]
 position = Vector2(131, 224)
 scale = Vector2(0.775, 1)
@@ -2312,6 +2377,7 @@ texture = ExtResource("29_7agwp")
 centered = false
 
 [node name="Kitchen" type="StaticBody2D" parent="House"]
+visible = false
 z_index = -2
 collision_layer = 4
 collision_mask = 0
@@ -2400,7 +2466,7 @@ position = Vector2(44, 266)
 
 [node name="PuzzleGrid" parent="House/Kitchen" instance=ExtResource("5")]
 position = Vector2(77, 217)
-node_arrangement = SubResource("Resource_wcypg")
+node_arrangement = SubResource("Resource_54laj")
 puzzle_theme = ExtResource("19_0awcd")
 
 [node name="PuzzleNode" parent="House/Kitchen/PuzzleGrid" instance=ExtResource("6")]
@@ -2471,6 +2537,79 @@ polygon = PackedVector2Array(38, 72, 12, 72, 12, 213, 129, 213, 129, 222, 0, 222
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="House/LivingRoom"]
 polygon = PackedVector2Array(169, 213, 286, 213, 286, 72, 69, 72, 69, 62, 298, 62, 298, 222, 169, 222)
 
+[node name="PuzzleGrid3" parent="House/LivingRoom" instance=ExtResource("5")]
+position = Vector2(31, 91)
+node_arrangement = SubResource("Resource_wcypg")
+puzzle_theme = ExtResource("19_0awcd")
+node_hitbox_radius = 3
+
+[node name="PuzzleNode" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+node_rule = SubResource("Resource_eckw2")
+
+[node name="PuzzleNode2" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(16, 0)
+node_rule = SubResource("Resource_jcrvg")
+
+[node name="PuzzleNode3" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(32, 0)
+
+[node name="PuzzleNode4" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(48, 0)
+node_rule = SubResource("Resource_k888k")
+
+[node name="PuzzleNode5" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(0, 16)
+node_rule = SubResource("Resource_k888k")
+
+[node name="PuzzleNode6" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(16, 16)
+
+[node name="PuzzleNode7" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(32, 16)
+
+[node name="PuzzleNode8" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(48, 16)
+
+[node name="PuzzleNode9" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(0, 32)
+
+[node name="PuzzleNode10" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(16, 32)
+
+[node name="PuzzleNode11" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(32, 32)
+
+[node name="PuzzleNode12" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(48, 32)
+node_rule = SubResource("Resource_me2xc")
+
+[node name="PuzzleNode13" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(0, 48)
+node_rule = SubResource("Resource_vk1wy")
+
+[node name="PuzzleNode14" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(16, 48)
+
+[node name="PuzzleNode15" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(32, 48)
+node_rule = SubResource("Resource_lx6lo")
+
+[node name="PuzzleNode16" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("6")]
+position = Vector2(48, 48)
+node_rule = SubResource("Resource_osw0y")
+
+[node name="Blockade" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("7")]
+position = Vector2(24, 7)
+
+[node name="Blockade2" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("7")]
+position = Vector2(24, 40)
+
+[node name="Blockade3" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("7")]
+position = Vector2(8, 24)
+
+[node name="Blockade4" parent="House/LivingRoom/PuzzleGrid3" instance=ExtResource("7")]
+position = Vector2(40, 24)
+
 [node name="DoorLivExt" type="Sprite2D" parent="House"]
 z_index = 2
 position = Vector2(136, 533)
@@ -2478,6 +2617,7 @@ texture = ExtResource("29_7agwp")
 centered = false
 
 [node name="Exterior" type="Sprite2D" parent="House"]
+visible = false
 texture = ExtResource("28_u27t1")
 centered = false
 script = ExtResource("4")
@@ -2516,4 +2656,6 @@ shape = SubResource("RectangleShape2D_beg8f")
 [connection signal="body_exited" from="AreaBoundaries" to="." method="_on_area_boundaries_exited"]
 [connection signal="body_entered" from="AreaEdges" to="." method="_on_area_edges_entered"]
 [connection signal="body_exited" from="AreaEdges" to="." method="_on_area_edges_exited"]
+[connection signal="was_solved" from="House/Prison/Tutorial" to="House/Prison/Jail" method="_on_Tutorial_was_solved"]
 [connection signal="was_solved" from="House/Kitchen/PuzzleGrid" to="House/Kitchen/ToPrison" method="_on_required_was_solved"]
+[connection signal="was_solved" from="House/LivingRoom/PuzzleGrid3" to="House/Kitchen/ToPrison" method="_on_required_was_solved"]
