@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://b5fd7btpj7xwl"]
+[gd_scene load_steps=134 format=3 uid="uid://b5fd7btpj7xwl"]
 
 [ext_resource type="PackedScene" uid="uid://cmkfuyye8dqrq" path="res://TreeDecoration.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqcduvwm0g1r" path="res://areas/area_transition.tscn" id="2"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://clc2i2ymyklin" path="res://sprites/areas/forest_white_house/kitchen.png" id="30_3maie"]
 [ext_resource type="Texture2D" uid="uid://b3geqokwdirmo" path="res://sprites/areas/forest_white_house/white_house_chair.png" id="30_3q05m"]
 [ext_resource type="Texture2D" uid="uid://b21evm63ud16r" path="res://sprites/areas/forest_white_house/tilted_chair.png" id="31_gfgnm"]
+[ext_resource type="Script" path="res://puzzle_elements/puzzle_style/puzzle_style.gd" id="32_whmop"]
 [ext_resource type="PackedScene" uid="uid://cxhn6mv2uveb7" path="res://misc/door.tscn" id="36_hhc5u"]
 [ext_resource type="Script" path="res://PathNodeRule.gd" id="37_h4dif"]
 [ext_resource type="Texture2D" uid="uid://6228a8upcu1e" path="res://sprites/third/guy.png" id="37_sh1uf"]
@@ -400,6 +401,15 @@ script = ExtResource("15_pn7qs")
 size = Vector2i(2, 1)
 spacing = Vector2(16, 16)
 holes = Array[Vector2i]([])
+
+[sub_resource type="Resource" id="Resource_lp738"]
+script = ExtResource("32_whmop")
+on_background_color = Color(0, 0, 0, 1)
+off_background_color = Color(0, 0, 0, 1)
+correct_node_color = Color(0.454902, 0.443137, 0.462745, 1)
+node_color = Color(1, 1, 1, 1)
+cable_unsolved_color = Color(0.345098, 0.545098, 0.52549, 1)
+cable_solved_color = Color(0.447059, 1, 0.87451, 1)
 
 [sub_resource type="Resource" id="Resource_c33c7"]
 script = ExtResource("37_h4dif")
@@ -2153,6 +2163,24 @@ position = Vector2(-956, -481)
 [node name="Tree20" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
 position = Vector2(-1262, -649)
 
+[node name="Tree22" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
+position = Vector2(-1253, -872)
+
+[node name="Tree23" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
+position = Vector2(-1431, -863)
+
+[node name="Tree24" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
+position = Vector2(-1232, -1080)
+
+[node name="Tree25" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
+position = Vector2(-974, -941)
+
+[node name="Tree26" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
+position = Vector2(-1645, -885)
+
+[node name="Tree27" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
+position = Vector2(-1494, -740)
+
 [node name="Tree21" parent="Outside/OrangeTreeSection/Decoration" instance=ExtResource("1")]
 position = Vector2(-932, -669)
 
@@ -2362,6 +2390,7 @@ texture = ExtResource("37_sh1uf")
 [node name="Tutorial" parent="House/Prison" instance=ExtResource("5")]
 position = Vector2(154, 307)
 node_arrangement = SubResource("Resource_eudiq")
+puzzle_theme = SubResource("Resource_lp738")
 
 [node name="PuzzleNode" parent="House/Prison/Tutorial" instance=ExtResource("6")]
 node_rule = SubResource("Resource_c33c7")
@@ -2377,7 +2406,6 @@ texture = ExtResource("29_7agwp")
 centered = false
 
 [node name="Kitchen" type="StaticBody2D" parent="House"]
-visible = false
 z_index = -2
 collision_layer = 4
 collision_mask = 0
@@ -2538,7 +2566,7 @@ polygon = PackedVector2Array(38, 72, 12, 72, 12, 213, 129, 213, 129, 222, 0, 222
 polygon = PackedVector2Array(169, 213, 286, 213, 286, 72, 69, 72, 69, 62, 298, 62, 298, 222, 169, 222)
 
 [node name="PuzzleGrid3" parent="House/LivingRoom" instance=ExtResource("5")]
-position = Vector2(31, 91)
+position = Vector2(60, 118)
 node_arrangement = SubResource("Resource_wcypg")
 puzzle_theme = ExtResource("19_0awcd")
 node_hitbox_radius = 3
