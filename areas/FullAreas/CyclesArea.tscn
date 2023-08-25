@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dykith4btuwii"]
+[gd_scene load_steps=86 format=3 uid="uid://dykith4btuwii"]
 
 [ext_resource type="Script" path="res://areas/FullAreas/CyclesStatesDefiner.gd" id="1_vijbp"]
 [ext_resource type="Script" path="res://areas/area.gd" id="1_vkcdo"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://cord.gd" id="13_bb04g"]
 [ext_resource type="Script" path="res://PathNodeRule.gd" id="14_j5yj5"]
 [ext_resource type="Script" path="res://BranchLenghtNodeRule.gd" id="15_dir17"]
+[ext_resource type="Script" path="res://FixNodeRule.gd" id="17_80ke2"]
 [ext_resource type="PackedScene" uid="uid://cwroepr7rt2ft" path="res://misc/ground_decoration.tscn" id="18_2xud6"]
 [ext_resource type="Texture2D" uid="uid://1hu3g6mp3i3v" path="res://sprites/misc/floor_elements/blue_section/grass2.png" id="19_kxrpq"]
 [ext_resource type="Texture2D" uid="uid://7nmrycvutgbt" path="res://sprites/misc/floor_elements/blue_section/grass3.png" id="20_g2fea"]
@@ -281,6 +282,53 @@ color = 2
 script = ExtResource("15_dir17")
 required_length = 4
 color = 4
+
+[sub_resource type="Resource" id="Resource_jatrh"]
+resource_local_to_scene = true
+script = ExtResource("9_2mqyo")
+size = Vector2i(2, 2)
+spacing = Vector2(16, 16)
+holes = Array[Vector2i]([])
+
+[sub_resource type="Resource" id="Resource_0ylno"]
+script = ExtResource("14_j5yj5")
+color = 2
+
+[sub_resource type="Resource" id="Resource_gfjfl"]
+script = ExtResource("14_j5yj5")
+color = 2
+
+[sub_resource type="Resource" id="Resource_xmql3"]
+script = ExtResource("14_j5yj5")
+color = 2
+
+[sub_resource type="Resource" id="Resource_3qbcm"]
+script = ExtResource("17_80ke2")
+color = 0
+
+[sub_resource type="Resource" id="Resource_2jjd7"]
+script = ExtResource("12_4mv32")
+color = 0
+
+[sub_resource type="Resource" id="Resource_i1y1x"]
+script = ExtResource("17_80ke2")
+color = 0
+
+[sub_resource type="Resource" id="Resource_ki7bm"]
+resource_local_to_scene = true
+script = ExtResource("9_2mqyo")
+size = Vector2i(4, 1)
+spacing = Vector2(16, 16)
+holes = Array[Vector2i]([])
+
+[sub_resource type="Resource" id="Resource_qmcys"]
+script = ExtResource("15_dir17")
+required_length = 1
+color = 0
+
+[sub_resource type="Resource" id="Resource_a6u5o"]
+script = ExtResource("17_80ke2")
+color = 0
 
 [node name="Cycles" type="Node2D"]
 script = ExtResource("1_vkcdo")
@@ -1057,6 +1105,108 @@ scale = Vector2(1, 4)
 [node name="Blockade5" parent="Outside/PuzzleSequence/PuzzleGrid15" instance=ExtResource("13_63yai")]
 position = Vector2(46, 16)
 scale = Vector2(4, 1)
+
+[node name="ErrorSequence" type="Node2D" parent="Outside"]
+script = ExtResource("7_jk8fr")
+
+[node name="PuzzleGrid" parent="Outside/ErrorSequence" instance=ExtResource("9_hbjib")]
+position = Vector2(1323, 589)
+node_arrangement = SubResource("Resource_jatrh")
+
+[node name="PuzzleNode" parent="Outside/ErrorSequence/PuzzleGrid" instance=ExtResource("10_dw7n5")]
+
+[node name="PuzzleNode2" parent="Outside/ErrorSequence/PuzzleGrid" instance=ExtResource("10_dw7n5")]
+position = Vector2(16, 0)
+node_rule = SubResource("Resource_0ylno")
+
+[node name="PuzzleNode3" parent="Outside/ErrorSequence/PuzzleGrid" instance=ExtResource("10_dw7n5")]
+position = Vector2(0, 16)
+node_rule = SubResource("Resource_gfjfl")
+
+[node name="PuzzleNode4" parent="Outside/ErrorSequence/PuzzleGrid" instance=ExtResource("10_dw7n5")]
+position = Vector2(16, 16)
+
+[node name="PuzzleGrid2" parent="Outside/ErrorSequence" instance=ExtResource("9_hbjib")]
+position = Vector2(1373, 589)
+node_arrangement = SubResource("Resource_jatrh")
+
+[node name="PuzzleNode" parent="Outside/ErrorSequence/PuzzleGrid2" instance=ExtResource("10_dw7n5")]
+forced_connections = Array[NodePath]([NodePath("../PuzzleNode2")])
+
+[node name="PuzzleNode2" parent="Outside/ErrorSequence/PuzzleGrid2" instance=ExtResource("10_dw7n5")]
+position = Vector2(16, 0)
+node_rule = SubResource("Resource_xmql3")
+
+[node name="PuzzleNode3" parent="Outside/ErrorSequence/PuzzleGrid2" instance=ExtResource("10_dw7n5")]
+position = Vector2(0, 16)
+node_rule = SubResource("Resource_gfjfl")
+
+[node name="PuzzleNode4" parent="Outside/ErrorSequence/PuzzleGrid2" instance=ExtResource("10_dw7n5")]
+position = Vector2(16, 16)
+node_rule = SubResource("Resource_3qbcm")
+
+[node name="Blockade" parent="Outside/ErrorSequence/PuzzleGrid2" instance=ExtResource("13_63yai")]
+position = Vector2(0, 8)
+
+[node name="Blockade2" parent="Outside/ErrorSequence/PuzzleGrid2" instance=ExtResource("13_63yai")]
+position = Vector2(8, 16)
+
+[node name="PuzzleGrid3" parent="Outside/ErrorSequence" instance=ExtResource("9_hbjib")]
+position = Vector2(1426, 589)
+node_arrangement = SubResource("Resource_jatrh")
+
+[node name="PuzzleNode" parent="Outside/ErrorSequence/PuzzleGrid3" instance=ExtResource("10_dw7n5")]
+
+[node name="PuzzleNode2" parent="Outside/ErrorSequence/PuzzleGrid3" instance=ExtResource("10_dw7n5")]
+position = Vector2(16, 0)
+node_rule = SubResource("Resource_2jjd7")
+
+[node name="PuzzleNode3" parent="Outside/ErrorSequence/PuzzleGrid3" instance=ExtResource("10_dw7n5")]
+position = Vector2(0, 16)
+node_rule = SubResource("Resource_i1y1x")
+
+[node name="PuzzleNode4" parent="Outside/ErrorSequence/PuzzleGrid3" instance=ExtResource("10_dw7n5")]
+position = Vector2(16, 16)
+
+[node name="Blockade" parent="Outside/ErrorSequence/PuzzleGrid3" instance=ExtResource("13_63yai")]
+position = Vector2(7, 8)
+
+[node name="Blockade2" parent="Outside/ErrorSequence/PuzzleGrid3" instance=ExtResource("13_63yai")]
+position = Vector2(16, 8)
+
+[node name="PuzzleGrid4" parent="Outside/ErrorSequence" instance=ExtResource("9_hbjib")]
+position = Vector2(1475, 589)
+node_arrangement = SubResource("Resource_jatrh")
+
+[node name="PuzzleNode" parent="Outside/ErrorSequence/PuzzleGrid4" instance=ExtResource("10_dw7n5")]
+
+[node name="PuzzleNode2" parent="Outside/ErrorSequence/PuzzleGrid4" instance=ExtResource("10_dw7n5")]
+position = Vector2(16, 0)
+node_rule = SubResource("Resource_2jjd7")
+
+[node name="PuzzleNode3" parent="Outside/ErrorSequence/PuzzleGrid4" instance=ExtResource("10_dw7n5")]
+position = Vector2(0, 16)
+node_rule = SubResource("Resource_i1y1x")
+
+[node name="PuzzleNode4" parent="Outside/ErrorSequence/PuzzleGrid4" instance=ExtResource("10_dw7n5")]
+position = Vector2(16, 16)
+
+[node name="PuzzleGrid5" parent="Outside/ErrorSequence" instance=ExtResource("9_hbjib")]
+position = Vector2(1531, 597)
+node_arrangement = SubResource("Resource_ki7bm")
+
+[node name="PuzzleNode" parent="Outside/ErrorSequence/PuzzleGrid5" instance=ExtResource("10_dw7n5")]
+node_rule = SubResource("Resource_qmcys")
+
+[node name="PuzzleNode2" parent="Outside/ErrorSequence/PuzzleGrid5" instance=ExtResource("10_dw7n5")]
+position = Vector2(16, 0)
+
+[node name="PuzzleNode3" parent="Outside/ErrorSequence/PuzzleGrid5" instance=ExtResource("10_dw7n5")]
+position = Vector2(32, 0)
+
+[node name="PuzzleNode4" parent="Outside/ErrorSequence/PuzzleGrid5" instance=ExtResource("10_dw7n5")]
+position = Vector2(48, 0)
+node_rule = SubResource("Resource_a6u5o")
 
 [node name="Decoration" type="Node2D" parent="Outside"]
 
