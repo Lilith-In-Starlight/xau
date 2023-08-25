@@ -293,6 +293,8 @@ func get_incorrect_nodes() -> Array:
 	for i in fix_nodes:
 		var found_unhappy := false
 		for j in i.get_all_nodes_in_graph():
+			if j == i:
+				continue
 			if j in unhappy_nodes:
 				unhappy_nodes.erase(j)
 				found_unhappy = true
