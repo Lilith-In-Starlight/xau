@@ -53,10 +53,32 @@ func _process(_delta: float) -> void:
 						first_nexus_droning.volume = 0.0
 			"forest":
 				$WeirdSound.volume_db = -60.0
-				forest_choir_bass.volume = 0.0
-				forest_pam_flute.volume = 0.0
-				forest_tubular_bell.volume = 0.0
-				forest_little_bell.volume = 0.0
+				match StatesDefiner.state:
+					"white_house_livingroom":
+						first_nexus_droning.volume = -10.0
+						forest_choir_bass.volume = -10.0
+						forest_pam_flute.volume = 0.0
+						forest_tubular_bell.volume = 0.0
+						forest_little_bell.volume = 0.0
+					"white_house_kitchen":
+						first_nexus_droning.volume = 0.0
+						forest_choir_bass.volume = -15.0
+						forest_pam_flute.volume = -20.0
+						forest_tubular_bell.volume = -10.0
+						forest_little_bell.volume = -10.0
+					"white_house_bedroom":
+						first_nexus_droning.volume = -60.0
+						forest_choir_bass.volume = -15.0
+						forest_pam_flute.volume = -20.0
+						forest_tubular_bell.volume = -10.0
+						forest_little_bell.volume = -10.0
+					"white_house_prison":
+						first_nexus_droning.volume = 5.0
+					_:
+						forest_choir_bass.volume = 0.0
+						forest_pam_flute.volume = 0.0
+						forest_tubular_bell.volume = 0.0
+						forest_little_bell.volume = 0.0
 	else:
 		pause_music.volume = -15.0
 		AudioServer.get_bus_effect(3, 1).pitch_scale = lerp(AudioServer.get_bus_effect(3, 1).pitch_scale, 1.0, 0.2)
